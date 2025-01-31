@@ -227,7 +227,7 @@ try {
                                     <p><strong>قیمت دوره:</strong> <?= number_format($course['program_price']) ?> تومان</p>
                                 </div>
                                 <!-- دکمه ویرایش و حذف -->
-                                <a href="edit_course.php?id=<?= $course['id'] ?>" class="btn-edit">ویرایش</a>
+                                <a href="edit_program.php?id=<?= $course['id'] ?>" class="btn-edit">ویرایش</a>
                                 <button class="btn-delete" onclick="confirmDelete(<?= $course['id'] ?>)">حذف</button>
                             </div>
                         </div>
