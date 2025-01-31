@@ -38,8 +38,9 @@ try {
     </style>
 </head>
 <body>
+    <?php require_once './header.php' ?>
     <div class="container mt-5">
-        <h2>تمام برنامه‌ها</h2>
+        <h2>تمام برنامه‌ها</h2><br><br>
 
         <?php if (!empty($fields)): ?>
             <?php foreach ($fields as $field): ?>
@@ -91,6 +92,6 @@ try {
         }
     </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
