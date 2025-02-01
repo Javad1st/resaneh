@@ -259,123 +259,51 @@
           </div>
         </div>
       </header>
-      
-      <h2 class="lg:text-3xl text-2xl m-4.5  dark:text-white ">دوره های </h2>
+      <?php
+// اتصال به پایگاه داده
+include('./database/db.php');
+
+try {
+    // گرفتن رشته‌ای که کاربر انتخاب کرده است
+    if (isset($_GET['major_id'])) {
+        $major_id = $_GET['major_id'];
+
+        // گرفتن دوره‌های مربوط به رشته انتخابی
+        $stmt = $conn->prepare("SELECT * FROM courses WHERE major_id = :major_id");
+        $stmt->bindParam(':major_id', $major_id, PDO::PARAM_INT);
+        $stmt->execute();
+        $courses = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } else {
+        echo "رشته‌ای انتخاب نشده است.";
+    }
+} catch (PDOException $e) {
+    echo "خطا در خواندن داده‌ها: " . $e->getMessage();
+}
+?>
+
+      <h2 class="lg:text-3xl text-2xl m-4.5  dark:text-white ">  رشته ها </h2>
       <div class="reshteHa mt-1.5 p-2.5 flex gap-3 flex-wrap justify-center w-full">
+        <?php foreach($courses as $cours): ?>
         <div class="max-w-sm mx-auto bg-gray-300 dark:bg-gray-800 rounded-lg shadow-md overflow-hidden h-fit mt-3.5">
             <img class="w-full h-48 object-cover" src="src/images/mahdiSystem.jpg" alt="عنوان تصویر">
             <div class="p-4">
-                <h2 class="text-xl font-bold mb-2 mt-2.5 dark:text-gray-50">عنوان دوره</h2>
-                <p class="text-gray-700 dark:text-gray-300 mb-4">این یک توضیح کوتاه درباره دوره است که شامل اطلاعات مهم و جالب می‌باشد.</p>
-                <p class="text-gray-600 dark:text-gray-200 mb-2">مدرس: <span class="font-semibold">نام مدرس</span></p>
+                <h2 class="text-xl font-bold mb-2 mt-2.5 dark:text-gray-50">  <?= $cours['course_name'] ?></h2>
+                <p class="text-gray-700 dark:text-gray-300 mb-4"><?= $cours['course_description'] ?></p>
+                <p class="text-gray-600 dark:text-gray-200 mb-2">مدرس: <span class="font-semibold"><?= $cours['instructor_name'] ?></span></p>
                 <button class="toggleDetails inline-block bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600 transition duration-200">جزئیات بیشتر</button>
                 
                 <div id="details" class="hidden mt-4 p-4 bg-gray-200 dark:bg-gray-900 rounded-lg flex flex-col gap-1.5">
-                    <h3 class="text-lg font-bold mb-2 dark:text-gray-100">توضیحات</h3>
-                    <p class="text-gray-700 mb-2 dark:text-gray-400">این قسمت شامل توضیحات کامل درباره دوره است.</p>
-                    <p class="text-gray-600 mb-2 dark:text-gray-300">قیمت: <span class="font-semibold">1,000,000 تومان</span></p>
-                    <p class="text-gray-600 mb-2 dark:text-gray-300">زمان برگزاری: <span class="font-semibold">1 فروردین 1403</span></p>
-                    <p class="text-gray-600 dark:text-gray-300">زمان پایان: <span class="font-semibold">30 فروردین 1403</span></p>
+                    <h3 class="text-lg font-bold mb-2 dark:text-gray-100">آموزش </h3>
+                    <p class="text-gray-700 mb-2 dark:text-gray-400"><?= $cours['learning_objectives'] ?></p>
+                    <p class="text-gray-600 mb-2 dark:text-gray-300">قیمت: <span class="font-semibold"><?= number_format($cours['course_price']) ?> تومان</span></p>
+                    <p class="text-gray-600 mb-2 dark:text-gray-300">زمان برگزاری: <span class="font-semibold"><?= $cours['course_hours'] ?></span></p>
+                    <p class="text-gray-600 dark:text-gray-300">مدت دوره (ماه): <span class="font-semibold"><?= $cours['course_duration'] ?>ماه</span></p>
                     <button class="inline-block bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600 transition duration-200 mt-2.5"> خرید</button>
                 </div>
             </div>
         </div>
-        
-        <div class="max-w-sm mx-auto bg-gray-300 dark:bg-gray-800 rounded-lg shadow-md overflow-hidden h-fit mt-3.5">
-            <img class="w-full h-48 object-cover" src="src/images/mahdiSystem.jpg" alt="عنوان تصویر">
-            <div class="p-4">
-                <h2 class="text-xl font-bold mb-2 mt-2.5 dark:text-gray-50">عنوان دوره</h2>
-                <p class="text-gray-700 dark:text-gray-300 mb-4">این یک توضیح کوتاه درباره دوره است که شامل اطلاعات مهم و جالب می‌باشد.</p>
-                <p class="text-gray-600 dark:text-gray-200 mb-2">مدرس: <span class="font-semibold">نام مدرس</span></p>
-                <button class="toggleDetails inline-block bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600 transition duration-200">جزئیات بیشتر</button>
-                
-                <div id="details" class="hidden mt-4 p-4 bg-gray-200 dark:bg-gray-900 rounded-lg flex flex-col gap-1.5">
-                    <h3 class="text-lg font-bold mb-2 dark:text-gray-100">توضیحات</h3>
-                    <p class="text-gray-700 mb-2 dark:text-gray-400">این قسمت شامل توضیحات کامل درباره دوره است.</p>
-                    <p class="text-gray-600 mb-2 dark:text-gray-300">قیمت: <span class="font-semibold">1,000,000 تومان</span></p>
-                    <p class="text-gray-600 mb-2 dark:text-gray-300">زمان برگزاری: <span class="font-semibold">1 فروردین 1403</span></p>
-                    <p class="text-gray-600 dark:text-gray-300">زمان پایان: <span class="font-semibold">30 فروردین 1403</span></p>
-                    <button class="inline-block bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600 transition duration-200 mt-2.5"> خرید</button>
-                </div>
-            </div>
-        </div>
-        
-        <div class="max-w-sm mx-auto bg-gray-300 dark:bg-gray-800 rounded-lg shadow-md overflow-hidden h-fit mt-3.5">
-            <img class="w-full h-48 object-cover" src="src/images/mahdiSystem.jpg" alt="عنوان تصویر">
-            <div class="p-4">
-                <h2 class="text-xl font-bold mb-2 mt-2.5 dark:text-gray-50">عنوان دوره</h2>
-                <p class="text-gray-700 dark:text-gray-300 mb-4">این یک توضیح کوتاه درباره دوره است که شامل اطلاعات مهم و جالب می‌باشد.</p>
-                <p class="text-gray-600 dark:text-gray-200 mb-2">مدرس: <span class="font-semibold">نام مدرس</span></p>
-                <button class="toggleDetails inline-block bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600 transition duration-200">جزئیات بیشتر</button>
-                
-                <div id="details" class="hidden mt-4 p-4 bg-gray-200 dark:bg-gray-900 rounded-lg flex flex-col gap-1.5">
-                    <h3 class="text-lg font-bold mb-2 dark:text-gray-100">توضیحات</h3>
-                    <p class="text-gray-700 mb-2 dark:text-gray-400">این قسمت شامل توضیحات کامل درباره دوره است.</p>
-                    <p class="text-gray-600 mb-2 dark:text-gray-300">قیمت: <span class="font-semibold">1,000,000 تومان</span></p>
-                    <p class="text-gray-600 mb-2 dark:text-gray-300">زمان برگزاری: <span class="font-semibold">1 فروردین 1403</span></p>
-                    <p class="text-gray-600 dark:text-gray-300">زمان پایان: <span class="font-semibold">30 فروردین 1403</span></p>
-                    <button class="inline-block bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600 transition duration-200 mt-2.5"> خرید</button>
-                </div>
-            </div>
-        </div>
-        
-        <div class="max-w-sm mx-auto bg-gray-300 dark:bg-gray-800 rounded-lg shadow-md overflow-hidden h-fit mt-3.5">
-            <img class="w-full h-48 object-cover" src="src/images/mahdiSystem.jpg" alt="عنوان تصویر">
-            <div class="p-4">
-                <h2 class="text-xl font-bold mb-2 mt-2.5 dark:text-gray-50">عنوان دوره</h2>
-                <p class="text-gray-700 dark:text-gray-300 mb-4">این یک توضیح کوتاه درباره دوره است که شامل اطلاعات مهم و جالب می‌باشد.</p>
-                <p class="text-gray-600 dark:text-gray-200 mb-2">مدرس: <span class="font-semibold">نام مدرس</span></p>
-                <button class="toggleDetails inline-block bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600 transition duration-200">جزئیات بیشتر</button>
-                
-                <div id="details" class="hidden mt-4 p-4 bg-gray-200 dark:bg-gray-900 rounded-lg flex flex-col gap-1.5">
-                    <h3 class="text-lg font-bold mb-2 dark:text-gray-100">توضیحات</h3>
-                    <p class="text-gray-700 mb-2 dark:text-gray-400">این قسمت شامل توضیحات کامل درباره دوره است.</p>
-                    <p class="text-gray-600 mb-2 dark:text-gray-300">قیمت: <span class="font-semibold">1,000,000 تومان</span></p>
-                    <p class="text-gray-600 mb-2 dark:text-gray-300">زمان برگزاری: <span class="font-semibold">1 فروردین 1403</span></p>
-                    <p class="text-gray-600 dark:text-gray-300">زمان پایان: <span class="font-semibold">30 فروردین 1403</span></p>
-                    <button class="inline-block bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600 transition duration-200 mt-2.5"> خرید</button>
-                </div>
-            </div>
-        </div>
-        
-        <div class="max-w-sm mx-auto bg-gray-300 dark:bg-gray-800 rounded-lg shadow-md overflow-hidden h-fit mt-3.5">
-            <img class="w-full h-48 object-cover" src="src/images/mahdiSystem.jpg" alt="عنوان تصویر">
-            <div class="p-4">
-                <h2 class="text-xl font-bold mb-2 mt-2.5 dark:text-gray-50">عنوان دوره</h2>
-                <p class="text-gray-700 dark:text-gray-300 mb-4">این یک توضیح کوتاه درباره دوره است که شامل اطلاعات مهم و جالب می‌باشد.</p>
-                <p class="text-gray-600 dark:text-gray-200 mb-2">مدرس: <span class="font-semibold">نام مدرس</span></p>
-                <button class="toggleDetails inline-block bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600 transition duration-200">جزئیات بیشتر</button>
-                
-                <div id="details" class="hidden mt-4 p-4 bg-gray-200 dark:bg-gray-900 rounded-lg flex flex-col gap-1.5">
-                    <h3 class="text-lg font-bold mb-2 dark:text-gray-100">توضیحات</h3>
-                    <p class="text-gray-700 mb-2 dark:text-gray-400">این قسمت شامل توضیحات کامل درباره دوره است.</p>
-                    <p class="text-gray-600 mb-2 dark:text-gray-300">قیمت: <span class="font-semibold">1,000,000 تومان</span></p>
-                    <p class="text-gray-600 mb-2 dark:text-gray-300">زمان برگزاری: <span class="font-semibold">1 فروردین 1403</span></p>
-                    <p class="text-gray-600 dark:text-gray-300">زمان پایان: <span class="font-semibold">30 فروردین 1403</span></p>
-                    <button class="inline-block bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600 transition duration-200 mt-2.5"> خرید</button>
-                </div>
-            </div>
-        </div>
-        
-        <div class="max-w-sm mx-auto bg-gray-300 dark:bg-gray-800 rounded-lg shadow-md overflow-hidden h-fit mt-3.5">
-            <img class="w-full h-48 object-cover" src="src/images/mahdiSystem.jpg" alt="عنوان تصویر">
-            <div class="p-4">
-                <h2 class="text-xl font-bold mb-2 mt-2.5 dark:text-gray-50">عنوان دوره</h2>
-                <p class="text-gray-700 dark:text-gray-300 mb-4">این یک توضیح کوتاه درباره دوره است که شامل اطلاعات مهم و جالب می‌باشد.</p>
-                <p class="text-gray-600 dark:text-gray-200 mb-2">مدرس: <span class="font-semibold">نام مدرس</span></p>
-                <button class="toggleDetails inline-block bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600 transition duration-200">جزئیات بیشتر</button>
-                
-                <div id="details" class="hidden mt-4 p-4 bg-gray-200 dark:bg-gray-900 rounded-lg flex flex-col gap-1.5">
-                    <h3 class="text-lg font-bold mb-2 dark:text-gray-100">توضیحات</h3>
-                    <p class="text-gray-700 mb-2 dark:text-gray-400">این قسمت شامل توضیحات کامل درباره دوره است.</p>
-                    <p class="text-gray-600 mb-2 dark:text-gray-300">قیمت: <span class="font-semibold">1,000,000 تومان</span></p>
-                    <p class="text-gray-600 mb-2 dark:text-gray-300">زمان برگزاری: <span class="font-semibold">1 فروردین 1403</span></p>
-                    <p class="text-gray-600 dark:text-gray-300">زمان پایان: <span class="font-semibold">30 فروردین 1403</span></p>
-                    <button class="inline-block bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600 transition duration-200 mt-2.5"> خرید</button>
-                </div>
-            </div>
-        </div>
-        
+        <?php endforeach; ?>
+       </div>
         
         <script>
             document.querySelectorAll('.toggleDetails').forEach(button => {

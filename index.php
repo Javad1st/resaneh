@@ -259,55 +259,31 @@
   </div>
 </header>
 
+<?php 
+include './database/db.php';
 
-<h2 class="lg:text-3xl text-2xl m-4.5  dark:text-white ">رشته ها </h2>
-<div class="reshteHa mt-1.5 p-2.5 flex gap-3 flex-wrap justify-center w-full">
-  <div class="reshte relative mt-3.5 flex flex-col gap-2.5 bg-gradient-to-l from-sky-500 to-blue-500 rounded-lg p-2 justify-center">
-    <img class="image rounded-md" src="src/images/mahdiSystem.jpg" alt="">
+// دریافت سه مقاله آخر
+$select = $conn->prepare("SELECT * FROM majors");
+$select->execute();
+$majors = $select->fetchAll(PDO::FETCH_ASSOC);
+?>
+<h2 class="lg:text-3xl text-2xl m-4.5 dark:text-white">رشته ها</h2>
+<div class="flex gap-3 flex-wrap w-full mt-1.5 justify-center">
+  <?php foreach($majors as $major): ?>
+  <div class="reshte relative mt-3.5 flex flex-col gap-2.5 bg-gradient-to-l from-sky-500 to-blue-500 rounded-lg p-2 justify-center w-48">
+    <img class="image rounded-md" src="<?= $major['major_image']  ?> " alt="">
     <div class="back absolute flex w-full justify-center items-center rounded-md">
-      <a href="dore.html" class="text-center absolute flex flex-col  text-gray-50 1 justify-center items-center gap-2" >
-      <svg class="text-white fill-white transition-all ease-initial 200ms " xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24"><path d="m7.375 16.781 1.25-1.562L4.601 12l4.024-3.219-1.25-1.562-5 4a1 1 0 0 0 0 1.562l5 4zm9.25-9.562-1.25 1.562L19.399 12l-4.024 3.219 1.25 1.562 5-4a1 1 0 0 0 0-1.562l-5-4zm-1.649-4.003-4 18-1.953-.434 4-18z"></path></svg>
-        <p class="text-xl font-bold transition-all ease-in-out 300ms">برنامه نویسی</p>
+      <a href="dore.php?major_id=<?= $major['id'] ?>" class="text-center absolute flex flex-col text-gray-50 justify-center items-center gap-2">
+        <svg class="text-white fill-white transition-all ease-initial 200ms" xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24">
+          <path d="m7.375 16.781 1.25-1.562L4.601 12l4.024-3.219-1.25-1.562-5 4a1 1 0 0 0 0 1.562l5 4zm9.25-9.562-1.25 1.562L19.399 12l-4.024 3.219 1.25 1.562 5-4a1 1 0 0 0 0-1.562l-5-4zm-1.649-4.003-4 18-1.953-.434 4-18z"></path>
+        </svg>
+        <p class="text-xl font-bold transition-all ease-in-out 300ms"><?= $major['major_name'] ?> </p>
       </a>
     </div>
   </div>
-  <div class="reshte relative mt-3.5 flex flex-col gap-2.5 bg-gradient-to-l from-sky-500 to-blue-500 rounded-lg p-2 justify-center">
-    <img class="image rounded-md" src="src/images/mahdiSystem.jpg" alt="">
-    <div class="back absolute flex w-full justify-center items-center rounded-md">
-      <a href="dore.html" class="text-center absolute flex flex-col  text-gray-50 1 justify-center items-center gap-2" >
-      <svg class="text-white fill-white transition-all ease-initial 200ms " xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24"><path d="m7.375 16.781 1.25-1.562L4.601 12l4.024-3.219-1.25-1.562-5 4a1 1 0 0 0 0 1.562l5 4zm9.25-9.562-1.25 1.562L19.399 12l-4.024 3.219 1.25 1.562 5-4a1 1 0 0 0 0-1.562l-5-4zm-1.649-4.003-4 18-1.953-.434 4-18z"></path></svg>
-        <p class="text-xl font-bold transition-all ease-in-out 300ms">برنامه نویسی</p>
-      </a>
-    </div>
-  </div>
-  <div class="reshte relative mt-3.5 flex flex-col gap-2.5 bg-gradient-to-l from-sky-500 to-blue-500 rounded-lg p-2 justify-center">
-    <img class="image rounded-md" src="src/images/mahdiSystem.jpg" alt="">
-    <div class="back absolute flex w-full justify-center items-center rounded-md">
-      <a href="dore.html" class="text-center absolute flex flex-col  text-gray-50 1 justify-center items-center gap-2" >
-      <svg class="text-white fill-white transition-all ease-initial 200ms " xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24"><path d="m7.375 16.781 1.25-1.562L4.601 12l4.024-3.219-1.25-1.562-5 4a1 1 0 0 0 0 1.562l5 4zm9.25-9.562-1.25 1.562L19.399 12l-4.024 3.219 1.25 1.562 5-4a1 1 0 0 0 0-1.562l-5-4zm-1.649-4.003-4 18-1.953-.434 4-18z"></path></svg>
-        <p class="text-xl font-bold transition-all ease-in-out 300ms">برنامه نویسی</p>
-      </a>
-    </div>
-  </div>
-  <div class="reshte relative mt-3.5 flex flex-col gap-2.5 bg-gradient-to-l from-sky-500 to-blue-500 rounded-lg p-2 justify-center">
-    <img class="image rounded-md" src="src/images/mahdiSystem.jpg" alt="">
-    <div class="back absolute flex w-full justify-center items-center rounded-md">
-      <a href="dore.html" class="text-center absolute flex flex-col  text-gray-50 1 justify-center items-center gap-2" >
-      <svg class="text-white fill-white transition-all ease-initial 200ms " xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24"><path d="m7.375 16.781 1.25-1.562L4.601 12l4.024-3.219-1.25-1.562-5 4a1 1 0 0 0 0 1.562l5 4zm9.25-9.562-1.25 1.562L19.399 12l-4.024 3.219 1.25 1.562 5-4a1 1 0 0 0 0-1.562l-5-4zm-1.649-4.003-4 18-1.953-.434 4-18z"></path></svg>
-        <p class="text-xl font-bold transition-all ease-in-out 300ms">برنامه نویسی</p>
-      </a>
-    </div>
-  </div>
-  <div class="reshte relative mt-3.5 flex flex-col gap-2.5 bg-gradient-to-l from-sky-500 to-blue-500 rounded-lg p-2 justify-center">
-    <img class="image rounded-md" src="src/images/mahdiSystem.jpg" alt="">
-    <div class="back absolute flex w-full justify-center items-center rounded-md">
-      <a href="dore.html" class="text-center absolute flex flex-col  text-gray-50 1 justify-center items-center gap-2" >
-      <svg class="text-white fill-white transition-all ease-initial 200ms " xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24"><path d="m7.375 16.781 1.25-1.562L4.601 12l4.024-3.219-1.25-1.562-5 4a1 1 0 0 0 0 1.562l5 4zm9.25-9.562-1.25 1.562L19.399 12l-4.024 3.219 1.25 1.562 5-4a1 1 0 0 0 0-1.562l-5-4zm-1.649-4.003-4 18-1.953-.434 4-18z"></path></svg>
-        <p class="text-xl font-bold transition-all ease-in-out 300ms">برنامه نویسی</p>
-      </a>
-    </div>
-  </div>
+  <?php endforeach; ?>
 </div>
+
 
 
 
