@@ -101,6 +101,11 @@
                            خانه 
                         </a>
                     </li>
+                    <li class="nav-item ">
+                        <a class="nav-link mx-5" href="../admin-fani/index.php" id="majorsDropdown" role="button">
+                           پنل فنی حرفه ای 
+                        </a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle mx-5" href="#" id="majorsDropdown" role="button" data-bs-toggle="dropdown">
                             رشته‌ها
