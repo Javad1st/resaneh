@@ -72,8 +72,28 @@
   fill: #60a5fa; /* رنگ آبی 400 */
 }
 .reshte{
-  width: 30%;
+  width: 380px;
   height: auto;
+}
+
+@media  screen and (max-width : 800px) {
+  .reshteHa{
+    flex-direction: column;
+    align-items: center;
+  }
+  
+}
+@media  screen and (max-width : 400px) {
+  .reshte{
+    width: 280px;
+  }
+  .reshte .back a{
+  
+  width: inherit;
+  height: 100%;
+  padding: 1.5rem 9rem;
+  max-width: 160px;
+}
 }
   </style>
 <header dir="ltr" class="bg-white dark:bg-gray-900 transition-all ease-in 100ms">
