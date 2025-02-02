@@ -33,7 +33,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $courseHours = $_POST['course_hours'];
     $courseDuration = $_POST['course_duration'];
     $coursePrice = $_POST['course_price'];
-
+  // حذف کاماها از قیمت و تبدیل آن به عدد صحیح
+  $coursePrice = str_replace(',', '', $coursePrice);  // حذف کاماها
+  $coursePrice = floatval($coursePrice);  // تبدیل به float
+  $coursePrice = round($coursePrice);  
     try {
         // بروزرسانی اطلاعات دوره در پایگاه داده
         $stmt = $conn->prepare("UPDATE courses SET course_name = :courseName, course_description = :courseDescription, course_hours = :courseHours, course_duration = :courseDuration, course_price = :coursePrice WHERE id = :courseId");
@@ -88,12 +91,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
             <div class="mb-3">
                 <label for="course_price" class="form-label">قیمت دوره</label>
-                <input type="number" id="course_price" name="course_price" class="form-control" value="<?= htmlspecialchars($course['course_price']) ?>" required>
+                <input type="text" id="course_price" name="course_price" class="form-control" value=" <?= number_format($course['course_price']) ?>"  oninput="formatPrice(this)"  required>
             </div>
             <button type="submit" class="btn btn-primary">ذخیره تغییرات</button>
         </form>
     </div>
-
+    <script>
+        function formatPrice(input) {
+            let value = input.value.replace(/,/g, ''); // حذف کاماهای قبلی
+            let formattedValue = value.replace(/\B(?=(\d{3})+(?!\d))/g, ","); // فرمت سه‌رقمی
+            input.value = formattedValue;
+        }
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 </body>

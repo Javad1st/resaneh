@@ -97,14 +97,14 @@
 }
   </style>
 <header dir="ltr" class="bg-white dark:bg-gray-900 transition-all ease-in 100ms">
-  <nav class="mx-auto flex max-w-7xl items-center justify-end lg:justify-between p-6 lg:px-8 bg-blue-400 dark:bg-sky-600 rounded-b-2xl transition-all ease-in 100ms" aria-label="Global">
-    <div class="flex lg:flex-1">
+  <nav class="mx-auto flex max-w-7xl items-center justify-end lg:justify-between p-6 lg:px-8 bg-gradient-to-r from-sky-600 to-indigo-300 dark:from-sky-600 dark:to-indigo-800 rounded-b-2xl transition-all ease-in 100ms" aria-label="Global">
+    <div class="flex lg:flex-1 ">
       <a href="#" class="-m-1.5 p-1.5">
-        <span class="sr-only ">مجموعه ما</span>
+        <span class="sr-only text-4xl ">مجموعه ما</span>
         <img class="h-8 w-auto" src="#" alt="">
       </a>
     </div>
-    <div class="flex lg:hidden ">
+    <div class="flex lg:hidden">
       <button id="hamber" type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white">
         <span class="sr-only">Open main menu</span>
         <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
@@ -216,7 +216,7 @@
     </div>
     <div class=" lg:flex lg:flex-1 lg:justify-end">
 
-    <button id="theme-toggle" type="button" class="text-white dark:text-white hidden lg:block bg-sky-600 dark:bg-blue-400 rounded-lg text-sm p-2.5">
+    <button id="theme-toggle" type="button" class="text-white dark:text-white hidden lg:block bg-blue-400 rounded-lg text-sm p-2.5">
     <svg id="theme-toggle-dark-icon" class="hidden  w-7 h-7" fill="white" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
     <svg id="theme-toggle-light-icon" class="hidden w-7 h-7" fill="white" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
 </button>
@@ -298,7 +298,7 @@ themeToggleBtn1.addEventListener('click', function() {
     </svg>
 </button>
 
-<div class="dropHamber mt-2 space-y-2 dark:bg-gray-700 bg-gray-300 rounded-lg overflow-hidden max-h-0 transition-all duration-300 ease-in-out" id="disclosure-1">
+<div class="dropHamber mt-2 space-y-2 dark:bg-gray-700 bg-gray-300 rounded-lg overflow-y-scroll-scroll overflow-x-hiiden max-h-0 transition-all duration-300 ease-in-out" id="disclosure-1">
     <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 dark:text-gray-300">Analytics</a>
     <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 dark:text-gray-300">Engagement</a>
     <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 dark:text-gray-300">Security</a>
@@ -315,7 +315,7 @@ document.getElementById('reshteHamber').addEventListener('click', function() {
 
     
     disclosure.classList.toggle('max-h-0');
-    disclosure.classList.toggle('max-h-90'); 
+    disclosure.classList.toggle('max-h-50'); 
     disclosure.classList.toggle('opacity-0');
     disclosure.classList.toggle('opacity-100');
 
@@ -345,13 +345,13 @@ $select = $conn->prepare("SELECT * FROM majors");
 $select->execute();
 $majors = $select->fetchAll(PDO::FETCH_ASSOC);
 ?>
-<h2 class="lg:text-3xl text-2xl m-4.5 dark:text-white">رشته ها</h2>
+<h2 class="lg:text-4xl text-2xl m-7.5 dark:text-white font-bold">رشته ها</h2>
 <div class="flex gap-3 flex-wrap w-full mt-1.5 justify-center">
   <?php foreach($majors as $major): ?>
   <div class="reshte relative mt-3.5 flex flex-col gap-2.5 bg-gradient-to-l from-sky-500 to-blue-500 rounded-lg p-2 justify-center w-48">
     <img class="image rounded-md" src="<?= $major['major_image']  ?> " alt="">
-    <div class="back absolute flex w-full justify-center items-center rounded-md">
-      <a href="dore.php?major_id=<?= $major['id'] ?>" class="text-center absolute flex flex-col text-gray-50 justify-center items-center gap-2">
+    <div class="back absolute flex w-full justify-center items-center rounded-md ">
+      <a href="dore.php?major_id=<?= $major['id'] ?>" class="text-center absolute flex flex-col transition-all ease-in 200ms text-gray-50 justify-center items-center gap-2">
         <svg class="text-white fill-white transition-all ease-initial 200ms" xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24">
           <path d="m7.375 16.781 1.25-1.562L4.601 12l4.024-3.219-1.25-1.562-5 4a1 1 0 0 0 0 1.562l5 4zm9.25-9.562-1.25 1.562L19.399 12l-4.024 3.219 1.25 1.562 5-4a1 1 0 0 0 0-1.562l-5-4zm-1.649-4.003-4 18-1.953-.434 4-18z"></path>
         </svg>
@@ -363,6 +363,31 @@ $majors = $select->fetchAll(PDO::FETCH_ASSOC);
 </div>
 
 
+<?php 
+include './database/db.php';
+
+// دریافت سه مقاله آخر
+$select = $conn->prepare("SELECT * FROM fields");
+$select->execute();
+$fields = $select->fetchAll(PDO::FETCH_ASSOC);
+?>
+<br><br>
+<h2 class="lg:text-3xl text-2xl m-7.5 mt-10 dark:text-white font-bold">رشته های فنی حرفه ای</h2>
+<div class="flex gap-3 flex-wrap w-full mt-1.5 justify-center">
+  <?php foreach($fields as $field): ?>
+  <div class="reshte relative mt-3.5 flex flex-col gap-2.5 bg-gradient-to-l from-sky-500 to-blue-500 rounded-lg p-2 justify-center w-48">
+    <img class="image rounded-md" src="./uploads2/<?= $field['field_image']  ?> " alt="">
+    <div class="back absolute flex w-full justify-center items-center rounded-md ">
+      <a href="dore.php?major_id=<?= $field['id'] ?>" class="text-center absolute flex flex-col transition-all ease-in 200ms text-gray-50 justify-center items-center gap-2">
+        <svg class="text-white fill-white transition-all ease-initial 200ms" xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24">
+          <path d="m7.375 16.781 1.25-1.562L4.601 12l4.024-3.219-1.25-1.562-5 4a1 1 0 0 0 0 1.562l5 4zm9.25-9.562-1.25 1.562L19.399 12l-4.024 3.219 1.25 1.562 5-4a1 1 0 0 0 0-1.562l-5-4zm-1.649-4.003-4 18-1.953-.434 4-18z"></path>
+        </svg>
+        <p class="text-xl font-bold transition-all ease-in-out 300ms"><?= $field['field_name'] ?> </p>
+      </a>
+    </div>
+  </div>
+  <?php endforeach; ?>
+</div><br><br>
 
 
 

@@ -55,7 +55,7 @@ try {
                     <td><?= htmlspecialchars($major['id']) ?></td>
                     <td><?= htmlspecialchars($major['field_name']) ?></td>
                     <td>
-                        <img src="<?= !empty($major['field_image']) ? '../' . htmlspecialchars($major['field_image']) : '../uploads/default.jpg' ?>" 
+                        <img src="<?= !empty($major['field_image']) ? htmlspecialchars($major['field_image']) : '../uploads/default.jpg' ?>" 
                              alt="تصویر رشته" width="100">
                     </td>
                     <td>
