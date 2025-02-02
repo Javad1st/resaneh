@@ -76,8 +76,8 @@
   height: auto;
 }
   </style>
-<header dir="ltr" class="bg-white">
-  <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8 bg-blue-400 dark:bg-sky-600 " aria-label="Global">
+<header dir="ltr" class="bg-white dark:bg-gray-900 transition-all ease-in 100ms">
+  <nav class="mx-auto flex max-w-7xl items-center justify-end lg:justify-between p-6 lg:px-8 bg-blue-400 dark:bg-sky-600 rounded-b-2xl transition-all ease-in 100ms" aria-label="Global">
     <div class="flex lg:flex-1">
       <a href="#" class="-m-1.5 p-1.5">
         <span class="sr-only ">مجموعه ما</span>
@@ -196,7 +196,7 @@
     </div>
     <div class=" lg:flex lg:flex-1 lg:justify-end">
 
-    <button id="theme-toggle" type="button" class="text-white dark:text-whitefocus:outline-none hidden xl:block bg-sky-600 dark:bg-blue-400 rounded-lg text-sm p-2.5">
+    <button id="theme-toggle" type="button" class="text-white dark:text-whitefocus:outline-none hidden lg:block bg-sky-600 dark:bg-blue-400 rounded-lg text-sm p-2.5">
     <svg id="theme-toggle-dark-icon" class="hidden  w-7 h-7" fill="white" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
     <svg id="theme-toggle-light-icon" class="hidden w-7 h-7" fill="white" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
 </button>
@@ -288,14 +288,14 @@ $majors = $select->fetchAll(PDO::FETCH_ASSOC);
 
 
 
-<footer class="bg-white">
+<footer class="bg-gray-200 dark:bg-gray-800 transition-all ease-in 100ms">
   <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
     <div class="lg:grid lg:grid-cols-2">
       <div
-        class="border-b border-gray-100 py-8 lg:order-last lg:border-b-0 lg:border-s lg:py-16 lg:ps-16"
+        class="border-b border-gray-200 dark:border-gray-700 py-8 lg:order-last lg:border-b-0 lg:border-s lg:py-16 lg:ps-16"
       >
         <div class="block text-sky-600 lg:hidden">
-          <svg class="h-8" viewBox="0 0 118 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg class="h-8" viewBox="0 0 118 24"  xmlns="http://www.w3.org/2000/svg">
             <path
               d="M37.83 19.2047C37.2352 19.237 36.6469 19.0679 36.16 18.7247C35.9566 18.5739 35.7929 18.3758 35.6831 18.1476C35.5733 17.9193 35.5208 17.6678 35.53 17.4147V8.1447C35.5252 8.1055 35.5293 8.0656 35.5422 8.0282C35.555 7.9908 35.5762 7.9569 35.6042 7.9289C35.6322 7.9009 35.6661 7.8797 35.7035 7.8669C35.7409 7.854 35.7808 7.8499 35.82 7.8547H37.5C37.69 7.8547 37.78 7.9547 37.78 8.1447V16.6947C37.78 17.0747 37.95 17.2647 38.3 17.2647C38.4484 17.2708 38.5968 17.254 38.74 17.2147C38.94 17.2147 39.05 17.2747 39.06 17.4547L39.21 18.7047C39.2172 18.7412 39.2165 18.7787 39.208 18.8149C39.1995 18.851 39.1833 18.885 39.1605 18.9143C39.1378 18.9437 39.109 18.9679 39.0762 18.9852C39.0433 19.0025 39.0071 19.0126 38.97 19.0147C38.602 19.1363 38.2175 19.2004 37.83 19.2047Z"
               fill="currentColor"
@@ -343,9 +343,9 @@ $majors = $select->fetchAll(PDO::FETCH_ASSOC);
           <span class="hidden h-1 w-10 rounded bg-sky-600 lg:block"></span>
 
           <div>
-            <h2 class="text-2xl font-medium text-gray-900">Request a Demo</h2>
+            <h2 class="text-2xl font-medium text-gray-900 dark:text-gray-50">Request a Demo</h2>
 
-            <p class="mt-4 max-w-lg text-gray-500">
+            <p class="mt-4 max-w-lg text-gray-500 dark:text-gray-300">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, harum deserunt
               nesciunt praesentium, repellendus eum perspiciatis ratione pariatur a aperiam eius
               numquam doloribus asperiores sunt.
@@ -356,13 +356,13 @@ $majors = $select->fetchAll(PDO::FETCH_ASSOC);
             <label for="UserEmail" class="sr-only"> Email </label>
 
             <div
-              class="rounded-md border border-gray-100 p-2 focus-within:ring sm:flex sm:items-center sm:gap-4"
+              class="rounded-md border border-gray-200 dark:border-gray-700 p-2  sm:flex sm:items-center sm:gap-4 dark:text-gray-300"
             >
               <input
                 type="email"
                 id="UserEmail"
                 placeholder="john@rhcp.com"
-                class="w-full border-none focus:border-transparent focus:ring-transparent sm:text-sm"
+                class="w-full border-none sm:text-sm"
               />
 
               <button
@@ -423,69 +423,69 @@ $majors = $select->fetchAll(PDO::FETCH_ASSOC);
 
         <div class="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-3">
           <div>
-            <p class="font-medium text-gray-900">Services</p>
+            <p class="font-medium text-gray-900 dark:text-gray-50">Services</p>
 
             <ul class="mt-6 space-y-4 text-sm">
               <li>
-                <a href="#" class="text-gray-700 transition hover:opacity-75"> 1on1 Coaching </a>
+                <a href="#" class="text-gray-700 dark:text-gray-300 transition hover:opacity-75"> 1on1 Coaching </a>
               </li>
 
               <li>
-                <a href="#" class="text-gray-700 transition hover:opacity-75"> Company Review </a>
+                <a href="#" class="text-gray-700 dark:text-gray-300 transition hover:opacity-75"> Company Review </a>
               </li>
 
               <li>
-                <a href="#" class="text-gray-700 transition hover:opacity-75"> Accounts Review </a>
+                <a href="#" class="text-gray-700 dark:text-gray-300 transition hover:opacity-75"> Accounts Review </a>
               </li>
 
               <li>
-                <a href="#" class="text-gray-700 transition hover:opacity-75"> HR Consulting </a>
+                <a href="#" class="text-gray-700 dark:text-gray-300 transition hover:opacity-75"> HR Consulting </a>
               </li>
 
               <li>
-                <a href="#" class="text-gray-700 transition hover:opacity-75"> SEO Optimisation </a>
+                <a href="#" class="text-gray-700 dark:text-gray-300 transition hover:opacity-75"> SEO Optimisation </a>
               </li>
             </ul>
           </div>
 
           <div>
-            <p class="font-medium text-gray-900">Company</p>
+            <p class="font-medium text-gray-900 dark:text-gray-50">Company</p>
 
             <ul class="mt-6 space-y-4 text-sm">
               <li>
-                <a href="#" class="text-gray-700 transition hover:opacity-75"> About </a>
+                <a href="#" class="text-gray-700 dark:text-gray-300 transition hover:opacity-75"> About </a>
               </li>
 
               <li>
-                <a href="#" class="text-gray-700 transition hover:opacity-75"> Meet the Team </a>
+                <a href="#" class="text-gray-700 dark:text-gray-300 transition hover:opacity-75"> Meet the Team </a>
               </li>
 
               <li>
-                <a href="#" class="text-gray-700 transition hover:opacity-75"> Accounts Review </a>
+                <a href="#" class="text-gray-700 dark:text-gray-300 transition hover:opacity-75"> Accounts Review </a>
               </li>
             </ul>
           </div>
 
           <div>
-            <p class="font-medium text-gray-900">Helpful Links</p>
+            <p class="font-medium text-gray-900 dark:text-gray-50">Helpful Links</p>
 
             <ul class="mt-6 space-y-4 text-sm">
               <li>
-                <a href="#" class="text-gray-700 transition hover:opacity-75"> Contact </a>
+                <a href="#" class="text-gray-700 dark:text-gray-300 transition hover:opacity-75"> Contact </a>
               </li>
 
               <li>
-                <a href="#" class="text-gray-700 transition hover:opacity-75"> FAQs </a>
+                <a href="#" class="text-gray-700 dark:text-gray-300 transition hover:opacity-75"> FAQs </a>
               </li>
 
               <li>
-                <a href="#" class="text-gray-700 transition hover:opacity-75"> Live Chat </a>
+                <a href="#" class="text-gray-700 dark:text-gray-300 transition hover:opacity-75"> Live Chat </a>
               </li>
             </ul>
           </div>
         </div>
 
-        <div class="mt-8 border-t border-gray-100 pt-8">
+        <div class="mt-8 border-t border-gray-100 dark:border-gray-700 pt-8">
           <ul class="flex flex-wrap gap-4 text-xs">
             <li>
               <a href="#" class="text-gray-500 transition hover:opacity-75"> Terms & Conditions </a>
