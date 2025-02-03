@@ -33,18 +33,45 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $courseHours = $_POST['course_hours'];
     $courseDuration = $_POST['course_duration'];
     $coursePrice = $_POST['course_price'];
-  // حذف کاماها از قیمت و تبدیل آن به عدد صحیح
-  $coursePrice = str_replace(',', '', $coursePrice);  // حذف کاماها
-  $coursePrice = floatval($coursePrice);  // تبدیل به float
-  $coursePrice = round($coursePrice);  
+  
+    // حذف کاماها از قیمت و تبدیل آن به عدد صحیح
+    $coursePrice = str_replace(',', '', $coursePrice);  // حذف کاماها
+    $coursePrice = floatval($coursePrice);  // تبدیل به float
+    $coursePrice = round($coursePrice);
+
+    // بررسی و آپلود تصویر جدید
+    $imagePath = $course['course_image'];  // مقدار پیش‌فرض تصویر قبلی
+    if (isset($_FILES['course_image']) && $_FILES['course_image']['error'] == 0) {
+        // حذف تصویر قبلی در صورت وجود
+        if (!empty($imagePath) && file_exists('../uploads/' . $imagePath)) {
+            unlink('../uploads/' . $imagePath);
+        }
+
+        // بارگذاری تصویر جدید
+        $image_name = time() . '_' . $_FILES['course_image']['name']; // نام منحصربه‌فرد
+        $target_directory = '../uploads/courses/'; // مسیر ذخیره‌سازی
+        $target_file = $target_directory . basename($image_name);
+        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+
+        // بررسی فرمت تصویر
+        $allowed_types = ['jpg', 'jpeg', 'png', 'gif'];
+        if (in_array($imageFileType, $allowed_types)) {
+            if (move_uploaded_file($_FILES['course_image']['tmp_name'], $target_file)) {
+                // فقط نام مسیر نسبی را ذخیره می‌کنیم
+                $imagePath = 'uploads/courses/' . $image_name;
+            }
+        }
+    }
+
+    // بروزرسانی اطلاعات دوره در پایگاه داده
     try {
-        // بروزرسانی اطلاعات دوره در پایگاه داده
-        $stmt = $conn->prepare("UPDATE courses SET course_name = :courseName, course_description = :courseDescription, course_hours = :courseHours, course_duration = :courseDuration, course_price = :coursePrice WHERE id = :courseId");
+        $stmt = $conn->prepare("UPDATE courses SET course_name = :courseName, course_description = :courseDescription, course_hours = :courseHours, course_duration = :courseDuration, course_price = :coursePrice, course_image = :courseImage WHERE id = :courseId");
         $stmt->bindParam(':courseName', $courseName);
         $stmt->bindParam(':courseDescription', $courseDescription);
         $stmt->bindParam(':courseHours', $courseHours);
         $stmt->bindParam(':courseDuration', $courseDuration);
         $stmt->bindParam(':coursePrice', $coursePrice);
+        $stmt->bindParam(':courseImage', $imagePath);
         $stmt->bindParam(':courseId', $courseId);
         $stmt->execute();
 
@@ -58,6 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
+<!-- فرم HTML -->
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
@@ -72,7 +100,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="container mt-5">
         <h2>ویرایش دوره</h2>
 
-        <form method="POST">
+        <form method="POST" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="course_name" class="form-label">نام دوره</label>
                 <input type="text" id="course_name" name="course_name" class="form-control" value="<?= htmlspecialchars($course['course_name']) ?>" required>
@@ -93,9 +121,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <label for="course_price" class="form-label">قیمت دوره</label>
                 <input type="text" id="course_price" name="course_price" class="form-control" value=" <?= number_format($course['course_price']) ?>"  oninput="formatPrice(this)"  required>
             </div>
+            <div class="mb-3">
+                <label for="course_image" class="form-label">تصویر دوره</label>
+                <input type="file" id="course_image" name="course_image" class="form-control" accept="image/*">
+                <!-- نمایش تصویر قبلی -->
+                <?php if (!empty($course['course_image'])): ?>
+                    <div class="mt-3">
+                        <img src="../<?= $course['course_image'] ?>" alt="تصویر دوره" class="img-fluid" style="max-width: 200px;">
+                    </div>
+                <?php endif; ?>
+            </div>
             <button type="submit" class="btn btn-primary">ذخیره تغییرات</button>
         </form>
     </div>
+
     <script>
         function formatPrice(input) {
             let value = input.value.replace(/,/g, ''); // حذف کاماهای قبلی
@@ -103,6 +142,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             input.value = formattedValue;
         }
     </script>
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 </body>

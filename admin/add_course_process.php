@@ -4,31 +4,45 @@ include('../database/db.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // دریافت داده‌های فرم
-    $course_name = $_POST['course_name'];
-    $course_hours = $_POST['course_hours'];
-    $course_duration = $_POST['course_duration'];
-    $course_price = $_POST['course_price'];  // دریافت قیمت
-    $instructor_name = $_POST['instructor_name'];
-    $course_description = $_POST['course_description'];
-    $learning_objectives = $_POST['learning_objectives'];
-    $major_id = $_POST['major_id']; // دریافت شناسه رشته
+    $course_name = htmlspecialchars($_POST['course_name'], ENT_QUOTES, 'UTF-8');
+    $course_hours = htmlspecialchars($_POST['course_hours'], ENT_QUOTES, 'UTF-8');
+    $course_duration = intval($_POST['course_duration']);
+    $course_price = str_replace(',', '', $_POST['course_price']);
+    $course_price = round(floatval($course_price));
+    $instructor_name = htmlspecialchars($_POST['instructor_name'], ENT_QUOTES, 'UTF-8');
+    $course_description = htmlspecialchars($_POST['course_description'], ENT_QUOTES, 'UTF-8');
+    $learning_objectives = htmlspecialchars($_POST['learning_objectives'], ENT_QUOTES, 'UTF-8');
+    $major_id = intval($_POST['major_id']);
 
-    // جلوگیری از تزریق SQL
-    $course_name = htmlspecialchars($course_name, ENT_QUOTES, 'UTF-8');
-    $course_hours = htmlspecialchars($course_hours, ENT_QUOTES, 'UTF-8');
-    $instructor_name = htmlspecialchars($instructor_name, ENT_QUOTES, 'UTF-8');
-    $course_description = htmlspecialchars($course_description, ENT_QUOTES, 'UTF-8');
-    $learning_objectives = htmlspecialchars($learning_objectives, ENT_QUOTES, 'UTF-8');
+    // بررسی و آپلود تصویر
+    $imagePath = ''; // مقدار پیش‌فرض برای مسیر تصویر
+    if (!empty($_FILES['course_image']['name'])) {
+        $target_directory = '../uploads/courses/'; // مسیر ذخیره‌سازی
+        if (!file_exists($target_directory)) {
+            mkdir($target_directory, 0777, true); // ایجاد مسیر در صورت نبودن
+        }
 
-    // حذف کاماها از قیمت و تبدیل آن به عدد صحیح
-    $course_price = str_replace(',', '', $course_price);  // حذف کاماها
-    $course_price = floatval($course_price);  // تبدیل به float
-    $course_price = round($course_price);  // گرد کردن به عدد صحیح اگر نیاز است
+        $image_name = time() . '_' . basename($_FILES['course_image']['name']); // تولید نام منحصربه‌فرد
+        $target_file = $target_directory . $image_name;
+        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+
+        // بررسی فرمت تصویر
+        $allowed_types = ['jpg', 'jpeg', 'png', 'gif'];
+        if (in_array($imageFileType, $allowed_types)) {
+            if (move_uploaded_file($_FILES['course_image']['tmp_name'], $target_file)) {
+                $imagePath = 'uploads/courses/' . $image_name; // مسیر ذخیره‌شده در دیتابیس
+            } else {
+                die("خطا در آپلود تصویر. لطفاً مجدداً تلاش کنید.");
+            }
+        } else {
+            die("فرمت فایل مجاز نیست. فقط JPG, JPEG, PNG, GIF قابل قبول هستند.");
+        }
+    }
 
     try {
-        // وارد کردن اطلاعات به پایگاه داده
-        $stmt = $conn->prepare("INSERT INTO courses (course_name, course_hours, course_duration, course_price, instructor_name, course_description, learning_objectives, major_id) 
-                                VALUES (:course_name, :course_hours, :course_duration, :course_price, :instructor_name, :course_description, :learning_objectives, :major_id)");
+        // ذخیره اطلاعات در پایگاه داده
+        $stmt = $conn->prepare("INSERT INTO courses (course_name, course_hours, course_duration, course_price, instructor_name, course_description, learning_objectives, major_id, course_image) 
+                                VALUES (:course_name, :course_hours, :course_duration, :course_price, :instructor_name, :course_description, :learning_objectives, :major_id, :course_image)");
         $stmt->bindParam(':course_name', $course_name);
         $stmt->bindParam(':course_hours', $course_hours);
         $stmt->bindParam(':course_duration', $course_duration);
@@ -36,14 +50,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt->bindParam(':instructor_name', $instructor_name);
         $stmt->bindParam(':course_description', $course_description);
         $stmt->bindParam(':learning_objectives', $learning_objectives);
-        $stmt->bindParam(':major_id', $major_id); // اضافه کردن شناسه رشته به جدول
+        $stmt->bindParam(':major_id', $major_id);
+        $stmt->bindParam(':course_image', $imagePath);
 
         $stmt->execute();
         
         // هدایت به صفحه افزودن دوره
-        header("Location: add_course.php");
+        header("Location: add_course.php?success=1");
+        exit;
     } catch (PDOException $e) {
-        echo "خطا در افزودن دوره: " . $e->getMessage();
+        die("خطا در افزودن دوره: " . $e->getMessage());
     }
 }
 ?>

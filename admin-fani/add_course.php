@@ -1,14 +1,3 @@
-<?php
-// اتصال به پایگاه داده
-include('../database/db.php');
-
-// دریافت رشته‌ها از جدول fields
-$sql = "SELECT id, field_name FROM fields";
-$stmt = $conn->prepare($sql);
-$stmt->execute();
-$fields = $stmt->fetchAll(PDO::FETCH_ASSOC);
-?>
-
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
@@ -24,14 +13,24 @@ $fields = $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
     </script>
 </head>
-<?php
-// شامل کردن فایل هدر
-require 'header.php';
-?>
 <body>
+    <?php
+    // اتصال به پایگاه داده
+    include('../database/db.php');
+
+    // دریافت رشته‌ها از جدول fields
+    $sql = "SELECT id, field_name FROM fields";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $fields = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    ?>
+<?php 
+require './header.php';
+?>
     <div class="container mt-5">
         <h2>افزودن دوره فنی و حرفه‌ای جدید</h2>
-        <form action="add_course_process.php" method="POST">
+        <form action="add_course_process.php" method="POST" enctype="multipart/form-data">
+            <!-- فیلدهای دیگر فرم -->
             <div class="mb-3">
                 <label for="courseName" class="form-label">نام دوره</label>
                 <input type="text" class="form-control" id="courseName" name="course_name" required>
@@ -65,10 +64,17 @@ require 'header.php';
                     <?php endforeach; ?>
                 </select>
             </div>
+            
+            <!-- فیلد آپلود تصویر -->
+            <div class="mb-3">
+                <label for="courseImage" class="form-label">تصویر دوره</label>
+                <input type="file" class="form-control" id="courseImage" name="course_image" accept="image/*">
+            </div>
+
             <button type="submit" class="btn btn-primary">افزودن دوره</button>
         </form>
     </div>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

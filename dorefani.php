@@ -317,41 +317,26 @@ document.getElementById('reshteHamber').addEventListener('click', function() {
     </div>
   </div>
 </header>
-      <?php
-// اتصال به پایگاه داده
-include('./database/db.php');
-
-try {
-    // گرفتن رشته‌ای که کاربر انتخاب کرده است
-    if (isset($_GET['major_id'])) {
-        $major_id = $_GET['major_id'];
-
-        // گرفتن دوره‌های مربوط به رشته انتخابی
-        $stmt = $conn->prepare("SELECT * FROM courses WHERE major_id = :major_id");
-        $stmt->bindParam(':major_id', $major_id, PDO::PARAM_INT);
-        $stmt->execute();
-        $courses = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    } else {
-        echo "رشته‌ای انتخاب نشده است.";
-    }
-} catch (PDOException $e) {
-    echo "خطا در خواندن داده‌ها: " . $e->getMessage();
-}
-?>
 <?php
 // اتصال به پایگاه داده
 include('./database/db.php');
 
+$programs = []; // تعریف متغیر پیش‌فرض برای جلوگیری از خطا
+
 try {
     // گرفتن رشته‌ای که کاربر انتخاب کرده است
     if (isset($_GET['field_id'])) {
-        $field_id = $_GET['field_id'];
+        $field_id = $_GET['field_id']; // تغییر major_id به field_id
 
         // گرفتن دوره‌های مربوط به رشته انتخابی
         $stmt = $conn->prepare("SELECT * FROM programs WHERE field_id = :field_id");
         $stmt->bindParam(':field_id', $field_id, PDO::PARAM_INT);
         $stmt->execute();
         $programs = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        
+        if (empty($programs)) {
+            echo "هیچ دوره‌ای برای این رشته یافت نشد.";
+        }
     } else {
         echo "رشته‌ای انتخاب نشده است.";
     }
@@ -360,38 +345,42 @@ try {
 }
 ?>
 
-      <h2 class="lg:text-3xl text-2xl m-4.5  dark:text-white ">  رشته ها </h2>
-      <div class="reshteHa mt-1.5 p-2.5 flex gap-3 flex-wrap justify-center w-full">
-        <?php foreach($courses as $cours): ?>
+<h2 class="lg:text-3xl text-2xl m-4.5  dark:text-white ">رشته ها</h2>
+<div class="reshteHa mt-1.5 p-2.5 flex gap-3 flex-wrap justify-center w-full">
+    <?php if (!empty($programs)): ?>
+        <?php foreach($programs as $program): ?>
         <div class=" mx-auto bg-gray-300 dark:bg-gray-800 rounded-lg shadow-md overflow-hidden h-fit mt-3.5 max-w-[350px] min-w-[350px]">
-            <img class="w-full h-48 object-cover" src="<?= $cours['course_image'] ?>" alt="عنوان تصویر">
+            <img class="w-full h-48 object-cover" src="<?= $program['program_image'] ?>" alt="عنوان تصویر">
             <div class="p-4">
-                <h2 class="text-xl font-bold mb-2 mt-2.5 dark:text-gray-50">  <?= $cours['course_name'] ?></h2>
-                <p class="text-gray-700 dark:text-gray-300 mb-4"><?= $cours['course_description'] ?></p>
-                <p class="text-gray-600 dark:text-gray-200 mb-2">مدرس: <span class="font-semibold"><?= $cours['instructor_name'] ?></span></p>
+                <h2 class="text-xl font-bold mb-2 mt-2.5 dark:text-gray-50">  <?= htmlspecialchars($program['program_name']) ?></h2>
+                <p class="text-gray-700 dark:text-gray-300 mb-4"><?= htmlspecialchars($program['program_description']) ?></p>
                 <button class="toggleDetails inline-block bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600 transition duration-200">جزئیات بیشتر</button>
                 
                 <div id="details" class="hidden mt-4 p-4 bg-gray-200 dark:bg-gray-900 rounded-lg flex flex-col gap-1.5">
                     <h3 class="text-lg font-bold mb-2 dark:text-gray-100">آموزش </h3>
-                    <p class="text-gray-700 mb-2 dark:text-gray-400"><?= $cours['learning_objectives'] ?></p>
-                    <p class="text-gray-600 mb-2 dark:text-gray-300">قیمت: <span class="font-semibold"><?= number_format($cours['course_price']) ?> تومان</span></p>
-                    <p class="text-gray-600 mb-2 dark:text-gray-300">زمان برگزاری: <span class="font-semibold"><?= $cours['course_hours'] ?></span></p>
-                    <p class="text-gray-600 dark:text-gray-300">مدت دوره (ماه): <span class="font-semibold"><?= $cours['course_duration'] ?>ماه</span></p>
-                    <button class="inline-block bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600 transition duration-200 mt-2.5"> خرید</button>
+                    <p class="text-gray-700 mb-2 dark:text-gray-400"><?= htmlspecialchars($program['learning_objectives']) ?></p>
+                    <p class="text-gray-600 mb-2 dark:text-gray-300">قیمت: <span class="font-semibold"><?= number_format($program['program_price']) ?> تومان</span></p>
+                    <p class="text-gray-600 mb-2 dark:text-gray-300">زمان برگزاری: <span class="font-semibold"><?= htmlspecialchars($program['program_hours']) ?></span></p>
+                    <p class="text-gray-600 dark:text-gray-300">مدت دوره (ماه): <span class="font-semibold"><?= htmlspecialchars($program['program_duration']) ?> ماه</span></p>
+                    <button class="inline-block bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600 transition duration-200 mt-2.5">خرید</button>
                 </div>
             </div>
         </div>
         <?php endforeach; ?>
-       </div>
-        
-        <script>
-            document.querySelectorAll('.toggleDetails').forEach(button => {
-                button.addEventListener('click', function() {
-                    const details = this.nextElementSibling; 
-                    details.classList.toggle('hidden');
-                });
-            });
-        </script>
+    <?php else: ?>
+        <p>هیچ دوره‌ای برای نمایش وجود ندارد.</p>
+    <?php endif; ?>
+</div>
+
+<script>
+    document.querySelectorAll('.toggleDetails').forEach(button => {
+        button.addEventListener('click', function() {
+            const details = this.nextElementSibling; 
+            details.classList.toggle('hidden');
+        });
+    });
+</script>
+
       </div>
 
     <script src="src/script.js"></script>

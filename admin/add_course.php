@@ -24,55 +24,60 @@ $majors = $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
     </script>
 </head>
-<?php
-// شامل کردن فایل هدر
-require 'header.php';
-?>
 <body>
-    <div class="container mt-5">
-        <h2>افزودن دوره جدید</h2>
-        <form action="add_course_process.php" method="POST">
-            <div class="mb-3">
-                <label for="courseName" class="form-label">نام دوره</label>
-                <input type="text" class="form-control" id="courseName" name="course_name" required>
-            </div>
-            <div class="mb-3">
-                <label for="courseHours" class="form-label">ساعت شروع و پایان دوره</label>
-                <input type="text" class="form-control" id="courseHours" name="course_hours" placeholder="مثال: 14:00 تا 17:00" required>
-            </div>
-            <div class="mb-3">
-                <label for="courseDuration" class="form-label">مدت زمان دوره (به ماه)</label>
-                <input type="number" class="form-control" id="courseDuration" name="course_duration" required>
-            </div>
-            <div class="mb-3">
-                <label for="coursePrice" class="form-label">قیمت دوره (تومان)</label>
-                <input type="text" class="form-control" id="coursePrice" name="course_price" oninput="formatPrice(this)" required>
-            </div>
-            <div class="mb-3">
-                <label for="instructorName" class="form-label">نام معلم</label>
-                <input type="text" class="form-control" id="instructorName" name="instructor_name" required>
-            </div>
-            <div class="mb-3">
-                <label for="courseDescription" class="form-label">توضیحات دوره</label>
-                <textarea class="form-control" id="courseDescription" name="course_description" rows="4" required></textarea>
-            </div>
-            <div class="mb-3">
-                <label for="learningObjectives" class="form-label">مبانی که می‌خواهید یاد بگیرید</label>
-                <textarea class="form-control" id="learningObjectives" name="learning_objectives" rows="4" required></textarea>
-            </div>
-            <div class="mb-3">
-                <label for="majorId" class="form-label">رشته</label>
-                <select class="form-control" id="majorId" name="major_id" required>
-                    <option value="">انتخاب رشته</option>
-                    <?php foreach ($majors as $major): ?>
-                        <option value="<?= $major['id']; ?>"><?= $major['major_name']; ?></option>
-                    <?php endforeach; ?>
-                </select>
-            </div>
-            <button type="submit" class="btn btn-primary">افزودن دوره</button>
-        </form>
-    </div>
+
+<?php require 'header.php'; ?>
+
+<div class="container mt-5">
+    <h2>افزودن دوره جدید</h2>
     
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <form action="add_course_process.php" method="POST" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="courseName" class="form-label">نام دوره</label>
+            <input type="text" class="form-control" id="courseName" name="course_name" value="" required>
+        </div>
+        <div class="mb-3">
+            <label for="courseHours" class="form-label">ساعت شروع و پایان دوره</label>
+            <input type="text" class="form-control" id="courseHours" name="course_hours" placeholder="مثال: 14:00 تا 17:00" required>
+        </div>
+        <div class="mb-3">
+            <label for="courseDuration" class="form-label">مدت زمان دوره (به ماه)</label>
+            <input type="number" class="form-control" id="courseDuration" name="course_duration" value="" required>
+        </div>
+        <div class="mb-3">
+            <label for="coursePrice" class="form-label">قیمت دوره (تومان)</label>
+            <input type="text" class="form-control" id="coursePrice" name="course_price" oninput="formatPrice(this)" required>
+        </div>
+        <div class="mb-3">
+            <label for="instructorName" class="form-label">نام معلم</label>
+            <input type="text" class="form-control" id="instructorName" name="instructor_name" value="" required>
+        </div>
+        <div class="mb-3">
+            <label for="courseDescription" class="form-label">توضیحات دوره</label>
+            <textarea class="form-control" id="courseDescription" name="course_description" rows="4" required></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="learningObjectives" class="form-label">مبانی که می‌خواهید یاد بگیرید</label>
+            <textarea class="form-control" id="learningObjectives" name="learning_objectives" rows="4" required></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="courseImage" class="form-label">تصویر دوره</label>
+            <input type="file" class="form-control" id="courseImage" name="course_image" accept="image/*" required>
+        </div>
+        <div class="mb-3">
+            <label for="majorId" class="form-label">رشته</label>
+            <select class="form-control" id="majorId" name="major_id" required>
+                <option value="">انتخاب رشته</option>
+                <?php foreach ($majors as $major): ?>
+                    <option value="<?= htmlspecialchars($major['id']); ?>"><?= htmlspecialchars($major['major_name']); ?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">افزودن دوره</button>
+    </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

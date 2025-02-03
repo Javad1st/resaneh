@@ -47,7 +47,7 @@ if (isset($_GET['field_id'])) {
                 <label for="fieldImage" class="form-label">تصویر رشته</label>
                 <div>
                     <p>تصویر فعلی:</p>
-                    <img src="../<?= htmlspecialchars($field['field_image']) ?>" alt="تصویر رشته" class="mt-3" width="150">
+                    <img src="<?= htmlspecialchars($field['field_image']) ?>" alt="تصویر رشته" class="mt-3" width="150">
                 </div>
                 <input type="file" class="form-control mt-2" id="fieldImage" name="field_image" accept="image/*" onchange="previewImage(event)">
                 <div id="newImagePreview" class="mt-3" style="display: none;">
