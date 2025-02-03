@@ -1,9 +1,13 @@
+
+
 <!doctype html>
 <html class="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="./src/output.css" rel="stylesheet">
+    <link href="./src/output.css" rel="stylesheet">
+
   
   <script>
       // On page load or when changing themes, best to add inline in `head` to avoid FOUC
@@ -362,7 +366,8 @@ try {
                     <p class="text-gray-600 mb-2 dark:text-gray-300">قیمت: <span class="font-semibold"><?= number_format($program['program_price']) ?> تومان</span></p>
                     <p class="text-gray-600 mb-2 dark:text-gray-300">زمان برگزاری: <span class="font-semibold"><?= htmlspecialchars($program['program_hours']) ?></span></p>
                     <p class="text-gray-600 dark:text-gray-300">مدت دوره (ماه): <span class="font-semibold"><?= htmlspecialchars($program['program_duration']) ?> ماه</span></p>
-                    <button class="inline-block bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600 transition duration-200 mt-2.5">خرید</button>
+                    <a href="#modal" class="open-modal">پیش ثبت نام</a>
+
                 </div>
             </div>
         </div>
@@ -379,10 +384,161 @@ try {
             details.classList.toggle('hidden');
         });
     });
+
+    document.addEventListener("DOMContentLoaded", function() {
+    const modal = document.getElementById("registerModal");
+    const closeModal = document.getElementById("closeModal");
+    const registerButtons = document.querySelectorAll(".registerButton");
+
+    registerButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            modal.classList.remove("hidden");
+            setTimeout(() => {
+                modal.classList.add("opacity-100");
+                modal.querySelector("div").classList.add("scale-100");
+            }, 10);
+        });
+    });
+
+    function closeModalFunc() {
+        modal.classList.remove("opacity-100");
+        modal.querySelector("div").classList.remove("scale-100");
+        setTimeout(() => modal.classList.add("hidden"), 200);
+    }
+
+    closeModal.addEventListener("click", closeModalFunc);
+
+    window.addEventListener("click", (e) => {
+        if (e.target === modal) closeModalFunc();
+    });
+});
+
+
 </script>
 
       </div>
 
     <script src="src/script.js"></script>
+  
+    </style>
+</head>
+<body>
+
+    <!-- دکمه باز کردن مودال -->
+
+    <!-- مودال -->
+    <div dir="rtl" id="modal" class="modal">
+        <div class="modal-content">
+            <a href="#" class="close-modal">&times;</a>
+            <h2>فرم پیش ثبت نام</h2>
+            <form action="submit.php" method="post">
+    <input type="text" name="name" placeholder="نام" required>
+    <input type="text" name="family" placeholder="نام خانوادگی" required>
+    <input type="tel" name="phone" placeholder="شماره تماس" required>
+    <input type="text" name="national_id" placeholder="کد ملی (اختیاری)">
+    <button type="submit" class="submit-btn">ارسال درخواست</button>
+</form>
+
+        </div>
+  
+
+    <style>
+        .open-modal {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .open-modal:hover {
+            background-color: #0056b3;
+        }
+
+        /* استایل پس‌زمینه مودال */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #modal:target {
+            display: flex;
+        }
+
+        /* استایل پنجره مودال */
+        .modal-content {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            text-align: right;
+            position: relative;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* دکمه بستن */
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            text-decoration: none;
+            font-size: 24px;
+            color: #555;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close-modal:hover {
+            color: red;
+        }
+
+        /* استایل فیلدهای ورودی */
+        .modal-content input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            text-align: right;
+        }
+
+        /* دکمه ارسال فرم */
+        .submit-btn {
+            background-color: #28a745;
+            color: white;
+            padding: 12px;
+            width: 100%;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #218838;
+        }
+    </style>
+
 </body>
 </html>
+

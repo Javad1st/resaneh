@@ -371,6 +371,10 @@ $select = $conn->prepare("SELECT * FROM fields");
 $select->execute();
 $fields = $select->fetchAll(PDO::FETCH_ASSOC);
 ?>
+<div class="bg-blue-500 text-white p-4 rounded-lg shadow-lg">
+    سلام، این یک کارت با Tailwind CSS است!
+</div>
+
 <br><br>
 <h2 class="lg:text-3xl text-2xl m-7.5 mt-10 dark:text-white font-bold">رشته های فنی حرفه ای</h2>
 <div class="flex gap-3 flex-wrap w-full mt-1.5 justify-center">
@@ -378,7 +382,7 @@ $fields = $select->fetchAll(PDO::FETCH_ASSOC);
   <div class="reshte relative mt-3.5 flex flex-col gap-2.5 bg-gradient-to-l from-sky-500 to-blue-500 rounded-lg p-2 justify-center w-48">
     <img class="image rounded-md" src="./uploads2/<?= $field['field_image']  ?> " alt="">
     <div class="back absolute flex w-full justify-center items-center rounded-md ">
-      <a href="dore.php?major_id=<?= $field['id'] ?>" class="text-center absolute flex flex-col transition-all ease-in 200ms text-gray-50 justify-center items-center gap-2">
+      <a href="dorefani.php?field_id=<?= $field['id'] ?>" class="text-center absolute flex flex-col transition-all ease-in 200ms text-gray-50 justify-center items-center gap-2">
         <svg class="text-white fill-white transition-all ease-initial 200ms" xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24">
           <path d="m7.375 16.781 1.25-1.562L4.601 12l4.024-3.219-1.25-1.562-5 4a1 1 0 0 0 0 1.562l5 4zm9.25-9.562-1.25 1.562L19.399 12l-4.024 3.219 1.25 1.562 5-4a1 1 0 0 0 0-1.562l-5-4zm-1.649-4.003-4 18-1.953-.434 4-18z"></path>
         </svg>
