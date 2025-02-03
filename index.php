@@ -14,7 +14,7 @@
       }
   </script>
 </head>
-<body dir="rtl" class="bg-white dark:bg-gray-900 transition-all ease-in 100ms">
+<body dir="rtl" class="bg-gradient-to-r from-blue-200 to-indigo-100 dark:from-blue-950 dark:to-zinc-900 transition-all ease-in 100ms">
   <style>
     @font-face {
   font-family: iransans;
@@ -96,15 +96,15 @@
 }
 }
   </style>
-<header dir="ltr" class="bg-white dark:bg-gray-900 transition-all ease-in 100ms">
-  <nav class="mx-auto flex max-w-7xl items-center justify-end lg:justify-between p-6 lg:px-8 bg-gradient-to-r from-sky-600 to-indigo-300 dark:from-sky-600 dark:to-indigo-800 rounded-b-2xl transition-all ease-in 100ms" aria-label="Global">
+<header dir="ltr" class="bg-gradient-to-r from-blue-200 to-indigo-100 dark:from-blue-950 dark:to-zinc-900 transition-all ease-in 100ms">
+  <nav class="mx-auto flex max-w-[1550px] items-center justify-end lg:justify-between p-6 lg:px-8 bg-gradient-to-r from-sky-600 to-indigo-400 dark:from-sky-600 dark:to-indigo-700 rounded-b-2xl transition-all ease-in 100ms" aria-label="Global">
     <div class="flex lg:flex-1 ">
       <a href="#" class="-m-1.5 p-1.5">
-        <span class="sr-only text-4xl ">مجموعه ما</span>
+        <span class="sr-only text-6xl ">مجموعه ما</span>
         <img class="h-8 w-auto" src="#" alt="">
       </a>
     </div>
-    <div class="flex lg:hidden">
+    <div class="flex lg:hidden ">
       <button id="hamber" type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white">
         <span class="sr-only">Open main menu</span>
         <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
@@ -122,10 +122,10 @@
 </button>
 
 <!-- منوی پرتابل -->
-<div id="dropdown" dir="rtl" class="absolute top-full -left-8 z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white dark:bg-gray-800 dark:text-gray-50 ring-1 shadow-lg ring-gray-900/5 hidden">
+<div id="dropdown" dir="rtl" class="absolute top-full -left-8 z-10 mt-3 w-screen max-w-md overflow-x-hidden rounded-3xl bg-gradient-to-r from-sky-200 to-indigo-200 dark:from-sky-800 dark:to-indigo-800 dark:text-gray-50 ring-1 shadow-lg ring-gray-900/5 hidden">
     <!-- محتویات منو -->
     <div class="p-4">
-            <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-gray-300 dark:hover:bg-gray-700">
+            <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-blue-300 dark:hover:bg-sky-700">
               <div class="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                 <svg class="size-6 text-gray-600 group-hover:text-sky-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z" />
@@ -140,7 +140,7 @@
                 <p class="mt-1 text-gray-600 dark:text-gray-200">Get a better understanding of your traffic</p>
               </div>
             </div>
-            <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-gray-300 dark:hover:bg-gray-700">
+            <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-blue-300 dark:hover:bg-sky-700">
               <div class="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                 <svg class="size-6 text-gray-600 group-hover:text-sky-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M15.042 21.672 13.684 16.6m0 0-2.51 2.225.569-9.47 5.227 7.917-3.286-.672ZM12 2.25V4.5m5.834.166-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243-1.59-1.59" />
@@ -154,7 +154,7 @@
                 <p class="mt-1 text-gray-600 dark:text-gray-200">Speak directly to your customers</p>
               </div>
             </div>
-            <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-gray-300 dark:hover:bg-gray-700">
+            <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-blue-300 dark:hover:bg-sky-700">
               <div class="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                 <svg class="size-6 text-gray-600 group-hover:text-sky-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M7.864 4.243A7.5 7.5 0 0 1 19.5 10.5c0 2.92-.556 5.709-1.568 8.268M5.742 6.364A7.465 7.465 0 0 0 4.5 10.5a7.464 7.464 0 0 1-1.15 3.993m1.989 3.559A11.209 11.209 0 0 0 8.25 10.5a3.75 3.75 0 1 1 7.5 0c0 .527-.021 1.049-.064 1.565M12 10.5a14.94 14.94 0 0 1-3.6 9.75m6.633-4.596a18.666 18.666 0 0 1-2.485 5.33" />
@@ -168,7 +168,7 @@
                 <p class="mt-1 text-gray-600 dark:text-gray-200">Your customers’ data will be safe and secure</p>
               </div>
             </div>
-            <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-gray-300 dark:hover:bg-gray-700">
+            <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-blue-300 dark:hover:bg-sky-700">
               <div class="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                 <svg class="size-6 text-gray-600 group-hover:text-sky-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 16.875h3.375m0 0h3.375m-3.375 0V13.5m0 3.375v3.375M6 10.5h2.25a2.25 2.25 0 0 0 2.25-2.25V6a2.25 2.25 0 0 0-2.25-2.25H6A2.25 2.25 0 0 0 3.75 6v2.25A2.25 2.25 0 0 0 6 10.5Zm0 9.75h2.25A2.25 2.25 0 0 0 10.5 18v-2.25a2.25 2.25 0 0 0-2.25-2.25H6a2.25 2.25 0 0 0-2.25 2.25V18A2.25 2.25 0 0 0 6 20.25Zm9.75-9.75H18a2.25 2.25 0 0 0 2.25-2.25V6A2.25 2.25 0 0 0 18 3.75h-2.25A2.25 2.25 0 0 0 13.5 6v2.25a2.25 2.25 0 0 0 2.25 2.25Z" />
@@ -182,7 +182,7 @@
                 <p class="mt-1 text-gray-600 dark:text-gray-200">Connect with third-party tools</p>
               </div>
             </div>
-            <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-gray-300 dark:hover:bg-gray-700">
+            <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-blue-300 dark:hover:bg-sky-700">
               <div class="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                 <svg class="size-6 text-gray-600 group-hover:text-sky-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
@@ -198,9 +198,9 @@
             </div>
           </div>
 
-          <div class="grid grid-cols-1 divide-x divide-gray-900/5 bg-gray-50 dark:bg-gray-900">
+          <div class="grid grid-cols-1 divide-x divide-gray-900/5 bg-gradient-to-r border-t-1 from-indigo-200 to-sky-200 dark:from-indigo-800 dark:to-sky-800">
            
-            <a href="#" class="flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-gray-900 dark:text-gray-50 hover:bg-gray-300 dark:hover:bg-gray-700">
+            <a href="#" class="flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-gray-900 dark:text-gray-50 hover:bg-blue-300 dark:hover:bg-sky-700">
               <svg class="size-5 flex-none text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
                 <path fill-rule="evenodd" d="M2 3.5A1.5 1.5 0 0 1 3.5 2h1.148a1.5 1.5 0 0 1 1.465 1.175l.716 3.223a1.5 1.5 0 0 1-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 0 0 6.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 0 1 1.767-1.052l3.223.716A1.5 1.5 0 0 1 18 15.352V16.5a1.5 1.5 0 0 1-1.5 1.5H15c-1.149 0-2.263-.15-3.326-.43A13.022 13.022 0 0 1 2.43 8.326 13.019 13.019 0 0 1 2 5V3.5Z" clip-rule="evenodd" />
               </svg>
@@ -216,7 +216,7 @@
     </div>
     <div class=" lg:flex lg:flex-1 lg:justify-end">
 
-    <button id="theme-toggle" type="button" class="text-white dark:text-white hidden lg:block bg-blue-400 rounded-lg text-sm p-2.5">
+    <button id="theme-toggle" type="button" class="text-white dark:text-white hidden lg:block bg-sky-600 dark:bg-blue-400 rounded-lg text-sm p-2.5">
     <svg id="theme-toggle-dark-icon" class="hidden  w-7 h-7" fill="white" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
     <svg id="theme-toggle-light-icon" class="hidden w-7 h-7" fill="white" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
 </button>
@@ -228,7 +228,7 @@
     
     <div class="fixed z-100 "></div>
     <div id="hamberContent" dir="rtl" class="translate-x-full transition all ease-in-out 300ms  fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-gray-100 dark:bg-gray-800  px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-      <div class="flex items-center justify-between">
+      <div class="flex items-center justify-between ">
         <a href="#" class="-m-1.5 p-1.5">
          
           
@@ -298,7 +298,7 @@ themeToggleBtn1.addEventListener('click', function() {
     </svg>
 </button>
 
-<div class="dropHamber mt-2 space-y-2 dark:bg-gray-700 bg-gray-300 rounded-lg overflow-y-scroll-scroll overflow-x-hiiden max-h-0 transition-all duration-300 ease-in-out" id="disclosure-1">
+<div class="dropHamber mt-2 space-y-2 dark:bg-gray-700 bg-gray-300 rounded-lg overflow-x-hidden overflow-y-scroll  max-h-0 transition-all duration-300 ease-in-out" id="disclosure-1">
     <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 dark:text-gray-300">Analytics</a>
     <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 dark:text-gray-300">Engagement</a>
     <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 dark:text-gray-300">Security</a>
@@ -348,7 +348,7 @@ $majors = $select->fetchAll(PDO::FETCH_ASSOC);
 <h2 class="lg:text-4xl text-2xl m-7.5 dark:text-white font-bold">رشته ها</h2>
 <div class="flex gap-3 flex-wrap w-full mt-1.5 justify-center">
   <?php foreach($majors as $major): ?>
-  <div class="reshte relative mt-3.5 flex flex-col gap-2.5 bg-gradient-to-l from-sky-500 to-blue-500 rounded-lg p-2 justify-center w-48">
+  <div class="reshte relative transition-all ease-in-out 200ms hover:transform hover:scale-105 hover:shadow-md shadow-gray-400 dark:shadow-gray-800 mt-3.5 flex flex-col gap-2.5 bg-gradient-to-l from-sky-500 to-blue-500 rounded-lg p-2 justify-center w-48">
     <img class="image rounded-md" src="<?= $major['major_image']  ?> " alt="">
     <div class="back absolute flex w-full justify-center items-center rounded-md ">
       <a href="dore.php?major_id=<?= $major['id'] ?>" class="text-center absolute flex flex-col transition-all ease-in 200ms text-gray-50 justify-center items-center gap-2">
@@ -362,36 +362,32 @@ $majors = $select->fetchAll(PDO::FETCH_ASSOC);
   <?php endforeach; ?>
 </div>
 
+
 <?php 
 include './database/db.php';
 
-// دریافت رشته‌ها
+// دریافت سه مقاله آخر
 $select = $conn->prepare("SELECT * FROM fields");
 $select->execute();
 $fields = $select->fetchAll(PDO::FETCH_ASSOC);
 ?>
-
 <br><br>
 <h2 class="lg:text-3xl text-2xl m-7.5 mt-10 dark:text-white font-bold">رشته های فنی حرفه ای</h2>
 <div class="flex gap-3 flex-wrap w-full mt-1.5 justify-center">
   <?php foreach($fields as $field): ?>
   <div class="reshte relative mt-3.5 flex flex-col gap-2.5 bg-gradient-to-l from-sky-500 to-blue-500 rounded-lg p-2 justify-center w-48">
-    <!-- بررسی وجود تصویر و استفاده از تصویر پیش‌فرض در صورت عدم وجود -->
-    <img class="image rounded-md" src="./uploads2/<?= htmlspecialchars($field['field_image']) ?: 'default-image.jpg' ?>" alt="<?= htmlspecialchars($field['field_name']) ?>">
-    
-    <div class="back absolute flex w-full justify-center items-center rounded-md">
-      <a href="dorefani.php?field_id=<?= htmlspecialchars($field['id']) ?>" class="text-center absolute flex flex-col transition-all ease-in 200ms text-gray-50 justify-center items-center gap-2">
+    <img class="image rounded-md" src="./uploads2/<?= $field['field_image']  ?> " alt="">
+    <div class="back absolute flex w-full justify-center items-center rounded-md ">
+      <a href="dore.php?major_id=<?= $field['id'] ?>" class="text-center absolute flex flex-col transition-all ease-in 200ms text-gray-50 justify-center items-center gap-2">
         <svg class="text-white fill-white transition-all ease-initial 200ms" xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24">
           <path d="m7.375 16.781 1.25-1.562L4.601 12l4.024-3.219-1.25-1.562-5 4a1 1 0 0 0 0 1.562l5 4zm9.25-9.562-1.25 1.562L19.399 12l-4.024 3.219 1.25 1.562 5-4a1 1 0 0 0 0-1.562l-5-4zm-1.649-4.003-4 18-1.953-.434 4-18z"></path>
         </svg>
-        <p class="text-xl font-bold transition-all ease-in-out 300ms"><?= htmlspecialchars($field['field_name']) ?> </p>
+        <p class="text-xl font-bold transition-all ease-in-out 300ms"><?= $field['field_name'] ?> </p>
       </a>
     </div>
   </div>
   <?php endforeach; ?>
-</div>
-<br><br>
-
+</div><br><br>
 
 
 
