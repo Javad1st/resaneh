@@ -5,16 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="./src/output.css" rel="stylesheet">
   
-  <script>
-      // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-      if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-          document.documentElement.classList.add('dark');
-      } else {
-          document.documentElement.classList.remove('dark')
-      }
-  </script>
 </head>
-<body dir="rtl" class="bg-gradient-to-r from-blue-200 to-indigo-100 dark:from-blue-950 dark:to-zinc-900 transition-all ease-in 100ms">
+<body dir="rtl" class="bg-gradient-to-r from-blue-100 to-indigo-100 dark:from-blue-950 dark:to-zinc-900 transition-all ease-in 100ms">
   <style>
     @font-face {
   font-family: iransans;
@@ -96,8 +88,8 @@
 }
 }
   </style>
-<header dir="ltr" class="bg-gradient-to-r from-blue-200 to-indigo-100 dark:from-blue-950 dark:to-zinc-900 transition-all ease-in 100ms">
-  <nav class="mx-auto flex max-w-[1550px] items-center justify-end lg:justify-between p-6 lg:px-8 bg-gradient-to-r from-sky-600 to-indigo-400 dark:from-sky-600 dark:to-indigo-700 rounded-b-2xl transition-all ease-in 100ms" aria-label="Global">
+<header dir="ltr" class="bg-gradient-to-r from-blue-100 to-indigo-100 dark:from-blue-950 dark:to-zinc-900 transition-all ease-in 100ms">
+  <nav class="mx-auto flex max-w-[1550px] items-center justify-end lg:justify-between p-6 lg:px-8 bg-white rounded-b-2xl transition-all ease-in 100ms" aria-label="Global">
     <div class="flex lg:flex-1 ">
       <a href="#" class="-m-1.5 p-1.5">
         <span class="sr-only text-6xl ">مجموعه ما</span>
@@ -105,8 +97,8 @@
       </a>
     </div>
     <div class="flex lg:hidden ">
-      <button id="hamber" type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white">
-        <span class="sr-only">Open main menu</span>
+      <button id="hamber" type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-black">
+        <span class="sr-only">منو</span>
         <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
           <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
         </svg>
@@ -114,18 +106,18 @@
     </div>
     <div class="hidden lg:flex lg:gap-x-12">
       <div class="relative">
-      <button dir="rtl" id="toggleButton" type="button" class="flex items-center gap-x-1 text-sm font-semibold lg:text-white text-black" aria-expanded="false">
+      <button dir="rtl" id="toggleButton" type="button" class="flex items-center gap-x-1 text-xl font-semibold  text-black cursor-pointer" aria-expanded="false">
     دوره ها
-    <svg class="size-5 flex-none lg:text-white text-black" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+    <svg class="size-7 flex-none  text-black" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
         <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
     </svg>
 </button>
 
 <!-- منوی پرتابل -->
-<div id="dropdown" dir="rtl" class="absolute top-full -left-8 z-10 mt-3 w-screen max-w-md overflow-x-hidden rounded-3xl bg-gradient-to-r from-sky-200 to-indigo-200 dark:from-sky-800 dark:to-indigo-800 dark:text-gray-50 ring-1 shadow-lg ring-gray-900/5 hidden">
+<div id="dropdown" dir="rtl" class="absolute top-3.5 -left-8 z-10 mt-3 w-screen max-w-md overflow-x-hidden rounded-3xl bg-gray-200 ring-1 shadow-lg ring-gray-900/5 hidden">
     <!-- محتویات منو -->
     <div class="p-4">
-            <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-blue-300 dark:hover:bg-sky-700">
+            <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-blue-100 dark:hover:bg-sky-700">
               <div class="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                 <svg class="size-6 text-gray-600 group-hover:text-sky-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z" />
@@ -140,7 +132,7 @@
                 <p class="mt-1 text-gray-600 dark:text-gray-200">Get a better understanding of your traffic</p>
               </div>
             </div>
-            <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-blue-300 dark:hover:bg-sky-700">
+            <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-blue-100 dark:hover:bg-sky-700">
               <div class="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                 <svg class="size-6 text-gray-600 group-hover:text-sky-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M15.042 21.672 13.684 16.6m0 0-2.51 2.225.569-9.47 5.227 7.917-3.286-.672ZM12 2.25V4.5m5.834.166-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243-1.59-1.59" />
@@ -154,7 +146,7 @@
                 <p class="mt-1 text-gray-600 dark:text-gray-200">Speak directly to your customers</p>
               </div>
             </div>
-            <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-blue-300 dark:hover:bg-sky-700">
+            <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-blue-100 dark:hover:bg-sky-700">
               <div class="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                 <svg class="size-6 text-gray-600 group-hover:text-sky-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M7.864 4.243A7.5 7.5 0 0 1 19.5 10.5c0 2.92-.556 5.709-1.568 8.268M5.742 6.364A7.465 7.465 0 0 0 4.5 10.5a7.464 7.464 0 0 1-1.15 3.993m1.989 3.559A11.209 11.209 0 0 0 8.25 10.5a3.75 3.75 0 1 1 7.5 0c0 .527-.021 1.049-.064 1.565M12 10.5a14.94 14.94 0 0 1-3.6 9.75m6.633-4.596a18.666 18.666 0 0 1-2.485 5.33" />
@@ -168,7 +160,7 @@
                 <p class="mt-1 text-gray-600 dark:text-gray-200">Your customers’ data will be safe and secure</p>
               </div>
             </div>
-            <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-blue-300 dark:hover:bg-sky-700">
+            <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-blue-100 dark:hover:bg-sky-700">
               <div class="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                 <svg class="size-6 text-gray-600 group-hover:text-sky-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 16.875h3.375m0 0h3.375m-3.375 0V13.5m0 3.375v3.375M6 10.5h2.25a2.25 2.25 0 0 0 2.25-2.25V6a2.25 2.25 0 0 0-2.25-2.25H6A2.25 2.25 0 0 0 3.75 6v2.25A2.25 2.25 0 0 0 6 10.5Zm0 9.75h2.25A2.25 2.25 0 0 0 10.5 18v-2.25a2.25 2.25 0 0 0-2.25-2.25H6a2.25 2.25 0 0 0-2.25 2.25V18A2.25 2.25 0 0 0 6 20.25Zm9.75-9.75H18a2.25 2.25 0 0 0 2.25-2.25V6A2.25 2.25 0 0 0 18 3.75h-2.25A2.25 2.25 0 0 0 13.5 6v2.25a2.25 2.25 0 0 0 2.25 2.25Z" />
@@ -182,7 +174,7 @@
                 <p class="mt-1 text-gray-600 dark:text-gray-200">Connect with third-party tools</p>
               </div>
             </div>
-            <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-blue-300 dark:hover:bg-sky-700">
+            <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-blue-100 dark:hover:bg-sky-700">
               <div class="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                 <svg class="size-6 text-gray-600 group-hover:text-sky-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
@@ -198,9 +190,9 @@
             </div>
           </div>
 
-          <div class="grid grid-cols-1 divide-x divide-gray-900/5 bg-gradient-to-r border-t-1 from-indigo-200 to-sky-200 dark:from-indigo-800 dark:to-sky-800">
+          <div class="grid grid-cols-1 divide-x divide-gray-900/5  border-t-1">
            
-            <a href="#" class="flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-gray-900 dark:text-gray-50 hover:bg-blue-300 dark:hover:bg-sky-700">
+            <a href="#" class="flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-gray-900 dark:text-gray-50 hover:bg-blue-100 dark:hover:bg-sky-700">
               <svg class="size-5 flex-none text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
                 <path fill-rule="evenodd" d="M2 3.5A1.5 1.5 0 0 1 3.5 2h1.148a1.5 1.5 0 0 1 1.465 1.175l.716 3.223a1.5 1.5 0 0 1-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 0 0 6.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 0 1 1.767-1.052l3.223.716A1.5 1.5 0 0 1 18 15.352V16.5a1.5 1.5 0 0 1-1.5 1.5H15c-1.149 0-2.263-.15-3.326-.43A13.022 13.022 0 0 1 2.43 8.326 13.019 13.019 0 0 1 2 5V3.5Z" clip-rule="evenodd" />
               </svg>
@@ -209,17 +201,22 @@
           </div>
         </div>
       </div>
+      <style>
+  
 
-      <a href="#" class="text-sm/6 font-semibold text-black lg:text-white ">پشتیبانی</a>
-      <a href="#" class="text-sm/6 font-semibold text-black lg:text-white ">آدرس</a>
-      <a href="#" class="text-sm/6 font-semibold text-black lg:text-white ">مجموعه ما</a>
+#toggleButton:hover + #dropdown,
+#dropdown:hover {
+    display: block; /* هنگام هاور روی دکمه یا منو، نمایش داده می‌شود */
+}
+      </style>
+
+      <a href="#" class="text-xl font-semibold text-black  ">پشتیبانی</a>
+      <a href="#" class="text-xl font-semibold text-black  ">آدرس</a>
+      <a href="#" class="text-xl font-semibold text-black  ">مجموعه ما</a>
     </div>
     <div class=" lg:flex lg:flex-1 lg:justify-end">
 
-    <button id="theme-toggle" type="button" class="text-white dark:text-white hidden lg:block bg-sky-600 dark:bg-blue-400 rounded-lg text-sm p-2.5">
-    <svg id="theme-toggle-dark-icon" class="hidden  w-7 h-7" fill="white" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-    <svg id="theme-toggle-light-icon" class="hidden w-7 h-7" fill="white" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-</button>
+    
 
     </div>
   </nav>
@@ -232,52 +229,7 @@
         <a href="#" class="-m-1.5 p-1.5">
          
           
-    <button id="theme-toggle1" type="button" class="text-white dark:text-white  bg-sky-600 dark:bg-blue-400 rounded-lg text-sm p-2.5">
-    <svg id="theme-toggle-dark-icon1" class="hidden  w-7 h-7" fill="white" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-    <svg id="theme-toggle-light-icon1" class="hidden w-7 h-7" fill="white" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-    </button>
-    <script>
-      var themeToggleDarkIcon1 = document.getElementById('theme-toggle-dark-icon1');
-var themeToggleLightIcon1 = document.getElementById('theme-toggle-light-icon1');
-
-
-if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-    themeToggleLightIcon1.classList.remove('hidden');
-} else {
-    themeToggleDarkIcon1.classList.remove('hidden');
-}
-
-var themeToggleBtn1 = document.getElementById('theme-toggle1');
-
-themeToggleBtn1.addEventListener('click', function() {
-
-    
-    themeToggleDarkIcon1.classList.toggle('hidden');
-    themeToggleLightIcon1.classList.toggle('hidden');
-
-    
-    if (localStorage.getItem('color-theme')) {
-        if (localStorage.getItem('color-theme') === 'light') {
-            document.documentElement.classList.add('dark');
-            localStorage.setItem('color-theme', 'dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-            localStorage.setItem('color-theme', 'light');
-        }
-
-    
-    } else {
-        if (document.documentElement.classList.contains('dark')) {
-            document.documentElement.classList.remove('dark');
-            localStorage.setItem('color-theme', 'light');
-        } else {
-            document.documentElement.classList.add('dark');
-            localStorage.setItem('color-theme', 'dark');
-        }
-    }
-});
-
-    </script>
+  
 
         </a>
         <button id="closeButton" type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700 dark:text-gray-100">
@@ -336,7 +288,105 @@ document.getElementById('reshteHamber').addEventListener('click', function() {
     </div>
   </div>
 </header>
+<div class="banerPlace relative flex items-center justify-center overflow-hidden">
+  <img class="text-center xl:h-[300px] xl:w-[100%] xl:max-w-[1550px]" src="src/images/baner.jpg" alt="">
+  <img class=" guy absolute w-45 lg:w-60 xl:w-80  top-2 right-3 xl:top-0 xl:right-3.5" src="src/images/guy.png" alt="">
+  <p class="shoar font-bold absolute top-7 text-white [text-shadow:_0_4px_4px_rgb(99_102_241_/_0.8)] shadow-gray-50 text-3xl lg:text-5xl lg:top-12">بی رقیب در اموزش</p>
+  <p class="shoar font-bold absolute top-21 text-white [text-shadow:_0_4px_4px_rgb(99_102_241_/_0.8)] shadow-gray-50 text-2xl lg:text-5xl lg:top-39">بی نظیر در خدمات و امکانات</p>
+</div>
+<style>
+  @keyframes bounce {
+    0%, 100% {
+        transform: translateY(0); /* موقعیت اولیه */
+    }
+    50% {
+        transform: translateY(-30px); /* حرکت به بالا */
+    }
+}
 
+.guy {
+    animation: bounce 2.5s infinite ease-in-out; /* انیمیشن با نام bounce، مدت 1 ثانیه و تکرار بی‌نهایت */
+}
+  @media  screen and (min-width:1700px) {
+    .guy{
+      right: 70px
+
+}
+  }
+  @media  screen and (min-width:1900px) {
+    .guy{
+      right: 110px
+
+}
+  }
+  
+  @media  screen and (max-width:700px) {
+    .guy{
+      width: 150px;
+      right: -20px
+
+}
+  }
+  
+  @media  screen and (max-width:400px) {
+    .guy{
+      width: 120px;
+      right: -20px
+
+}
+.shoar{
+  font-size: larger
+}
+  }
+  
+</style>
+
+<div class="w-full  flex flex-col items-center justify-center overflow-hidden mt-12">
+  <h2 class="mb-8 text-3xl font-bold">دوره های اخیر</h2>
+<div class="w-full xl:max-w-[1550px]">
+
+	<div id="default-carousel" class="relative" data-carousel="static">
+        <!-- Carousel wrapper -->
+        <div class="overflow-hidden relative h-56 rounded-lg sm:h-64 xl:h-80 2xl:h-96">
+            <!-- Item 1 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <span class="absolute top-1/2 left-1/2 text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 sm:text-3xl dark:text-gray-800">First Slide</span>
+                <img src="https://flowbite.com/docs/images/carousel/carousel-1.svg" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="...">
+            </div>
+            <!-- Item 2 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <img src="https://flowbite.com/docs/images/carousel/carousel-2.svg" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="...">
+            </div>
+            <!-- Item 3 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <img src="https://flowbite.com/docs/images/carousel/carousel-3.svg" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="...">
+            </div>
+        </div>
+        <!-- Slider indicators -->
+        <div class="flex absolute bottom-5 left-1/2 z-30 space-x-3 -translate-x-1/2">
+            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 1" data-carousel-slide-to="0"></button>
+            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
+            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
+        </div>
+        <!-- Slider controls -->
+        <button type="button" class="flex absolute top-0 left-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none" data-carousel-prev>
+            <span class="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-sky-400/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                <svg class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                <span class="hidden">Previous</span>
+            </span>
+        </button>
+        <button type="button" class="flex absolute top-0 right-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none" data-carousel-next>
+            <span class="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-sky-400/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                <svg class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                <span class="hidden">Next</span>
+            </span>
+        </button>
+    </div>
+
+    <script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.js"></script>
+</div>
+
+</div>
 <?php 
 include './database/db.php';
 
@@ -371,9 +421,7 @@ $select = $conn->prepare("SELECT * FROM fields");
 $select->execute();
 $fields = $select->fetchAll(PDO::FETCH_ASSOC);
 ?>
-<div class="bg-blue-500 text-white p-4 rounded-lg shadow-lg">
-    سلام، این یک کارت با Tailwind CSS است!
-</div>
+
 
 <br><br>
 <h2 class="lg:text-3xl text-2xl m-7.5 mt-10 dark:text-white font-bold">رشته های فنی حرفه ای</h2>
