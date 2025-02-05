@@ -8,25 +8,61 @@
 </head>
 <body dir="rtl" class="bg-gradient-to-r from-blue-100 to-indigo-100 dark:from-blue-950 dark:to-zinc-900 transition-all ease-in 100ms">
   <style>
-    @font-face {
+
+@font-face {
   font-family: iransans;
-  font-weight: 700;
-  src: url(src/iranSans/IRANSansWeb_Bold.woff);
+  font-weight: bolder;
+  src: url(src/iranSans/IRANSansX-Heavy.woff);
 }
 @font-face {
   font-family: iransans;
-  font-weight: medium;
-  src: url(src/iranSans/IRANSansWeb.woff);
+  font-weight: bold;
+  src: url(src/iranSans/IRANSansX-ExtraBlack.woff);
+}
+@font-face {
+  font-family: iransans;
+  font-weight: 900;
+  src: url(src/iranSans/IRANSansX-Black.woff);
+}
+@font-face {
+  font-family: iransans;
+  font-weight: 800;
+  src: url(src/iranSans/IRANSansX-ExtraBold.woff);
+}
+@font-face {
+  font-family: iransans;
+  font-weight: 700;
+  src: url(src/iranSans/IRANSansX-Bold.woff);
+}
+@font-face {
+  font-family: iransans;
+  font-weight: 600;
+  src: url(src/iranSans/IRANSansX-DemiBold.woff);
+}
+@font-face {
+  font-family: iransans;
+  font-weight: 500;
+  src: url(src/iranSans/IRANSansX-Medium.woff);
+}
+@font-face {
+  font-family: iransans;
+  font-weight: 400;
+  src: url(src/iranSans/IRANSansX-Regular.woff);
 }
 @font-face {
   font-family: iransans;
   font-weight: 300;
-  src: url(src/iranSans/IRANSansWeb_Light.woff);
+  src: url(src/iranSans/IRANSansX-Light.woff);
 }
 @font-face {
   font-family: iransans;
-  font-weight: lighter;
-  src: url(src/iranSans/IRANSansWeb_UltraLight.woff);
+  font-weight: 200;
+  src: url(src/iranSans/IRANSansX-UltraLight.woff);
+}
+@font-face {
+  font-family: iransans;
+  font-weight: 100;
+  src: url(src/iranSans/IRANSansX-Thin.woff);
 }
 *{
   font-family: iransans
@@ -106,9 +142,9 @@
     </div>
     <div class="hidden lg:flex lg:gap-x-12">
       <div class="relative">
-      <button dir="rtl" id="toggleButton" type="button" class="flex items-center gap-x-1 text-xl font-semibold  text-black cursor-pointer" aria-expanded="false">
+      <button dir="rtl" id="toggleButton" type="button" class="flex items-center gap-x-1 text-xl font-semibold group-hover:hover:text-blue-500 transition-all ease-out 200ms text-black cursor-pointer" aria-expanded="false">
     دوره ها
-    <svg class="size-7 flex-none  text-black" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+    <svg class="size-7 flex-none group-hover:hover:text-blue-500 text-black" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
         <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
     </svg>
 </button>
@@ -210,9 +246,9 @@
 }
       </style>
 
-      <a href="#" class="text-xl font-semibold text-black  ">پشتیبانی</a>
-      <a href="#" class="text-xl font-semibold text-black  ">آدرس</a>
-      <a href="#" class="text-xl font-semibold text-black  ">مجموعه ما</a>
+      <a href="#" class="text-xl font-semibold hover:text-blue-500 transition-all ease-out 200ms text-black  ">پشتیبانی</a>
+      <a href="#" class="text-xl font-semibold hover:text-blue-500 transition-all ease-out 200ms text-black  ">آدرس</a>
+      <a href="#" class="text-xl font-semibold hover:text-blue-500 transition-all ease-out 200ms text-black  ">مجموعه ما</a>
     </div>
     <div class=" lg:flex lg:flex-1 lg:justify-end">
 
@@ -224,7 +260,7 @@
   <div role="dialog" aria-modal="true">
     
     <div class="fixed z-100 "></div>
-    <div id="hamberContent" dir="rtl" class="translate-x-full transition all ease-in-out 300ms  fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-gray-100 dark:bg-gray-800  px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+    <div id="hamberContent" dir="rtl" class="translate-x-full transition all ease-in-out 300ms  fixed inset-y-0 right-0 z-100 w-full overflow-y-auto bg-gray-100 dark:bg-gray-800  px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
       <div class="flex items-center justify-between ">
         <a href="#" class="-m-1.5 p-1.5">
          
@@ -315,7 +351,7 @@ document.getElementById('reshteHamber').addEventListener('click', function() {
   }
   @media  screen and (min-width:1900px) {
     .guy{
-      right: 110px
+      right: 210px
 
 }
   }
