@@ -317,7 +317,7 @@ document.getElementById('reshteHamber').addEventListener('click', function() {
     </div>
   </div>
 </header>
-      <?php
+<?php
 // اتصال به پایگاه داده
 include('./database/db.php');
 
@@ -338,62 +338,253 @@ try {
     echo "خطا در خواندن داده‌ها: " . $e->getMessage();
 }
 ?>
-<?php
-// اتصال به پایگاه داده
-include('./database/db.php');
 
-try {
-    // گرفتن رشته‌ای که کاربر انتخاب کرده است
-    if (isset($_GET['field_id'])) {
-        $field_id = $_GET['field_id'];
-
-        // گرفتن دوره‌های مربوط به رشته انتخابی
-        $stmt = $conn->prepare("SELECT * FROM programs WHERE field_id = :field_id");
-        $stmt->bindParam(':field_id', $field_id, PDO::PARAM_INT);
-        $stmt->execute();
-        $programs = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    } else {
-        echo "رشته‌ای انتخاب نشده است.";
-    }
-} catch (PDOException $e) {
-    echo "خطا در خواندن داده‌ها: " . $e->getMessage();
-}
-?>
-
-      <h2 class="lg:text-3xl text-2xl m-4.5  dark:text-white ">  رشته ها </h2>
-      <div class="reshteHa mt-1.5 p-2.5 flex gap-3 flex-wrap justify-center w-full">
-        <?php foreach($courses as $cours): ?>
-        <div class=" mx-auto bg-gray-300 dark:bg-gray-800 rounded-lg shadow-md overflow-hidden h-fit mt-3.5 max-w-[350px] min-w-[350px]">
-            <img class="w-full h-48 object-cover" src="<?= $cours['course_image'] ?>" alt="عنوان تصویر">
+<h2 class="lg:text-3xl text-2xl m-4.5 dark:text-white"> رشته ها </h2>
+<div class="reshteHa mt-1.5 p-2.5 flex gap-3 flex-wrap justify-center w-full">
+    <?php if (!empty($courses)): ?>
+        <?php foreach($courses as $course): ?>
+        <div class="mx-auto bg-gray-300 dark:bg-gray-800 rounded-lg shadow-md overflow-hidden h-fit mt-3.5 max-w-[350px] min-w-[350px]">
+            <img class="w-full h-48 object-cover" src="<?= htmlspecialchars($course['course_image']) ?>" alt="عنوان تصویر">
             <div class="p-4">
-                <h2 class="text-xl font-bold mb-2 mt-2.5 dark:text-gray-50">  <?= $cours['course_name'] ?></h2>
-                <p class="text-gray-700 dark:text-gray-300 mb-4"><?= $cours['course_description'] ?></p>
-                <p class="text-gray-600 dark:text-gray-200 mb-2">مدرس: <span class="font-semibold"><?= $cours['instructor_name'] ?></span></p>
-                <button class="toggleDetails inline-block bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600 transition duration-200">جزئیات بیشتر</button>
+                <h2 class="text-xl font-bold mb-2 mt-2.5 dark:text-gray-50"> <?= htmlspecialchars($course['course_name']) ?></h2>
+                <p class="text-gray-700 dark:text-gray-300 mb-4"><?= htmlspecialchars($course['course_description']) ?></p>
+                <p class="text-gray-600 dark:text-gray-200 mb-2">مدرس: <span class="font-semibold"><?= htmlspecialchars($course['instructor_name']) ?></span></p>
+                <p class="text-gray-600 dark:text-gray-300">کد دوره: <span class="font-semibold"><?= htmlspecialchars($course['course_code']) ?></span></p>
+
+                <button class="toggleDetails inline-block bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600 transition duration-200" data-course-code="<?= htmlspecialchars($course['course_code']) ?>" data-course-name="<?= htmlspecialchars($course['course_name']) ?>">جزئیات بیشتر</button>
                 
                 <div id="details" class="hidden mt-4 p-4 bg-gray-200 dark:bg-gray-900 rounded-lg flex flex-col gap-1.5">
                     <h3 class="text-lg font-bold mb-2 dark:text-gray-100">آموزش </h3>
-                    <p class="text-gray-700 mb-2 dark:text-gray-400"><?= $cours['learning_objectives'] ?></p>
-                    <p class="text-gray-600 mb-2 dark:text-gray-300">قیمت: <span class="font-semibold"><?= number_format($cours['course_price']) ?> تومان</span></p>
-                    <p class="text-gray-600 mb-2 dark:text-gray-300">زمان برگزاری: <span class="font-semibold"><?= $cours['course_hours'] ?></span></p>
-                    <p class="text-gray-600 dark:text-gray-300">مدت دوره (ماه): <span class="font-semibold"><?= $cours['course_duration'] ?>ماه</span></p>
-                    <button class="inline-block bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600 transition duration-200 mt-2.5"> خرید</button>
+                    <p class="text-gray-700 mb-2 dark:text-gray-400"><?= htmlspecialchars($course['learning_objectives']) ?></p>
+                    <p class="text-gray-600 mb-2 dark:text-gray-300">قیمت: <span class="font-semibold"><?= number_format($course['course_price']) ?> تومان</span></p>
+                    <p class="text-gray-600 mb-2 dark:text-gray-300">زمان برگزاری: <span class="font-semibold"><?= htmlspecialchars($course['course_hours']) ?></span></p>
+                    <p class="text-gray-600 mb-2 dark:text-gray-300">مدت دوره (ماه): <span class="font-semibold"><?= htmlspecialchars($course['course_duration']) ?> ماه</span></p>
+                    <p class="text-gray-600 dark:text-gray-300">کد دوره: <span class="font-semibold"><?= htmlspecialchars($course['course_code']) ?></span></p>
+                    <a href="#modal" class="open-modal">پیش ثبت نام</a>
                 </div>
             </div>
         </div>
         <?php endforeach; ?>
-       </div>
-        
-        <script>
-            document.querySelectorAll('.toggleDetails').forEach(button => {
-                button.addEventListener('click', function() {
-                    const details = this.nextElementSibling; 
-                    details.classList.toggle('hidden');
-                });
-            });
-        </script>
-      </div>
+    <?php else: ?>
+        <p>هیچ دوره‌ای برای نمایش وجود ندارد.</p>
+    <?php endif; ?>
+</div>
 
-    <script src="src/script.js"></script>
+<script>
+   document.querySelectorAll('.toggleDetails').forEach(button => {
+    button.addEventListener('click', function() {
+        const details = this.nextElementSibling; 
+        details.classList.toggle('hidden');
+        
+        // به‌روزرسانی ورودی‌های فرم با اطلاعات دوره کلیک شده
+        const courseCode = this.getAttribute('data-course-code');
+        const courseName = this.getAttribute('data-course-name');
+        
+        const courseCodeInput = document.querySelector('input[name="course_code"]');
+        const courseNameInput = document.querySelector('input[name="course_name"]');
+        
+        if (courseCodeInput) {
+            courseCodeInput.value = courseCode;
+        }
+        if (courseNameInput) {
+            courseNameInput.value = courseName; // حالا این خط به درستی نام دوره را هم به‌روزرسانی می‌کند
+        }
+    });
+});
+
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const modal = document.getElementById("modal");
+        const closeModal = document.getElementById("closeModal");
+        const registerButtons = document.querySelectorAll(".open-modal");
+
+        registerButtons.forEach(button => {
+            button.addEventListener("click", () => {
+                modal.classList.remove("hidden");
+                setTimeout(() => {
+                    modal.classList.add("opacity-100");
+                    modal.querySelector("div").classList.add("scale-100");
+                }, 10);
+            });
+        });
+
+        function closeModalFunc() {
+            modal.classList.remove("opacity-100");
+            modal.querySelector("div").classList.remove("scale-100");
+            setTimeout(() => modal.classList.add("hidden"), 200);
+        }
+
+        closeModal.addEventListener("click", closeModalFunc);
+
+        window.addEventListener("click", (e) => {
+            if (e.target === modal) closeModalFunc();
+        });
+    });
+</script>
+
+<div dir="rtl" id="modal" class="modal hidden">
+    <div class="modal-content">
+        <a href="#" class="close-modal">&times;</a>
+        <h2>فرم پیش ثبت نام</h2>
+
+        <!-- نمایش پیام خطا یا موفقیت -->
+        <div id="error-message" style="color: red; font-weight: bold; text-align: center; margin-bottom: 10px;"></div>
+
+        <form id="registration-form">
+            <input type="text" name="name" placeholder="نام" required>
+            <input type="text" name="family" placeholder="نام خانوادگی" required>
+            <input type="tel" name="phone" placeholder="شماره تماس" required>
+            <input type="text" name="national_id" placeholder="کد ملی (اختیاری)">
+            
+            <input type="hidden" name="course_code" value="<?= htmlspecialchars($course['course_code']) ?>">
+            <input type="hidden" name="course_name" value="">
+
+            <button type="submit" class="submit-btn">ارسال درخواست</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    document.getElementById('registration-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        var formData = new FormData(this);
+
+        // ارسال درخواست به سرور با AJAX
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'submit2.php', true);
+        xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+
+        xhr.onload = function() {
+            var response = JSON.parse(xhr.responseText);
+
+            // نمایش پیغام خطا یا موفقیت
+            var errorMessageDiv = document.getElementById('error-message');
+            if (response.status === 'error') {
+                errorMessageDiv.textContent = response.message;
+                errorMessageDiv.style.color = "red";
+            } else {
+                errorMessageDiv.textContent = response.message;
+                errorMessageDiv.style.color = "green";
+                // پس از نمایش پیغام موفقیت، می‌توانید فیلدها را پاک کنید یا عملیات دیگر انجام دهید
+                document.getElementById('registration-form').reset();
+            }
+        };
+
+        xhr.send(formData);
+    });
+
+    // بستن مودال و پاک کردن مقادیر ورودی‌ها و پیام خطا
+    document.querySelector(".close-modal").addEventListener("click", function() {
+        const modal = document.getElementById("modal");
+        modal.classList.add("hidden");
+
+        // غیرفعال کردن فرم هنگام بسته شدن مودال
+        const form = document.getElementById('registration-form');
+        form.reset(); 
+        document.getElementById('error-message').textContent = '';  
+    });
+</script>
+
+        </div>
+  
+
+    <style>
+        .open-modal {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .open-modal:hover {
+            background-color: #0056b3;
+        }
+
+        /* استایل پس‌زمینه مودال */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #modal:target {
+            display: flex;
+        }
+
+        /* استایل پنجره مودال */
+        .modal-content {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            text-align: right;
+            position: relative;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* دکمه بستن */
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            text-decoration: none;
+            font-size: 24px;
+            color: #555;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close-modal:hover {
+            color: red;
+        }
+
+        /* استایل فیلدهای ورودی */
+        .modal-content input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            text-align: right;
+        }
+
+        /* دکمه ارسال فرم */
+        .submit-btn {
+            background-color: #28a745;
+            color: white;
+            padding: 12px;
+            width: 100%;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #218838;
+        }
+    </style>
+
 </body>
 </html>

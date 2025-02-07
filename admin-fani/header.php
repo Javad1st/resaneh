@@ -127,6 +127,11 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link mx-5" href="./register.php" id="homeDropdown" role="button">
+                           پیش ثبت نام ها  
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link mx-5" href="../admin/index.php" id="homeDropdown" role="button">
                             پنل آموزشگاه رسانه
                         </a>

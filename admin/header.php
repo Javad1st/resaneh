@@ -102,6 +102,11 @@
                         </a>
                     </li>
                     <li class="nav-item ">
+                        <a class="nav-link mx-5" href="./register.php" id="majorsDropdown" role="button">
+                           پیش ثبت نام های  رسانه 
+                        </a>
+                    </li>
+                    <li class="nav-item ">
                         <a class="nav-link mx-5" href="../admin-fani/index.php" id="majorsDropdown" role="button">
                            پنل فنی حرفه ای 
                         </a>

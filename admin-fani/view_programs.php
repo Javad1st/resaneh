@@ -28,6 +28,7 @@ try {
     <title>دوره‌های رشته</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <style>
+        /* استایل‌های موجود */
         body {
             font-family: 'Arial', sans-serif;
             background-color: #f1f3f6;
@@ -63,7 +64,6 @@ try {
             font-weight: 600;
             margin-bottom: 10px;
             color: #495057;
-            transition: color 0.3s ease;
         }
 
         .card-text {
@@ -71,7 +71,6 @@ try {
             color: #495057;
             line-height: 1.6;
             margin-bottom: 20px;
-            transition: color 0.3s ease;
         }
 
         .program-card:hover .card-title,
@@ -87,7 +86,6 @@ try {
             padding: 12px 18px;
             border: none;
             border-radius: 25px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
         }
 
@@ -138,64 +136,14 @@ try {
             background-color: #c0392b;
         }
 
-        /* مخفی کردن جزئیات در ابتدا */
         .course-details {
             display: none;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 8px;
+            background-color: #f9f9f9;
         }
-        /* تغییر رنگ و طراحی برای باکس‌ها هنگام هاور */
-.program-card {
-    position: relative;
-    border-radius: 15px;
-    overflow: hidden;
-    transition: all 0.4s ease;
-    cursor: pointer;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    background: linear-gradient(145deg, #e0e0e0, #ffffff);
-    border: 1px solid #ddd;
-}
-
-.program-card:hover {
-    transform: translateY(-15px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    background: linear-gradient(145deg, #007bff, #0056b3);
-    color: #fff;
-}
-
-/* طراحی کادر برای جزئیات */
-.course-details {
-    display: none;
-    border: 1px solid #ddd;
-    padding: 15px;
-    margin-top: 10px;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-}
-
-/* تغییر رنگ متن‌ها هنگام هاور */
-.program-card:hover .card-title,
-.program-card:hover .card-text {
-    color: #fff;
-}
-
-/* جزئیات بیشتر */
-.btn-more {
-    display: inline-block;
-    background-color: #007bff;
-    color: white;
-    font-size: 1rem;
-    padding: 12px 18px;
-    border: none;
-    border-radius: 25px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-}
-
-.btn-more:hover {
-    background-color: #0056b3;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
-
     </style>
 </head>
 <body>
@@ -208,6 +156,13 @@ try {
         <?php if (isset($_GET['error'])): ?>
             <div class="alert alert-danger">
                 <?= htmlspecialchars($_GET['error']) ?>
+            </div>
+        <?php endif; ?>
+
+        <!-- نمایش پیغام موفقیت پس از حذف -->
+        <?php if (isset($_GET['success'])): ?>
+            <div class="alert alert-success">
+                دوره با موفقیت حذف شد.
             </div>
         <?php endif; ?>
 
@@ -263,13 +218,12 @@ try {
         function toggleDetails(button) {
             const details = button.closest('.card-body').querySelector('.course-details');
             
-            // تغییر وضعیت نمایش یا مخفی بودن جزئیات
             if (details.style.display === 'none' || details.style.display === '') {
                 details.style.display = 'block';
-                button.innerText = 'جزئیات کمتر';  // تغییر متن دکمه
+                button.innerText = 'جزئیات کمتر';
             } else {
                 details.style.display = 'none';
-                button.innerText = 'جزئیات بیشتر';  // تغییر متن دکمه به حالت اولیه
+                button.innerText = 'جزئیات بیشتر';
             }
         }
 

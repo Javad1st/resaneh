@@ -348,26 +348,27 @@ try {
     echo "خطا در خواندن داده‌ها: " . $e->getMessage();
 }
 ?>
-
-<h2 class="lg:text-3xl text-2xl m-4.5  dark:text-white ">رشته ها</h2>
+<h2 class="lg:text-3xl text-2xl m-4.5 dark:text-white">رشته‌ها</h2>
 <div class="reshteHa mt-1.5 p-2.5 flex gap-3 flex-wrap justify-center w-full">
     <?php if (!empty($programs)): ?>
         <?php foreach($programs as $program): ?>
-        <div class=" mx-auto bg-gray-300 dark:bg-gray-800 rounded-lg shadow-md overflow-hidden h-fit mt-3.5 max-w-[350px] min-w-[350px]">
+        <div class="mx-auto bg-gray-300 dark:bg-gray-800 rounded-lg shadow-md overflow-hidden h-fit mt-3.5 max-w-[350px] min-w-[350px]">
             <img class="w-full h-48 object-cover" src="<?= $program['program_image'] ?>" alt="عنوان تصویر">
             <div class="p-4">
-                <h2 class="text-xl font-bold mb-2 mt-2.5 dark:text-gray-50">  <?= htmlspecialchars($program['program_name']) ?></h2>
+                <h2 class="text-xl font-bold mb-2 mt-2.5 dark:text-gray-50"><?= htmlspecialchars($program['program_name']) ?></h2>
                 <p class="text-gray-700 dark:text-gray-300 mb-4"><?= htmlspecialchars($program['program_description']) ?></p>
-                <button class="toggleDetails inline-block bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600 transition duration-200">جزئیات بیشتر</button>
-                
-                <div id="details" class="hidden mt-4 p-4 bg-gray-200 dark:bg-gray-900 rounded-lg flex flex-col gap-1.5">
-                    <h3 class="text-lg font-bold mb-2 dark:text-gray-100">آموزش </h3>
+                <button class="toggleDetails inline-block bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600 transition duration-200" data-course-code="<?= $program['program_code'] ?>" data-course-name="<?= $program['program_name'] ?>">جزئیات بیشتر</button>
+
+                <div id="details-<?= $program['program_code'] ?>" class="details hidden mt-4 p-4 bg-gray-200 dark:bg-gray-900 rounded-lg flex flex-col gap-1.5">
+                    <h3 class="text-lg font-bold mb-2 dark:text-gray-100">آموزش</h3>
                     <p class="text-gray-700 mb-2 dark:text-gray-400"><?= htmlspecialchars($program['learning_objectives']) ?></p>
                     <p class="text-gray-600 mb-2 dark:text-gray-300">قیمت: <span class="font-semibold"><?= number_format($program['program_price']) ?> تومان</span></p>
                     <p class="text-gray-600 mb-2 dark:text-gray-300">زمان برگزاری: <span class="font-semibold"><?= htmlspecialchars($program['program_hours']) ?></span></p>
-                    <p class="text-gray-600 dark:text-gray-300">مدت دوره (ماه): <span class="font-semibold"><?= htmlspecialchars($program['program_duration']) ?> ماه</span></p>
-                    <a href="#modal" class="open-modal">پیش ثبت نام</a>
+                    <p class="text-gray-600 mb-2 dark:text-gray-300">مدت دوره (ماه): <span class="font-semibold"><?= htmlspecialchars($program['program_duration']) ?> ماه</span></p>
+                    <p class="text-gray-600 dark:text-gray-300">کد دوره: <span class="font-semibold"><?= htmlspecialchars($program['program_code']) ?></span></p>
 
+                    <!-- ارسال اطلاعات کد و نام دوره به فرم پیش ثبت نام -->
+                    <a href="#modal" class="open-modal" data-course-name="<?= htmlspecialchars($program['program_name']) ?>" data-course-code="<?= htmlspecialchars($program['program_code']) ?>">پیش ثبت نام</a>
                 </div>
             </div>
         </div>
@@ -377,21 +378,50 @@ try {
     <?php endif; ?>
 </div>
 
+<!-- مودال -->
+<div dir="rtl" id="modal" class="modal hidden">
+    <div class="modal-content">
+        <a href="#" class="close-modal">&times;</a>
+        <h2>فرم پیش ثبت نام</h2>
+
+        <!-- نمایش پیام خطا یا موفقیت -->
+        <div id="error-message" style="color: red; font-weight: bold; text-align: center; margin-bottom: 10px;"></div>
+
+        <form id="registration-form">
+            <input type="text" name="name" placeholder="نام" required>
+            <input type="text" name="family" placeholder="نام خانوادگی" required>
+            <input type="tel" name="phone" placeholder="شماره تماس" required>
+            <input type="text" name="national_id" placeholder="کد ملی (اختیاری)">
+            
+            <!-- فیلدهای پنهان برای کد و نام دوره -->
+            <input type="text" name="course_code" value="" hidden>
+            <input type="text" name="course_name" value="<?= $program['program_name'] ?>" hidden>
+
+            <button type="submit" class="submit-btn">ارسال درخواست</button>
+        </form>
+    </div>
+</div>
+
 <script>
+    // نمایش جزئیات و بروز رسانی کد دوره
     document.querySelectorAll('.toggleDetails').forEach(button => {
         button.addEventListener('click', function() {
-            const details = this.nextElementSibling; 
+            const details = document.getElementById('details-' + this.getAttribute('data-course-code'));
             details.classList.toggle('hidden');
         });
     });
 
-    document.addEventListener("DOMContentLoaded", function() {
-    const modal = document.getElementById("registerModal");
-    const closeModal = document.getElementById("closeModal");
-    const registerButtons = document.querySelectorAll(".registerButton");
+    // نمایش و بروز رسانی مودال پیش ثبت نام
+    document.querySelectorAll('.open-modal').forEach(button => {
+        button.addEventListener('click', function() {
+            const courseName = this.getAttribute('data-course-name');
+            const courseCode = this.getAttribute('data-course-code');
+            
+            // بروز رسانی فیلدهای پنهان فرم پیش ثبت نام
+            document.querySelector('input[name="course_code"]').value = courseCode;
+            document.querySelector('input[name="course"]').value = courseName;
 
-    registerButtons.forEach(button => {
-        button.addEventListener("click", () => {
+            const modal = document.getElementById("modal");
             modal.classList.remove("hidden");
             setTimeout(() => {
                 modal.classList.add("opacity-100");
@@ -400,44 +430,49 @@ try {
         });
     });
 
-    function closeModalFunc() {
-        modal.classList.remove("opacity-100");
-        modal.querySelector("div").classList.remove("scale-100");
-        setTimeout(() => modal.classList.add("hidden"), 200);
-    }
+    // بستن مودال
+    document.querySelector(".close-modal").addEventListener("click", function() {
+        const modal = document.getElementById("modal");
+        modal.classList.add("hidden");
 
-    closeModal.addEventListener("click", closeModalFunc);
+        // پاک کردن فیلدهای فرم از جمله کد دوره هنگام بسته شدن مودال
+        const form = document.getElementById('registration-form');
+        form.reset(); // پاک کردن مقادیر ورودی‌ها
 
-    window.addEventListener("click", (e) => {
-        if (e.target === modal) closeModalFunc();
+        document.getElementById('error-message').textContent = '';  // پاک کردن پیام خطا
     });
-});
 
+    // ارسال فرم با AJAX
+    document.getElementById('registration-form').addEventListener('submit', function(event) {
+        event.preventDefault();  // جلوگیری از ارسال فرم به صورت معمول
 
+        var formData = new FormData(this);
+
+        // ارسال درخواست به سرور با AJAX
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'submit.php', true);
+        xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+
+        xhr.onload = function() {
+            var response = JSON.parse(xhr.responseText);
+
+            // نمایش پیغام خطا یا موفقیت
+            var errorMessageDiv = document.getElementById('error-message');
+            if (response.status === 'error') {
+                errorMessageDiv.textContent = response.message;
+                errorMessageDiv.style.color = "red";
+            } else {
+                errorMessageDiv.textContent = response.message;
+                errorMessageDiv.style.color = "green";
+                // پس از ارسال موفقیت آمیز، فیلدها دست نخورده باقی می‌مانند
+            }
+        };
+
+        xhr.send(formData);
+    });
 </script>
 
-      </div>
 
-    <script src="src/script.js"></script>
-  
-    </style>
-</head>
-<body>
-
-    <!-- دکمه باز کردن مودال -->
-
-    <!-- مودال -->
-    <div dir="rtl" id="modal" class="modal">
-        <div class="modal-content">
-            <a href="#" class="close-modal">&times;</a>
-            <h2>فرم پیش ثبت نام</h2>
-            <form action="submit.php" method="post">
-    <input type="text" name="name" placeholder="نام" required>
-    <input type="text" name="family" placeholder="نام خانوادگی" required>
-    <input type="tel" name="phone" placeholder="شماره تماس" required>
-    <input type="text" name="national_id" placeholder="کد ملی (اختیاری)">
-    <button type="submit" class="submit-btn">ارسال درخواست</button>
-</form>
 
         </div>
   
