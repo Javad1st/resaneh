@@ -131,7 +131,77 @@
   <div class="container flex flex-col w-screen  max-w-[1550px]">
 <header dir="ltr" class="bg-gray-200 transition-all ease-in 100ms">
   <nav class="lg:mx-auto flex max-w-[1750px] items-center justify-between p-6 lg:px-8 bg-white transition-all ease-in 100ms" aria-label="Global">
-    <div class="flex lg:flex-1 ">
+    <div class="flex lg:flex-1 justify-self-center max-lg:hidden">
+      <a href="#" class="-m-1.5 p-1.5">
+        <span class="sr-only text-6xl ">مجموعه ما</span>
+        <img class="h-[65px] w-auto" src="./images/guy.png" alt="">
+      </a>
+    </div>
+    <div class=" lg:flex-1 lg:justify-end lg:hidden">
+
+    <div id="telBtn2" class="p-3.5 rounded-xl lg:hidden hover:bg-blue-100 transition-all ease-out 200ms cursor-pointer">
+    <svg class="" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: var(--color-blue-500);" ><path d="m20.487 17.14-4.065-3.696a1.001 1.001 0 0 0-1.391.043l-2.393 2.461c-.576-.11-1.734-.471-2.926-1.66-1.192-1.193-1.553-2.354-1.66-2.926l2.459-2.394a1 1 0 0 0 .043-1.391L6.859 3.513a1 1 0 0 0-1.391-.087l-2.17 1.861a1 1 0 0 0-.29.649c-.015.25-.301 6.172 4.291 10.766C11.305 20.707 16.323 21 17.705 21c.202 0 .326-.006.359-.008a.992.992 0 0 0 .648-.291l1.86-2.171a.997.997 0 0 0-.085-1.39z"></path></svg>
+    </div>
+    <div id="modal2" class="fixed inset-0 z-100  bgBO flex items-center justify-center hidden">
+        <div dir="rtl" class="bg-white rounded-lg p-6 shadow-lg transition-transform transform 2-enter modal-leave">
+            <button id="closeModal2" class="absolute top-2 right-2 text-gray-600 hover:text-gray-800"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: var(--color-blue-500)"><path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path></svg></button>
+            <h2 class="text-lg font-bold mt-2"> تلفن آموزشگاه : </h2>
+            <p class="mt-2 font-bold text-xl">025433456</p>
+        </div>
+    </div>
+
+    <script>
+        const telBtn2 = document.getElementById('telBtn2');
+        const modal2 = document.getElementById('modal2');
+        const closeModal2 = document.getElementById('closeModal2');
+
+        telBtn2.addEventListener('click', () => {
+            modal2.classList.remove('hidden');
+            const modalContent2 = modal2.firstElementChild;
+            modalContent2.classList.remove('modal-leave-active');
+            modalContent2.classList.add('modal-enter');
+            setTimeout(() => {
+                modalContent2.classList.add('modal-enter-active');
+            }, 10);
+        });
+
+        closeModal2.addEventListener('click', () => {
+            const modalContent2 = modal2.firstElementChild;
+            modalContent2.classList.remove('modal-enter-active');
+            modalContent2.classList.add('modal-leave-active');
+            setTimeout(() => {
+                modal2.classList.add('hidden');
+                modalContent2.classList.remove('modal-leave-active');
+            }, 300);
+        });
+    </script>
+    </div>
+    <style>
+        .modal-enter {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        .modal-enter-active {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .modal-leave {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .modal-leave-active {
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            
+        }
+        .bgBO{
+          backdrop-filter: blur(6px);
+          background-color: rgba(0, 0, 0, 0.6);
+        }
+    </style>
+     <div class="flex lg:flex-1 justify-self-center lg:hidden">
       <a href="#" class="-m-1.5 p-1.5">
         <span class="sr-only text-6xl ">مجموعه ما</span>
         <img class="h-[65px] w-auto" src="./images/guy.png" alt="">
@@ -145,6 +215,7 @@
         </svg>
       </button>
     </div>
+   
     <div class="hidden lg:flex lg:gap-x-12">
       <div class="relative">
       <button dir="rtl" id="toggleButton" type="button" class="headSub flex items-center gap-x-1 text-xl font-semibold hover:text-blue-500 transition-all ease-out 200ms text-black cursor-pointer" aria-expanded="false">
@@ -256,14 +327,14 @@
       <a href="#" class="headSub text-xl font-semibold transition-all ease-out 200ms text-black  hover:text-blue-500 ">آدرس</a>
       <a href="#" class="headSub text-xl font-semibold transition-all ease-out 200ms text-black  hover:text-blue-500 ">مجموعه ما</a>
     </div>
-    <div class=" lg:flex lg:flex-1 lg:justify-end">
+    <div class=" lg:flex lg:flex-1 lg:justify-end max-lg:hidden">
 
-    <div id="telBtn" class="p-3.5 rounded-xl hover:bg-blue-100 transition-all ease-out 200ms cursor-pointer">
-    <svg class="fill-sky-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" ><path d="m20.487 17.14-4.065-3.696a1.001 1.001 0 0 0-1.391.043l-2.393 2.461c-.576-.11-1.734-.471-2.926-1.66-1.192-1.193-1.553-2.354-1.66-2.926l2.459-2.394a1 1 0 0 0 .043-1.391L6.859 3.513a1 1 0 0 0-1.391-.087l-2.17 1.861a1 1 0 0 0-.29.649c-.015.25-.301 6.172 4.291 10.766C11.305 20.707 16.323 21 17.705 21c.202 0 .326-.006.359-.008a.992.992 0 0 0 .648-.291l1.86-2.171a.997.997 0 0 0-.085-1.39z"></path></svg>
+    <div id="telBtn" class="p-3.5 rounded-xl max-lg:hidden hover:bg-blue-100 transition-all ease-out 200ms cursor-pointer">
+    <svg class="" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: var(--color-blue-500);" ><path d="m20.487 17.14-4.065-3.696a1.001 1.001 0 0 0-1.391.043l-2.393 2.461c-.576-.11-1.734-.471-2.926-1.66-1.192-1.193-1.553-2.354-1.66-2.926l2.459-2.394a1 1 0 0 0 .043-1.391L6.859 3.513a1 1 0 0 0-1.391-.087l-2.17 1.861a1 1 0 0 0-.29.649c-.015.25-.301 6.172 4.291 10.766C11.305 20.707 16.323 21 17.705 21c.202 0 .326-.006.359-.008a.992.992 0 0 0 .648-.291l1.86-2.171a.997.997 0 0 0-.085-1.39z"></path></svg>
     </div>
     <div id="modal" class="fixed inset-0 z-100  bgBO flex items-center justify-center hidden">
         <div dir="rtl" class="bg-white rounded-lg p-6 shadow-lg transition-transform transform modal-enter modal-leave">
-            <button id="closeModal" class="absolute top-2 right-2 text-gray-600 hover:text-gray-800"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: darkCyan;"><path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path></svg></button>
+            <button id="closeModal" class="absolute top-2 right-2 text-gray-600 hover:text-gray-800"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: var(--color-blue-500)"><path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path></svg></button>
             <h2 class="text-lg font-bold mt-2"> تلفن آموزشگاه : </h2>
             <p class="mt-2 font-bold text-xl">025433456</p>
         </div>
@@ -390,10 +461,10 @@ document.getElementById('reshteHamber').addEventListener('click', function() {
   </div>
 </header>
 <div class="banerPlace rounded-b-3xl relative flex items-center justify-center overflow-hidden">
-  <img class="text-center xl:h-[300px] xl:w-[100%] xl:max-w-[1550px] rounded-b-3xl" src="./images/baner.jpg" alt="">
+  <img class="text-center xl:h-[300px] xl:w-[100%] xl:max-w-[1550px] rounded-b-3xl" src="./images/baner.png" alt="">
   <img class=" guy absolute w-45 lg:w-60 xl:w-80  top-2 right-3 xl:top-0 xl:right-3.5" src="./images/guy.png" alt="">
-  <p class="shoar font-[900] absolute top-7 text-white [text-shadow:_2px_4px_8px_#0055ff] shadow-gray-50 text-3xl lg:text-5xl lg:top-12">بی رقیب در اموزش</p>
-  <p class="shoar font-bold absolute top-21 text-white [text-shadow:_2px_4px_8px_#0055ff] shadow-gray-50 text-2xl lg:text-5xl lg:top-39">بی نظیر در خدمات و امکانات</p>
+  <p class="shoar font-[900] absolute max-[755px]:hidden max-lg:top-25 max-lg:text-5xl text-sky-950 [text-shadow:_2px_4px_8px_#0055ff] shadow-gray-50 lg:text-6xl lg:top-28 xl:top-22 xl:text-5xl"> آموزشگاه فنی و حرفه ای</p>
+  <p class="shoar shoar2 font-[900] absolute top-25 max-lg:top-51 max-lg:text-6xl text-sky-950 [text-shadow:_2px_4px_8px_#0055ff] shadow-gray-50 lg:text-8xl lg:top-62 xl:top-49  xl:text-7xl">رسانه</p>
 </div>
 <style>
   @keyframes bounce {
@@ -428,6 +499,12 @@ document.getElementById('reshteHamber').addEventListener('click', function() {
 
 }
   }
+  @media  screen and (max-width:750px) {
+  .shoar2{
+    top: auto;
+    font-size: 5rem;
+  }
+  }
   
   @media  screen and (max-width:400px) {
     .guy{
@@ -436,14 +513,14 @@ document.getElementById('reshteHamber').addEventListener('click', function() {
 
 }
 .shoar{
-  font-size: larger
+  font-size: 3rem
 }
   }
   
 </style>
 
 <div class="w-full  flex flex-col items-center justify-center overflow-hidden mt-12">
-  <h2 class="mb-8 text-3xl font-bold text-blue-500">دوره های اخیر</h2>
+  <h2 class="text-3xl font-bold text-blue-500"></h2>
 <div class="w-[95%] 2xl:w-full">
 
 	<div id="default-carousel" class="relative" data-carousel="static">
@@ -550,6 +627,24 @@ $fields = $select->fetchAll(PDO::FETCH_ASSOC);
 <h2 class="info z-20 font-black text-7xl max-[433px]:text-6xl max-[377px]:text-[54px] sm:text-8xl md:text-9xl [text-shadow:_6px_0px_0px_var(--color-sky-500)] absolute top-[-40px] max-[433px]:top-[-36px] max-[433px]:right-[22px] max-[377px]:top-[-28px] sm:top-[-60px] right-[60px]">درباره رسانه</h2>
 </div>
 
+
+<div class="place flex flex-col justify-center items-center mt-26 relative gap-2.5 ">
+  <h2 class="text-2xl font-bold">شعار ما</h2>
+  <div class="features flex flex-wrap gap-10 justify-center items-center mt-2">
+    <div class="feature bg-sky-500 rounded-xl p-6 text-3xl">#بی رقیب در آموزش</div>
+    <div class="feature bg-sky-500 rounded-xl p-6 text-3xl">#بی نظیر در امکانات</div>
+  </div>
+</div>
+
+<div class="place flex flex-col justify-center items-center mt-22 relative gap-2.5 ">
+  <div class="counter flex gap-2.5 justify-center  items-center rounded-2xl flex-wrap  p-6  max-w-[95%]">
+    <img class="w-96" src="images/mini.png" alt="">
+    <div class="textPlace flex flex-col items-center justify-center gap-9 p-6">
+      <h2 class="text-5xl text-center font-black">تعداد هنر جویان</h2>
+      <p class="text-5xl text-center">1111111 <span>نفر</span></p>
+    </div>
+  </div>
+</div>
 
 <footer class="bg-gray-200 dark:bg-gray-800 transition-all ease-in 100ms">
   <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
