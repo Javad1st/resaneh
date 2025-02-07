@@ -1,135 +1,140 @@
 <!doctype html>
-<html class="dark">
+<html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="./src/output.css" rel="stylesheet">
-  
+  <link href="./output.css" rel="stylesheet">
 </head>
-<body dir="rtl" class="bg-gradient-to-r from-blue-100 to-indigo-100 dark:from-blue-950 dark:to-zinc-900 transition-all ease-in 100ms">
-  <style>
-
-@font-face {
-  font-family: iransans;
-  font-weight: bolder;
-  src: url(src/iranSans/IRANSansX-Heavy.woff);
-}
-@font-face {
-  font-family: iransans;
-  font-weight: bold;
-  src: url(src/iranSans/IRANSansX-ExtraBlack.woff);
-}
-@font-face {
-  font-family: iransans;
-  font-weight: 900;
-  src: url(src/iranSans/IRANSansX-Black.woff);
-}
-@font-face {
-  font-family: iransans;
-  font-weight: 800;
-  src: url(src/iranSans/IRANSansX-ExtraBold.woff);
-}
-@font-face {
-  font-family: iransans;
-  font-weight: 700;
-  src: url(src/iranSans/IRANSansX-Bold.woff);
-}
-@font-face {
-  font-family: iransans;
-  font-weight: 600;
-  src: url(src/iranSans/IRANSansX-DemiBold.woff);
-}
-@font-face {
-  font-family: iransans;
-  font-weight: 500;
-  src: url(src/iranSans/IRANSansX-Medium.woff);
-}
-@font-face {
-  font-family: iransans;
-  font-weight: 400;
-  src: url(src/iranSans/IRANSansX-Regular.woff);
-}
-@font-face {
-  font-family: iransans;
-  font-weight: 300;
-  src: url(src/iranSans/IRANSansX-Light.woff);
-}
-@font-face {
-  font-family: iransans;
-  font-weight: 200;
-  src: url(src/iranSans/IRANSansX-UltraLight.woff);
-}
-@font-face {
-  font-family: iransans;
-  font-weight: 100;
-  src: url(src/iranSans/IRANSansX-Thin.woff);
-}
-*{
-  font-family: iransans
-}
-
-.image{
-  width: 100%;
-  height: auto;
-}
-
-  .back {
-  background-color: rgba(0, 0, 0, 0.7); 
-  height: 100%;
-  width: 100%;
-  right: 0px;
-  top: 0px;
-
-
-}
-.reshte .back a{
-  
-  width: inherit;
-  height: 100%;
-  padding: 1.5rem 12rem;
-  max-width: 160px;
-}
-.reshte .back a p{
-  font-family: iransans;
-}
-.back a:hover p {
-  color: #60a5fa; /* رنگ آبی 400 */
-}
-
-.back a:hover svg {
-  fill: #60a5fa; /* رنگ آبی 400 */
-}
-.reshte{
-  width: 380px;
-  height: auto;
-}
-
-@media  screen and (max-width : 800px) {
-  .reshteHa{
-    flex-direction: column;
-    align-items: center;
+<style>
+  @font-face {
+    font-family: yekan;
+    font-weight: 900;
+    src: url(yekan/YekanBakh-ExtraBlack.woff2);
+  }
+  @font-face {
+    font-family: yekan;
+    font-weight: 800;
+    src: url(yekan/YekanBakh-Black.woff2);
+  }
+  @font-face {
+    font-family: yekan;
+    font-weight: 700;
+    src: url(yekan/YekanBakh-ExtraBold.woff2);
+  }
+  @font-face {
+    font-family: yekan;
+    font-weight: 600;
+    src: url(yekan/YekanBakh-Bold.woff2);
+  }
+  @font-face {
+    font-family: yekan;
+    font-weight: 500;
+    src: url(yekan/YekanBakh-SemiBold.woff2);
   }
   
-}
-@media  screen and (max-width : 400px) {
-  .reshte{
-    width: 280px;
+  @font-face {
+    font-family: yekan;
+    font-weight: 300;
+    src: url(yekan/YekanBakh-Regular.woff2);
+  }
+  @font-face {
+    font-family: yekan;
+    font-weight: 200;
+    src: url(yekan/YekanBakh-Light.woff2);
+  }
+  @font-face {
+    font-family: yekan;
+    font-weight: 100;
+    src: url(yekan/YekanBakh-Thin.woff2);
+  }
+  *{
+    font-family: yekan
+  }
+  
+  .image{
+    width: 100%;
+    height: auto;
+  }
+  
+    .back {
+    background-color: rgba(0, 0, 0, 0.7); 
+    height: 100%;
+    width: 100%;
+    right: 0px;
+    top: 0px;
+  
+  
   }
   .reshte .back a{
+    
+    width: inherit;
+    height: 100%;
+    padding: 1.5rem 12rem;
+    max-width: 160px;
+  }
+  .reshte .back a p{
+    font-family: iransans;
+  }
+  .back a:hover p {
+    color: #60a5fa; /* رنگ آبی 400 */
+  }
   
-  width: inherit;
-  height: 100%;
-  padding: 1.5rem 9rem;
-  max-width: 160px;
-}
-}
-  </style>
-<header dir="ltr" class="bg-gradient-to-r from-blue-100 to-indigo-100 dark:from-blue-950 dark:to-zinc-900 transition-all ease-in 100ms">
-  <nav class="mx-auto flex max-w-[1550px] items-center justify-end lg:justify-between p-6 lg:px-8 bg-white rounded-b-2xl transition-all ease-in 100ms" aria-label="Global">
+  .back a:hover svg {
+    fill: #60a5fa; /* رنگ آبی 400 */
+  }
+  .reshte{
+    width: 380px;
+    height: auto;
+  }
+  
+  @media  screen and (max-width : 800px) {
+    .reshteHa{
+      flex-direction: column;
+      align-items: center;
+    }
+    
+  }
+  @media  screen and (max-width : 400px) {
+    .reshte{
+      width: 280px;
+    }
+    .reshte .back a{
+    
+    width: inherit;
+    height: 100%;
+    padding: 1.5rem 9rem;
+    max-width: 160px;
+  }
+
+  }
+  #dropdown{
+    height: 510px
+  }
+  /* .headSub:hover{
+  
+   color: dodgerblue;
+  
+  
+   
+    
+  } */
+  .headSub:hover svg{
+    fill: dodgerblue;
+   }
+
+
+   .shoar{
+    font-weight: 800;
+   }
+</style>
+<body dir="rtl" class="bg-gray-200 transition-all ease-in 100ms flex flex-col items-center">
+  <div class="container flex flex-col w-screen  max-w-[1550px]">
+<header dir="ltr" class="bg-gray-200 transition-all ease-in 100ms">
+  <nav class="mx-auto flex max-w-[1750px] items-center justify-end lg:justify-between p-6 lg:px-8 bg-white transition-all ease-in 100ms" aria-label="Global">
     <div class="flex lg:flex-1 ">
       <a href="#" class="-m-1.5 p-1.5">
         <span class="sr-only text-6xl ">مجموعه ما</span>
-        <img class="h-8 w-auto" src="#" alt="">
+        <img class="h-8 w-auto" src="#" alt="images/guy.png">
       </a>
     </div>
     <div class="flex lg:hidden ">
@@ -142,15 +147,15 @@
     </div>
     <div class="hidden lg:flex lg:gap-x-12">
       <div class="relative">
-      <button dir="rtl" id="toggleButton" type="button" class="flex items-center gap-x-1 text-xl font-semibold group-hover:hover:text-blue-500 transition-all ease-out 200ms text-black cursor-pointer" aria-expanded="false">
-    دوره ها
-    <svg class="size-7 flex-none group-hover:hover:text-blue-500 text-black" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+      <button dir="rtl" id="toggleButton" type="button" class="headSub flex items-center gap-x-1 text-xl font-semibold hover:text-blue-500 transition-all ease-out 200ms text-black cursor-pointer" aria-expanded="false">
+ رشته ها
+    <svg class="size-7 flex-none group-hover:text-blue-500 text-black" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
         <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
     </svg>
 </button>
 
 <!-- منوی پرتابل -->
-<div id="dropdown" dir="rtl" class="absolute top-3.5 -left-8 z-10 mt-3 w-screen max-w-md overflow-x-hidden rounded-3xl bg-gray-200 ring-1 shadow-lg ring-gray-900/5 hidden">
+<div id="dropdown" dir="rtl" class="absolute top-3.5  z-100 mt-3 w-screen max-w-md overflow-x-hidden overflow-y-scroll rounded-3xl bg-gray-200 ring-1 shadow-lg ring-gray-900/5 hidden">
     <!-- محتویات منو -->
     <div class="p-4">
             <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-blue-100 dark:hover:bg-sky-700">
@@ -182,6 +187,7 @@
                 <p class="mt-1 text-gray-600 dark:text-gray-200">Speak directly to your customers</p>
               </div>
             </div>
+            
             <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-blue-100 dark:hover:bg-sky-700">
               <div class="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                 <svg class="size-6 text-gray-600 group-hover:text-sky-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
@@ -246,9 +252,9 @@
 }
       </style>
 
-      <a href="#" class="text-xl font-semibold hover:text-blue-500 transition-all ease-out 200ms text-black  ">پشتیبانی</a>
-      <a href="#" class="text-xl font-semibold hover:text-blue-500 transition-all ease-out 200ms text-black  ">آدرس</a>
-      <a href="#" class="text-xl font-semibold hover:text-blue-500 transition-all ease-out 200ms text-black  ">مجموعه ما</a>
+      <a href="#" class="headSub text-xl font-semibold transition-all ease-out 200ms text-black hover:text-blue-500  ">پشتیبانی</a>
+      <a href="#" class="headSub text-xl font-semibold transition-all ease-out 200ms text-black  hover:text-blue-500 ">آدرس</a>
+      <a href="#" class="headSub text-xl font-semibold transition-all ease-out 200ms text-black  hover:text-blue-500 ">مجموعه ما</a>
     </div>
     <div class=" lg:flex lg:flex-1 lg:justify-end">
 
@@ -324,11 +330,11 @@ document.getElementById('reshteHamber').addEventListener('click', function() {
     </div>
   </div>
 </header>
-<div class="banerPlace relative flex items-center justify-center overflow-hidden">
-  <img class="text-center xl:h-[300px] xl:w-[100%] xl:max-w-[1550px]" src="src/images/baner.jpg" alt="">
-  <img class=" guy absolute w-45 lg:w-60 xl:w-80  top-2 right-3 xl:top-0 xl:right-3.5" src="src/images/guy.png" alt="">
-  <p class="shoar font-bold absolute top-7 text-white [text-shadow:_0_4px_4px_rgb(99_102_241_/_0.8)] shadow-gray-50 text-3xl lg:text-5xl lg:top-12">بی رقیب در اموزش</p>
-  <p class="shoar font-bold absolute top-21 text-white [text-shadow:_0_4px_4px_rgb(99_102_241_/_0.8)] shadow-gray-50 text-2xl lg:text-5xl lg:top-39">بی نظیر در خدمات و امکانات</p>
+<div class="banerPlace rounded-b-3xl relative flex items-center justify-center overflow-hidden">
+  <img class="text-center xl:h-[300px] xl:w-[100%] xl:max-w-[1550px] rounded-b-3xl" src="./images/baner.jpg" alt="">
+  <img class=" guy absolute w-45 lg:w-60 xl:w-80  top-2 right-3 xl:top-0 xl:right-3.5" src="./images/guy.png" alt="">
+  <p class="shoar font-[900] absolute top-7 text-white [text-shadow:_2px_4px_8px_#0055ff] shadow-gray-50 text-3xl lg:text-5xl lg:top-12">بی رقیب در اموزش</p>
+  <p class="shoar font-bold absolute top-21 text-white [text-shadow:_2px_4px_8px_#0055ff] shadow-gray-50 text-2xl lg:text-5xl lg:top-39">بی نظیر در خدمات و امکانات</p>
 </div>
 <style>
   @keyframes bounce {
@@ -378,8 +384,8 @@ document.getElementById('reshteHamber').addEventListener('click', function() {
 </style>
 
 <div class="w-full  flex flex-col items-center justify-center overflow-hidden mt-12">
-  <h2 class="mb-8 text-3xl font-bold">دوره های اخیر</h2>
-<div class="w-full xl:max-w-[1550px]">
+  <h2 class="mb-8 text-3xl font-bold text-blue-500">دوره های اخیر</h2>
+<div class="w-[95%] 2xl:w-full">
 
 	<div id="default-carousel" class="relative" data-carousel="static">
         <!-- Carousel wrapper -->
@@ -424,7 +430,7 @@ document.getElementById('reshteHamber').addEventListener('click', function() {
 
 </div>
 <?php 
-include './database/db.php';
+include '../database/db.php';
 
 // دریافت سه مقاله آخر
 $select = $conn->prepare("SELECT * FROM majors");
@@ -450,7 +456,7 @@ $majors = $select->fetchAll(PDO::FETCH_ASSOC);
 
 
 <?php 
-include './database/db.php';
+include '../database/db.php';
 
 // دریافت سه مقاله آخر
 $select = $conn->prepare("SELECT * FROM fields");
@@ -464,7 +470,7 @@ $fields = $select->fetchAll(PDO::FETCH_ASSOC);
 <div class="flex gap-3 flex-wrap w-full mt-1.5 justify-center">
   <?php foreach($fields as $field): ?>
   <div class="reshte relative mt-3.5 flex flex-col gap-2.5 bg-gradient-to-l from-sky-500 to-blue-500 rounded-lg p-2 justify-center w-48">
-    <img class="image rounded-md" src="./uploads2/<?= $field['field_image']  ?> " alt="">
+    <img class="image rounded-md" src="../uploads2/<?= $field['field_image']  ?> " alt="">
     <div class="back absolute flex w-full justify-center items-center rounded-md ">
       <a href="dorefani.php?field_id=<?= $field['id'] ?>" class="text-center absolute flex flex-col transition-all ease-in 200ms text-gray-50 justify-center items-center gap-2">
         <svg class="text-white fill-white transition-all ease-initial 200ms" xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24">
@@ -477,6 +483,13 @@ $fields = $select->fetchAll(PDO::FETCH_ASSOC);
   <?php endforeach; ?>
 </div><br><br>
 
+<div class="place flex justify-center items-center mt-8 relative ">
+<div class="infoSec relative overflow-hidden bg-sky-500 max-w-[1550px] rounded-2xl flex flex-col flex-wrap justify-center gap-0 px-10 py-4 w-[95%]">
+  <p class="info z-20 font-light text-2xl mb-3.5 mt-20 max-[433px]:text-xl">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد</p>
+  <div class="shape max-2xl:w-xl max-xl:w-lg max-lg:w-md max-md:w-sm max-md:max-h-90 absolute z-10 w-3xl h-78 bg-sky-600 opacity-35 rounded-b-full top-0 left-[-200px]"></div>
+</div>
+<h2 class="info z-20 font-black text-7xl max-[433px]:text-6xl max-[377px]:text-[54px] sm:text-8xl md:text-9xl [text-shadow:_6px_0px_0px_var(--color-sky-500)] absolute top-[-40px] max-[433px]:top-[-36px] max-[433px]:right-[22px] max-[377px]:top-[-28px] sm:top-[-60px] right-[60px]">درباره رسانه</h2>
+</div>
 
 
 <footer class="bg-gray-200 dark:bg-gray-800 transition-all ease-in 100ms">
@@ -697,6 +710,7 @@ $fields = $select->fetchAll(PDO::FETCH_ASSOC);
     </div>
   </div>
 </footer>
-<script src="src/script.js"></script>
+</div>
+<script src="./script.js"></script>
 </body>
 </html>
