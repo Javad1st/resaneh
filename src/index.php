@@ -130,11 +130,11 @@
 <body dir="rtl" class="bg-gray-200 transition-all ease-in 100ms flex flex-col items-center">
   <div class="container flex flex-col w-screen  max-w-[1550px]">
 <header dir="ltr" class="bg-gray-200 transition-all ease-in 100ms">
-  <nav class="mx-auto flex max-w-[1750px] items-center justify-end lg:justify-between p-6 lg:px-8 bg-white transition-all ease-in 100ms" aria-label="Global">
+  <nav class="lg:mx-auto flex max-w-[1750px] items-center justify-between p-6 lg:px-8 bg-white transition-all ease-in 100ms" aria-label="Global">
     <div class="flex lg:flex-1 ">
       <a href="#" class="-m-1.5 p-1.5">
         <span class="sr-only text-6xl ">مجموعه ما</span>
-        <img class="h-8 w-auto" src="#" alt="images/guy.png">
+        <img class="h-[65px] w-auto" src="./images/guy.png" alt="">
       </a>
     </div>
     <div class="flex lg:hidden ">
@@ -258,9 +258,68 @@
     </div>
     <div class=" lg:flex lg:flex-1 lg:justify-end">
 
-    
-
+    <div id="telBtn" class="p-3.5 rounded-xl hover:bg-blue-100 transition-all ease-out 200ms cursor-pointer">
+    <svg class="fill-sky-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" ><path d="m20.487 17.14-4.065-3.696a1.001 1.001 0 0 0-1.391.043l-2.393 2.461c-.576-.11-1.734-.471-2.926-1.66-1.192-1.193-1.553-2.354-1.66-2.926l2.459-2.394a1 1 0 0 0 .043-1.391L6.859 3.513a1 1 0 0 0-1.391-.087l-2.17 1.861a1 1 0 0 0-.29.649c-.015.25-.301 6.172 4.291 10.766C11.305 20.707 16.323 21 17.705 21c.202 0 .326-.006.359-.008a.992.992 0 0 0 .648-.291l1.86-2.171a.997.997 0 0 0-.085-1.39z"></path></svg>
     </div>
+    <div id="modal" class="fixed inset-0 z-100  bgBO flex items-center justify-center hidden">
+        <div dir="rtl" class="bg-white rounded-lg p-6 shadow-lg transition-transform transform modal-enter modal-leave">
+            <button id="closeModal" class="absolute top-2 right-2 text-gray-600 hover:text-gray-800"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: darkCyan;"><path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path></svg></button>
+            <h2 class="text-lg font-bold mt-2"> تلفن آموزشگاه : </h2>
+            <p class="mt-2 font-bold text-xl">025433456</p>
+        </div>
+    </div>
+
+    <script>
+        const telBtn = document.getElementById('telBtn');
+        const modal = document.getElementById('modal');
+        const closeModal = document.getElementById('closeModal');
+
+        telBtn.addEventListener('click', () => {
+            modal.classList.remove('hidden');
+            const modalContent = modal.firstElementChild;
+            modalContent.classList.remove('modal-leave-active');
+            modalContent.classList.add('modal-enter');
+            setTimeout(() => {
+                modalContent.classList.add('modal-enter-active');
+            }, 10);
+        });
+
+        closeModal.addEventListener('click', () => {
+            const modalContent = modal.firstElementChild;
+            modalContent.classList.remove('modal-enter-active');
+            modalContent.classList.add('modal-leave-active');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modalContent.classList.remove('modal-leave-active');
+            }, 300);
+        });
+    </script>
+    </div>
+    <style>
+        .modal-enter {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        .modal-enter-active {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .modal-leave {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .modal-leave-active {
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            
+        }
+        .bgBO{
+          backdrop-filter: blur(6px);
+          background-color: rgba(0, 0, 0, 0.6);
+        }
+    </style>
   </nav>
   
   <div role="dialog" aria-modal="true">
