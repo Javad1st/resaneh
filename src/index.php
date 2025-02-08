@@ -219,7 +219,7 @@
     <div class="hidden lg:flex lg:gap-x-12">
       <div class="relative">
       <button dir="rtl" id="toggleButton" type="button" class="headSub flex items-center gap-x-1 text-xl font-semibold hover:text-blue-500 transition-all ease-out 200ms text-black cursor-pointer" aria-expanded="false">
- رشته ها
+ دوره ها 
     <svg class="size-7 flex-none group-hover:text-blue-500 text-black" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
         <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
     </svg>
@@ -228,7 +228,19 @@
 <!-- منوی پرتابل -->
 <div id="dropdown" dir="rtl" class="absolute top-3.5  z-100 mt-3 w-screen max-w-md overflow-x-hidden overflow-y-scroll rounded-3xl bg-gray-200 ring-1 shadow-lg ring-gray-900/5 hidden">
     <!-- محتویات منو -->
+
+  
+<?php 
+include '../database/db.php';
+
+// دریافت سه مقاله آخر
+$select = $conn->prepare("SELECT * FROM courses");
+$select->execute();
+$courses = $select->fetchAll(PDO::FETCH_ASSOC);
+?>
+
     <div class="p-4">
+    <?php foreach($courses as $course): ?>
             <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-blue-100 dark:hover:bg-sky-700">
               <div class="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                 <svg class="size-6 text-gray-600 group-hover:text-sky-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
@@ -238,79 +250,20 @@
               </div>
               <div class="flex-auto">
                 <a href="#" class="block font-semibold text-gray-900 dark:text-gray-50">
-                  Analytics
+                <?= $course['course_name'] ?>
                   <span class="absolute inset-0"></span>
                 </a>
-                <p class="mt-1 text-gray-600 dark:text-gray-200">Get a better understanding of your traffic</p>
+                <p class="mt-1 text-gray-600 dark:text-gray-200"><?= $course['course_description']?></p>
               </div>
             </div>
-            <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-blue-100 dark:hover:bg-sky-700">
-              <div class="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                <svg class="size-6 text-gray-600 group-hover:text-sky-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M15.042 21.672 13.684 16.6m0 0-2.51 2.225.569-9.47 5.227 7.917-3.286-.672ZM12 2.25V4.5m5.834.166-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243-1.59-1.59" />
-                </svg>
-              </div>
-              <div class="flex-auto">
-                <a href="#" class="block font-semibold text-gray-900 dark:text-gray-50">
-                  Engagement
-                  <span class="absolute inset-0"></span>
-                </a>
-                <p class="mt-1 text-gray-600 dark:text-gray-200">Speak directly to your customers</p>
-              </div>
-            </div>
-            
-            <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-blue-100 dark:hover:bg-sky-700">
-              <div class="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                <svg class="size-6 text-gray-600 group-hover:text-sky-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M7.864 4.243A7.5 7.5 0 0 1 19.5 10.5c0 2.92-.556 5.709-1.568 8.268M5.742 6.364A7.465 7.465 0 0 0 4.5 10.5a7.464 7.464 0 0 1-1.15 3.993m1.989 3.559A11.209 11.209 0 0 0 8.25 10.5a3.75 3.75 0 1 1 7.5 0c0 .527-.021 1.049-.064 1.565M12 10.5a14.94 14.94 0 0 1-3.6 9.75m6.633-4.596a18.666 18.666 0 0 1-2.485 5.33" />
-                </svg>
-              </div>
-              <div class="flex-auto">
-                <a href="#" class="block font-semibold text-gray-900 dark:text-gray-50">
-                  Security
-                  <span class="absolute inset-0"></span>
-                </a>
-                <p class="mt-1 text-gray-600 dark:text-gray-200">Your customers’ data will be safe and secure</p>
-              </div>
-            </div>
-            <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-blue-100 dark:hover:bg-sky-700">
-              <div class="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                <svg class="size-6 text-gray-600 group-hover:text-sky-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 16.875h3.375m0 0h3.375m-3.375 0V13.5m0 3.375v3.375M6 10.5h2.25a2.25 2.25 0 0 0 2.25-2.25V6a2.25 2.25 0 0 0-2.25-2.25H6A2.25 2.25 0 0 0 3.75 6v2.25A2.25 2.25 0 0 0 6 10.5Zm0 9.75h2.25A2.25 2.25 0 0 0 10.5 18v-2.25a2.25 2.25 0 0 0-2.25-2.25H6a2.25 2.25 0 0 0-2.25 2.25V18A2.25 2.25 0 0 0 6 20.25Zm9.75-9.75H18a2.25 2.25 0 0 0 2.25-2.25V6A2.25 2.25 0 0 0 18 3.75h-2.25A2.25 2.25 0 0 0 13.5 6v2.25a2.25 2.25 0 0 0 2.25 2.25Z" />
-                </svg>
-              </div>
-              <div class="flex-auto">
-                <a href="#" class="block font-semibold text-gray-900 dark:text-gray-50">
-                  Integrations
-                  <span class="absolute inset-0"></span>
-                </a>
-                <p class="mt-1 text-gray-600 dark:text-gray-200">Connect with third-party tools</p>
-              </div>
-            </div>
-            <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-blue-100 dark:hover:bg-sky-700">
-              <div class="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                <svg class="size-6 text-gray-600 group-hover:text-sky-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
-                </svg>
-              </div>
-              <div class="flex-auto">
-                <a href="#" class="block font-semibold text-gray-900 dark:text-gray-50">
-                  Automations
-                  <span class="absolute inset-0"></span>
-                </a>
-                <p class="mt-1 text-gray-600 dark:text-gray-200">Build strategic funnels that will convert</p>
-              </div>
-            </div>
+            <?php endforeach; ?>
+
+           
+       
           </div>
 
           <div class="grid grid-cols-1 divide-x divide-gray-900/5  border-t-1">
-           
-            <a href="#" class="flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-gray-900 dark:text-gray-50 hover:bg-blue-100 dark:hover:bg-sky-700">
-              <svg class="size-5 flex-none text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
-                <path fill-rule="evenodd" d="M2 3.5A1.5 1.5 0 0 1 3.5 2h1.148a1.5 1.5 0 0 1 1.465 1.175l.716 3.223a1.5 1.5 0 0 1-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 0 0 6.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 0 1 1.767-1.052l3.223.716A1.5 1.5 0 0 1 18 15.352V16.5a1.5 1.5 0 0 1-1.5 1.5H15c-1.149 0-2.263-.15-3.326-.43A13.022 13.022 0 0 1 2.43 8.326 13.019 13.019 0 0 1 2 5V3.5Z" clip-rule="evenodd" />
-              </svg>
-              Contact sales
-            </a>
+          
           </div>
         </div>
       </div>
@@ -422,8 +375,9 @@
     </svg>
 </button>
 
+<?php foreach($courses as $course): ?>
 <div class="dropHamber mt-2 space-y-2 dark:bg-gray-700 bg-gray-300 rounded-lg overflow-x-hidden overflow-y-scroll  max-h-0 transition-all duration-300 ease-in-out" id="disclosure-1">
-    <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 dark:text-gray-300">Analytics</a>
+    <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 dark:text-gray-300"></a>
     <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 dark:text-gray-300">Engagement</a>
     <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 dark:text-gray-300">Security</a>
     <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 dark:text-gray-300">Integrations</a>
@@ -431,7 +385,7 @@
     <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 dark:text-gray-300">Watch demo</a>
     <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 dark:text-gray-300">Contact sales</a>
 </div>
-
+<?php  endforeach;?>
 <script>
 document.getElementById('reshteHamber').addEventListener('click', function() {
     var disclosure = document.getElementById('disclosure-1');
@@ -577,9 +531,9 @@ $majors = $select->fetchAll(PDO::FETCH_ASSOC);
 <div class="flex gap-3 flex-wrap w-full mt-1.5 justify-center">
   <?php foreach($majors as $major): ?>
   <div class="reshte relative transition-all ease-in-out 200ms hover:transform hover:scale-105 hover:shadow-md shadow-gray-400 dark:shadow-gray-800 mt-3.5 flex flex-col gap-2.5 bg-gradient-to-l from-sky-500 to-blue-500 rounded-lg p-2 justify-center w-48">
-    <img class="image rounded-md" src="<?= $major['major_image']  ?> " alt="">
+    <img class="image rounded-md" src="../<?= $major['major_image']  ?> " alt="">
     <div class="back absolute flex w-full justify-center items-center rounded-md ">
-      <a href="dore.php?major_id=<?= $major['id'] ?>" class="text-center absolute flex flex-col transition-all ease-in 200ms text-gray-50 justify-center items-center gap-2">
+      <a href="../dore.php?major_id=<?= $major['id'] ?>" class="text-center absolute flex flex-col transition-all ease-in 200ms text-gray-50 justify-center items-center gap-2">
         <svg class="text-white fill-white transition-all ease-initial 200ms" xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24">
           <path d="m7.375 16.781 1.25-1.562L4.601 12l4.024-3.219-1.25-1.562-5 4a1 1 0 0 0 0 1.562l5 4zm9.25-9.562-1.25 1.562L19.399 12l-4.024 3.219 1.25 1.562 5-4a1 1 0 0 0 0-1.562l-5-4zm-1.649-4.003-4 18-1.953-.434 4-18z"></path>
         </svg>
@@ -608,7 +562,7 @@ $fields = $select->fetchAll(PDO::FETCH_ASSOC);
   <div class="reshte relative mt-3.5 flex flex-col gap-2.5 bg-gradient-to-l from-sky-500 to-blue-500 rounded-lg p-2 justify-center w-48">
     <img class="image rounded-md" src="../uploads2/<?= $field['field_image']  ?> " alt="">
     <div class="back absolute flex w-full justify-center items-center rounded-md ">
-      <a href="dorefani.php?field_id=<?= $field['id'] ?>" class="text-center absolute flex flex-col transition-all ease-in 200ms text-gray-50 justify-center items-center gap-2">
+      <a href="../dorefani.php?field_id=<?= $field['id'] ?>" class="text-center absolute flex flex-col transition-all ease-in 200ms text-gray-50 justify-center items-center gap-2">
         <svg class="text-white fill-white transition-all ease-initial 200ms" xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24">
           <path d="m7.375 16.781 1.25-1.562L4.601 12l4.024-3.219-1.25-1.562-5 4a1 1 0 0 0 0 1.562l5 4zm9.25-9.562-1.25 1.562L19.399 12l-4.024 3.219 1.25 1.562 5-4a1 1 0 0 0 0-1.562l-5-4zm-1.649-4.003-4 18-1.953-.434 4-18z"></path>
         </svg>
