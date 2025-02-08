@@ -70,6 +70,11 @@ require './header.php';
                 <label for="courseImage" class="form-label">تصویر دوره</label>
                 <input type="file" class="form-control" id="courseImage" name="course_image" accept="image/*">
             </div>
+            <div class="mb-3">
+    <label for="coursePdf" class="form-label">فایل PDF دوره</label>
+    <input type="file" class="form-control" id="coursePdf" name="course_pdf" accept=".pdf">
+</div>
+
 
             <button type="submit" class="btn btn-primary">افزودن دوره</button>
         </form>

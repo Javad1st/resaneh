@@ -45,10 +45,36 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 
+    // مدیریت آپلود فایل PDF
+    $pdfPath = null;
+    if (isset($_FILES['course_pdf']) && $_FILES['course_pdf']['error'] == 0) {
+        $pdfTmpName = $_FILES['course_pdf']['tmp_name'];
+        $pdfName = time() . '_' . $_FILES['course_pdf']['name'];
+        $pdfDirectory = '../uploads2/pdfs/';
+        $pdfTargetFile = $pdfDirectory . basename($pdfName);
+        $pdfFileType = strtolower(pathinfo($pdfTargetFile, PATHINFO_EXTENSION));
+
+        // بررسی فرمت فایل PDF
+        if ($pdfFileType == 'pdf') {
+            // ایجاد دایرکتوری اگر وجود نداشته باشد
+            if (!is_dir($pdfDirectory)) {
+                mkdir($pdfDirectory, 0777, true);
+            }
+
+            // انتقال فایل PDF به مسیر مقصد
+            if (move_uploaded_file($pdfTmpName, $pdfTargetFile)) {
+                $pdfPath = 'uploads2/pdfs/' . $pdfName;
+            }
+        } else {
+            echo "فایل PDF مجاز نیست.";
+            exit();
+        }
+    }
+
     try {
         // وارد کردن اطلاعات به پایگاه داده
-        $stmt = $conn->prepare("INSERT INTO programs (field_id, program_code, program_name, program_description, program_hours, program_duration, program_price, program_image, learning_objectives) 
-                                VALUES (:field_id, :program_code, :program_name, :program_description, :program_hours, :program_duration, :program_price, :program_image, :learning_objectives)");
+        $stmt = $conn->prepare("INSERT INTO programs (field_id, program_code, program_name, program_description, program_hours, program_duration, program_price, program_image, learning_objectives, course_pdf) 
+                                VALUES (:field_id, :program_code, :program_name, :program_description, :program_hours, :program_duration, :program_price, :program_image, :learning_objectives, :course_pdf)");
         $stmt->bindParam(':field_id', $field_id);
         $stmt->bindParam(':program_code', $program_code);
         $stmt->bindParam(':program_name', $program_name);
@@ -58,9 +84,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt->bindParam(':program_price', $program_price);
         $stmt->bindParam(':learning_objectives', $program_object);
         $stmt->bindParam(':program_image', $imagePath);
+        $stmt->bindParam(':course_pdf', $pdfPath);
 
         $stmt->execute();
-        
+
         // هدایت به صفحه تأیید با تأخیر ۳ ثانیه‌ای
         header("Refresh: 3; URL=add_course.php");
         echo "<div style='text-align: center; margin-top: 50px; font-size: 20px; color: green;'>

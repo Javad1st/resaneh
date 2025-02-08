@@ -367,6 +367,14 @@ try {
                     <p class="text-gray-600 mb-2 dark:text-gray-300">مدت دوره (ماه): <span class="font-semibold"><?= htmlspecialchars($program['program_duration']) ?> ماه</span></p>
                     <p class="text-gray-600 dark:text-gray-300">کد دوره: <span class="font-semibold"><?= htmlspecialchars($program['program_code']) ?></span></p>
 
+                    <!-- نمایش PDF داخل iframe -->
+                    <?php if (!empty($program['course_pdf'])): ?>
+                        <div class="mt-3">
+                            <h4 class="text-lg font-bold mb-2 dark:text-gray-100">مشاهده PDF</h4>
+                            <iframe src="<?= $program['course_pdf'] ?>" width="100%" height="400px"></iframe>
+                        </div>
+                    <?php endif; ?>
+
                     <!-- ارسال اطلاعات کد و نام دوره به فرم پیش ثبت نام -->
                     <a href="#modal" class="open-modal" data-course-name="<?= htmlspecialchars($program['program_name']) ?>" data-course-code="<?= htmlspecialchars($program['program_code']) ?>">پیش ثبت نام</a>
                 </div>
