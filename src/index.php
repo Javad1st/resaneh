@@ -280,12 +280,8 @@ $courses = $select->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
     <div class="p-4">
-<<<<<<< HEAD
-            <div class="group dropChild relative flex items-center gap-x-6 rounded-l-none p-4 text-sm/6 hover:bg-blue-100 dark:hover:bg-sky-700">
-=======
     <?php foreach($courses as $course): ?>
             <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-blue-100 dark:hover:bg-sky-700">
->>>>>>> 120aa4a019f0cfbfdfda0c5264774130e9efba5a
               <div class="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                 <svg class="size-6 text-gray-600 group-hover:text-sky-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z" />
@@ -571,21 +567,16 @@ $select = $conn->prepare("SELECT * FROM majors");
 $select->execute();
 $majors = $select->fetchAll(PDO::FETCH_ASSOC);
 ?>
-<div class="relative mt-3.5 scroll mr-3.5 flex justify-between items-center">
+<div class="relative scroll mt-3.5 mr-3.5 flex justify-between items-center">
 <h2 class="lg:text-4xl text-2xl m-7.5  dark:text-white font-bold">رشته ها
-<svg class="absolute top-[8px] right-0 z-[-10] opacity-80 mt-2 mr-0.5 scale-105 lg:scale-150  p-1.5 rounded-full " xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" style="fill: var(--color-sky-600)"><path d="m6.516 14.323-1.49 6.452a.998.998 0 0 0 1.529 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4 4.536-4.082a1 1 0 0 0-.59-1.74l-5.701-.454-2.467-5.461a.998.998 0 0 0-1.822 0L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.214 4.107zm2.853-4.326a.998.998 0 0 0 .832-.586L12 5.43l1.799 3.981a.998.998 0 0 0 .832.586l3.972.315-3.271 2.944c-.284.256-.397.65-.293 1.018l1.253 4.385-3.736-2.491a.995.995 0 0 0-1.109 0l-3.904 2.603 1.05-4.546a1 1 0 0 0-.276-.94l-3.038-2.962 4.09-.326z"></path></svg>
+<svg class="absolute top-[8px] right-0 z-[-10] opacity-80 mt-2 mr-0.5 scale-105 lg:scale-150 bg-sky-300 p-1.5 rounded-full " xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" style="fill: var(--color-sky-600)"><path d="M4 11h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zm10 0h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zM4 21h6a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zm13 0c2.206 0 4-1.794 4-4s-1.794-4-4-4-4 1.794-4 4 1.794 4 4 4z"></path></svg>
 </h2>
 
 </div>
 <div class="flex gap-3 flex-wrap w-full mt-1.5 justify-center">
   <?php foreach($majors as $major): ?>
-<<<<<<< HEAD
   <div class="reshte scroll relative transition-all ease-in-out 200ms hover:transform hover:scale-105 hover:shadow-md shadow-gray-400 dark:shadow-gray-800 mt-3.5 flex flex-col gap-2.5 bg-gradient-to-l from-sky-500 to-blue-500 rounded-lg p-2 justify-center w-48">
-    <img class="image rounded-md" src="<?= $major['major_image']  ?> " alt="">
-=======
-  <div class="reshte relative transition-all ease-in-out 200ms hover:transform hover:scale-105 hover:shadow-md shadow-gray-400 dark:shadow-gray-800 mt-3.5 flex flex-col gap-2.5 bg-gradient-to-l from-sky-500 to-blue-500 rounded-lg p-2 justify-center w-48">
     <img class="image rounded-md" src="../<?= $major['major_image']  ?> " alt="">
->>>>>>> 120aa4a019f0cfbfdfda0c5264774130e9efba5a
     <div class="back absolute flex w-full justify-center items-center rounded-md ">
       <a href="dore.php?major_id=<?= $major['id'] ?>" class="text-center absolute flex flex-col transition-all ease-in 200ms text-gray-50 justify-center items-center gap-2">
         <svg class="text-white fill-white transition-all ease-initial 200ms" xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24">
@@ -617,9 +608,9 @@ $fields = $select->fetchAll(PDO::FETCH_ASSOC);
 
 
 </div>
-<div class="flex gap-3 flex-wrap w-full scroll mt-1.5 justify-center">
+<div class="flex gap-3 flex-wrap w-full mt-1.5 justify-center">
   <?php foreach($fields as $field): ?>
-  <div class="reshte relative mt-3.5 flex flex-col gap-2.5 bg-gradient-to-l from-sky-500 to-blue-500 rounded-lg p-2 justify-center w-48">
+  <div class="reshte scroll relative mt-3.5 flex flex-col gap-2.5 bg-gradient-to-l from-sky-500 to-blue-500 rounded-lg p-2 justify-center w-48">
     <img class="image rounded-md" src="../uploads2/<?= $field['field_image']  ?> " alt="">
     <div class="back absolute flex w-full justify-center items-center rounded-md ">
       <a href="../dorefani.php?field_id=<?= $field['id'] ?>" class="text-center absolute flex flex-col transition-all ease-in 200ms text-gray-50 justify-center items-center gap-2">
@@ -695,9 +686,6 @@ window.addEventListener('scroll', function() {
 });
 
 </script>
-
-
-
 
 
 <footer class="bg-gray-200 dark:bg-gray-800 transition-all ease-in 100ms">
