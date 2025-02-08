@@ -578,7 +578,6 @@ $majors = $select->fetchAll(PDO::FETCH_ASSOC);
 <svg class="absolute top-[8px] right-0 z-[-10] opacity-80 mt-2 mr-0.5 scale-105 lg:scale-150 bg-sky-300 p-1.5 rounded-full " xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" style="fill: var(--color-sky-600)"><path d="M4 11h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zm10 0h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zM4 21h6a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zm13 0c2.206 0 4-1.794 4-4s-1.794-4-4-4-4 1.794-4 4 1.794 4 4 4z"></path></svg>
 </h2>
 
-<a href="#" class="text-2xl max-sm:text-sm ml-10 flex items-center justify-center gap-2.5 text-gray-500"><p>مشاهده همه</p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: var(--color-gray-500);"><path d="M21 11H6.414l5.293-5.293-1.414-1.414L2.586 12l7.707 7.707 1.414-1.414L6.414 13H21z"></path></svg></a>
 </div>
 <div class="flex gap-3 flex-wrap w-full mt-1.5 justify-center">
   <?php foreach($majors as $major): ?>
@@ -613,7 +612,6 @@ $fields = $select->fetchAll(PDO::FETCH_ASSOC);
 <svg class="absolute top-[8px] right-0 z-[-10] opacity-80 mt-2 mr-0.5 scale-105 lg:scale-150 bg-sky-300 p-1.5 rounded-full " xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" style="fill: var(--color-sky-600)"><path d="M10 3H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zm10 10h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1zM17 3c-2.206 0-4 1.794-4 4s1.794 4 4 4 4-1.794 4-4-1.794-4-4-4zM7 13c-2.206 0-4 1.794-4 4s1.794 4 4 4 4-1.794 4-4-1.794-4-4-4z"></path></svg>
 </h2>
 
-<a href="#" class="text-2xl max-sm:absolute top-[-10px] left-[0px] max-sm:text-sm ml-10 flex items-center justify-center gap-2.5 text-gray-500"><p>مشاهده همه</p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: var(--color-gray-500);"><path d="M21 11H6.414l5.293-5.293-1.414-1.414L2.586 12l7.707 7.707 1.414-1.414L6.414 13H21z"></path></svg></a>
 
 </div>
 <div class="flex gap-3 flex-wrap w-full mt-1.5 justify-center">
