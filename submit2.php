@@ -1,6 +1,7 @@
 <?php
 require_once './database/db.php'; // اتصال به پایگاه داده
 
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     try {
         // دریافت داده‌ها از فرم و پاکسازی ورودی‌ها
@@ -19,7 +20,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ]);
             exit();
         }
-
         // بررسی صحت کد ملی (اختیاری: اگر وارد شده باشد باید عدد باشد)
         if ($national_id && !preg_match('/^\d{10}$/', $national_id)) {
             echo json_encode([

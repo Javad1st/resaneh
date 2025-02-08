@@ -52,15 +52,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
+    // مدیریت آپلود PDF
+    $program_pdf = $program['course_pdf']; // PDF قبلی
+    if (isset($_FILES['course_pdf']) && $_FILES['course_pdf']['error'] == 0) {
+        $pdf_name = $_FILES['course_pdf']['name'];
+        $pdf_tmp_name = $_FILES['course_pdf']['tmp_name'];
+        $pdf_extension = pathinfo($pdf_name, PATHINFO_EXTENSION);
+        $new_pdf_name = uniqid('course_', true) . '.' . $pdf_extension;
+        $pdf_upload_dir = '../uploads2/pdfs/';
+
+        // انتقال PDF به پوشه مربوطه
+        if (move_uploaded_file($pdf_tmp_name, $pdf_upload_dir . $new_pdf_name)) {
+            $program_pdf = 'uploads2//pdfs/' . $new_pdf_name; // مسیر ذخیره PDF جدید
+        } else {
+            echo "خطا در بارگذاری PDF.";
+            exit();
+        }
+    }
+
     try {
         // بروزرسانی اطلاعات برنامه در پایگاه داده
-        $stmt = $conn->prepare("UPDATE programs SET program_name = :programName, program_description = :programDescription, program_hours = :programHours, program_duration = :programDuration, program_price = :programPrice, program_image = :programImage WHERE id = :programId");
+        $stmt = $conn->prepare("UPDATE programs SET program_name = :programName, program_description = :programDescription, program_hours = :programHours, program_duration = :programDuration, program_price = :programPrice, program_image = :programImage, course_pdf = :programPdf WHERE id = :programId");
         $stmt->bindParam(':programName', $programName);
         $stmt->bindParam(':programDescription', $programDescription);
         $stmt->bindParam(':programHours', $programHours);
         $stmt->bindParam(':programDuration', $programDuration);
         $stmt->bindParam(':programPrice', $programPrice);
         $stmt->bindParam(':programImage', $program_image);
+        $stmt->bindParam(':programPdf', $program_pdf);
         $stmt->bindParam(':programId', $programId);
         $stmt->execute();
 
@@ -122,6 +141,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <br>
                 <?php if ($program['program_image']): ?>
                     <img src="../<?= $program['program_image'] ?>" alt="تصویر دوره" width="150">
+                <?php endif; ?>
+            </div>
+
+            <div class="mb-3">
+                <label for="course_pdf" class="form-label">فایل PDF برنامه</label>
+                <input type="file" class="form-control" id="course_pdf" name="course_pdf" accept="application/pdf">
+                <br>
+                <?php if ($program['course_pdf']): ?>
+                    <a href="../<?= $program['course_pdf'] ?>" target="_blank">مشاهده فایل PDF فعلی</a>
                 <?php endif; ?>
             </div>
         

@@ -487,7 +487,7 @@ try {
     <?php if (!empty($courses)): ?>
         <?php foreach($courses as $course): ?>
         <div class="mx-auto bg-gray-300 dark:bg-gray-800 rounded-lg shadow-md overflow-hidden h-fit mt-3.5 max-w-[350px] min-w-[350px]">
-            <img class="w-full h-48 object-cover" src="<?= htmlspecialchars($course['course_image']) ?>" alt="عنوان تصویر">
+            <img class="w-full h-48 object-cover" src="../<?= htmlspecialchars($course['course_image']) ?>" alt="عنوان تصویر">
             <div class="p-4">
                 <h2 class="text-xl font-bold mb-2 mt-2.5 dark:text-gray-50"> <?= htmlspecialchars($course['course_name']) ?></h2>
                 <p class="text-gray-700 dark:text-gray-300 mb-4"><?= htmlspecialchars($course['course_description']) ?></p>
