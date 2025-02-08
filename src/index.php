@@ -51,6 +51,42 @@
     font-family: yekan
   }
   
+  /* width */
+::-webkit-scrollbar {
+  transition: all ease-in 200ms;
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--color-sky-500);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-sky-700);
+}
+
+  @keyframes appear {
+    from{
+      opacity: 0;
+      scale: 0.7;
+    }
+    to{
+      opacity: 1;
+      scale: 1;
+    }
+  }
+  .scroll{
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+  }
   .image{
     width: 100%;
     height: auto;
@@ -118,6 +154,10 @@
    
     
   } */
+   .dropChild{
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+   }
   .headSub:hover svg{
     fill: dodgerblue;
    }
@@ -229,7 +269,7 @@
 <div id="dropdown" dir="rtl" class="absolute top-3.5  z-100 mt-3 w-screen max-w-md overflow-x-hidden overflow-y-scroll rounded-3xl bg-gray-200 ring-1 shadow-lg ring-gray-900/5 hidden">
     <!-- محتویات منو -->
     <div class="p-4">
-            <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-blue-100 dark:hover:bg-sky-700">
+            <div class="group dropChild relative flex items-center gap-x-6 rounded-l-none p-4 text-sm/6 hover:bg-blue-100 dark:hover:bg-sky-700">
               <div class="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                 <svg class="size-6 text-gray-600 group-hover:text-sky-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z" />
@@ -519,7 +559,7 @@ document.getElementById('reshteHamber').addEventListener('click', function() {
   
 </style>
 
-<div class="w-full  flex flex-col items-center justify-center overflow-hidden mt-12">
+<div class="w-full scroll flex flex-col items-center justify-center overflow-hidden mt-12">
   <h2 class="text-3xl font-bold text-blue-500"></h2>
 <div class="w-[95%] 2xl:w-full">
 
@@ -573,15 +613,15 @@ $select = $conn->prepare("SELECT * FROM majors");
 $select->execute();
 $majors = $select->fetchAll(PDO::FETCH_ASSOC);
 ?>
-<div class="relative mt-3.5 mr-3.5 flex justify-between items-center">
+<div class="relative mt-3.5 scroll mr-3.5 flex justify-between items-center">
 <h2 class="lg:text-4xl text-2xl m-7.5  dark:text-white font-bold">رشته ها
-<svg class="absolute top-[8px] right-0 z-[-10] opacity-80 mt-2 mr-0.5 scale-105 lg:scale-150 bg-sky-300 p-1.5 rounded-full " xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" style="fill: var(--color-sky-600)"><path d="M4 11h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zm10 0h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zM4 21h6a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zm13 0c2.206 0 4-1.794 4-4s-1.794-4-4-4-4 1.794-4 4 1.794 4 4 4z"></path></svg>
+<svg class="absolute top-[8px] right-0 z-[-10] opacity-80 mt-2 mr-0.5 scale-105 lg:scale-150  p-1.5 rounded-full " xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" style="fill: var(--color-sky-600)"><path d="m6.516 14.323-1.49 6.452a.998.998 0 0 0 1.529 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4 4.536-4.082a1 1 0 0 0-.59-1.74l-5.701-.454-2.467-5.461a.998.998 0 0 0-1.822 0L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.214 4.107zm2.853-4.326a.998.998 0 0 0 .832-.586L12 5.43l1.799 3.981a.998.998 0 0 0 .832.586l3.972.315-3.271 2.944c-.284.256-.397.65-.293 1.018l1.253 4.385-3.736-2.491a.995.995 0 0 0-1.109 0l-3.904 2.603 1.05-4.546a1 1 0 0 0-.276-.94l-3.038-2.962 4.09-.326z"></path></svg>
 </h2>
 
 </div>
 <div class="flex gap-3 flex-wrap w-full mt-1.5 justify-center">
   <?php foreach($majors as $major): ?>
-  <div class="reshte relative transition-all ease-in-out 200ms hover:transform hover:scale-105 hover:shadow-md shadow-gray-400 dark:shadow-gray-800 mt-3.5 flex flex-col gap-2.5 bg-gradient-to-l from-sky-500 to-blue-500 rounded-lg p-2 justify-center w-48">
+  <div class="reshte scroll relative transition-all ease-in-out 200ms hover:transform hover:scale-105 hover:shadow-md shadow-gray-400 dark:shadow-gray-800 mt-3.5 flex flex-col gap-2.5 bg-gradient-to-l from-sky-500 to-blue-500 rounded-lg p-2 justify-center w-48">
     <img class="image rounded-md" src="<?= $major['major_image']  ?> " alt="">
     <div class="back absolute flex w-full justify-center items-center rounded-md ">
       <a href="dore.php?major_id=<?= $major['id'] ?>" class="text-center absolute flex flex-col transition-all ease-in 200ms text-gray-50 justify-center items-center gap-2">
@@ -607,14 +647,14 @@ $fields = $select->fetchAll(PDO::FETCH_ASSOC);
 
 
 <br><br>
-<div class="relative mt-10.5 mr-3.5 flex justify-between items-center">
+<div class="relative scroll mt-10.5 mr-3.5 flex justify-between items-center">
 <h2 class="lg:text-4xl text-2xl  m-7.5  dark:text-white font-bold">رشته های فنی حرفه ای
 <svg class="absolute top-[8px] right-0 z-[-10] opacity-80 mt-2 mr-0.5 scale-105 lg:scale-150 bg-sky-300 p-1.5 rounded-full " xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" style="fill: var(--color-sky-600)"><path d="M10 3H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zm10 10h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1zM17 3c-2.206 0-4 1.794-4 4s1.794 4 4 4 4-1.794 4-4-1.794-4-4-4zM7 13c-2.206 0-4 1.794-4 4s1.794 4 4 4 4-1.794 4-4-1.794-4-4-4z"></path></svg>
 </h2>
 
 
 </div>
-<div class="flex gap-3 flex-wrap w-full mt-1.5 justify-center">
+<div class="flex gap-3 flex-wrap w-full scroll mt-1.5 justify-center">
   <?php foreach($fields as $field): ?>
   <div class="reshte relative mt-3.5 flex flex-col gap-2.5 bg-gradient-to-l from-sky-500 to-blue-500 rounded-lg p-2 justify-center w-48">
     <img class="image rounded-md" src="../uploads2/<?= $field['field_image']  ?> " alt="">
@@ -631,31 +671,71 @@ $fields = $select->fetchAll(PDO::FETCH_ASSOC);
 </div><br><br>
 
 <div class="place flex justify-center items-center mt-8 relative ">
-<div class="infoSec relative overflow-hidden bg-sky-500 max-w-[1550px] rounded-2xl flex flex-col flex-wrap justify-center gap-0 px-10 py-4 w-[95%]">
+<div class="infoSec scroll relative overflow-hidden bg-sky-500 max-w-[1550px] rounded-2xl flex flex-col flex-wrap justify-center gap-0 px-10 py-4 w-[95%]">
   <p class="info z-20 font-light text-2xl mb-3.5 mt-20 max-[433px]:text-xl">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد</p>
   <div class="shape max-2xl:w-xl max-xl:w-lg max-lg:w-md max-md:w-sm max-md:max-h-90 absolute z-10 w-3xl h-78 bg-sky-600 opacity-35 rounded-b-full top-0 left-[-200px]"></div>
 </div>
-<h2 class="info z-20 font-black text-7xl max-[433px]:text-6xl max-[377px]:text-[54px] sm:text-8xl md:text-9xl [text-shadow:_6px_0px_0px_var(--color-sky-500)] absolute top-[-40px] max-[433px]:top-[-36px] max-[433px]:right-[22px] max-[377px]:top-[-28px] sm:top-[-60px] right-[60px]">درباره رسانه</h2>
+<h2 class="info z-20 scroll font-black text-7xl max-[433px]:text-6xl max-[377px]:text-[54px] sm:text-8xl md:text-9xl [text-shadow:_6px_0px_0px_var(--color-sky-500)] absolute top-[-40px] max-[433px]:top-[-36px] max-[433px]:right-[22px] max-[377px]:top-[-28px] sm:top-[-60px] right-[60px]">درباره رسانه</h2>
 </div>
 
 
 <div class="place flex flex-col justify-center items-center mt-26 relative gap-2.5 ">
-  <h2 class="text-2xl font-bold">شعار ما</h2>
-  <div class="features flex flex-wrap gap-10 justify-center items-center mt-2">
+  <h2 class="text-2xl scroll font-bold">شعار ما</h2>
+  <div class="features scroll flex flex-wrap gap-10 justify-center items-center mt-2">
     <div class="feature bg-sky-500 rounded-xl p-6 text-3xl">#بی رقیب در آموزش</div>
     <div class="feature bg-sky-500 rounded-xl p-6 text-3xl">#بی نظیر در امکانات</div>
   </div>
 </div>
 
-<div class="place flex flex-col justify-center items-center mt-22 relative gap-2.5 ">
+<div class="place flex scroll flex-col justify-center items-center mt-22 relative gap-2.5 ">
   <div class="counter flex gap-2.5 justify-center  items-center rounded-2xl flex-wrap  p-6  max-w-[95%]">
     <img class="w-96" src="images/mini.png" alt="">
     <div class="textPlace flex flex-col items-center justify-center gap-9 p-6">
       <h2 class="text-5xl text-center font-black">تعداد هنر جویان</h2>
-      <p class="text-5xl text-center flex flex-wrap items-center justify-center">1111111 <span> نفر</span><span class="flex mr-8"><svg class="" xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);"><circle cx="12" cy="4" r="2"></circle><path d="M15 7H9a1 1 0 0 0-1 1v7h2v7h4v-7h2V8a1 1 0 0 0-1-1z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);"><circle cx="12" cy="4" r="2"></circle><path d="M14.948 7.684A.997.997 0 0 0 14 7h-4a.998.998 0 0 0-.948.684l-2 6 1.775.593L8 18h2v4h4v-4h2l-.827-3.724 1.775-.593-2-5.999z"></path></svg></span></p>
+      <p id="counter" class="text-5xl text-center flex flex-wrap items-center justify-center">00000 <span> نفر</span><span class="flex mr-8">...</span></p>
     </div>
   </div>
 </div>
+
+<script>
+  let hasAnimated = false; 
+
+window.addEventListener('scroll', function() {
+    const counterElement = document.getElementById('counter');
+    const targetNumber = 23413; 
+    const startNumber = 0; 
+    const duration = 1500; 
+    const startTime = performance.now();
+
+    
+    const rect = counterElement.getBoundingClientRect();
+    const isVisible = rect.top >= 0 && rect.bottom <= window.innerHeight;
+
+    if (isVisible && !hasAnimated) {
+        hasAnimated = true; 
+
+        function animateCounter(currentTime) {
+            const elapsedTime = currentTime - startTime;
+            const progress = Math.min(elapsedTime / duration, 1); 
+
+           
+            const currentNumber = Math.floor(startNumber + (targetNumber - startNumber) * progress);
+            counterElement.innerHTML = currentNumber.toString().padStart(5, '0') + ' <span> نفر</span>';
+
+            if (progress < 1) {
+                requestAnimationFrame(animateCounter); 
+            }
+        }
+
+        requestAnimationFrame(animateCounter); 
+    }
+});
+
+</script>
+
+
+
+
 
 <footer class="bg-gray-200 dark:bg-gray-800 transition-all ease-in 100ms">
   <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
