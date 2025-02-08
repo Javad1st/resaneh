@@ -573,7 +573,13 @@ $select = $conn->prepare("SELECT * FROM majors");
 $select->execute();
 $majors = $select->fetchAll(PDO::FETCH_ASSOC);
 ?>
-<h2 class="lg:text-4xl text-2xl m-7.5 dark:text-white font-bold">رشته ها</h2>
+<div class="relative mt-3.5 mr-3.5 flex justify-between items-center">
+<h2 class="lg:text-4xl text-2xl m-7.5  dark:text-white font-bold">رشته ها
+<svg class="absolute top-[8px] right-0 z-[-10] opacity-80 mt-2 mr-0.5 scale-105 lg:scale-150 bg-sky-300 p-1.5 rounded-full " xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" style="fill: var(--color-sky-600)"><path d="M4 11h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zm10 0h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zM4 21h6a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zm13 0c2.206 0 4-1.794 4-4s-1.794-4-4-4-4 1.794-4 4 1.794 4 4 4z"></path></svg>
+</h2>
+
+<a href="#" class="text-2xl max-sm:text-sm ml-10 flex items-center justify-center gap-2.5 text-gray-500"><p>مشاهده همه</p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: var(--color-gray-500);"><path d="M21 11H6.414l5.293-5.293-1.414-1.414L2.586 12l7.707 7.707 1.414-1.414L6.414 13H21z"></path></svg></a>
+</div>
 <div class="flex gap-3 flex-wrap w-full mt-1.5 justify-center">
   <?php foreach($majors as $major): ?>
   <div class="reshte relative transition-all ease-in-out 200ms hover:transform hover:scale-105 hover:shadow-md shadow-gray-400 dark:shadow-gray-800 mt-3.5 flex flex-col gap-2.5 bg-gradient-to-l from-sky-500 to-blue-500 rounded-lg p-2 justify-center w-48">
@@ -602,7 +608,14 @@ $fields = $select->fetchAll(PDO::FETCH_ASSOC);
 
 
 <br><br>
-<h2 class="lg:text-3xl text-2xl m-7.5 mt-10 dark:text-white font-bold">رشته های فنی حرفه ای</h2>
+<div class="relative mt-10.5 mr-3.5 flex justify-between items-center">
+<h2 class="lg:text-4xl text-2xl  m-7.5  dark:text-white font-bold">رشته های فنی حرفه ای
+<svg class="absolute top-[8px] right-0 z-[-10] opacity-80 mt-2 mr-0.5 scale-105 lg:scale-150 bg-sky-300 p-1.5 rounded-full " xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" style="fill: var(--color-sky-600)"><path d="M10 3H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zm10 10h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1zM17 3c-2.206 0-4 1.794-4 4s1.794 4 4 4 4-1.794 4-4-1.794-4-4-4zM7 13c-2.206 0-4 1.794-4 4s1.794 4 4 4 4-1.794 4-4-1.794-4-4-4z"></path></svg>
+</h2>
+
+<a href="#" class="text-2xl max-sm:absolute top-[-10px] left-[0px] max-sm:text-sm ml-10 flex items-center justify-center gap-2.5 text-gray-500"><p>مشاهده همه</p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: var(--color-gray-500);"><path d="M21 11H6.414l5.293-5.293-1.414-1.414L2.586 12l7.707 7.707 1.414-1.414L6.414 13H21z"></path></svg></a>
+
+</div>
 <div class="flex gap-3 flex-wrap w-full mt-1.5 justify-center">
   <?php foreach($fields as $field): ?>
   <div class="reshte relative mt-3.5 flex flex-col gap-2.5 bg-gradient-to-l from-sky-500 to-blue-500 rounded-lg p-2 justify-center w-48">
@@ -641,7 +654,7 @@ $fields = $select->fetchAll(PDO::FETCH_ASSOC);
     <img class="w-96" src="images/mini.png" alt="">
     <div class="textPlace flex flex-col items-center justify-center gap-9 p-6">
       <h2 class="text-5xl text-center font-black">تعداد هنر جویان</h2>
-      <p class="text-5xl text-center">1111111 <span>نفر</span></p>
+      <p class="text-5xl text-center flex flex-wrap items-center justify-center">1111111 <span> نفر</span><span class="flex mr-8"><svg class="" xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);"><circle cx="12" cy="4" r="2"></circle><path d="M15 7H9a1 1 0 0 0-1 1v7h2v7h4v-7h2V8a1 1 0 0 0-1-1z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);"><circle cx="12" cy="4" r="2"></circle><path d="M14.948 7.684A.997.997 0 0 0 14 7h-4a.998.998 0 0 0-.948.684l-2 6 1.775.593L8 18h2v4h4v-4h2l-.827-3.724 1.775-.593-2-5.999z"></path></svg></span></p>
     </div>
   </div>
 </div>
