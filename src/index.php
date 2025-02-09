@@ -6,6 +6,9 @@
   <link href="./output.css" rel="stylesheet">
 </head>
 <style>
+  html{
+    scroll-behavior: smooth;
+  }
   @font-face {
     font-family: yekan;
     font-weight: 900;
@@ -328,7 +331,7 @@ $courses = $select->fetchAll(PDO::FETCH_ASSOC);
 
       <a href="#" class="headSub text-xl font-semibold transition-all ease-out 200ms text-black hover:text-blue-500  ">پشتیبانی</a>
       <a href="#" class="headSub text-xl font-semibold transition-all ease-out 200ms text-black  hover:text-blue-500 ">آدرس</a>
-      <a href="#" class="headSub text-xl font-semibold transition-all ease-out 200ms text-black  hover:text-blue-500 ">مجموعه ما</a>
+      <a href="#aboutUs" class="headSub text-xl font-semibold transition-all ease-out 200ms text-black  hover:text-blue-500 ">مجموعه ما</a>
     </div>
     <div class=" lg:flex lg:flex-1 lg:justify-end max-lg:hidden">
 
@@ -626,7 +629,7 @@ $fields = $select->fetchAll(PDO::FETCH_ASSOC);
         <svg class="text-white fill-white transition-all ease-initial 200ms" xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24">
           <path d="m7.375 16.781 1.25-1.562L4.601 12l4.024-3.219-1.25-1.562-5 4a1 1 0 0 0 0 1.562l5 4zm9.25-9.562-1.25 1.562L19.399 12l-4.024 3.219 1.25 1.562 5-4a1 1 0 0 0 0-1.562l-5-4zm-1.649-4.003-4 18-1.953-.434 4-18z"></path>
         </svg>
-        <p class="text-xl font-bold transition-all ease-in-out 300ms"><?= $field['field_name'] ?> </p>
+        <p id="aboutUs" class="text-xl font-bold transition-all ease-in-out 300ms"><?= $field['field_name'] ?> </p>
       </a>
     </div>
   </div>
