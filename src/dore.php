@@ -6,6 +6,9 @@
   <link href="./output.css" rel="stylesheet">
 </head>
 <style>
+  html{
+    scroll-behavior: smooth;
+  }
   @font-face {
     font-family: yekan;
     font-weight: 900;
@@ -51,13 +54,50 @@
     font-family: yekan
   }
   
+  /* width */
+::-webkit-scrollbar {
+  transition: all ease-in 200ms;
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--color-sky-500);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-sky-700);
+}
+
+  @keyframes appear {
+    from{
+      opacity: 0;
+      scale: 0.7;
+    }
+    to{
+      opacity: 1;
+      scale: 1;
+    }
+  }
+  .scroll{
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+  }
   .image{
     width: 100%;
-    height: auto;
+    height: 100%;
   }
   
     .back {
-    background-color: rgba(0, 0, 0, 0.7); 
+      transition: all ease-in-out 200ms;
+    background-color: rgba(0, 0, 0, 0.5); 
     height: 100%;
     width: 100%;
     right: 0px;
@@ -73,10 +113,19 @@
     max-width: 160px;
   }
   .reshte .back a p{
-    font-family: iransans;
+    font-family: yekan;
+    width: 290px;
   }
   .back a:hover p {
     color: #60a5fa; /* رنگ آبی 400 */
+    scale: 1.1;
+
+    
+  }
+  .back:hover{
+    
+      background-color: rgba(0, 0, 0, 0.7); 
+    
   }
   
   .back a:hover svg {
@@ -118,6 +167,10 @@
    
     
   } */
+   .dropChild{
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+   }
   .headSub:hover svg{
     fill: dodgerblue;
    }
@@ -127,12 +180,12 @@
     font-weight: 800;
    }
 </style>
-<body dir="rtl" class="bg-gray-200 transition-all ease-in 100ms flex flex-col items-center">
+<body dir="rtl" class="bg-gray-200 transition-all ease-in 100ms flex flex-col items-center overflow-x-hidden">
   <div class="container flex flex-col w-screen  max-w-[1550px]">
 <header dir="ltr" class="bg-gray-200 transition-all ease-in 100ms">
-  <nav class="lg:mx-auto flex max-w-[1750px] items-center justify-between rounded-b-2xl p-6 lg:px-8 bg-white transition-all ease-in 100ms" aria-label="Global">
+  <nav class="lg:mx-auto flex max-w-[1750px] items-center justify-between p-6 lg:px-8 bg-white transition-all ease-in 100ms" aria-label="Global">
     <div class="flex lg:flex-1 justify-self-center max-lg:hidden">
-      <a href="#" class="-m-1.5 p-1.5">
+      <a href="./index.php" class="-m-1.5 p-1.5">
         <span class="sr-only text-6xl ">مجموعه ما</span>
         <img class="h-[65px] w-auto" src="./images/guy.png" alt="">
       </a>
@@ -202,7 +255,7 @@
         }
     </style>
      <div class="flex lg:flex-1 justify-self-center lg:hidden">
-      <a href="#" class="-m-1.5 p-1.5">
+      <a href="./index.php" class="-m-1.5 p-1.5">
         <span class="sr-only text-6xl ">مجموعه ما</span>
         <img class="h-[65px] w-auto" src="./images/guy.png" alt="">
       </a>
@@ -219,7 +272,7 @@
     <div class="hidden lg:flex lg:gap-x-12">
       <div class="relative">
       <button dir="rtl" id="toggleButton" type="button" class="headSub flex items-center gap-x-1 text-xl font-semibold hover:text-blue-500 transition-all ease-out 200ms text-black cursor-pointer" aria-expanded="false">
- رشته ها
+ دوره ها 
     <svg class="size-7 flex-none group-hover:text-blue-500 text-black" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
         <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
     </svg>
@@ -228,7 +281,19 @@
 <!-- منوی پرتابل -->
 <div id="dropdown" dir="rtl" class="absolute top-3.5  z-100 mt-3 w-screen max-w-md overflow-x-hidden overflow-y-scroll rounded-3xl bg-gray-200 ring-1 shadow-lg ring-gray-900/5 hidden">
     <!-- محتویات منو -->
+
+  
+<?php 
+include '../database/db.php';
+
+// دریافت سه مقاله آخر
+$select = $conn->prepare("SELECT * FROM courses");
+$select->execute();
+$courses = $select->fetchAll(PDO::FETCH_ASSOC);
+?>
+
     <div class="p-4">
+    <?php foreach($courses as $course): ?>
             <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-blue-100 dark:hover:bg-sky-700">
               <div class="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                 <svg class="size-6 text-gray-600 group-hover:text-sky-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
@@ -238,79 +303,20 @@
               </div>
               <div class="flex-auto">
                 <a href="#" class="block font-semibold text-gray-900 dark:text-gray-50">
-                  Analytics
+                <?= $course['course_name'] ?>
                   <span class="absolute inset-0"></span>
                 </a>
-                <p class="mt-1 text-gray-600 dark:text-gray-200">Get a better understanding of your traffic</p>
+                <p class="mt-1 text-gray-600 dark:text-gray-200"><?= $course['course_description']?></p>
               </div>
             </div>
-            <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-blue-100 dark:hover:bg-sky-700">
-              <div class="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                <svg class="size-6 text-gray-600 group-hover:text-sky-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M15.042 21.672 13.684 16.6m0 0-2.51 2.225.569-9.47 5.227 7.917-3.286-.672ZM12 2.25V4.5m5.834.166-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243-1.59-1.59" />
-                </svg>
-              </div>
-              <div class="flex-auto">
-                <a href="#" class="block font-semibold text-gray-900 dark:text-gray-50">
-                  Engagement
-                  <span class="absolute inset-0"></span>
-                </a>
-                <p class="mt-1 text-gray-600 dark:text-gray-200">Speak directly to your customers</p>
-              </div>
-            </div>
-            
-            <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-blue-100 dark:hover:bg-sky-700">
-              <div class="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                <svg class="size-6 text-gray-600 group-hover:text-sky-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M7.864 4.243A7.5 7.5 0 0 1 19.5 10.5c0 2.92-.556 5.709-1.568 8.268M5.742 6.364A7.465 7.465 0 0 0 4.5 10.5a7.464 7.464 0 0 1-1.15 3.993m1.989 3.559A11.209 11.209 0 0 0 8.25 10.5a3.75 3.75 0 1 1 7.5 0c0 .527-.021 1.049-.064 1.565M12 10.5a14.94 14.94 0 0 1-3.6 9.75m6.633-4.596a18.666 18.666 0 0 1-2.485 5.33" />
-                </svg>
-              </div>
-              <div class="flex-auto">
-                <a href="#" class="block font-semibold text-gray-900 dark:text-gray-50">
-                  Security
-                  <span class="absolute inset-0"></span>
-                </a>
-                <p class="mt-1 text-gray-600 dark:text-gray-200">Your customers’ data will be safe and secure</p>
-              </div>
-            </div>
-            <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-blue-100 dark:hover:bg-sky-700">
-              <div class="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                <svg class="size-6 text-gray-600 group-hover:text-sky-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 16.875h3.375m0 0h3.375m-3.375 0V13.5m0 3.375v3.375M6 10.5h2.25a2.25 2.25 0 0 0 2.25-2.25V6a2.25 2.25 0 0 0-2.25-2.25H6A2.25 2.25 0 0 0 3.75 6v2.25A2.25 2.25 0 0 0 6 10.5Zm0 9.75h2.25A2.25 2.25 0 0 0 10.5 18v-2.25a2.25 2.25 0 0 0-2.25-2.25H6a2.25 2.25 0 0 0-2.25 2.25V18A2.25 2.25 0 0 0 6 20.25Zm9.75-9.75H18a2.25 2.25 0 0 0 2.25-2.25V6A2.25 2.25 0 0 0 18 3.75h-2.25A2.25 2.25 0 0 0 13.5 6v2.25a2.25 2.25 0 0 0 2.25 2.25Z" />
-                </svg>
-              </div>
-              <div class="flex-auto">
-                <a href="#" class="block font-semibold text-gray-900 dark:text-gray-50">
-                  Integrations
-                  <span class="absolute inset-0"></span>
-                </a>
-                <p class="mt-1 text-gray-600 dark:text-gray-200">Connect with third-party tools</p>
-              </div>
-            </div>
-            <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-blue-100 dark:hover:bg-sky-700">
-              <div class="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                <svg class="size-6 text-gray-600 group-hover:text-sky-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
-                </svg>
-              </div>
-              <div class="flex-auto">
-                <a href="#" class="block font-semibold text-gray-900 dark:text-gray-50">
-                  Automations
-                  <span class="absolute inset-0"></span>
-                </a>
-                <p class="mt-1 text-gray-600 dark:text-gray-200">Build strategic funnels that will convert</p>
-              </div>
-            </div>
+            <?php endforeach; ?>
+
+           
+       
           </div>
 
           <div class="grid grid-cols-1 divide-x divide-gray-900/5  border-t-1">
-           
-            <a href="#" class="flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-gray-900 dark:text-gray-50 hover:bg-blue-100 dark:hover:bg-sky-700">
-              <svg class="size-5 flex-none text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
-                <path fill-rule="evenodd" d="M2 3.5A1.5 1.5 0 0 1 3.5 2h1.148a1.5 1.5 0 0 1 1.465 1.175l.716 3.223a1.5 1.5 0 0 1-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 0 0 6.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 0 1 1.767-1.052l3.223.716A1.5 1.5 0 0 1 18 15.352V16.5a1.5 1.5 0 0 1-1.5 1.5H15c-1.149 0-2.263-.15-3.326-.43A13.022 13.022 0 0 1 2.43 8.326 13.019 13.019 0 0 1 2 5V3.5Z" clip-rule="evenodd" />
-              </svg>
-              Contact sales
-            </a>
+          
           </div>
         </div>
       </div>
@@ -325,14 +331,14 @@
 
       <a href="#" class="headSub text-xl font-semibold transition-all ease-out 200ms text-black hover:text-blue-500  ">پشتیبانی</a>
       <a href="#" class="headSub text-xl font-semibold transition-all ease-out 200ms text-black  hover:text-blue-500 ">آدرس</a>
-      <a href="#" class="headSub text-xl font-semibold transition-all ease-out 200ms text-black  hover:text-blue-500 ">مجموعه ما</a>
+      <a href="#aboutUs" class="headSub text-xl font-semibold transition-all ease-out 200ms text-black  hover:text-blue-500 ">مجموعه ما</a>
     </div>
     <div class=" lg:flex lg:flex-1 lg:justify-end max-lg:hidden">
 
     <div id="telBtn" class="p-3.5 rounded-xl max-lg:hidden hover:bg-blue-100 transition-all ease-out 200ms cursor-pointer">
     <svg class="" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: var(--color-blue-500);" ><path d="m20.487 17.14-4.065-3.696a1.001 1.001 0 0 0-1.391.043l-2.393 2.461c-.576-.11-1.734-.471-2.926-1.66-1.192-1.193-1.553-2.354-1.66-2.926l2.459-2.394a1 1 0 0 0 .043-1.391L6.859 3.513a1 1 0 0 0-1.391-.087l-2.17 1.861a1 1 0 0 0-.29.649c-.015.25-.301 6.172 4.291 10.766C11.305 20.707 16.323 21 17.705 21c.202 0 .326-.006.359-.008a.992.992 0 0 0 .648-.291l1.86-2.171a.997.997 0 0 0-.085-1.39z"></path></svg>
     </div>
-    <div id="modal" class="fixed inset-0 z-100  bgBO flex items-center justify-center hidden">
+    <div id="modal3" class="fixed inset-0 z-100  bgBO flex items-center justify-center hidden">
         <div dir="rtl" class="bg-white rounded-lg p-6 shadow-lg transition-transform transform modal-enter modal-leave">
             <button id="closeModal" class="absolute top-2 right-2 text-gray-600 hover:text-gray-800"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: var(--color-blue-500)"><path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path></svg></button>
             <h2 class="text-lg font-bold mt-2"> تلفن آموزشگاه : </h2>
@@ -342,7 +348,7 @@
 
     <script>
         const telBtn = document.getElementById('telBtn');
-        const modal = document.getElementById('modal');
+        const modal = document.getElementById('modal3');
         const closeModal = document.getElementById('closeModal');
 
         telBtn.addEventListener('click', () => {
@@ -395,7 +401,7 @@
   
   <div role="dialog" aria-modal="true">
     
-    <div class="fixed z-100 "></div>
+  <div class="fixed z-100 "></div>
     <div id="hamberContent" dir="rtl" class="translate-x-full transition all ease-in-out 300ms  fixed inset-y-0 right-0 z-100 w-full overflow-y-auto bg-gray-100 dark:bg-gray-800  px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
       <div class="flex items-center justify-between ">
         <a href="#" class="-m-1.5 p-1.5">
@@ -568,7 +574,7 @@ try {
 <div dir="rtl" id="modal" class="modal hidden">
     <div class="modal-content">
         <a href="#" class="close-modal">&times;</a>
-        <h2>فرم پیش ثبت نام</h2>
+        <h1 class="">فرم پیش ثبت نام</h1>
 
         <!-- نمایش پیام خطا یا موفقیت -->
         <div id="error-message" style="color: red; font-weight: bold; text-align: center; margin-bottom: 10px;"></div>
@@ -582,7 +588,7 @@ try {
             <input type="hidden" name="course_code" value="<?= htmlspecialchars($course['course_code']) ?>">
             <input type="hidden" name="course_name" value="">
 
-            <button type="submit" class="submit-btn">ارسال درخواست</button>
+            <button type="submit" class="submit-btn bg-sky-600">ارسال درخواست</button>
         </form>
     </div>
 </div>
@@ -687,7 +693,7 @@ try {
         /* دکمه بستن */
         .close-modal {
             position: absolute;
-            top: 15px;
+            top: 0px;
             right: 15px;
             text-decoration: none;
             font-size: 24px;
@@ -713,7 +719,7 @@ try {
 
         /* دکمه ارسال فرم */
         .submit-btn {
-            background-color: #28a745;
+            
             color: white;
             padding: 12px;
             width: 100%;
@@ -725,7 +731,7 @@ try {
         }
 
         .submit-btn:hover {
-            background-color: #218838;
+            background-color: var(--color-sky-700);
         }
     </style>
     <script src="./script.js"></script>

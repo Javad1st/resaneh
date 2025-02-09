@@ -180,12 +180,12 @@
     font-weight: 800;
    }
 </style>
-<body dir="rtl" class="bg-gray-200 transition-all ease-in 100ms flex flex-col items-center">
+<body dir="rtl" class="bg-gray-200 transition-all ease-in 100ms flex flex-col items-center overflow-x-hidden">
   <div class="container flex flex-col w-screen  max-w-[1550px]">
 <header dir="ltr" class="bg-gray-200 transition-all ease-in 100ms">
   <nav class="lg:mx-auto flex max-w-[1750px] items-center justify-between p-6 lg:px-8 bg-white transition-all ease-in 100ms" aria-label="Global">
     <div class="flex lg:flex-1 justify-self-center max-lg:hidden">
-      <a href="#" class="-m-1.5 p-1.5">
+      <a href="./index.php" class="-m-1.5 p-1.5">
         <span class="sr-only text-6xl ">مجموعه ما</span>
         <img class="h-[65px] w-auto" src="./images/guy.png" alt="">
       </a>
