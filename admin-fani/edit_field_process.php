@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // بررسی و آپلود تصویر جدید در صورت ارسال
         if (!empty($_FILES['field_image']['name'])) {
-            $target_dir = "../uploads/";
+            $target_dir = "../uploads2/";
             $new_image_name = time() . "_" . basename($_FILES["field_image"]["name"]);
             $target_file = $target_dir . $new_image_name;
 
@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if ($image_path && file_exists("../" . $image_path)) {
                     unlink("../" . $image_path);
                 }
-                $image_path = "uploads/" . $new_image_name;
+                $image_path = "../uploads2/" . $new_image_name;
             } else {
                 die("خطا در آپلود تصویر جدید.");
             }
