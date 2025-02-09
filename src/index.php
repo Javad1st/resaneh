@@ -89,11 +89,12 @@
   }
   .image{
     width: 100%;
-    height: auto;
+    height: 100%;
   }
   
     .back {
-    background-color: rgba(0, 0, 0, 0.7); 
+      transition: all ease-in-out 200ms;
+    background-color: rgba(0, 0, 0, 0.5); 
     height: 100%;
     width: 100%;
     right: 0px;
@@ -109,10 +110,19 @@
     max-width: 160px;
   }
   .reshte .back a p{
-    font-family: iransans;
+    font-family: yekan;
+    width: 290px;
   }
   .back a:hover p {
     color: #60a5fa; /* رنگ آبی 400 */
+    scale: 1.1;
+
+    
+  }
+  .back:hover{
+    
+      background-color: rgba(0, 0, 0, 0.7); 
+    
   }
   
   .back a:hover svg {
@@ -388,7 +398,7 @@ $courses = $select->fetchAll(PDO::FETCH_ASSOC);
   
   <div role="dialog" aria-modal="true">
     
-    <div class="fixed z-100 "></div>
+  <div class="fixed z-100 "></div>
     <div id="hamberContent" dir="rtl" class="translate-x-full transition all ease-in-out 300ms  fixed inset-y-0 right-0 z-100 w-full overflow-y-auto bg-gray-100 dark:bg-gray-800  px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
       <div class="flex items-center justify-between ">
         <a href="#" class="-m-1.5 p-1.5">
@@ -415,9 +425,8 @@ $courses = $select->fetchAll(PDO::FETCH_ASSOC);
     </svg>
 </button>
 
-<?php foreach($courses as $course): ?>
 <div class="dropHamber mt-2 space-y-2 dark:bg-gray-700 bg-gray-300 rounded-lg overflow-x-hidden overflow-y-scroll  max-h-0 transition-all duration-300 ease-in-out" id="disclosure-1">
-    <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 dark:text-gray-300"></a>
+    <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 dark:text-gray-300">Analytics</a>
     <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 dark:text-gray-300">Engagement</a>
     <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 dark:text-gray-300">Security</a>
     <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 dark:text-gray-300">Integrations</a>
@@ -425,7 +434,7 @@ $courses = $select->fetchAll(PDO::FETCH_ASSOC);
     <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 dark:text-gray-300">Watch demo</a>
     <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 dark:text-gray-300">Contact sales</a>
 </div>
-<?php  endforeach;?>
+
 <script>
 document.getElementById('reshteHamber').addEventListener('click', function() {
     var disclosure = document.getElementById('disclosure-1');
@@ -575,10 +584,10 @@ $majors = $select->fetchAll(PDO::FETCH_ASSOC);
 </div>
 <div class="flex gap-3 flex-wrap w-full mt-1.5 justify-center">
   <?php foreach($majors as $major): ?>
-  <div class="reshte scroll relative transition-all ease-in-out 200ms hover:transform hover:scale-105 hover:shadow-md shadow-gray-400 dark:shadow-gray-800 mt-3.5 flex flex-col gap-2.5 bg-gradient-to-l from-sky-500 to-blue-500 rounded-lg p-2 justify-center w-48">
+  <div class="reshte scroll relative transition-all ease-in-out 200ms hover:transform hover:scale-105 hover:shadow-md shadow-gray-400 dark:shadow-gray-800 mt-3.5 flex flex-col gap-2.5 bg-sky-300 rounded-lg p-2 justify-center w-48">
     <img class="image rounded-md" src="../<?= $major['major_image']  ?> " alt="">
     <div class="back absolute flex w-full justify-center items-center rounded-md ">
-      <a href="dore.php?major_id=<?= $major['id'] ?>" class="text-center absolute flex flex-col transition-all ease-in 200ms text-gray-50 justify-center items-center gap-2">
+      <a href="dore.php?major_id=<?= $major['id'] ?>" class="text-center absolute w-full flex flex-col transition-all ease-in 200ms text-gray-50 justify-center items-center gap-2">
         <svg class="text-white fill-white transition-all ease-initial 200ms" xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24">
           <path d="m7.375 16.781 1.25-1.562L4.601 12l4.024-3.219-1.25-1.562-5 4a1 1 0 0 0 0 1.562l5 4zm9.25-9.562-1.25 1.562L19.399 12l-4.024 3.219 1.25 1.562 5-4a1 1 0 0 0 0-1.562l-5-4zm-1.649-4.003-4 18-1.953-.434 4-18z"></path>
         </svg>
@@ -610,7 +619,7 @@ $fields = $select->fetchAll(PDO::FETCH_ASSOC);
 </div>
 <div class="flex gap-3 flex-wrap w-full mt-1.5 justify-center">
   <?php foreach($fields as $field): ?>
-  <div class="reshte scroll relative mt-3.5 flex flex-col gap-2.5 bg-gradient-to-l from-sky-500 to-blue-500 rounded-lg p-2 justify-center w-48">
+  <div class="reshte scroll hover:scale-105 transition-all ease-in-out 200ms hover:shadow-md shadow-gray-400 relative mt-3.5 flex flex-col gap-2.5 bg-gradient-to-l from-sky-500 to-blue-500 rounded-lg p-2 justify-center w-48">
     <img class="image rounded-md" src="../uploads2/<?= $field['field_image']  ?> " alt="">
     <div class="back absolute flex w-full justify-center items-center rounded-md ">
       <a href="../dorefani.php?field_id=<?= $field['id'] ?>" class="text-center absolute flex flex-col transition-all ease-in 200ms text-gray-50 justify-center items-center gap-2">
