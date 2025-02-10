@@ -179,6 +179,10 @@
    .shoar{
     font-weight: 800;
    }
+
+   .banerPlace{
+    background-image: url(./images/baner.png);
+   }
 </style>
 <body dir="rtl" class="bg-gray-200 transition-all ease-in 100ms flex flex-col items-center overflow-x-hidden">
   <div class="container flex flex-col w-screen  max-w-[1550px]">
@@ -466,11 +470,19 @@ document.getElementById('reshteHamber').addEventListener('click', function() {
     </div>
   </div>
 </header>
-<div class="banerPlace rounded-b-3xl relative flex items-center justify-center overflow-hidden">
-  <img class="text-center xl:h-[300px] xl:w-[100%] xl:max-w-[1550px] rounded-b-3xl" src="./images/baner.png" alt="">
+.
+<div class="banerPlace rounded-b-3xl relative flex items-center flex-wrap justify-around overflow-hidden">
+  <div class="textes z-20 flex flex-col justify-center gap-10 items-center mt-20">
+    <p class="shoar font-[900] max-[755px]:hidden max-lg:top-25 max-lg:text-6xl text-gray-50 [text-shadow:_4px_1px_0px_rgba(0,38,153,0.41)] shadow-gray-50 lg:text-7xl lg:top-28 xl:top-22 xl:text-7xl"> آموزشگاه فنی و حرفه ای</p>
+    <p class="shoar shoar2 font-[900] top-25 max-lg:top-51 max-lg:text-7xl text-gray-50 [text-shadow:_4px_1px_0px_rgba(0,38,153,0.41)] shadow-gray-50 lg:text-8xl lg:top-62 xl:top-49  xl:text-8xl">رسانه</p>
+    <div class="shoars flex flex-col mt-10 items-center justify-center">
+      <p class="text-center text-gray-50">#بی رقیب در آموزش</p>
+      <p class="text-center text-gray-50">#بی نظیر در خدمات و امکانات</p>
+    </div>
+  </div>
+  <img class="text-center w-[600px] rounded-b-3xl" src="./images/people.png" alt="">
   <img class=" guy absolute w-45 lg:w-60 xl:w-80  top-2 right-3 xl:top-0 xl:right-3.5" src="./images/guy.png" alt="">
-  <p class="shoar font-[900] absolute max-[755px]:hidden max-lg:top-25 max-lg:text-5xl text-sky-950 [text-shadow:_2px_4px_8px_#0055ff] shadow-gray-50 lg:text-6xl lg:top-28 xl:top-22 xl:text-5xl"> آموزشگاه فنی و حرفه ای</p>
-  <p class="shoar shoar2 font-[900] absolute top-25 max-lg:top-51 max-lg:text-6xl text-sky-950 [text-shadow:_2px_4px_8px_#0055ff] shadow-gray-50 lg:text-8xl lg:top-62 xl:top-49  xl:text-7xl">رسانه</p>
+  
 </div>
 <style>
   @keyframes bounce {
@@ -526,7 +538,7 @@ document.getElementById('reshteHamber').addEventListener('click', function() {
 </style>
 
 <div class="w-full scroll flex flex-col items-center justify-center overflow-hidden mt-12">
-  <h2 class="text-3xl font-bold text-blue-500"> دوره های اخیر</h2>
+  <h2 class="text-3xl font-bold text-[#003366]"> دوره های اخیر</h2>
 <div class="w-[95%] 2xl:w-full">
 
 	<div id="default-carousel" class="relative" data-carousel="static">
@@ -579,10 +591,13 @@ $select = $conn->prepare("SELECT * FROM majors");
 $select->execute();
 $majors = $select->fetchAll(PDO::FETCH_ASSOC);
 ?>
-<div class="relative scroll mt-3.5 mr-3.5 flex justify-between items-center">
-<h2 class="lg:text-4xl text-2xl m-7.5  dark:text-white font-bold">رشته ها
-<svg class="absolute top-[8px] right-0 z-[-10] opacity-80 mt-2 mr-0.5 scale-105 lg:scale-150 bg-sky-300 p-1.5 rounded-full " xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" style="fill: var(--color-sky-600)"><path d="M4 11h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zm10 0h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zM4 21h6a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zm13 0c2.206 0 4-1.794 4-4s-1.794-4-4-4-4 1.794-4 4 1.794 4 4 4z"></path></svg>
-</h2>
+<div class="relative scroll mt-10 mr-3.5 flex justify-between items-center mb-10">
+  <div class="title flex items-center justify-center">
+
+    <svg class=" z-[-10] opacity-80 scale-105 lg:scale-150  p-1.5 rounded-full " xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" style="fill: #003366"><path d="M4 11h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zm10 0h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zM4 21h6a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zm13 0c2.206 0 4-1.794 4-4s-1.794-4-4-4-4 1.794-4 4 1.794 4 4 4z"></path></svg>
+  <h2 class="lg:text-4xl text-2xl dark:text-white font-bold">رشته ها
+  </h2>
+  </div>
 
 </div>
 <div class="flex gap-3 flex-wrap w-full mt-1.5 justify-center">
@@ -613,11 +628,15 @@ $fields = $select->fetchAll(PDO::FETCH_ASSOC);
 
 
 <br><br>
-<div class="relative scroll mt-10.5 mr-3.5 flex justify-between items-center">
-<h2 class="lg:text-4xl text-2xl  m-7.5  dark:text-white font-bold">رشته های فنی حرفه ای
-<svg class="absolute top-[8px] right-0 z-[-10] opacity-80 mt-2 mr-0.5 scale-105 lg:scale-150 bg-sky-300 p-1.5 rounded-full " xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" style="fill: var(--color-sky-600)"><path d="M10 3H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zm10 10h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1zM17 3c-2.206 0-4 1.794-4 4s1.794 4 4 4 4-1.794 4-4-1.794-4-4-4zM7 13c-2.206 0-4 1.794-4 4s1.794 4 4 4 4-1.794 4-4-1.794-4-4-4z"></path></svg>
-</h2>
 
+<div class="relative scroll mt-10.5 mr-3.5 flex justify-between items-center">
+
+  <div class="title flex items-center justify-center">
+
+    <svg class=" z-[-10] opacity-80 scale-105 lg:scale-150  p-1.5 rounded-full " xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" style="fill: #003366"><path d="M4 11h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zm10 0h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zM4 21h6a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zm13 0c2.206 0 4-1.794 4-4s-1.794-4-4-4-4 1.794-4 4 1.794 4 4 4z"></path></svg>
+  <h2 class="lg:text-4xl text-2xl dark:text-white font-bold">رشته های فنی حرفه ای
+  </h2>
+  </div>
 
 </div>
 <div class="flex gap-3 flex-wrap w-full mt-1.5 justify-center">
@@ -702,7 +721,7 @@ window.addEventListener('scroll', function() {
 
 <div class="w-full scroll flex flex-col items-center justify-center overflow-hidden mt-12">
   <h2 class="text-3xl font-bold text-blue-500"></h2>
-<div class="w-[600px] 2xl:w-full">
+<div class="w-[600px] 2xl:w-[700px]">
 
 	<div id="default-carousel" class="relative" data-carousel="static">
         <!-- Carousel wrapper -->
