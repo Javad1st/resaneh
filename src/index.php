@@ -656,19 +656,19 @@ $fields = $select->fetchAll(PDO::FETCH_ASSOC);
 </div><br><br>
 
 <div class="place flex justify-center items-center mt-8 relative ">
-<div class="infoSec scroll relative overflow-hidden bg-sky-500 max-w-[1550px] rounded-2xl flex flex-col flex-wrap justify-center gap-0 px-10 py-4 w-[95%]">
-  <p class="info z-20 font-light text-2xl mb-3.5 mt-20 max-[433px]:text-xl">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد</p>
+<div class="infoSec scroll relative overflow-hidden bg-[#003366] max-w-[1550px] rounded-2xl flex flex-col flex-wrap justify-center gap-0 px-10 py-4 w-[95%]">
+  <p class="info z-20 font-light text-gray-50 text-2xl mb-3.5 mt-20 max-[433px]:text-xl">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد</p>
   <div class="shape max-2xl:w-xl max-xl:w-lg max-lg:w-md max-md:w-sm max-md:max-h-90 absolute z-10 w-3xl h-78 bg-sky-600 opacity-35 rounded-b-full top-0 left-[-200px]"></div>
 </div>
-<h2 class="info z-20 scroll font-black text-7xl max-[433px]:text-6xl max-[377px]:text-[54px] sm:text-8xl md:text-9xl [text-shadow:_6px_0px_0px_var(--color-sky-500)] absolute top-[-40px] max-[433px]:top-[-36px] max-[433px]:right-[22px] max-[377px]:top-[-28px] sm:top-[-60px] right-[60px]">درباره رسانه</h2>
+<h2 class="info z-20 scroll text-sky-600 font-black text-7xl max-[433px]:text-6xl max-[377px]:text-[54px] sm:text-8xl md:text-9xl [text-shadow:_6px_0px_0px_#003366] absolute top-[-40px] max-[433px]:top-[-36px] max-[433px]:right-[22px] max-[377px]:top-[-28px] sm:top-[-60px] right-[60px]">درباره رسانه</h2>
 </div>
 
 
 <div class="place flex flex-col justify-center items-center mt-26 relative gap-2.5 ">
   <h2 class="text-2xl scroll font-bold">شعار ما</h2>
   <div class="features scroll flex flex-wrap gap-10 justify-center items-center mt-2">
-    <div class="feature bg-sky-500 rounded-xl p-6 text-3xl">#بی رقیب در آموزش</div>
-    <div class="feature bg-sky-500 rounded-xl p-6 text-3xl">#بی نظیر در امکانات</div>
+    <div class="feature bg-[#003366] text-gray-50 rounded-xl p-6 text-3xl">#بی رقیب در آموزش</div>
+    <div class="feature bg-[#003366] text-gray-50 rounded-xl p-6 text-3xl">#بی نظیر در امکانات</div>
   </div>
 </div>
 

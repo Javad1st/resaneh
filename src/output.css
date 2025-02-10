@@ -1912,6 +1912,9 @@
   .bg-\[\#0088cc\] {
     background-color: #0088cc;
   }
+  .bg-\[\#003366\] {
+    background-color: #003366;
+  }
   .bg-\[color\:var\(--my-color\)\] {
     background-color: var(--my-color);
   }
@@ -2418,11 +2421,23 @@
   .text-black {
     color: var(--color-black);
   }
+  .text-blue-300 {
+    color: var(--color-blue-300);
+  }
+  .text-blue-400 {
+    color: var(--color-blue-400);
+  }
   .text-blue-500 {
     color: var(--color-blue-500);
   }
   .text-gray-50 {
     color: var(--color-gray-50);
+  }
+  .text-gray-200 {
+    color: var(--color-gray-200);
+  }
+  .text-gray-300 {
+    color: var(--color-gray-300);
   }
   .text-gray-400 {
     color: var(--color-gray-400);
@@ -2439,11 +2454,17 @@
   .text-gray-900 {
     color: var(--color-gray-900);
   }
+  .text-sky-300 {
+    color: var(--color-sky-300);
+  }
   .text-sky-500 {
     color: var(--color-sky-500);
   }
   .text-sky-600 {
     color: var(--color-sky-600);
+  }
+  .text-sky-700 {
+    color: var(--color-sky-700);
   }
   .text-white {
     color: var(--color-white);
@@ -2850,6 +2871,12 @@
   }
   .\[text-shadow\:_4px_1px_0px_rgba\(0\,38\,153\,0\.41\)\] {
     text-shadow:  4px 1px 0px rgba(0,38,153,0.41);
+  }
+  .\[text-shadow\:_6px_0px_0px_\#003366\] {
+    text-shadow:  6px 0px 0px #003366;
+  }
+  .\[text-shadow\:_6px_0px_0px_\] {
+    text-shadow:  6px 0px 0px ;
   }
   .\[text-shadow\:_6px_0px_0px_var\(--color-sky-500\)\] {
     text-shadow:  6px 0px 0px var(--color-sky-500);
