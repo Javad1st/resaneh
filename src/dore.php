@@ -601,7 +601,7 @@ try {
 
         // ارسال درخواست به سرور با AJAX
         var xhr = new XMLHttpRequest();
-        xhr.open('POST', 'submit2.php', true);
+        xhr.open('POST', '../submit2.php', true);
         xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 
         xhr.onload = function() {

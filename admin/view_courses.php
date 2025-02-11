@@ -194,6 +194,11 @@ try {
                                     <p><strong>زمان برگزاری:</strong> <?= htmlspecialchars($course['course_hours']) ?></p>
                                     <p><strong>مدت دوره:</strong> <?= htmlspecialchars($course['course_duration']) ?> ماه</p>
                                     <p><strong>قیمت دوره:</strong> <?= number_format($course['course_price']) ?> تومان</p>
+                                    <p>
+    <strong>کد دوره:</strong> 
+    <span id="courseCode<?= $course['id'] ?>"><?= htmlspecialchars($course['course_code']) ?></span>
+    <button class="btn btn-sm btn-outline-primary" onclick="copyCourseCode('courseCode<?= $course['id'] ?>')">کپی</button>
+</p>
                                 </div>
                                 <!-- دکمه ویرایش و حذف -->
                                 <a href="edit_course.php?id=<?= $course['id'] ?>" class="btn-edit">ویرایش</a>
@@ -246,6 +251,19 @@ try {
             document.getElementById('confirmDeleteBtn').href = "delete_course.php?course_id=" + courseId;
         }
     </script>
+        <script>
+    function copyCourseCode(elementId) {
+        var codeElement = document.getElementById(elementId);
+        var tempInput = document.createElement("input");
+        tempInput.value = codeElement.innerText;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempInput);
+        alert("کد دوره کپی شد: " + codeElement.innerText);
+    }
+</script>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

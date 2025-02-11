@@ -198,6 +198,11 @@ try {
                                                 <p><strong>زمان برگزاری:</strong> <?= htmlspecialchars($course['course_hours']) ?></p>
                                                 <p><strong>مدت دوره:</strong> <?= htmlspecialchars($course['course_duration']) ?> ماه</p>
                                                 <p><strong>قیمت دوره:</strong> <?= number_format($course['course_price']) ?> تومان</p>
+                                                <p>
+    <strong>کد دوره:</strong> 
+    <span id="courseCode<?= $course['id'] ?>"><?= htmlspecialchars($course['course_code']) ?></span>
+    <button class="btn btn-sm btn-outline-primary" onclick="copyCourseCode('courseCode<?= $course['id'] ?>')">کپی</button>
+</p>
                                             </div>
                                             <!-- دکمه‌های ویرایش و حذف -->
                                             <div class="mt-3">
@@ -250,6 +255,19 @@ try {
             deleteLink.href = 'delete_course2.php?id=' + courseId;
         }
     </script>
+    <script>
+    function copyCourseCode(elementId) {
+        var codeElement = document.getElementById(elementId);
+        var tempInput = document.createElement("input");
+        tempInput.value = codeElement.innerText;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempInput);
+        alert("کد دوره کپی شد: " + codeElement.innerText);
+    }
+</script>
+
 
     <!-- اضافه کردن Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
