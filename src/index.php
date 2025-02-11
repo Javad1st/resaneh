@@ -4,6 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="./output.css" rel="stylesheet">
+  <link href="TOSAN_files/fontawesome.css" rel="stylesheet">
+    <link href="TOSAN_files/brands.css" rel="stylesheet">
+    <link href="TOSAN_files/solid.css" rel="stylesheet">
+<!-- <link rel="stylesheet" href="./TOSAN_files/style-rtl.css"> -->
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="TOSAN_files/css2.css" rel="stylesheet">
+
+    <!-- <link rel="stylesheet" type="text/css" href="TOSAN_files/all.min.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="TOSAN_files/bootstrap-icons.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="TOSAN_files/glightbox.css"> -->
+    <link rel="stylesheet" type="text/css" href="TOSAN_files/aos.css">
+    <link rel="stylesheet" type="text/css" href="TOSAN_files/swiper-bundle.min.css">
+        <!-- <link rel="stylesheet" type="text/css" href="TOSAN_files/style-rtl.css"> -->
+
 </head>
 <style>
   html{
@@ -75,21 +92,7 @@
   background: var(--color-sky-700);
 }
 
-  @keyframes appear {
-    from{
-      opacity: 0;
-      scale: 0.7;
-    }
-    to{
-      opacity: 1;
-      scale: 1;
-    }
-  }
-  .scroll{
-    animation: appear linear;
-    animation-timeline: view();
-    animation-range: entry 0% cover 30%;
-  }
+
   .image{
     width: 100%;
     height: 100%;
@@ -182,6 +185,10 @@
 
    .banerPlace{
     background-image: url(./images/baner.png);
+    
+   }
+   footer{
+    background-color: #184086;
    }
 </style>
 <body dir="rtl" class="bg-gray-200 transition-all ease-in 100ms flex flex-col items-center overflow-x-hidden">
@@ -481,7 +488,7 @@ document.getElementById('reshteHamber').addEventListener('click', function() {
     </div>
   </div>
   <img class="text-center w-[600px] rounded-b-3xl" src="./images/people.png" alt="">
-  <img class=" guy absolute w-45 lg:w-60 xl:w-80  top-2 right-3 xl:top-0 xl:right-3.5" src="./images/guy.png" alt="">
+  <img class=" guy absolute w-45 lg:w-60 xl:w-80  top-2 right-3 xl:top-0 xl:right-3.5" src="./images/logo.png" alt="">
   
 </div>
 <style>
@@ -538,10 +545,10 @@ document.getElementById('reshteHamber').addEventListener('click', function() {
 </style>
 
 <div class="w-full scroll flex flex-col items-center justify-center overflow-hidden mt-12">
-  <h2 class="text-3xl font-bold text-[#003366]"> دوره های اخیر</h2>
-<div class="w-[95%] 2xl:w-full">
+  <h2 class="text-3xl font-bold text-[#003366] mb-24 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500"> دوره های اخیر</h2>
+<div class="w-full 2xl:w-full mt-10 ">
 
-	<div id="default-carousel" class="relative" data-carousel="static">
+	<div id="default-carousel" class="relative aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500" data-carousel="static">
         <!-- Carousel wrapper -->
         <div class="overflow-hidden relative h-56 rounded-lg sm:h-64 xl:h-80 2xl:h-96">
             <!-- Item 1 -->
@@ -594,15 +601,15 @@ $majors = $select->fetchAll(PDO::FETCH_ASSOC);
 <div class="relative scroll mt-10 mr-3.5 flex justify-between items-center mb-10">
   <div class="title flex items-center justify-center">
 
-    <svg class=" z-[-10] opacity-80 scale-105 lg:scale-150  p-1.5 rounded-full " xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" style="fill: #003366"><path d="M4 11h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zm10 0h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zM4 21h6a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zm13 0c2.206 0 4-1.794 4-4s-1.794-4-4-4-4 1.794-4 4 1.794 4 4 4z"></path></svg>
-  <h2 class="lg:text-4xl text-2xl dark:text-white font-bold">رشته ها
+    <!-- <svg class=" z-[-10] opacity-80 scale-105 lg:scale-150  p-1.5 rounded-full " xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" style="fill: #003366"><path d="M4 11h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zm10 0h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zM4 21h6a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zm13 0c2.206 0 4-1.794 4-4s-1.794-4-4-4-4 1.794-4 4 1.794 4 4 4z"></path></svg> -->
+  <h2 class="lg:text-4xl text-2xl dark:text-white font-bold aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500">رشته ها
   </h2>
   </div>
 
 </div>
 <div class="flex gap-3 flex-wrap w-full mt-1.5 justify-center">
   <?php foreach($majors as $major): ?>
-  <div class="reshte scroll relative transition-all ease-in-out 200ms hover:transform hover:scale-105 hover:shadow-md shadow-gray-400 dark:shadow-gray-800 mt-3.5 flex flex-col gap-2.5 bg-sky-300 rounded-lg p-2 justify-center w-48">
+  <div class="reshte scroll relative transition-all ease-in-out 200ms hover:transform hover:scale-105 hover:shadow-md shadow-gray-400 dark:shadow-gray-800 mt-3.5 flex flex-col gap-2.5 bg-sky-300 rounded-lg p-2 justify-center w-48 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500">
     <img class="image rounded-md" src="../<?= $major['major_image']  ?> " alt="">
     <div class="back absolute flex w-full justify-center items-center rounded-md ">
       <a href="dore.php?major_id=<?= $major['id'] ?>" class="text-center absolute w-full flex flex-col transition-all ease-in 200ms text-gray-50 justify-center items-center gap-2">
@@ -633,15 +640,15 @@ $fields = $select->fetchAll(PDO::FETCH_ASSOC);
 
   <div class="title flex items-center justify-center">
 
-    <svg class=" z-[-10] opacity-80 scale-105 lg:scale-150  p-1.5 rounded-full " xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" style="fill: #003366"><path d="M4 11h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zm10 0h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zM4 21h6a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zm13 0c2.206 0 4-1.794 4-4s-1.794-4-4-4-4 1.794-4 4 1.794 4 4 4z"></path></svg>
-  <h2 class="lg:text-4xl text-2xl dark:text-white font-bold">رشته های فنی حرفه ای
+    <!-- <svg class=" z-[-10] opacity-80 scale-105 lg:scale-150  p-1.5 rounded-full " xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" style="fill: #003366"><path d="M4 11h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zm10 0h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zM4 21h6a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zm13 0c2.206 0 4-1.794 4-4s-1.794-4-4-4-4 1.794-4 4 1.794 4 4 4z"></path></svg> -->
+  <h2 class="lg:text-4xl text-2xl dark:text-white font-bold aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500">رشته های فنی حرفه ای
   </h2>
   </div>
 
 </div>
 <div class="flex gap-3 flex-wrap w-full mt-1.5 justify-center">
   <?php foreach($fields as $field): ?>
-  <div class="reshte scroll hover:scale-105 transition-all ease-in-out 200ms hover:shadow-md shadow-gray-400 relative mt-3.5 flex flex-col gap-2.5 bg-gradient-to-l from-sky-500 to-blue-500 rounded-lg p-2 justify-center w-48">
+  <div class="reshte scroll hover:scale-105 transition-all ease-in-out 200ms hover:shadow-md shadow-gray-400 relative mt-3.5 flex flex-col gap-2.5 bg-gradient-to-l from-sky-500 to-blue-500 rounded-lg p-2 justify-center w-48 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500">
     <img class="image rounded-md" src="../uploads2/<?= $field['field_image']  ?> " alt="">
     <div class="back absolute flex w-full justify-center items-center rounded-md ">
       <a href="../dorefani.php?field_id=<?= $field['id'] ?>" class="text-center absolute flex flex-col transition-all ease-in 200ms text-gray-50 justify-center items-center gap-2">
@@ -655,27 +662,88 @@ $fields = $select->fetchAll(PDO::FETCH_ASSOC);
   <?php endforeach; ?>
 </div><br><br>
 
-<div class="place flex justify-center items-center mt-8 relative ">
+<div class="place flex justify-center items-center mt-8 relative aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500">
 <div class="infoSec scroll relative overflow-hidden bg-[#003366] max-w-[1550px] rounded-2xl flex flex-col flex-wrap justify-center gap-0 px-10 py-4 w-[95%]">
   <p class="info z-20 font-light text-gray-50 text-2xl mb-3.5 mt-20 max-[433px]:text-xl">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد</p>
   <div class="shape max-2xl:w-xl max-xl:w-lg max-lg:w-md max-md:w-sm max-md:max-h-90 absolute z-10 w-3xl h-78 bg-sky-600 opacity-35 rounded-b-full top-0 left-[-200px]"></div>
 </div>
-<h2 class="info z-20 scroll text-sky-600 font-black text-7xl max-[433px]:text-6xl max-[377px]:text-[54px] sm:text-8xl md:text-9xl [text-shadow:_6px_0px_0px_#003366] absolute top-[-40px] max-[433px]:top-[-36px] max-[433px]:right-[22px] max-[377px]:top-[-28px] sm:top-[-60px] right-[60px]">درباره رسانه</h2>
+<h2 class="info z-20 scroll text-white font-black text-7xl max-[433px]:text-6xl max-[377px]:text-[54px] sm:text-8xl md:text-9xl [text-shadow:_6px_0px_0px_#003366] absolute top-[-40px] max-[433px]:top-[-36px] max-[433px]:right-[22px] max-[377px]:top-[-28px] sm:top-[-60px] right-[60px]" style="text-shadow: -2px -2px 0 #003366, 2px -2px 0 #003366,
+          -2px 2px 0 #003366, 1px 1px 0 #003366; color: white;">درباره رسانه</h2>
+</div>
+
+<style>
+        .fade-enter {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        .fade-enter-active {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .fade-exit {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .fade-exit-active {
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+         .active {
+            background-color: #1a2944; /* رنگ جدید */
+            transform: translateY(-3px); /* حرکت به سمت بالا */
+            transition: background-color 0.3s ease, transform 0.3s ease; /* انیمیشن */
+        }
+    </style>
+   <div class="text-center mt-12 flex items-center justify-center flex-col gap-x-14 w-[95%]">
+        <div class="flex gap-4 mb-6 mt-12 flex-wrap items-center justify-center">
+            <button id="button1" onclick="showText('text1', this)" class="bg-[#003366] hover:scale-105 cursor-pointer text-white px-4 py-2 rounded-md transition ease-in-out duration-300"> ماموریت و اهداف</button>
+            <button id="button2" onclick="showText('text2', this)" class="bg-[#003366] hover:scale-105 cursor-pointer text-white px-4 py-2 rounded-md transition ease-in-out duration-300"> مسِعولیت های اجتماعی</button>
+            <button id="button3" onclick="showText('text3', this)" class="bg-[#003366] hover:scale-105 cursor-pointer text-white px-4 py-2 rounded-md transition ease-in-out duration-300"> افتخارات رسانه</button>
+        </div>
+
+        <div id="textDisplay" class="mt-4 transition-opacity duration-300"></div>
+    </div>
+
+    <script>
+        function showText(textId, button) {
+            
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+          
+            button.classList.add('active');
+
+           
+            const textDisplay = document.getElementById('textDisplay');
+            if (textId === 'text1') {
+                textDisplay.innerHTML = '<p>این متن مربوط به دکمه ۱ است.</p>';
+            } else if (textId === 'text2') {
+                textDisplay.innerHTML = '<p>این متن مربوط به دکمه ۲ است.</p>';
+            } else if (textId === 'text3') {
+                textDisplay.innerHTML = '<p>این متن مربوط به دکمه ۳ است.</p>';
+            }
+        }
+    </script>
+    
 </div>
 
 
 <div class="place flex flex-col justify-center items-center mt-26 relative gap-2.5 ">
-  <h2 class="text-2xl scroll font-bold">شعار ما</h2>
+  <h2 class="text-2xl scroll font-bold aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500">شعار ما</h2>
   <div class="features scroll flex flex-wrap gap-10 justify-center items-center mt-2">
-    <div class="feature bg-[#003366] text-gray-50 rounded-xl p-6 text-3xl">#بی رقیب در آموزش</div>
-    <div class="feature bg-[#003366] text-gray-50 rounded-xl p-6 text-3xl">#بی نظیر در امکانات</div>
+    <div class="feature bg-[#003366] text-gray-50 rounded-xl p-6 text-3xl aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500">#بی رقیب در آموزش</div>
+    <div class="feature bg-[#003366] text-gray-50 rounded-xl p-6 text-3xl aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500">#بی نظیر در امکانات</div>
   </div>
 </div>
 
 <div class="place flex scroll flex-col justify-center items-center mt-22 relative gap-2.5 ">
-  <div class="counter flex gap-2.5 justify-center  items-center rounded-2xl flex-wrap  p-6  max-w-[95%]">
-    <img class="w-96" src="images/mini.png" alt="">
-    <div class="textPlace flex flex-col items-center justify-center gap-9 p-6">
+  <div class="counter flex gap-2.5 justify-center items-center rounded-2xl flex-wrap p-6 max-w-[95%]">
+    <img class="w-96 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500" src="images/mini.png" alt="">
+    <div class="textPlace flex flex-col items-center justify-center gap-9 p-6 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
       <h2 class="text-5xl text-center font-black">تعداد هنر جویان</h2>
       <p id="counter" class="text-5xl text-center flex flex-wrap items-center justify-center">00000 <span> نفر</span><span class="flex mr-8">...</span></p>
     </div>
@@ -719,7 +787,7 @@ window.addEventListener('scroll', function() {
 </script>
 
 
-<div class="w-full scroll flex flex-col items-center justify-center overflow-hidden mt-12">
+<div class="w-full scroll flex flex-col items-center justify-center overflow-hidden mt-12 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500">
   <h2 class="text-3xl font-bold text-blue-500"></h2>
 <div class="w-[600px] 2xl:w-[700px]">
 
@@ -729,15 +797,15 @@ window.addEventListener('scroll', function() {
             <!-- Item 1 -->
             <div class="hidden duration-700 ease-in-out" data-carousel-item>
                 <span class="absolute top-1/2 left-1/2 text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 sm:text-3xl dark:text-gray-800">First Slide</span>
-                <img src="https://flowbite.com/docs/images/carousel/carousel-1.svg" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="...">
+                <img src="./images/si2 (1).jpg" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="...">
             </div>
             <!-- Item 2 -->
             <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="https://flowbite.com/docs/images/carousel/carousel-2.svg" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="...">
+                <img src="./images/si2 (2).jpg" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="...">
             </div>
             <!-- Item 3 -->
             <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="https://flowbite.com/docs/images/carousel/carousel-3.svg" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="...">
+                <img src="./images/si2 (3).jpg" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="...">
             </div>
         </div>
         <!-- Slider indicators -->
@@ -766,7 +834,7 @@ window.addEventListener('scroll', function() {
 
 </div>
 
-<footer class="bg-gray-200 dark:bg-gray-800 transition-all ease-in 100ms">
+<footer class=" bg-[#184086] dark:bg-gray-800 transition-all ease-in mt-20 100ms w-full">
   <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
     <div class="lg:grid lg:grid-cols-2">
       <div
@@ -821,35 +889,16 @@ window.addEventListener('scroll', function() {
           <span class="hidden h-1 w-10 rounded bg-sky-600 lg:block"></span>
 
           <div>
-            <h2 class="text-2xl font-medium text-gray-900 dark:text-gray-50">Request a Demo</h2>
+            <h2 class="text-2xl font-medium text-gray-50 dark:text-gray-50">Request a Demo</h2>
 
-            <p class="mt-4 max-w-lg text-gray-500 dark:text-gray-300">
+            <p class="mt-4 max-w-lg text-gray-50 dark:text-gray-300">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, harum deserunt
               nesciunt praesentium, repellendus eum perspiciatis ratione pariatur a aperiam eius
               numquam doloribus asperiores sunt.
             </p>
           </div>
 
-          <form class="mt-6 w-full">
-            <label for="UserEmail" class="sr-only"> Email </label>
-
-            <div
-              class="rounded-md border border-gray-200 dark:border-gray-700 p-2  sm:flex sm:items-center sm:gap-4 dark:text-gray-300"
-            >
-              <input
-                type="email"
-                id="UserEmail"
-                placeholder="john@rhcp.com"
-                class="w-full border-none sm:text-sm"
-              />
-
-              <button
-                class="mt-1 w-full rounded bg-sky-500 px-6 py-3 text-sm font-bold uppercase tracking-wide text-white transition-none hover:bg-teal-600 sm:mt-0 sm:w-auto sm:shrink-0"
-              >
-                Sign Up
-              </button>
-            </div>
-          </form>
+       
         </div>
       </div>
 
@@ -901,63 +950,63 @@ window.addEventListener('scroll', function() {
 
         <div class="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-3">
           <div>
-            <p class="font-medium text-gray-900 dark:text-gray-50">Services</p>
+            <p class="font-medium text-gray-50 dark:text-gray-50">Services</p>
 
             <ul class="mt-6 space-y-4 text-sm">
               <li>
-                <a href="#" class="text-gray-700 dark:text-gray-300 transition hover:opacity-75"> 1on1 Coaching </a>
+                <a href="#" class="text-gray-200 dark:text-gray-300 transition hover:opacity-75"> 1on1 Coaching </a>
               </li>
 
               <li>
-                <a href="#" class="text-gray-700 dark:text-gray-300 transition hover:opacity-75"> Company Review </a>
+                <a href="#" class="text-gray-200 dark:text-gray-300 transition hover:opacity-75"> Company Review </a>
               </li>
 
               <li>
-                <a href="#" class="text-gray-700 dark:text-gray-300 transition hover:opacity-75"> Accounts Review </a>
+                <a href="#" class="text-gray-200 dark:text-gray-300 transition hover:opacity-75"> Accounts Review </a>
               </li>
 
               <li>
-                <a href="#" class="text-gray-700 dark:text-gray-300 transition hover:opacity-75"> HR Consulting </a>
+                <a href="#" class="text-gray-200 dark:text-gray-300 transition hover:opacity-75"> HR Consulting </a>
               </li>
 
               <li>
-                <a href="#" class="text-gray-700 dark:text-gray-300 transition hover:opacity-75"> SEO Optimisation </a>
+                <a href="#" class="text-gray-200 dark:text-gray-300 transition hover:opacity-75"> SEO Optimisation </a>
               </li>
             </ul>
           </div>
 
           <div>
-            <p class="font-medium text-gray-900 dark:text-gray-50">Company</p>
+            <p class="font-medium text-gray-50 dark:text-gray-50">Company</p>
 
             <ul class="mt-6 space-y-4 text-sm">
               <li>
-                <a href="#" class="text-gray-700 dark:text-gray-300 transition hover:opacity-75"> About </a>
+                <a href="#" class="text-gray-200 dark:text-gray-300 transition hover:opacity-75"> About </a>
               </li>
 
               <li>
-                <a href="#" class="text-gray-700 dark:text-gray-300 transition hover:opacity-75"> Meet the Team </a>
+                <a href="#" class="text-gray-200 dark:text-gray-300 transition hover:opacity-75"> Meet the Team </a>
               </li>
 
               <li>
-                <a href="#" class="text-gray-700 dark:text-gray-300 transition hover:opacity-75"> Accounts Review </a>
+                <a href="#" class="text-gray-200 dark:text-gray-300 transition hover:opacity-75"> Accounts Review </a>
               </li>
             </ul>
           </div>
 
           <div>
-            <p class="font-medium text-gray-900 dark:text-gray-50">Helpful Links</p>
+            <p class="font-medium text-gray-50 dark:text-gray-50">Helpful Links</p>
 
             <ul class="mt-6 space-y-4 text-sm">
               <li>
-                <a href="#" class="text-gray-700 dark:text-gray-300 transition hover:opacity-75"> Contact </a>
+                <a href="#" class="text-gray-200 dark:text-gray-300 transition hover:opacity-75"> Contact </a>
               </li>
 
               <li>
-                <a href="#" class="text-gray-700 dark:text-gray-300 transition hover:opacity-75"> FAQs </a>
+                <a href="#" class="text-gray-200 dark:text-gray-300 transition hover:opacity-75"> FAQs </a>
               </li>
 
               <li>
-                <a href="#" class="text-gray-700 dark:text-gray-300 transition hover:opacity-75"> Live Chat </a>
+                <a href="#" class="text-gray-200 dark:text-gray-300 transition hover:opacity-75"> Live Chat </a>
               </li>
             </ul>
           </div>
@@ -966,25 +1015,48 @@ window.addEventListener('scroll', function() {
         <div class="mt-8 border-t border-gray-100 dark:border-gray-700 pt-8">
           <ul class="flex flex-wrap gap-4 text-xs">
             <li>
-              <a href="#" class="text-gray-500 transition hover:opacity-75"> Terms & Conditions </a>
+              <a href="#" class="text-gray-50 transition hover:opacity-75"> Terms & Conditions </a>
             </li>
 
             <li>
-              <a href="#" class="text-gray-500 transition hover:opacity-75"> Privacy Policy </a>
+              <a href="#" class="text-gray-50 transition hover:opacity-75"> Privacy Policy </a>
             </li>
 
             <li>
-              <a href="#" class="text-gray-500 transition hover:opacity-75"> Cookies </a>
+              <a href="#" class="text-gray-50 transition hover:opacity-75"> Cookies </a>
             </li>
           </ul>
 
-          <p class="mt-8 text-xs text-gray-500">&copy; 2022. Company Name. All rights reserved.</p>
+          <p class="mt-8 text-xs text-gray-50">&copy; 2022. Company Name. All rights reserved.</p>
         </div>
       </div>
     </div>
   </div>
 </footer>
+<div class="back-top back-top-show"></div>
 </div>
+
+
 <script src="./script.js"></script>
+<script src="./aos.js"></script>
+<script src="./bootstrap.bundle.min.js"></script>
+<script src="./functions.js"></script>
+<div class="back-top back-top-show"></div>
+
+<script src="TOSAN_files/bootstrap.bundle.min.js"></script>
+<script src="TOSAN_files/purecounter_vanilla.js"></script>
+<script src="TOSAN_files/swiper-bundle.min.js"></script>
+<script src="TOSAN_files/sticky.min.js"></script>
+<script src="TOSAN_files/glightbox.js"></script>
+<script src="TOSAN_files/aos.js"></script>
+<script src="TOSAN_files/jarallax.min.js"></script>
+<script src="TOSAN_files/jarallax-video.min.js"></script>
+<script src="TOSAN_files/functions.js"></script>
+
+<script>
+    AOS.init();
+</script>
+
+
 </body>
 </html>
