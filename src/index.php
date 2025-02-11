@@ -696,7 +696,7 @@ $fields = $select->fetchAll(PDO::FETCH_ASSOC);
             transition: background-color 0.3s ease, transform 0.3s ease; /* انیمیشن */
         }
     </style>
-   <div class="text-center mt-12 flex items-center justify-center flex-col gap-x-14 w-[95%]">
+   <div class="text-center mt-12 flex items-center justify-center flex-col gap-x-14 w-[95%] aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500">
         <div class="flex gap-4 mb-6 mt-12 flex-wrap items-center justify-center">
             <button id="button1" onclick="showText('text1', this)" class="bg-[#003366] hover:scale-105 cursor-pointer text-white px-4 py-2 rounded-md transition ease-in-out duration-300"> ماموریت و اهداف</button>
             <button id="button2" onclick="showText('text2', this)" class="bg-[#003366] hover:scale-105 cursor-pointer text-white px-4 py-2 rounded-md transition ease-in-out duration-300"> مسِعولیت های اجتماعی</button>
