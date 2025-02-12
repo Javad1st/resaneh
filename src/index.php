@@ -284,7 +284,7 @@
       <div class="relative">
       <button dir="rtl" id="toggleButton" type="button" class="headSub flex items-center gap-x-1 text-xl font-semibold hover:text-blue-500 transition-all ease-out 200ms text-black cursor-pointer" aria-expanded="false">
  دوره ها 
-    <svg class="size-7 flex-none group-hover:text-blue-500 text-black" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+    <svg class="size-7 flex-none mt-[-10px] group-hover:text-blue-500 text-black" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
         <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
     </svg>
 </button>
@@ -340,9 +340,21 @@ $courses = $select->fetchAll(PDO::FETCH_ASSOC);
 }
       </style>
 
-      <a href="#" class="headSub text-xl font-semibold transition-all ease-out 200ms text-black hover:text-blue-500  ">پشتیبانی</a>
-      <a href="#" class="headSub text-xl font-semibold transition-all ease-out 200ms text-black  hover:text-blue-500 ">آدرس</a>
-      <a href="#aboutUs" class="headSub text-xl font-semibold transition-all ease-out 200ms text-black  hover:text-blue-500 ">مجموعه ما</a>
+<a href="#telef" class="headSub text-xl flex items-center justify-center gap-1 font-semibold transition-all ease-out 200ms text-black  hover:text-blue-500 ">
+      <svg class="mt-[-10px]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: currentColor;"><path d="M12 2C6.486 2 2 6.486 2 12v4.143C2 17.167 2.897 18 4 18h1a1 1 0 0 0 1-1v-5.143a1 1 0 0 0-1-1h-.908C4.648 6.987 7.978 4 12 4s7.352 2.987 7.908 6.857H19a1 1 0 0 0-1 1V18c0 1.103-.897 2-2 2h-2v-1h-4v3h6c2.206 0 4-1.794 4-4 1.103 0 2-.833 2-1.857V12c0-5.514-4.486-10-10-10z"></path></svg>
+      <p> پشتیبانی</p>
+      </a>
+
+      <a href="#adress" class="headSub text-xl flex items-center justify-center gap-1 font-semibold transition-all ease-out 200ms text-black  hover:text-blue-500 ">
+      <svg class="mt-[-10px]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: currentColor;"><path d="M11.42 21.815a1.004 1.004 0 0 0 1.16 0C12.884 21.598 20.029 16.44 20 10c0-4.411-3.589-8-8-8S4 5.589 4 9.996c-.029 6.444 7.116 11.602 7.42 11.819zM12 4c3.309 0 6 2.691 6 6.004.021 4.438-4.388 8.423-6 9.731-1.611-1.308-6.021-5.293-6-9.735 0-3.309 2.691-6 6-6z"></path><path d="M11 14h2v-3h3V9h-3V6h-2v3H8v2h3z"></path></svg>
+      <p> آدرس</p>
+      </a>
+
+      <a href="#aboutUs" class="headSub text-xl flex items-center justify-center gap-1 font-semibold transition-all ease-out 200ms text-black  hover:text-blue-500 ">
+      <svg class="mt-[-10px]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: currentColor;"><path d="M3 13h1v7c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2v-7h1a1 1 0 0 0 .707-1.707l-9-9a.999.999 0 0 0-1.414 0l-9 9A1 1 0 0 0 3 13zm9-8.586 6 6V15l.001 5H6v-9.586l6-6z"></path><path d="M12 18c3.703 0 4.901-3.539 4.95-3.689l-1.9-.621c-.008.023-.781 2.31-3.05 2.31-2.238 0-3.02-2.221-3.051-2.316l-1.899.627C7.099 14.461 8.297 18 12 18z"></path></svg>
+      <p>مجموعه ما</p>
+      </a>
+
     </div>
     <div class=" lg:flex lg:flex-1 lg:justify-end max-lg:hidden">
 
@@ -543,10 +555,80 @@ document.getElementById('reshteHamber').addEventListener('click', function() {
   }
   
 </style>
+<div class="place flex flex-col justify-center items-center w-full relative gap-2.5 ">
+  <!-- <h2 class="text-2xl scroll font-bold aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500">شعار ما</h2> -->
+  <div class="features scroll flex gap-26 justify-center items-center bg-gray-200 ">
+    <div class="feature text-[#003366] rounded-xl ml-6 p-6 text-3xl">#رسانه بی رقیب در آموزش </div>
+    <div class="feature text-[#003366] rounded-xl p-6 text-3xl">#بی نظیر در خدمات و امکانات</div>
+  </div>
+</div>
+
+<style>
+ .features {
+  overflow: hidden; /* جلوگیری از نمایش عناصر خارج از محدوده */
+  position: relative;
+  width: 100%; /* عرض کامل */
+  white-space: nowrap; /* جلوگیری از شکستن خط */
+}
+
+.feature {
+  /* display: inline-block; نمایش به صورت خطی */
+  animation: moveLeft 10s linear infinite; /* انیمیشن حرکت به سمت چپ */
+}
+@media screen and (max-width: 1500px) {
+  
+
+@keyframes moveLeft {
+  0% {
+    transform: translateX(350%); /* شروع از سمت راست */
+  }
+  100% {
+    transform: translateX(-350%); /* حرکت به سمت چپ */
+  }
+}
+}
+@media screen and (max-width: 2000px) {
+  
+
+@keyframes moveLeft {
+  0% {
+    transform: translateX(450%); /* شروع از سمت راست */
+  }
+  100% {
+    transform: translateX(-450%); /* حرکت به سمت چپ */
+  }
+}
+}
+@media screen and (max-width: 1200px) {
+  
+
+@keyframes moveLeft {
+  0% {
+    transform: translateX(300%); /* شروع از سمت راست */
+  }
+  100% {
+    transform: translateX(-300%); /* حرکت به سمت چپ */
+  }
+}
+}
+@media screen and (max-width: 700px) {
+  
+
+@keyframes moveLeft {
+  0% {
+    transform: translateX(220%); /* شروع از سمت راست */
+  }
+  100% {
+    transform: translateX(-220%); /* حرکت به سمت چپ */
+  }
+}
+}
+</style>
+
 
 <div class="w-full scroll flex flex-col items-center justify-center overflow-hidden mt-12">
-  <h2 class="text-3xl font-bold text-[#003366] mb-24 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500"> دوره های اخیر</h2>
-<div class="w-full 2xl:w-full mt-10 ">
+  <h2 class="text-3xl font-bold text-[#003366] mb-4 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500"> دوره های اخیر</h2>
+<div class="w-full 2xl:w-full mt-1 ">
 
 	<div id="default-carousel" class="relative aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500" data-carousel="static">
         <!-- Carousel wrapper -->
@@ -661,8 +743,8 @@ $fields = $select->fetchAll(PDO::FETCH_ASSOC);
   </div>
   <?php endforeach; ?>
 </div><br><br>
-
-<div class="place flex justify-center items-center mt-8 relative aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500">
+<div class="flex flex-col bg-gray-300">
+<div class="place flex justify-center items-center mt-8 relative  aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500">
 <div class="infoSec scroll relative overflow-hidden bg-[#003366] max-w-[1550px] rounded-2xl flex flex-col flex-wrap justify-center gap-0 px-10 py-4 w-[95%]">
   <p class="info z-20 font-light text-gray-50 text-2xl mb-3.5 mt-20 max-[433px]:text-xl">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد</p>
   <div class="shape max-2xl:w-xl max-xl:w-lg max-lg:w-md max-md:w-sm max-md:max-h-90 absolute z-10 w-3xl h-78 bg-sky-600 opacity-35 rounded-b-full top-0 left-[-200px]"></div>
@@ -700,11 +782,11 @@ $fields = $select->fetchAll(PDO::FETCH_ASSOC);
         }
     </style>
     <div class="place w-full flex justify-center">
-   <div class="text-center mt-12 flex  justify-center flex-col gap-x-14 w-[95%] p-11 rounded-xl bg-gray-300 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500">
+   <div class="text-center mt-12 flex  justify-center flex-col gap-x-14 w-[95%] p-11 rounded-xl aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500">
         <div class="flex gap-4 mb-6 mt-12 flex-wrap  justify-center">
-            <button id="button1" onclick="showText('text1', this)" class="bg-[#003366] hover:scale-105 cursor-pointer text-white px-4 py-2 rounded-md transition ease-in-out duration-300"> ماموریت و اهداف</button>
-            <button id="button2" onclick="showText('text2', this)" class="bg-[#003366] hover:scale-105 cursor-pointer text-white px-4 py-2 rounded-md transition ease-in-out duration-300"> مسِعولیت های اجتماعی</button>
-            <button id="button3" onclick="showText('text3', this)" class="bg-[#003366] hover:scale-105 cursor-pointer text-white px-4 py-2 rounded-md transition ease-in-out duration-300"> افتخارات رسانه</button>
+            <button id="button1" onclick="showText('text1', this)" class="bg-[#003366] hover:scale-105 cursor-pointer text-white px-4 py-2 rounded-md transition ease-in-out duration-300 flex gap-1"> <p>ماموریت و اهداف</p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: white;"><path d="M5 22h14c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2h-2a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1H5c-1.103 0-2 .897-2 2v15c0 1.103.897 2 2 2zM5 5h2v2h10V5h2v15H5V5z"></path><path d="m11 13.586-1.793-1.793-1.414 1.414L11 16.414l5.207-5.207-1.414-1.414z"></path></svg> </button>
+            <button id="button2" onclick="showText('text2', this)" class="bg-[#003366] hover:scale-105 cursor-pointer text-white px-4 py-2 rounded-md transition ease-in-out duration-300 flex gap-1"> <p> مسعولیت های اجتماعی </p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: white;"><path d="M20.29 8.29 16 12.58l-1.3-1.29-1.41 1.42 2.7 2.7 5.72-5.7zM4 8a3.91 3.91 0 0 0 4 4 3.91 3.91 0 0 0 4-4 3.91 3.91 0 0 0-4-4 3.91 3.91 0 0 0-4 4zm6 0a1.91 1.91 0 0 1-2 2 1.91 1.91 0 0 1-2-2 1.91 1.91 0 0 1 2-2 1.91 1.91 0 0 1 2 2zM4 18a3 3 0 0 1 3-3h2a3 3 0 0 1 3 3v1h2v-1a5 5 0 0 0-5-5H7a5 5 0 0 0-5 5v1h2z"></path></svg> </button>
+            <button id="button3" onclick="showText('text3', this)" class="bg-[#003366] hover:scale-105 cursor-pointer text-white px-4 py-2 rounded-md transition ease-in-out duration-300 flex gap-1"> <p> افتخارات رسانه </p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: white;"><path d="M12 22c3.859 0 7-3.141 7-7s-3.141-7-7-7c-3.86 0-7 3.141-7 7s3.14 7 7 7zm0-12c2.757 0 5 2.243 5 5s-2.243 5-5 5-5-2.243-5-5 2.243-5 5-5zm-1-8H7v5.518a8.957 8.957 0 0 1 4-1.459V2zm6 0h-4v4.059a8.957 8.957 0 0 1 4 1.459V2z"></path><path d="m10.019 15.811-.468 2.726L12 17.25l2.449 1.287-.468-2.726 1.982-1.932-2.738-.398L12 11l-1.225 2.481-2.738.398z"></path></svg> </button>
         </div>
 
         <div id="textDisplay" class="mt-4 transition-opacity duration-300"></div>
@@ -789,6 +871,7 @@ $fields = $select->fetchAll(PDO::FETCH_ASSOC);
     </script>
     
 </div>
+</div>
 
 
 
@@ -841,7 +924,7 @@ window.addEventListener('scroll', function() {
 
 
 <div class="w-full scroll flex flex-col items-center justify-center overflow-hidden mt-12 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500">
-  <h2 class="text-3xl font-bold text-blue-500"></h2>
+  <h2 class="text-3xl font-bold text-[#003366]">محیط آموزشگاه</h2>
 <div class="w-[600px] 2xl:w-[700px]">
 
 	<div id="default-carousel" class="relative" data-carousel="static">
@@ -887,78 +970,9 @@ window.addEventListener('scroll', function() {
 
 </div>
 
-<div class="place flex flex-col justify-center items-center mt-26 w-full relative gap-2.5 ">
-  <!-- <h2 class="text-2xl scroll font-bold aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500">شعار ما</h2> -->
-  <div class="features scroll flex gap-10 justify-center items-center bg-gray-200 mt-2">
-    <div class="feature  text-[#003366] rounded-xl p-6 text-3xl aos-init aos-animate">#بی رقیب در آموزش</div>
-    <div class="feature  text-[#003366] rounded-xl p-6 text-3xl aos-init aos-animate">#بی نظیر در امکانات</div>
-  </div>
-</div>
-
-<style>
- .features {
-  overflow: hidden; /* جلوگیری از نمایش عناصر خارج از محدوده */
-  position: relative;
-  width: 100%; /* عرض کامل */
-  white-space: nowrap; /* جلوگیری از شکستن خط */
-}
-
-.feature {
-  display: inline-block; /* نمایش به صورت خطی */
-  animation: moveLeft 10s linear infinite; /* انیمیشن حرکت به سمت چپ */
-}
-@media screen and (max-width: 1500px) {
-  
-
-@keyframes moveLeft {
-  0% {
-    transform: translateX(350%); /* شروع از سمت راست */
-  }
-  100% {
-    transform: translateX(-350%); /* حرکت به سمت چپ */
-  }
-}
-}
-@media screen and (max-width: 2000px) {
-  
-
-@keyframes moveLeft {
-  0% {
-    transform: translateX(450%); /* شروع از سمت راست */
-  }
-  100% {
-    transform: translateX(-450%); /* حرکت به سمت چپ */
-  }
-}
-}
-@media screen and (max-width: 1200px) {
-  
-
-@keyframes moveLeft {
-  0% {
-    transform: translateX(300%); /* شروع از سمت راست */
-  }
-  100% {
-    transform: translateX(-300%); /* حرکت به سمت چپ */
-  }
-}
-}
-@media screen and (max-width: 700px) {
-  
-
-@keyframes moveLeft {
-  0% {
-    transform: translateX(220%); /* شروع از سمت راست */
-  }
-  100% {
-    transform: translateX(-220%); /* حرکت به سمت چپ */
-  }
-}
-}
-</style>
 
 
-<footer>
+<footer class="mt-14">
     <div class="footer-container">
         <div class="footer-logo">
             <img class="p-4 mb-6 w-36 ml-6 fill-white" src="./images/guy.png" alt="Logo">
