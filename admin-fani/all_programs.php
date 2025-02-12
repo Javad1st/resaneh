@@ -35,6 +35,13 @@ try {
         .program-details { display: none; margin-top: 15px; background-color: rgba(255, 255, 255, 0.95);
             padding: 20px; border-radius: 12px; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1); }
         .show-details .program-details { display: block; }
+        .btn-edit, .btn-delete, .btn-copy { margin-top: 10px; padding: 8px 16px; font-size: 1rem; border-radius: 5px; cursor: pointer; }
+        .btn-edit { background-color: #28a745; color: white; border: none; }
+        .btn-edit:hover { background-color: #218838; }
+        .btn-delete { background-color: #dc3545; color: white; border: none; }
+        .btn-delete:hover { background-color: #c82333; }
+        .btn-copy { background-color: #17a2b8; color: white; border: none; }
+        .btn-copy:hover { background-color: #138496; }
     </style>
 </head>
 <body>
@@ -70,7 +77,13 @@ try {
                                                 <p><strong>زمان برگزاری:</strong> <?= htmlspecialchars($program['program_hours']) ?></p>
                                                 <p><strong>مدت دوره:</strong> <?= htmlspecialchars($program['program_duration']) ?> ماه</p>
                                                 <p><strong>قیمت دوره:</strong> <?= number_format($program['program_price']) ?> تومان</p>
+                                                <p><strong>کد دوره:</strong> #<?= htmlspecialchars($program['program_code']) ?></p>
+                                                <!-- دکمه کپی کد دوره -->
+                                                <button class="btn-copy" onclick="copyCode('<?= htmlspecialchars($program['program_code']) ?>')">کپی کد دوره</button>
                                             </div>
+                                            <!-- دکمه ویرایش و حذف -->
+                                            <a href="edit_program.php?id=<?= $program['id'] ?>" class="btn-edit">ویرایش</a>
+                                            <button class="btn-delete" onclick="confirmDelete(<?= $program['id'] ?>)">حذف</button>
                                         </div>
                                     </div>
                                 </div>
@@ -89,6 +102,20 @@ try {
     <script>
         function toggleDetails(card) {
             card.classList.toggle('show-details');
+        }
+
+        function confirmDelete(programId) {
+            if (confirm("آیا از حذف این برنامه اطمینان دارید؟")) {
+                window.location.href = "delete_program.php?id=" + programId;
+            }
+        }
+
+        function copyCode(code) {
+            navigator.clipboard.writeText(code).then(function() {
+                alert("کد دوره کپی شد: " + code);
+            }).catch(function(err) {
+                alert("خطا در کپی کردن کد دوره: " + err);
+            });
         }
     </script>
 
