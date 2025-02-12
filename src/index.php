@@ -781,6 +781,8 @@ $fields = $select->fetchAll(PDO::FETCH_ASSOC);
 
                 textDisplay.innerHTML = '<p>این متن مربوط به دکمه ۲ است.</p>';
             } else if (textId === 'text3') {
+              textDisplay.innerHTML = ' ';
+
               slide.classList.remove('hidden');
             }
         }
