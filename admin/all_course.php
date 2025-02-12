@@ -197,12 +197,18 @@ try {
                                             <div class="course-details">
                                                 <p><strong>زمان برگزاری:</strong> <?= htmlspecialchars($course['course_hours']) ?></p>
                                                 <p><strong>مدت دوره:</strong> <?= htmlspecialchars($course['course_duration']) ?> ماه</p>
-                                                <p><strong>قیمت دوره:</strong> <?= number_format($course['course_price']) ?> تومان</p>
-                                                <p>
-    <strong>کد دوره:</strong> 
-    <span id="courseCode<?= $course['id'] ?>"><?= htmlspecialchars($course['course_code']) ?></span>
-    <button class="btn btn-sm btn-outline-primary" onclick="copyCourseCode('courseCode<?= $course['id'] ?>')">کپی</button>
-</p>
+                                                <p><strong>قیمت دوره:</strong> 
+                                                    <?php if ($course['discount_price']): ?>
+                                                        <span style="text-decoration: line-through; color: #d9534f;"><?= number_format($course['course_price']) ?> تومان</span>
+                                                        <span style="color: #5bc0de; font-weight: bold;"><?= number_format($course['discount_price']) ?> تومان</span>
+                                                    <?php else: ?>
+                                                        <?= number_format($course['course_price']) ?> تومان
+                                                    <?php endif; ?>
+                                                </p>
+                                                <p><strong>کد دوره:</strong> 
+                                                    <span id="courseCode<?= $course['id'] ?>"><?= htmlspecialchars($course['course_code']) ?></span>
+                                                    <button class="btn btn-sm btn-outline-primary" onclick="copyCourseCode('courseCode<?= $course['id'] ?>')">کپی</button>
+                                                </p>
                                             </div>
                                             <!-- دکمه‌های ویرایش و حذف -->
                                             <div class="mt-3">
@@ -267,7 +273,6 @@ try {
         alert("کد دوره کپی شد: " + codeElement.innerText);
     }
 </script>
-
 
     <!-- اضافه کردن Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>

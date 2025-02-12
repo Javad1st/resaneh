@@ -2,37 +2,40 @@
 // اتصال به پایگاه داده
 include('../database/db.php');
 
-if (isset($_GET['id'])) {
-    $programId = $_GET['id'];
+if (isset($_GET['course_id']) && is_numeric($_GET['course_id'])) {
+    $courseId = $_GET['course_id'];
 
     try {
-        // ابتدا دریافت شناسه رشته مربوط به این برنامه
-        $stmt = $conn->prepare("SELECT major_id FROM programs WHERE id = :programId");
-        $stmt->bindParam(':programId', $programId, PDO::PARAM_INT);
+        // ابتدا دریافت مسیر تصویر دوره از پایگاه داده
+        $stmt = $conn->prepare("SELECT course_image FROM courses WHERE id = :courseId");
+        $stmt->bindParam(':courseId', $courseId, PDO::PARAM_INT);
         $stmt->execute();
-        $program = $stmt->fetch(PDO::FETCH_ASSOC);
+        $course = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if ($program) {
-            // حذف برنامه از پایگاه داده
-            $stmt = $conn->prepare("DELETE FROM programs WHERE id = :programId");
-            $stmt->bindParam(':programId', $programId, PDO::PARAM_INT);
+        if ($course) {
+            // حذف تصویر دوره از سرور
+            $imagePath = '../' . $course['course_image'];
+            if (file_exists($imagePath)) {
+                unlink($imagePath); // حذف فایل تصویر
+            }
+
+            // حذف دوره از پایگاه داده
+            $stmt = $conn->prepare("DELETE FROM courses WHERE id = :courseId");
+            $stmt->bindParam(':courseId', $courseId, PDO::PARAM_INT);
 
             if ($stmt->execute()) {
-                // پس از حذف، هدایت به صفحه رشته با استفاده از major_id
-                header("Location: view_programs.php?field_id=" . $program['major_id']);
-                exit();
+                // هدایت به صفحه اصلی پس از موفقیت
+                echo "<script>alert('دوره با موفقیت حذف شد!'); window.location.href='index.php';</script>";
             } else {
-                // نمایش خطا در صورت عدم موفقیت
-                header("Location: view_programs.php?error=خطا در حذف برنامه");
-                exit();
+                echo "<script>alert('خطا در حذف دوره!'); window.history.back();</script>";
             }
         } else {
-            echo "برنامه یافت نشد.";
+            echo "<script>alert('دوره یافت نشد!'); window.history.back();</script>";
         }
     } catch (PDOException $e) {
-        echo "خطا در حذف برنامه: " . $e->getMessage();
+        echo "خطا در حذف دوره: " . $e->getMessage();
     }
 } else {
-    echo "شناسه برنامه ارسال نشده است.";
+    echo "<script>alert('شناسه دوره نامعتبر است!'); window.history.back();</script>";
 }
 ?>

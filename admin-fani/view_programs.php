@@ -7,6 +7,13 @@ try {
     if (isset($_GET['field_id'])) {
         $major_id = $_GET['field_id'];
 
+        // گرفتن اسم رشته انتخابی
+        $stmt = $conn->prepare("SELECT field_name FROM fields WHERE id = :field_id");
+        $stmt->bindParam(':field_id', $major_id, PDO::PARAM_INT);
+        $stmt->execute();
+        $field = $stmt->fetch(PDO::FETCH_ASSOC);
+        $field_name = $field['field_name'] ?? 'نام رشته';
+
         // گرفتن دوره‌های مربوط به رشته انتخابی
         $stmt = $conn->prepare("SELECT * FROM programs WHERE field_id = :field_id");
         $stmt->bindParam(':field_id', $major_id, PDO::PARAM_INT);
@@ -150,7 +157,7 @@ try {
     <?php require 'header.php'; ?>
 
     <div class="container mt-5">
-        <h2>دوره‌های رشته</h2><br><br><br>
+        <h2>دوره‌های رشته: <?= htmlspecialchars($field_name) ?></h2><br><br><br>
 
         <!-- نمایش پیغام خطا در صورت وجود -->
         <?php if (isset($_GET['error'])): ?>
