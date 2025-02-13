@@ -21,14 +21,17 @@ function generateUniqueCourseCode($conn) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     try {
         // دریافت داده‌ها از فرم
-        $course_name = $_POST['course_name'];
-        $course_hours = $_POST['course_hours'];
-        $course_duration = $_POST['course_duration'];
-        $course_price = $_POST['course_price'];
-        $instructor_name = $_POST['instructor_name'];
-        $course_description = $_POST['course_description'];
-        $learning_objectives = $_POST['learning_objectives'];
-        $major_id = $_POST['major_id'];
+       // دریافت داده‌ها از فرم و حذف کاماها از قیمت‌ها
+$course_name = $_POST['course_name'];
+$course_hours = $_POST['course_hours'];
+$course_duration = $_POST['course_duration'];
+$course_price = str_replace(',', '', $_POST['course_price']); // حذف کاماها
+$discounted_price = str_replace(',', '', $_POST['discounted_price']); // حذف کاماها
+$instructor_name = $_POST['instructor_name'];
+$course_description = $_POST['course_description'];
+$learning_objectives = $_POST['learning_objectives'];
+$major_id = $_POST['major_id'];
+$course_days = $_POST['course_days'];
 
         // تولید کد دوره منحصر به فرد
         $course_code = generateUniqueCourseCode($conn);
@@ -54,18 +57,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         // وارد کردن اطلاعات دوره به پایگاه داده
-        $stmt = $conn->prepare("INSERT INTO courses (course_code, course_name, course_hours, course_duration, course_price, instructor_name, course_description, learning_objectives, major_id, course_image) 
-                                VALUES (:course_code, :course_name, :course_hours, :course_duration, :course_price, :instructor_name, :course_description, :learning_objectives, :major_id, :course_image)");
+        $stmt = $conn->prepare("INSERT INTO courses (course_code, course_name, course_hours, course_duration, course_price, discounted_price, instructor_name, course_description, learning_objectives, major_id, course_image , course_days) 
+                                VALUES (:course_code, :course_name, :course_hours, :course_duration, :course_price, :discounted_price, :instructor_name, :course_description, :learning_objectives, :major_id, :course_image, :course_days)");
         
         $stmt->bindParam(':course_code', $course_code);
         $stmt->bindParam(':course_name', $course_name);
         $stmt->bindParam(':course_hours', $course_hours);
         $stmt->bindParam(':course_duration', $course_duration);
         $stmt->bindParam(':course_price', $course_price);
+        $stmt->bindParam(':discounted_price', $discounted_price);
         $stmt->bindParam(':instructor_name', $instructor_name);
         $stmt->bindParam(':course_description', $course_description);
         $stmt->bindParam(':learning_objectives', $learning_objectives);
         $stmt->bindParam(':major_id', $major_id);
+        $stmt->bindParam(':course_days', $course_days);
         $stmt->bindParam(':course_image', $imagePath);
 
         $stmt->execute();

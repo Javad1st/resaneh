@@ -197,18 +197,20 @@ try {
                                             <div class="course-details">
                                                 <p><strong>زمان برگزاری:</strong> <?= htmlspecialchars($course['course_hours']) ?></p>
                                                 <p><strong>مدت دوره:</strong> <?= htmlspecialchars($course['course_duration']) ?> ماه</p>
+                                                <p><strong>روزای برگزاری دوره :</strong> <?= htmlspecialchars($course['course_days']) ?>  </p>
                                                 <p><strong>قیمت دوره:</strong> 
-                                                    <?php if ($course['discount_price']): ?>
-                                                        <span style="text-decoration: line-through; color: #d9534f;"><?= number_format($course['course_price']) ?> تومان</span>
-                                                        <span style="color: #5bc0de; font-weight: bold;"><?= number_format($course['discount_price']) ?> تومان</span>
-                                                    <?php else: ?>
-                                                        <?= number_format($course['course_price']) ?> تومان
-                                                    <?php endif; ?>
-                                                </p>
-                                                <p><strong>کد دوره:</strong> 
-                                                    <span id="courseCode<?= $course['id'] ?>"><?= htmlspecialchars($course['course_code']) ?></span>
-                                                    <button class="btn btn-sm btn-outline-primary" onclick="copyCourseCode('courseCode<?= $course['id'] ?>')">کپی</button>
-                                                </p>
+    <?php if (!empty($course['discounted_price']) && $course['discounted_price'] > 0): ?>
+        <span style="text-decoration: line-through; color: #d9534f;">
+            <?= number_format($course['course_price']) ?> تومان
+        </span>
+        <span style="color: #5bc0de; font-weight: bold;">
+            <?= number_format($course['discounted_price']) ?> تومان
+        </span>
+    <?php else: ?>
+        <?= number_format($course['course_price']) ?> تومان
+    <?php endif; ?>
+</p>
+
                                             </div>
                                             <!-- دکمه‌های ویرایش و حذف -->
                                             <div class="mt-3">

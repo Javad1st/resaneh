@@ -33,11 +33,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $courseHours = $_POST['course_hours'];
     $courseDuration = $_POST['course_duration'];
     $coursePrice = $_POST['course_price'];
+    $discountedPrice = $_POST['discounted_price']; // اضافه کردن فیلد تخفیف
   
     // حذف کاماها از قیمت و تبدیل آن به عدد صحیح
     $coursePrice = str_replace(',', '', $coursePrice);  // حذف کاماها
     $coursePrice = floatval($coursePrice);  // تبدیل به float
     $coursePrice = round($coursePrice);
+
+    // حذف کاماها از تخفیف و تبدیل آن به عدد صحیح
+    $discountedPrice = str_replace(',', '', $discountedPrice);  // حذف کاماها
+    $discountedPrice = floatval($discountedPrice);  // تبدیل به float
+    $discountedPrice = round($discountedPrice);
 
     // بررسی و آپلود تصویر جدید
     $imagePath = $course['course_image'];  // مقدار پیش‌فرض تصویر قبلی
@@ -65,12 +71,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // بروزرسانی اطلاعات دوره در پایگاه داده
     try {
-        $stmt = $conn->prepare("UPDATE courses SET course_name = :courseName, course_description = :courseDescription, course_hours = :courseHours, course_duration = :courseDuration, course_price = :coursePrice, course_image = :courseImage WHERE id = :courseId");
+        $stmt = $conn->prepare("UPDATE courses SET course_name = :courseName, course_description = :courseDescription, course_hours = :courseHours, course_duration = :courseDuration, course_price = :coursePrice, discounted_price = :discountedPrice, course_image = :courseImage WHERE id = :courseId");
         $stmt->bindParam(':courseName', $courseName);
         $stmt->bindParam(':courseDescription', $courseDescription);
         $stmt->bindParam(':courseHours', $courseHours);
         $stmt->bindParam(':courseDuration', $courseDuration);
         $stmt->bindParam(':coursePrice', $coursePrice);
+        $stmt->bindParam(':discountedPrice', $discountedPrice);  // ذخیره تخفیف
         $stmt->bindParam(':courseImage', $imagePath);
         $stmt->bindParam(':courseId', $courseId);
         $stmt->execute();
@@ -119,7 +126,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
             <div class="mb-3">
                 <label for="course_price" class="form-label">قیمت دوره</label>
-                <input type="text" id="course_price" name="course_price" class="form-control" value=" <?= number_format($course['course_price']) ?>"  oninput="formatPrice(this)"  required>
+                <input type="text" id="course_price" name="course_price" class="form-control" value="<?= number_format($course['course_price']) ?>" oninput="formatPrice(this)" required>
+            </div>
+            <div class="mb-3">
+                <label for="discounted_price" class="form-label">تخفیف دوره</label>
+                <input type="text" id="discounted_price" name="discounted_price" class="form-control" value="<?= number_format($course['discounted_price']) ?>" oninput="formatPrice(this)" required>
             </div>
             <div class="mb-3">
                 <label for="course_image" class="form-label">تصویر دوره</label>

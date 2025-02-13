@@ -34,7 +34,7 @@ $majors = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <form action="add_course_process.php" method="POST" enctype="multipart/form-data">
         <div class="mb-3">
             <label for="courseName" class="form-label">نام دوره</label>
-            <input type="text" class="form-control" id="courseName" name="course_name" value="" required>
+            <input type="text" class="form-control" id="courseName" name="course_name" required>
         </div>
         <div class="mb-3">
             <label for="courseHours" class="form-label">ساعت شروع و پایان دوره</label>
@@ -42,16 +42,34 @@ $majors = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
         <div class="mb-3">
             <label for="courseDuration" class="form-label">مدت زمان دوره (به ماه)</label>
-            <input type="number" class="form-control" id="courseDuration" name="course_duration" value="" required>
+            <input type="number" class="form-control" id="courseDuration" name="course_duration" required>
         </div>
         <div class="mb-3">
-            <label for="coursePrice" class="form-label">قیمت دوره (تومان)</label>
+    <label class="form-label">روزهای برگزاری دوره</label>
+    <div class="form-check form-check-inline">
+        <input class="form-check-input bg-green-500 border-green-500" type="radio" name="course_days" id="evenDays" value="زوج" required>
+        <label class="form-check-label text-green-600 font-semibold" for="evenDays">روزهای زوج</label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input class="form-check-input bg-blue-500 border-blue-500" type="radio" name="course_days" id="oddDays" value="فرد">
+        <label class="form-check-label text-blue-600 font-semibold" for="oddDays">روزهای فرد</label>
+    </div>
+</div>
+
+
+        <div class="mb-3">
+            <label for="coursePrice" class="form-label">قیمت اصلی دوره (تومان)</label>
             <input type="text" class="form-control" id="coursePrice" name="course_price" oninput="formatPrice(this)" required>
         </div>
         <div class="mb-3">
-            <label for="instructorName" class="form-label">نام معلم</label>
-            <input type="text" class="form-control" id="instructorName" name="instructor_name" value="" required>
+            <label for="discountedPrice" class="form-label">قیمت پس از تخفیف (تومان)</label>
+            <input type="text" class="form-control" id="discountedPrice" name="discounted_price" oninput="formatPrice(this)">
         </div>
+        <div class="mb-3">
+            <label for="instructorName" class="form-label">نام معلم</label>
+            <input type="text" class="form-control" id="instructorName" name="instructor_name" required>
+        </div>
+
         <div class="mb-3">
             <label for="courseDescription" class="form-label">توضیحات دوره</label>
             <textarea class="form-control" id="courseDescription" name="course_description" rows="4" required></textarea>

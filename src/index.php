@@ -626,27 +626,33 @@ document.getElementById('reshteHamber').addEventListener('click', function() {
 </style>
 
 
-<div class="w-full scroll flex flex-col items-center justify-center overflow-hidden mt-12">
-  <h2 class="text-3xl font-bold text-[#003366] mb-4 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500"> دوره های اخیر</h2>
-<div class="w-full 2xl:w-full mt-1 ">
+<?php
+// اتصال به پایگاه داده
+require_once '../database/db.php';
 
-	<div id="default-carousel" class="relative aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500" data-carousel="static">
-        <!-- Carousel wrapper -->
-        <div class="overflow-hidden relative h-56 rounded-lg sm:h-64 xl:h-80 2xl:h-96">
-            <!-- Item 1 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <span class="absolute top-1/2 left-1/2 text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 sm:text-3xl dark:text-gray-800">First Slide</span>
-                <img src="https://flowbite.com/docs/images/carousel/carousel-1.svg" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="...">
-            </div>
-            <!-- Item 2 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="https://flowbite.com/docs/images/carousel/carousel-2.svg" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="...">
-            </div>
-            <!-- Item 3 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="https://flowbite.com/docs/images/carousel/carousel-3.svg" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="...">
-            </div>
-        </div>
+// کوئری برای دریافت آخرین سه دوره
+$sql = "SELECT * FROM courses ORDER BY created_at DESC LIMIT 3";
+$stmt = $conn->prepare($sql);
+$stmt->execute();
+$courses = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
+
+<div class="w-full scroll flex flex-col items-center justify-center overflow-hidden mt-12">
+  <h2 class="text-3xl font-bold text-[#003366] mb-4 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500">دوره های اخیر</h2>
+  <div class="w-full 2xl:w-full mt-1">
+    <div id="default-carousel" class="relative aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500" data-carousel="static">
+      <!-- Carousel wrapper -->
+      <div class="overflow-hidden relative h-56 rounded-lg sm:h-64 xl:h-80 2xl:h-96">
+        <?php foreach ($courses as $course): ?>
+          <div class="hidden duration-700 ease-in-out" data-carousel-item>
+            <img src="../<?= htmlspecialchars($course['course_image']) ?>" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="دوره <?= htmlspecialchars($course['course_name']) ?>">
+          </div>
+        <?php endforeach; ?>
+      </div>
+    </div>
+  </div>
+</div>
+
         <!-- Slider indicators -->
         <div class="flex absolute bottom-5 left-1/2 z-30 space-x-3 -translate-x-1/2">
             <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 1" data-carousel-slide-to="0"></button>

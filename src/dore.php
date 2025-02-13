@@ -487,7 +487,6 @@ try {
     echo "خطا در خواندن داده‌ها: " . $e->getMessage();
 }
 ?>
-
 <h2 class="lg:text-3xl text-2xl m-4.5 dark:text-white"> رشته های </h2>
 <div class="reshteHa mt-1.5 p-2.5 flex gap-3 flex-wrap justify-center w-full">
     <?php if (!empty($courses)): ?>
@@ -505,8 +504,17 @@ try {
                 <div id="details" class="hidden mt-4 p-4 bg-gray-200 dark:bg-gray-900 rounded-lg flex flex-col gap-1.5">
                     <h3 class="text-lg font-bold mb-2 dark:text-gray-100">آموزش </h3>
                     <p class="text-gray-700 mb-2 dark:text-gray-400"><?= htmlspecialchars($course['learning_objectives']) ?></p>
-                    <p class="text-gray-600 mb-2 dark:text-gray-300 flex gap-2">قیمت: </span> <span class="offLine font-semibold line-through text-red-500"><?= number_format($course['course_price']) ?> تومان</p>
-                    <p class="text-gray-600 mb-2 dark:text-gray-300 flex gap-2">قیمت با تخفیف: </span> <span class=" font-semibold "><?= number_format($course['course_price']) ?> تومان</p>
+                    
+                    <p class="text-gray-600 mb-2 dark:text-gray-300 flex gap-2 whitespace-nowrap">قیمت
+    <?php if (!empty($course['discounted_price']) && $course['discounted_price'] > 0): ?>
+        <span class="offLine font-semibold line-through text-red-500"><?= number_format($course['course_price']) ?> تومان</span>
+        <span class="font-semibold text-green-500"><?= number_format($course['discounted_price']) ?> تومان</span>
+    <?php else: ?>
+        <span class="font-semibold"><?= number_format($course['course_price']) ?> تومان</span>
+    <?php endif; ?>
+</p>
+<p class="text-gray-600 dark:text-gray-300"> روزهای برگزاری : <span class="font-semibold"><?= htmlspecialchars($course['course_days']) ?></span></p>
+
                     <p class="text-gray-600 mb-2 dark:text-gray-300">زمان برگزاری: <span class="font-semibold"><?= htmlspecialchars($course['course_hours']) ?></span></p>
                     <p class="text-gray-600 mb-2 dark:text-gray-300">مدت دوره (ماه): <span class="font-semibold"><?= htmlspecialchars($course['course_duration']) ?> ماه</span></p>
                     <p class="text-gray-600 dark:text-gray-300">کد دوره: <span class="font-semibold"><?= htmlspecialchars($course['course_code']) ?></span></p>
@@ -519,6 +527,7 @@ try {
         <p>هیچ دوره‌ای برای نمایش وجود ندارد.</p>
     <?php endif; ?>
 </div>
+
 <style>
   .offLine{
     color: var(--color-red-500);

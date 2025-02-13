@@ -194,6 +194,7 @@ try {
                                     <p><strong>زمان برگزاری:</strong> <?= htmlspecialchars($course['course_hours']) ?></p>
                                     <p><strong>مدت دوره:</strong> <?= htmlspecialchars($course['course_duration']) ?> ماه</p>
                                     <p><strong>قیمت دوره:</strong> <?= number_format($course['course_price']) ?> تومان</p>
+                                    <p><strong>قیمت تخفیف:</strong> <?= number_format($course['discounted_price']) ?> تومان</p>
                                     <p>
     <strong>کد دوره:</strong> 
     <span id="courseCode<?= $course['id'] ?>"><?= htmlspecialchars($course['course_code']) ?></span>
