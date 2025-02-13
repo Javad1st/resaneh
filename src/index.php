@@ -207,10 +207,13 @@
     <svg class="" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: var(--color-blue-500);" ><path d="m20.487 17.14-4.065-3.696a1.001 1.001 0 0 0-1.391.043l-2.393 2.461c-.576-.11-1.734-.471-2.926-1.66-1.192-1.193-1.553-2.354-1.66-2.926l2.459-2.394a1 1 0 0 0 .043-1.391L6.859 3.513a1 1 0 0 0-1.391-.087l-2.17 1.861a1 1 0 0 0-.29.649c-.015.25-.301 6.172 4.291 10.766C11.305 20.707 16.323 21 17.705 21c.202 0 .326-.006.359-.008a.992.992 0 0 0 .648-.291l1.86-2.171a.997.997 0 0 0-.085-1.39z"></path></svg>
     </div>
     <div id="modal2" class="fixed inset-0 z-100  bgBO flex items-center justify-center hidden">
-        <div dir="rtl" class="bg-white rounded-lg p-6 shadow-lg transition-transform transform 2-enter modal-leave">
+        <div dir="rtl" class="bg-white rounded-lg max-w-[300px] p-6 shadow-lg transition-transform transform 2-enter modal-leave">
             <button id="closeModal2" class="absolute top-2 right-2 text-gray-600 hover:text-gray-800"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: var(--color-blue-500)"><path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path></svg></button>
-            <h2 class="text-lg font-bold mt-2"> تلفن آموزشگاه : </h2>
+            <h2 class="text-lg font-bold mt-2 text-[#003366]"> تلفن آموزشگاه : </h2>
             <p class="mt-2 font-bold text-xl">025433456</p>
+            <h2 class="text-lg font-bold mt-3 w-full py-4 border-t text-[#003366]"> آدرس آموزشگاه : </h2>
+            <p class="font-bold text-xl">قم بلوار سمیه نبش کوچه یک</p>
+
         </div>
     </div>
 
@@ -307,9 +310,8 @@ $courses = $select->fetchAll(PDO::FETCH_ASSOC);
     <?php foreach($courses as $course): ?>
             <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-blue-100 dark:hover:bg-sky-700">
               <div class="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                <svg class="size-6 text-gray-600 group-hover:text-sky-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z" />
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0 0 13.5 3v7.5Z" />
+                <svg class="size-6 text-gray-600 group-hover:text-sky-600" fill="currentColor" viewBox="0 0 24 24" stroke-width="0.2" stroke="currentColor" aria-hidden="true" data-slot="icon">
+                <path d="M2 7v1l11 4 9-4V7L11 4z"></path><path d="M4 11v4.267c0 1.621 4.001 3.893 9 3.734 4-.126 6.586-1.972 7-3.467.024-.089.037-.178.037-.268V11L13 14l-5-1.667v3.213l-1-.364V12l-3-1z"></path>
                 </svg>
               </div>
               <div class="flex-auto">
@@ -345,8 +347,8 @@ $courses = $select->fetchAll(PDO::FETCH_ASSOC);
       <p> پشتیبانی</p>
       </a>
 
-      <a href="#adress" class="headSub text-xl flex items-center justify-center gap-1 font-semibold transition-all ease-out 200ms text-black  hover:text-blue-500 ">
-      <svg class="mt-[-10px]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: currentColor;"><path d="M11.42 21.815a1.004 1.004 0 0 0 1.16 0C12.884 21.598 20.029 16.44 20 10c0-4.411-3.589-8-8-8S4 5.589 4 9.996c-.029 6.444 7.116 11.602 7.42 11.819zM12 4c3.309 0 6 2.691 6 6.004.021 4.438-4.388 8.423-6 9.731-1.611-1.308-6.021-5.293-6-9.735 0-3.309 2.691-6 6-6z"></path><path d="M11 14h2v-3h3V9h-3V6h-2v3H8v2h3z"></path></svg>
+      <a href="#footer" class="headSub text-xl flex items-center justify-center gap-1 font-semibold transition-all ease-out 200ms text-black  hover:text-blue-500 ">
+      <svg class="mt-[-10px]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: currentColor;"><path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z"/></svg>
       <p> آدرس</p>
       </a>
 
@@ -363,9 +365,13 @@ $courses = $select->fetchAll(PDO::FETCH_ASSOC);
     </div>
     <div id="modal" class="fixed inset-0 z-100  bgBO flex items-center justify-center hidden">
         <div dir="rtl" class="bg-white rounded-lg p-6 shadow-lg transition-transform transform modal-enter modal-leave">
-            <button id="closeModal" class="absolute top-2 right-2 text-gray-600 hover:text-gray-800"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: var(--color-blue-500)"><path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path></svg></button>
-            <h2 class="text-lg font-bold mt-2"> تلفن آموزشگاه : </h2>
+            <button id="closeModal" class="absolute top-2 right-2 max-w-[300px] text-gray-600 hover:text-gray-800"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: var(--color-blue-500)"><path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path></svg></button>
+            <h2 class="text-lg font-bold mt-2 text-[#003366]"> تلفن آموزشگاه : </h2>
             <p class="mt-2 font-bold text-xl">025433456</p>
+            <h2 class="text-lg font-bold mt-3 w-full py-4 border-t text-[#003366]"> آدرس آموزشگاه : </h2>
+            <p class="font-bold text-xl">قم بلوار سمیه نبش کوچه یک</p>
+
+
         </div>
     </div>
 
@@ -978,10 +984,14 @@ window.addEventListener('scroll', function() {
 
 
 
-<footer class="mt-14">
+<footer id="footer" class="mt-14">
     <div class="footer-container">
         <div class="footer-logo">
             <img class="p-4 mb-6 w-36 ml-6 fill-white" src="./images/guy.png" alt="Logo">
+        </div>
+        <div class="flex gap-3.5 items-center justify-center">
+            <img class="p-4 mb-6 w-36 ml-6 fill-white" src="./images/4f.png" alt="">
+            <img class="p-4 mb-6 w-36 ml-6 fill-white" src="./images/10f.png" alt="">
         </div>
         <div class="footer-links flex gap-24 items-center justify-center mt-14 mb-6">
             <ul class="flex flex-col gap-7 text-center">
