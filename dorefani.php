@@ -1,56 +1,106 @@
-
-
 <!doctype html>
-<html class="dark">
+<html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="./src/output.css" rel="stylesheet">
-    <link href="./src/output.css" rel="stylesheet">
+  <link href="./src/TOSAN_files/fontawesome.css" rel="stylesheet">
+    <link href="./src/TOSAN_files/brands.css" rel="stylesheet">
+    <link href="./src/TOSAN_files/solid.css" rel="stylesheet">
+<!-- <link rel="stylesheet" href="./src/TOSAN_files/style-rtl.css"> -->
 
-  
-  <script>
-      // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-      if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-          document.documentElement.classList.add('dark');
-      } else {
-          document.documentElement.classList.remove('dark')
-      }
-  </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="./src/TOSAN_files/css2.css" rel="stylesheet">
+
+    <!-- <link rel="stylesheet" type="text/css" href="TOSAN_files/all.min.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="TOSAN_files/bootstrap-icons.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="TOSAN_files/glightbox.css"> -->
+    <link rel="stylesheet" type="text/css" href="./src/TOSAN_files/aos.css">
+    <link rel="stylesheet" type="text/css" href="./src/TOSAN_files/swiper-bundle.min.css">
+        <!-- <link rel="stylesheet" type="text/css" href="TOSAN_files/style-rtl.css"> -->
+
 </head>
-<body dir="rtl" class="bg-gray-100 dark:bg-gray-900 transition-all ease-in 100ms">
-    <style>
-      @font-face {
-    font-family: iransans;
+<style>
+  html{
+    scroll-behavior: smooth;
+  }
+  @font-face {
+    font-family: yekan;
+    font-weight: 900;
+    src: url(./src/yekan/YekanBakh-ExtraBlack.woff2);
+  }
+  @font-face {
+    font-family: yekan;
+    font-weight: 800;
+    src: url(./src/yekan/YekanBakh-Black.woff2);
+  }
+  @font-face {
+    font-family: yekan;
     font-weight: 700;
-    src: url(src/iranSans/IRANSansWeb_Bold.woff);
+    src: url(./src/yekan/YekanBakh-ExtraBold.woff2);
   }
   @font-face {
-    font-family: iransans;
-    font-weight: medium;
-    src: url(src/iranSans/IRANSansWeb.woff);
+    font-family: yekan;
+    font-weight: 600;
+    src: url(./src/yekan/YekanBakh-Bold.woff2);
   }
   @font-face {
-    font-family: iransans;
+    font-family: yekan;
+    font-weight: 500;
+    src: url(./src/yekan/YekanBakh-SemiBold.woff2);
+  }
+  
+  @font-face {
+    font-family: yekan;
     font-weight: 300;
-    src: url(src/iranSans/IRANSansWeb_Light.woff);
+    src: url(./src/yekan/YekanBakh-Regular.woff2);
   }
   @font-face {
-    font-family: iransans;
-    font-weight: lighter;
-    src: url(src/iranSans/IRANSansWeb_UltraLight.woff);
+    font-family: yekan;
+    font-weight: 200;
+    src: url(./src/yekan/YekanBakh-Light.woff2);
+  }
+  @font-face {
+    font-family: yekan;
+    font-weight: 100;
+    src: url(./src/yekan/YekanBakh-Thin.woff2);
   }
   *{
-    font-family: iransans
+    font-family: yekan
   }
   
+  /* width */
+::-webkit-scrollbar {
+  transition: all ease-in 200ms;
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--color-sky-500);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-sky-700);
+}
+
+
   .image{
     width: 100%;
-    height: auto;
+    height: 100%;
   }
   
     .back {
-    background-color: rgba(0, 0, 0, 0.7); 
+      transition: all ease-in-out 200ms;
+    background-color: rgba(0, 0, 0, 0.5); 
     height: 100%;
     width: 100%;
     right: 0px;
@@ -66,206 +116,330 @@
     max-width: 160px;
   }
   .reshte .back a p{
-    font-family: iransans;
+    font-family: yekan;
+    width: 290px;
   }
   .back a:hover p {
     color: #60a5fa; /* رنگ آبی 400 */
+    scale: 1.1;
+
+    
+  }
+  .back:hover{
+    
+      background-color: rgba(0, 0, 0, 0.7); 
+    
   }
   
   .back a:hover svg {
     fill: #60a5fa; /* رنگ آبی 400 */
   }
   .reshte{
-    width: 33%;
+    width: 380px;
     height: auto;
   }
-    </style>
+  
+  @media  screen and (max-width : 800px) {
+    .reshteHa{
+      flex-direction: column;
+      align-items: center;
+    }
+    
+  }
+  @media  screen and (max-width : 400px) {
+    .reshte{
+      width: 280px;
+    }
+    .reshte .back a{
+    
+    width: inherit;
+    height: 100%;
+    padding: 1.5rem 9rem;
+    max-width: 160px;
+  }
 
-<header dir="ltr" class="bg-gray-100 dark:bg-gray-900 transition-all ease-in 100ms">
-  <nav class="mx-auto flex max-w-7xl items-center justify-end lg:justify-between p-6 lg:px-8 bg-blue-400 dark:bg-sky-600 rounded-b-2xl transition-all ease-in 100ms" aria-label="Global">
-    <div class="flex lg:flex-1">
+  }
+  #dropdown{
+    height: 510px
+  }
+  /* .headSub:hover{
+  
+   color: dodgerblue;
+  
+  
+   
+    
+  } */
+   .dropChild{
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+   }
+  .headSub:hover svg{
+    fill: dodgerblue;
+   }
+
+
+   .shoar{
+    font-weight: 800;
+   }
+
+   .banerPlace{
+    background-image: url(./src/images/baner.png);
+    
+   }
+   footer{
+    background-color: #184086;
+   }
+</style>
+<body dir="rtl" class="bg-gray-200 transition-all ease-in 100ms flex flex-col items-center overflow-x-hidden">
+  <div class="container flex flex-col w-screen  max-w-[1550px]">
+<header dir="ltr" class="bg-gray-200 transition-all ease-in 100ms">
+  <nav class="lg:mx-auto flex max-w-[1750px] items-center justify-between p-6 lg:px-8 bg-white transition-all ease-in 100ms" aria-label="Global">
+    <div class="flex lg:flex-1 justify-self-center max-lg:hidden">
+      <a href="./src/index.php" class="-m-1.5 p-1.5">
+        <span class="sr-only text-6xl ">مجموعه ما</span>
+        <img class="h-[65px] w-auto" src="./src/images/guy.png" alt="">
+      </a>
+    </div>
+    <div class=" lg:flex-1 lg:justify-end lg:hidden">
+
+    <div id="telBtn2" class="p-3.5 rounded-xl lg:hidden hover:bg-blue-100 transition-all ease-out 200ms cursor-pointer">
+    <svg class="" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: var(--color-blue-500);" ><path d="m20.487 17.14-4.065-3.696a1.001 1.001 0 0 0-1.391.043l-2.393 2.461c-.576-.11-1.734-.471-2.926-1.66-1.192-1.193-1.553-2.354-1.66-2.926l2.459-2.394a1 1 0 0 0 .043-1.391L6.859 3.513a1 1 0 0 0-1.391-.087l-2.17 1.861a1 1 0 0 0-.29.649c-.015.25-.301 6.172 4.291 10.766C11.305 20.707 16.323 21 17.705 21c.202 0 .326-.006.359-.008a.992.992 0 0 0 .648-.291l1.86-2.171a.997.997 0 0 0-.085-1.39z"></path></svg>
+    </div>
+    <div id="modal2" class="fixed inset-0 z-100  bgBO flex items-center justify-center hidden">
+        <div dir="rtl" class="bg-white rounded-lg max-w-[300px] p-6 shadow-lg transition-transform transform 2-enter modal-leave">
+            <button id="closeModal2" class="absolute top-2 right-2 text-gray-600 hover:text-gray-800"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: var(--color-blue-500)"><path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path></svg></button>
+            <h2 class="text-lg font-bold mt-2 text-[#003366]"> تلفن آموزشگاه : </h2>
+            <p class="mt-2 font-bold text-xl">025433456</p>
+            <h2 class="text-lg font-bold mt-3 w-full py-4 border-t text-[#003366]"> آدرس آموزشگاه : </h2>
+            <p class="font-bold text-xl">قم بلوار سمیه نبش کوچه یک</p>
+
+        </div>
+    </div>
+
+    <script>
+        const telBtn2 = document.getElementById('telBtn2');
+        const modal2 = document.getElementById('modal2');
+        const closeModal2 = document.getElementById('closeModal2');
+
+        telBtn2.addEventListener('click', () => {
+            modal2.classList.remove('hidden');
+            const modalContent2 = modal2.firstElementChild;
+            modalContent2.classList.remove('modal-leave-active');
+            modalContent2.classList.add('modal-enter');
+            setTimeout(() => {
+                modalContent2.classList.add('modal-enter-active');
+            }, 10);
+        });
+
+        closeModal2.addEventListener('click', () => {
+            const modalContent2 = modal2.firstElementChild;
+            modalContent2.classList.remove('modal-enter-active');
+            modalContent2.classList.add('modal-leave-active');
+            setTimeout(() => {
+                modal2.classList.add('hidden');
+                modalContent2.classList.remove('modal-leave-active');
+            }, 300);
+        });
+    </script>
+    </div>
+    <style>
+        .modal-enter {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        .modal-enter-active {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .modal-leave {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .modal-leave-active {
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            
+        }
+        .bgBO{
+          backdrop-filter: blur(6px);
+          background-color: rgba(0, 0, 0, 0.6);
+        }
+    </style>
+     <div class="flex lg:flex-1 justify-self-center lg:hidden">
       <a href="#" class="-m-1.5 p-1.5">
-        <span class="sr-only ">مجموعه ما</span>
-        <img class="h-8 w-auto" src="#" alt="">
+        <span class="sr-only text-6xl ">مجموعه ما</span>
+        <img class="h-[65px] w-auto" src="./src/images/guy.png" alt="">
       </a>
     </div>
     <div class="flex lg:hidden ">
-      <button id="hamber" type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white">
-        <span class="sr-only">Open main menu</span>
+      <button id="hamber" type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-black">
+        <span class="sr-only">منو</span>
         <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
           <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
         </svg>
       </button>
     </div>
+   
     <div class="hidden lg:flex lg:gap-x-12">
       <div class="relative">
-      <button dir="rtl" id="toggleButton" type="button" class="flex items-center gap-x-1 text-sm font-semibold lg:text-white text-black" aria-expanded="false">
-    دوره ها
-    <svg class="size-5 flex-none lg:text-white text-black" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+      <button dir="rtl" id="toggleButton" type="button" class="headSub flex items-center gap-x-1 text-xl font-semibold hover:text-blue-500 transition-all ease-out 200ms text-black cursor-pointer" aria-expanded="false">
+ دوره ها 
+    <svg class="size-7 flex-none mt-[-10px] group-hover:text-blue-500 text-black" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
         <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
     </svg>
 </button>
 
 <!-- منوی پرتابل -->
-<div id="dropdown" dir="rtl" class="absolute top-full -left-8 z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white dark:bg-gray-800 dark:text-gray-50 ring-1 shadow-lg ring-gray-900/5 hidden">
+<div id="dropdown" dir="rtl" class="absolute top-3.5  z-100 mt-3 w-screen max-w-md overflow-x-hidden overflow-y-scroll rounded-3xl bg-gray-200 ring-1 shadow-lg ring-gray-900/5 hidden">
     <!-- محتویات منو -->
+
+  
+<?php 
+include './database/db.php';
+
+// دریافت سه مقاله آخر
+$select = $conn->prepare("SELECT * FROM courses");
+$select->execute();
+$courses = $select->fetchAll(PDO::FETCH_ASSOC);
+?>
+
     <div class="p-4">
-            <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-gray-300 dark:hover:bg-gray-700">
+    <?php foreach($courses as $course): ?>
+            <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-blue-100 over:bg-sky-700">
               <div class="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                <svg class="size-6 text-gray-600 group-hover:text-sky-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z" />
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0 0 13.5 3v7.5Z" />
+                <svg class="size-6 text-gray-600 group-hover:text-sky-600" fill="currentColor" viewBox="0 0 24 24" stroke-width="0.2" stroke="currentColor" aria-hidden="true" data-slot="icon">
+                <path d="M2 7v1l11 4 9-4V7L11 4z"></path><path d="M4 11v4.267c0 1.621 4.001 3.893 9 3.734 4-.126 6.586-1.972 7-3.467.024-.089.037-.178.037-.268V11L13 14l-5-1.667v3.213l-1-.364V12l-3-1z"></path>
                 </svg>
               </div>
               <div class="flex-auto">
-                <a href="#" class="block font-semibold text-gray-900 dark:text-gray-50">
-                  Analytics
+                <a href="#" class="block font-semibold text-gray-900 ext-gray-50">
+                <?= $course['course_name'] ?>
                   <span class="absolute inset-0"></span>
                 </a>
-                <p class="mt-1 text-gray-600 dark:text-gray-200">Get a better understanding of your traffic</p>
+                <p class="mt-1 text-gray-600 ext-gray-200"><?= $course['course_description']?></p>
               </div>
             </div>
-            <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-gray-300 dark:hover:bg-gray-700">
-              <div class="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                <svg class="size-6 text-gray-600 group-hover:text-sky-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M15.042 21.672 13.684 16.6m0 0-2.51 2.225.569-9.47 5.227 7.917-3.286-.672ZM12 2.25V4.5m5.834.166-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243-1.59-1.59" />
-                </svg>
-              </div>
-              <div class="flex-auto">
-                <a href="#" class="block font-semibold text-gray-900 dark:text-gray-50">
-                  Engagement
-                  <span class="absolute inset-0"></span>
-                </a>
-                <p class="mt-1 text-gray-600 dark:text-gray-200">Speak directly to your customers</p>
-              </div>
-            </div>
-            <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-gray-300 dark:hover:bg-gray-700">
-              <div class="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                <svg class="size-6 text-gray-600 group-hover:text-sky-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M7.864 4.243A7.5 7.5 0 0 1 19.5 10.5c0 2.92-.556 5.709-1.568 8.268M5.742 6.364A7.465 7.465 0 0 0 4.5 10.5a7.464 7.464 0 0 1-1.15 3.993m1.989 3.559A11.209 11.209 0 0 0 8.25 10.5a3.75 3.75 0 1 1 7.5 0c0 .527-.021 1.049-.064 1.565M12 10.5a14.94 14.94 0 0 1-3.6 9.75m6.633-4.596a18.666 18.666 0 0 1-2.485 5.33" />
-                </svg>
-              </div>
-              <div class="flex-auto">
-                <a href="#" class="block font-semibold text-gray-900 dark:text-gray-50">
-                  Security
-                  <span class="absolute inset-0"></span>
-                </a>
-                <p class="mt-1 text-gray-600 dark:text-gray-200">Your customers’ data will be safe and secure</p>
-              </div>
-            </div>
-            <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-gray-300 dark:hover:bg-gray-700">
-              <div class="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                <svg class="size-6 text-gray-600 group-hover:text-sky-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 16.875h3.375m0 0h3.375m-3.375 0V13.5m0 3.375v3.375M6 10.5h2.25a2.25 2.25 0 0 0 2.25-2.25V6a2.25 2.25 0 0 0-2.25-2.25H6A2.25 2.25 0 0 0 3.75 6v2.25A2.25 2.25 0 0 0 6 10.5Zm0 9.75h2.25A2.25 2.25 0 0 0 10.5 18v-2.25a2.25 2.25 0 0 0-2.25-2.25H6a2.25 2.25 0 0 0-2.25 2.25V18A2.25 2.25 0 0 0 6 20.25Zm9.75-9.75H18a2.25 2.25 0 0 0 2.25-2.25V6A2.25 2.25 0 0 0 18 3.75h-2.25A2.25 2.25 0 0 0 13.5 6v2.25a2.25 2.25 0 0 0 2.25 2.25Z" />
-                </svg>
-              </div>
-              <div class="flex-auto">
-                <a href="#" class="block font-semibold text-gray-900 dark:text-gray-50">
-                  Integrations
-                  <span class="absolute inset-0"></span>
-                </a>
-                <p class="mt-1 text-gray-600 dark:text-gray-200">Connect with third-party tools</p>
-              </div>
-            </div>
-            <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-gray-300 dark:hover:bg-gray-700">
-              <div class="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                <svg class="size-6 text-gray-600 group-hover:text-sky-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
-                </svg>
-              </div>
-              <div class="flex-auto">
-                <a href="#" class="block font-semibold text-gray-900 dark:text-gray-50">
-                  Automations
-                  <span class="absolute inset-0"></span>
-                </a>
-                <p class="mt-1 text-gray-600 dark:text-gray-200">Build strategic funnels that will convert</p>
-              </div>
-            </div>
+            <?php endforeach; ?>
+
+           
+       
           </div>
 
-          <div class="grid grid-cols-1 divide-x divide-gray-900/5 bg-gray-50 dark:bg-gray-900">
-           
-            <a href="#" class="flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-gray-900 dark:text-gray-50 hover:bg-gray-300 dark:hover:bg-gray-700">
-              <svg class="size-5 flex-none text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
-                <path fill-rule="evenodd" d="M2 3.5A1.5 1.5 0 0 1 3.5 2h1.148a1.5 1.5 0 0 1 1.465 1.175l.716 3.223a1.5 1.5 0 0 1-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 0 0 6.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 0 1 1.767-1.052l3.223.716A1.5 1.5 0 0 1 18 15.352V16.5a1.5 1.5 0 0 1-1.5 1.5H15c-1.149 0-2.263-.15-3.326-.43A13.022 13.022 0 0 1 2.43 8.326 13.019 13.019 0 0 1 2 5V3.5Z" clip-rule="evenodd" />
-              </svg>
-              Contact sales
-            </a>
+          <div class="grid grid-cols-1 divide-x divide-gray-900/5  border-t-1">
+          
           </div>
         </div>
       </div>
+      <style>
+  
 
-      <a href="#" class="text-sm/6 font-semibold text-black lg:text-white ">پشتیبانی</a>
-      <a href="#" class="text-sm/6 font-semibold text-black lg:text-white ">آدرس</a>
-      <a href="#" class="text-sm/6 font-semibold text-black lg:text-white ">مجموعه ما</a>
+#toggleButton:hover + #dropdown,
+#dropdown:hover {
+    display: block; /* هنگام هاور روی دکمه یا منو، نمایش داده می‌شود */
+}
+      </style>
+
+<a href="#telef" class="headSub text-xl flex items-center justify-center gap-1 font-semibold transition-all ease-out 200ms text-black  hover:text-blue-500 ">
+      <svg class="mt-[-10px]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: currentColor;"><path d="M12 2C6.486 2 2 6.486 2 12v4.143C2 17.167 2.897 18 4 18h1a1 1 0 0 0 1-1v-5.143a1 1 0 0 0-1-1h-.908C4.648 6.987 7.978 4 12 4s7.352 2.987 7.908 6.857H19a1 1 0 0 0-1 1V18c0 1.103-.897 2-2 2h-2v-1h-4v3h6c2.206 0 4-1.794 4-4 1.103 0 2-.833 2-1.857V12c0-5.514-4.486-10-10-10z"></path></svg>
+      <p> پشتیبانی</p>
+      </a>
+
+      <a href="#footer" class="headSub text-xl flex items-center justify-center gap-1 font-semibold transition-all ease-out 200ms text-black  hover:text-blue-500 ">
+      <svg class="mt-[-10px]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: currentColor;"><path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z"/></svg>
+      <p> آدرس</p>
+      </a>
+
+      <a href="#aboutUs" class="headSub text-xl flex items-center justify-center gap-1 font-semibold transition-all ease-out 200ms text-black  hover:text-blue-500 ">
+      <svg class="mt-[-10px]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: currentColor;"><path d="M3 13h1v7c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2v-7h1a1 1 0 0 0 .707-1.707l-9-9a.999.999 0 0 0-1.414 0l-9 9A1 1 0 0 0 3 13zm9-8.586 6 6V15l.001 5H6v-9.586l6-6z"></path><path d="M12 18c3.703 0 4.901-3.539 4.95-3.689l-1.9-.621c-.008.023-.781 2.31-3.05 2.31-2.238 0-3.02-2.221-3.051-2.316l-1.899.627C7.099 14.461 8.297 18 12 18z"></path></svg>
+      <p>مجموعه ما</p>
+      </a>
+
     </div>
-    <div class=" lg:flex lg:flex-1 lg:justify-end">
+    <div class=" lg:flex lg:flex-1 lg:justify-end max-lg:hidden">
 
-    <button id="theme-toggle" type="button" class="text-white dark:text-white hidden lg:block bg-sky-600 dark:bg-blue-400 rounded-lg text-sm p-2.5">
-    <svg id="theme-toggle-dark-icon" class="hidden  w-7 h-7" fill="white" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-    <svg id="theme-toggle-light-icon" class="hidden w-7 h-7" fill="white" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-</button>
-
+    <div id="telBtn" class="p-3.5 rounded-xl max-lg:hidden hover:bg-blue-100 transition-all ease-out 200ms cursor-pointer">
+    <svg class="" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: var(--color-blue-500);" ><path d="m20.487 17.14-4.065-3.696a1.001 1.001 0 0 0-1.391.043l-2.393 2.461c-.576-.11-1.734-.471-2.926-1.66-1.192-1.193-1.553-2.354-1.66-2.926l2.459-2.394a1 1 0 0 0 .043-1.391L6.859 3.513a1 1 0 0 0-1.391-.087l-2.17 1.861a1 1 0 0 0-.29.649c-.015.25-.301 6.172 4.291 10.766C11.305 20.707 16.323 21 17.705 21c.202 0 .326-.006.359-.008a.992.992 0 0 0 .648-.291l1.86-2.171a.997.997 0 0 0-.085-1.39z"></path></svg>
     </div>
+    <div id="modal3" class="fixed inset-0 z-100  bgBO flex items-center justify-center hidden">
+        <div dir="rtl" class="bg-white rounded-lg p-6 shadow-lg transition-transform transform modal-enter modal-leave">
+            <button id="closeModal" class="absolute top-2 right-2 max-w-[300px] text-gray-600 hover:text-gray-800"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: var(--color-blue-500)"><path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path></svg></button>
+            <h2 class="text-lg font-bold mt-2 text-[#003366]"> تلفن آموزشگاه : </h2>
+            <p class="mt-2 font-bold text-xl">025433456</p>
+            <h2 class="text-lg font-bold mt-3 w-full py-4 border-t text-[#003366]"> آدرس آموزشگاه : </h2>
+            <p class="font-bold text-xl">قم بلوار سمیه نبش کوچه یک</p>
+
+
+        </div>
+    </div>
+
+    <script>
+        const telBtn = document.getElementById('telBtn');
+        const modal = document.getElementById('modal3');
+        const closeModal = document.getElementById('closeModal');
+
+        telBtn.addEventListener('click', () => {
+            modal.classList.remove('hidden');
+            const modalContent = modal.firstElementChild;
+            modalContent.classList.remove('modal-leave-active');
+            modalContent.classList.add('modal-enter');
+            setTimeout(() => {
+                modalContent.classList.add('modal-enter-active');
+            }, 10);
+        });
+
+        closeModal.addEventListener('click', () => {
+            const modalContent = modal.firstElementChild;
+            modalContent.classList.remove('modal-enter-active');
+            modalContent.classList.add('modal-leave-active');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modalContent.classList.remove('modal-leave-active');
+            }, 300);
+        });
+    </script>
+    </div>
+    <style>
+        .modal-enter {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        .modal-enter-active {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .modal-leave {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .modal-leave-active {
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            
+        }
+        .bgBO{
+          backdrop-filter: blur(6px);
+          background-color: rgba(0, 0, 0, 0.6);
+        }
+    </style>
   </nav>
   
   <div role="dialog" aria-modal="true">
     
-    <div class="fixed z-100 "></div>
-    <div id="hamberContent" dir="rtl" class="translate-x-full transition all ease-in-out 300ms  fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-gray-100 dark:bg-gray-800  px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-      <div class="flex items-center justify-between">
+  <div class="fixed z-100 "></div>
+    <div id="hamberContent" dir="rtl" class="translate-x-full transition all ease-in-out 300ms  fixed inset-y-0 right-0 z-100 w-full overflow-y-auto bg-gray-100 g-gray-800  px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+      <div class="flex items-center justify-between ">
         <a href="#" class="-m-1.5 p-1.5">
          
           
-    <button id="theme-toggle1" type="button" class="text-white dark:text-white  bg-sky-600 dark:bg-blue-400 rounded-lg text-sm p-2.5">
-    <svg id="theme-toggle-dark-icon1" class="hidden  w-7 h-7" fill="white" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-    <svg id="theme-toggle-light-icon1" class="hidden w-7 h-7" fill="white" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-    </button>
-    <script>
-      var themeToggleDarkIcon1 = document.getElementById('theme-toggle-dark-icon1');
-var themeToggleLightIcon1 = document.getElementById('theme-toggle-light-icon1');
-
-
-if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-    themeToggleLightIcon1.classList.remove('hidden');
-} else {
-    themeToggleDarkIcon1.classList.remove('hidden');
-}
-
-var themeToggleBtn1 = document.getElementById('theme-toggle1');
-
-themeToggleBtn1.addEventListener('click', function() {
-
-    
-    themeToggleDarkIcon1.classList.toggle('hidden');
-    themeToggleLightIcon1.classList.toggle('hidden');
-
-    
-    if (localStorage.getItem('color-theme')) {
-        if (localStorage.getItem('color-theme') === 'light') {
-            document.documentElement.classList.add('dark');
-            localStorage.setItem('color-theme', 'dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-            localStorage.setItem('color-theme', 'light');
-        }
-
-    
-    } else {
-        if (document.documentElement.classList.contains('dark')) {
-            document.documentElement.classList.remove('dark');
-            localStorage.setItem('color-theme', 'light');
-        } else {
-            document.documentElement.classList.add('dark');
-            localStorage.setItem('color-theme', 'dark');
-        }
-    }
-});
-
-    </script>
+  
 
         </a>
-        <button id="closeButton" type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700 dark:text-gray-100">
+        <button id="closeButton" type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700 ext-gray-100">
           <span class="sr-only">Close menu</span>
           <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
@@ -276,21 +450,21 @@ themeToggleBtn1.addEventListener('click', function() {
         <div class="-my-6 divide-y divide-gray-500/10">
           <div class="space-y-2 py-6">
             <div class="-mx-3">
-            <button id="reshteHamber" type="button" class="flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-gray-900 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700 transition-all ease-in 200ms" aria-controls="disclosure-1" aria-expanded="false">
+            <button id="reshteHamber" type="button" class="flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-gray-900 ext-gray-300 hover:bg-gray-300 over:bg-gray-700 transition-all ease-in 200ms" aria-controls="disclosure-1" aria-expanded="false">
     رشته ها
     <svg class="size-5 flex-none" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
         <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
     </svg>
 </button>
 
-<div class="dropHamber mt-2 space-y-2 dark:bg-gray-700 bg-gray-300 rounded-lg overflow-y-scroll-scroll overflow-x-hiiden max-h-0 transition-all duration-300 ease-in-out" id="disclosure-1">
-    <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 dark:text-gray-300">Analytics</a>
-    <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 dark:text-gray-300">Engagement</a>
-    <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 dark:text-gray-300">Security</a>
-    <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 dark:text-gray-300">Integrations</a>
-    <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 dark:text-gray-300">Automations</a>
-    <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 dark:text-gray-300">Watch demo</a>
-    <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 dark:text-gray-300">Contact sales</a>
+<div class="dropHamber mt-2 space-y-2 g-gray-700 bg-gray-300 rounded-lg overflow-x-hidden overflow-y-scroll  max-h-0 transition-all duration-300 ease-in-out" id="disclosure-1">
+    <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 ext-gray-300">Analytics</a>
+    <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 ext-gray-300">Engagement</a>
+    <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 ext-gray-300">Security</a>
+    <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 ext-gray-300">Integrations</a>
+    <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 ext-gray-300">Automations</a>
+    <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 ext-gray-300">Watch demo</a>
+    <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 ext-gray-300">Contact sales</a>
 </div>
 
 <script>
@@ -309,12 +483,12 @@ document.getElementById('reshteHamber').addEventListener('click', function() {
 });
 </script>
             </div>
-            <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900  dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700 transition-all ease-in 200ms">Features</a>
-            <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900  dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700 transition-all ease-in 200ms">Marketplace</a>
-            <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900  dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700 transition-all ease-in 200ms">Company</a>
+            <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900  ext-gray-300 hover:bg-gray-300 over:bg-gray-700 transition-all ease-in 200ms">Features</a>
+            <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900  ext-gray-300 hover:bg-gray-300 over:bg-gray-700 transition-all ease-in 200ms">Marketplace</a>
+            <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900  ext-gray-300 hover:bg-gray-300 over:bg-gray-700 transition-all ease-in 200ms">Company</a>
           </div>
           <div class="py-6">
-            <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900  dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700 transition-all ease-in 200ms">Log in</a>
+            <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900  ext-gray-300 hover:bg-gray-300 over:bg-gray-700 transition-all ease-in 200ms">Log in</a>
           </div>
         </div>
       </div>
@@ -348,32 +522,92 @@ try {
     echo "خطا در خواندن داده‌ها: " . $e->getMessage();
 }
 ?>
-<h2 class="lg:text-3xl text-2xl m-4.5 dark:text-white">رشته‌ها</h2>
+<h2 class="lg:text-3xl text-2xl m-4.5 ext-white">رشته‌ها</h2>
 <div class="reshteHa mt-1.5 p-2.5 flex gap-3 flex-wrap justify-center w-full">
     <?php if (!empty($programs)): ?>
         <?php foreach($programs as $program): ?>
-        <div class="mx-auto bg-gray-300 dark:bg-gray-800 rounded-lg shadow-md overflow-hidden h-fit mt-3.5 max-w-[350px] min-w-[350px]">
+        <div class="mx-auto bg-gray-300 g-gray-800 rounded-lg shadow-md overflow-hidden h-fit mt-3.5 max-w-[350px] min-w-[350px]">
             <img class="w-full h-48 object-cover" src="<?= $program['program_image'] ?>" alt="عنوان تصویر">
             <div class="p-4">
-                <h2 class="text-xl font-bold mb-2 mt-2.5 dark:text-gray-50"><?= htmlspecialchars($program['program_name']) ?></h2>
-                <p class="text-gray-700 dark:text-gray-300 mb-4"><?= htmlspecialchars($program['program_description']) ?></p>
+                <h2 class="text-xl font-bold mb-2 mt-2.5 ext-gray-50"><?= htmlspecialchars($program['program_name']) ?></h2>
+                <p class="text-gray-700 ext-gray-300 mb-4"><?= htmlspecialchars($program['program_description']) ?></p>
                 <button class="toggleDetails inline-block bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600 transition duration-200" data-course-code="<?= $program['program_code'] ?>" data-course-name="<?= $program['program_name'] ?>">جزئیات بیشتر</button>
 
-                <div id="details-<?= $program['program_code'] ?>" class="details hidden mt-4 p-4 bg-gray-200 dark:bg-gray-900 rounded-lg flex flex-col gap-1.5">
-                    <h3 class="text-lg font-bold mb-2 dark:text-gray-100">آموزش</h3>
-                    <p class="text-gray-700 mb-2 dark:text-gray-400"><?= htmlspecialchars($program['learning_objectives']) ?></p>
-                    <p class="text-gray-600 mb-2 dark:text-gray-300">قیمت: <span class="font-semibold"><?= number_format($program['program_price']) ?> تومان</span></p>
-                    <p class="text-gray-600 mb-2 dark:text-gray-300">زمان برگزاری: <span class="font-semibold"><?= htmlspecialchars($program['program_hours']) ?></span></p>
-                    <p class="text-gray-600 mb-2 dark:text-gray-300">مدت دوره (ماه): <span class="font-semibold"><?= htmlspecialchars($program['program_duration']) ?> ماه</span></p>
-                    <p class="text-gray-600 dark:text-gray-300">کد دوره: <span class="font-semibold"><?= htmlspecialchars($program['program_code']) ?></span></p>
+                <div id="details-<?= $program['program_code'] ?>" class="details hidden mt-4 p-4 bg-gray-200 g-gray-900 rounded-lg flex flex-col gap-1.5">
+                    <h3 class="text-lg font-bold mb-2 ext-gray-100">آموزش</h3>
+                    <p class="text-gray-700 mb-2 ext-gray-400"><?= htmlspecialchars($program['learning_objectives']) ?></p>
+                    <p class="text-gray-600 mb-2 ext-gray-300">قیمت: <span class="font-semibold"><?= number_format($program['program_price']) ?> تومان</span></p>
+                    <p class="text-gray-600 mb-2 ext-gray-300">زمان برگزاری: <span class="font-semibold"><?= htmlspecialchars($program['program_hours']) ?></span></p>
+                    <p class="text-gray-600 mb-2 ext-gray-300">مدت دوره (ماه): <span class="font-semibold"><?= htmlspecialchars($program['program_duration']) ?> ماه</span></p>
+                    <p class="text-gray-600 ext-gray-300">کد دوره: <span class="font-semibold"><?= htmlspecialchars($program['program_code']) ?></span></p>
 
                     <!-- نمایش PDF داخل iframe -->
                     <?php if (!empty($program['course_pdf'])): ?>
                         <div class="mt-3">
-                            <h4 class="text-lg font-bold mb-2 dark:text-gray-100">مشاهده PDF</h4>
+                            <h4 class="text-lg font-bold mb-2 ext-gray-100">مشاهده PDF</h4>
                             <iframe src="<?= $program['course_pdf'] ?>" width="100%" height="400px"></iframe>
                         </div>
                     <?php endif; ?>
+                    <style>
+  .offLine{
+    color: var(--color-red-500);
+    position: relative;
+    opacity: 70%;
+  }
+</style>
+</style>
+
+<script>
+   document.querySelectorAll('.toggleDetails').forEach(button => {
+    button.addEventListener('click', function() {
+        const details = this.nextElementSibling; 
+        details.classList.toggle('hidden');
+        
+        // به‌روزرسانی ورودی‌های فرم با اطلاعات دوره کلیک شده
+        const courseCode = this.getAttribute('data-course-code');
+        const courseName = this.getAttribute('data-course-name');
+        
+        const courseCodeInput = document.querySelector('input[name="course_code"]');
+        const courseNameInput = document.querySelector('input[name="course_name"]');
+        
+        if (courseCodeInput) {
+            courseCodeInput.value = courseCode;
+        }
+        if (courseNameInput) {
+            courseNameInput.value = courseName; // حالا این خط به درستی نام دوره را هم به‌روزرسانی می‌کند
+        }
+    });
+});
+
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const modal = document.getElementById("modal");
+        const closeModal = document.getElementById("closeModal");
+        const registerButtons = document.querySelectorAll(".open-modal");
+
+        registerButtons.forEach(button => {
+            button.addEventListener("click", () => {
+                modal.classList.remove("hidden");
+                setTimeout(() => {
+                    modal.classList.add("opacity-100");
+                    modal.querySelector("div").classList.add("scale-100");
+                }, 10);
+            });
+        });
+
+        function closeModalFunc() {
+            modal.classList.remove("opacity-100");
+            modal.querySelector("div").classList.remove("scale-100");
+            setTimeout(() => modal.classList.add("hidden"), 200);
+        }
+
+        closeModal.addEventListener("click", closeModalFunc);
+
+        window.addEventListener("click", (e) => {
+            if (e.target === modal) closeModalFunc();
+        });
+    });
+</script>
 
                     <!-- ارسال اطلاعات کد و نام دوره به فرم پیش ثبت نام -->
                     <a href="#modal" class="open-modal" data-course-name="<?= htmlspecialchars($program['program_name']) ?>" data-course-code="<?= htmlspecialchars($program['program_code']) ?>">پیش ثبت نام</a>
@@ -404,61 +638,20 @@ try {
             <!-- فیلدهای پنهان برای کد و نام دوره -->
             <input type="text" name="course_code" value="" hidden>
             <input type="text" name="course_name" value="<?= $program['program_name'] ?>" hidden>
-
-            <button type="submit" class="submit-btn">ارسال درخواست</button>
+            <button type="submit" class="submit-btn bg-sky-600">ارسال درخواست</button>
         </form>
     </div>
 </div>
 
 <script>
-    // نمایش جزئیات و بروز رسانی کد دوره
-    document.querySelectorAll('.toggleDetails').forEach(button => {
-        button.addEventListener('click', function() {
-            const details = document.getElementById('details-' + this.getAttribute('data-course-code'));
-            details.classList.toggle('hidden');
-        });
-    });
-
-    // نمایش و بروز رسانی مودال پیش ثبت نام
-    document.querySelectorAll('.open-modal').forEach(button => {
-        button.addEventListener('click', function() {
-            const courseName = this.getAttribute('data-course-name');
-            const courseCode = this.getAttribute('data-course-code');
-            
-            // بروز رسانی فیلدهای پنهان فرم پیش ثبت نام
-            document.querySelector('input[name="course_code"]').value = courseCode;
-            document.querySelector('input[name="course"]').value = courseName;
-
-            const modal = document.getElementById("modal");
-            modal.classList.remove("hidden");
-            setTimeout(() => {
-                modal.classList.add("opacity-100");
-                modal.querySelector("div").classList.add("scale-100");
-            }, 10);
-        });
-    });
-
-    // بستن مودال
-    document.querySelector(".close-modal").addEventListener("click", function() {
-        const modal = document.getElementById("modal");
-        modal.classList.add("hidden");
-
-        // پاک کردن فیلدهای فرم از جمله کد دوره هنگام بسته شدن مودال
-        const form = document.getElementById('registration-form');
-        form.reset(); // پاک کردن مقادیر ورودی‌ها
-
-        document.getElementById('error-message').textContent = '';  // پاک کردن پیام خطا
-    });
-
-    // ارسال فرم با AJAX
     document.getElementById('registration-form').addEventListener('submit', function(event) {
-        event.preventDefault();  // جلوگیری از ارسال فرم به صورت معمول
+        event.preventDefault();
 
         var formData = new FormData(this);
 
         // ارسال درخواست به سرور با AJAX
         var xhr = new XMLHttpRequest();
-        xhr.open('POST', 'submit.php', true);
+        xhr.open('POST', './submit2.php', true);
         xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 
         xhr.onload = function() {
@@ -472,15 +665,25 @@ try {
             } else {
                 errorMessageDiv.textContent = response.message;
                 errorMessageDiv.style.color = "green";
-                // پس از ارسال موفقیت آمیز، فیلدها دست نخورده باقی می‌مانند
+                // پس از نمایش پیغام موفقیت، می‌توانید فیلدها را پاک کنید یا عملیات دیگر انجام دهید
+                document.getElementById('registration-form').reset();
             }
         };
 
         xhr.send(formData);
     });
+
+    // بستن مودال و پاک کردن مقادیر ورودی‌ها و پیام خطا
+    document.querySelector(".close-modal").addEventListener("click", function() {
+        const modal = document.getElementById("modal");
+        modal.classList.add("hidden");
+
+        // غیرفعال کردن فرم هنگام بسته شدن مودال
+        const form = document.getElementById('registration-form');
+        form.reset(); 
+        document.getElementById('error-message').textContent = '';  
+    });
 </script>
-
-
 
         </div>
   
@@ -540,7 +743,7 @@ try {
         /* دکمه بستن */
         .close-modal {
             position: absolute;
-            top: 15px;
+            top: 0px;
             right: 15px;
             text-decoration: none;
             font-size: 24px;
@@ -566,7 +769,7 @@ try {
 
         /* دکمه ارسال فرم */
         .submit-btn {
-            background-color: #28a745;
+            
             color: white;
             padding: 12px;
             width: 100%;
@@ -578,10 +781,10 @@ try {
         }
 
         .submit-btn:hover {
-            background-color: #218838;
+            background-color: var(--color-sky-700);
         }
     </style>
+    <script src="./src/script.js"></script>
 
 </body>
 </html>
-

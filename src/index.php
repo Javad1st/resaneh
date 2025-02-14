@@ -308,18 +308,18 @@ $courses = $select->fetchAll(PDO::FETCH_ASSOC);
 
     <div class="p-4">
     <?php foreach($courses as $course): ?>
-            <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-blue-100 dark:hover:bg-sky-700">
+            <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-blue-100 over:bg-sky-700">
               <div class="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                 <svg class="size-6 text-gray-600 group-hover:text-sky-600" fill="currentColor" viewBox="0 0 24 24" stroke-width="0.2" stroke="currentColor" aria-hidden="true" data-slot="icon">
                 <path d="M2 7v1l11 4 9-4V7L11 4z"></path><path d="M4 11v4.267c0 1.621 4.001 3.893 9 3.734 4-.126 6.586-1.972 7-3.467.024-.089.037-.178.037-.268V11L13 14l-5-1.667v3.213l-1-.364V12l-3-1z"></path>
                 </svg>
               </div>
               <div class="flex-auto">
-                <a href="#" class="block font-semibold text-gray-900 dark:text-gray-50">
+                <a href="#" class="block font-semibold text-gray-900 ext-gray-50">
                 <?= $course['course_name'] ?>
                   <span class="absolute inset-0"></span>
                 </a>
-                <p class="mt-1 text-gray-600 dark:text-gray-200"><?= $course['course_description']?></p>
+                <p class="mt-1 text-gray-600 ext-gray-200"><?= $course['course_description']?></p>
               </div>
             </div>
             <?php endforeach; ?>
@@ -431,7 +431,7 @@ $courses = $select->fetchAll(PDO::FETCH_ASSOC);
   <div role="dialog" aria-modal="true">
     
   <div class="fixed z-100 "></div>
-    <div id="hamberContent" dir="rtl" class="translate-x-full transition all ease-in-out 300ms  fixed inset-y-0 right-0 z-100 w-full overflow-y-auto bg-gray-100 dark:bg-gray-800  px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+    <div id="hamberContent" dir="rtl" class="translate-x-full transition all ease-in-out 300ms  fixed inset-y-0 right-0 z-100 w-full overflow-y-auto bg-gray-100 g-gray-800  px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
       <div class="flex items-center justify-between ">
         <a href="#" class="-m-1.5 p-1.5">
          
@@ -439,7 +439,7 @@ $courses = $select->fetchAll(PDO::FETCH_ASSOC);
   
 
         </a>
-        <button id="closeButton" type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700 dark:text-gray-100">
+        <button id="closeButton" type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700 ext-gray-100">
           <span class="sr-only">Close menu</span>
           <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
@@ -450,21 +450,21 @@ $courses = $select->fetchAll(PDO::FETCH_ASSOC);
         <div class="-my-6 divide-y divide-gray-500/10">
           <div class="space-y-2 py-6">
             <div class="-mx-3">
-            <button id="reshteHamber" type="button" class="flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-gray-900 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700 transition-all ease-in 200ms" aria-controls="disclosure-1" aria-expanded="false">
+            <button id="reshteHamber" type="button" class="flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-gray-900 ext-gray-300 hover:bg-gray-300 over:bg-gray-700 transition-all ease-in 200ms" aria-controls="disclosure-1" aria-expanded="false">
     رشته ها
     <svg class="size-5 flex-none" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
         <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
     </svg>
 </button>
 
-<div class="dropHamber mt-2 space-y-2 dark:bg-gray-700 bg-gray-300 rounded-lg overflow-x-hidden overflow-y-scroll  max-h-0 transition-all duration-300 ease-in-out" id="disclosure-1">
-    <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 dark:text-gray-300">Analytics</a>
-    <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 dark:text-gray-300">Engagement</a>
-    <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 dark:text-gray-300">Security</a>
-    <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 dark:text-gray-300">Integrations</a>
-    <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 dark:text-gray-300">Automations</a>
-    <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 dark:text-gray-300">Watch demo</a>
-    <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 dark:text-gray-300">Contact sales</a>
+<div class="dropHamber mt-2 space-y-2 g-gray-700 bg-gray-300 rounded-lg overflow-x-hidden overflow-y-scroll  max-h-0 transition-all duration-300 ease-in-out" id="disclosure-1">
+    <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 ext-gray-300">Analytics</a>
+    <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 ext-gray-300">Engagement</a>
+    <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 ext-gray-300">Security</a>
+    <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 ext-gray-300">Integrations</a>
+    <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 ext-gray-300">Automations</a>
+    <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 ext-gray-300">Watch demo</a>
+    <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 ext-gray-300">Contact sales</a>
 </div>
 
 <script>
@@ -483,19 +483,19 @@ document.getElementById('reshteHamber').addEventListener('click', function() {
 });
 </script>
             </div>
-            <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900  dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700 transition-all ease-in 200ms">Features</a>
-            <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900  dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700 transition-all ease-in 200ms">Marketplace</a>
-            <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900  dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700 transition-all ease-in 200ms">Company</a>
+            <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900  ext-gray-300 hover:bg-gray-300 over:bg-gray-700 transition-all ease-in 200ms">Features</a>
+            <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900  ext-gray-300 hover:bg-gray-300 over:bg-gray-700 transition-all ease-in 200ms">Marketplace</a>
+            <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900  ext-gray-300 hover:bg-gray-300 over:bg-gray-700 transition-all ease-in 200ms">Company</a>
           </div>
           <div class="py-6">
-            <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900  dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700 transition-all ease-in 200ms">Log in</a>
+            <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900  ext-gray-300 hover:bg-gray-300 over:bg-gray-700 transition-all ease-in 200ms">Log in</a>
           </div>
         </div>
       </div>
     </div>
   </div>
 </header>
-.
+
 <div class="banerPlace rounded-b-3xl relative flex items-center flex-wrap justify-around overflow-hidden">
   <div class="textes z-20 flex flex-col justify-center gap-10 items-center mt-20">
     <p class="shoar font-[900] max-[755px]:hidden max-lg:top-25 max-lg:text-6xl text-gray-50 [text-shadow:_4px_1px_0px_rgba(0,38,153,0.41)] shadow-gray-50 lg:text-7xl lg:top-28 xl:top-22 xl:text-7xl"> آموزشگاه فنی و حرفه ای</p>
@@ -632,58 +632,7 @@ document.getElementById('reshteHamber').addEventListener('click', function() {
 </style>
 
 
-<?php
-// اتصال به پایگاه داده
-require_once '../database/db.php';
 
-// کوئری برای دریافت آخرین سه دوره
-$sql = "SELECT * FROM courses ORDER BY created_at DESC LIMIT 3";
-$stmt = $conn->prepare($sql);
-$stmt->execute();
-$courses = $stmt->fetchAll(PDO::FETCH_ASSOC);
-?>
-
-<div class="w-full scroll flex flex-col items-center justify-center overflow-hidden mt-12">
-  <h2 class="text-3xl font-bold text-[#003366] mb-4 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500">دوره های اخیر</h2>
-  <div class="w-full 2xl:w-full mt-1">
-    <div id="default-carousel" class="relative aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500" data-carousel="static">
-      <!-- Carousel wrapper -->
-      <div class="overflow-hidden relative h-56 rounded-lg sm:h-64 xl:h-80 2xl:h-96">
-        <?php foreach ($courses as $course): ?>
-          <div class="hidden duration-700 ease-in-out" data-carousel-item>
-            <img src="../<?= htmlspecialchars($course['course_image']) ?>" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="دوره <?= htmlspecialchars($course['course_name']) ?>">
-          </div>
-        <?php endforeach; ?>
-      </div>
-    </div>
-  </div>
-</div>
-
-        <!-- Slider indicators -->
-        <div class="flex absolute bottom-5 left-1/2 z-30 space-x-3 -translate-x-1/2">
-            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 1" data-carousel-slide-to="0"></button>
-            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
-            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
-        </div>
-        <!-- Slider controls -->
-        <button type="button" class="flex absolute top-0 left-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none" data-carousel-prev>
-            <span class="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-sky-400/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                <svg class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-                <span class="hidden">Previous</span>
-            </span>
-        </button>
-        <button type="button" class="flex absolute top-0 right-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none" data-carousel-next>
-            <span class="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-sky-400/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                <svg class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                <span class="hidden">Next</span>
-            </span>
-        </button>
-    </div>
-
-    <script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.js"></script>
-</div>
-
-</div>
 <?php 
 include '../database/db.php';
 
@@ -696,14 +645,14 @@ $majors = $select->fetchAll(PDO::FETCH_ASSOC);
   <div class="title flex items-center justify-center">
 
     <!-- <svg class=" z-[-10] opacity-80 scale-105 lg:scale-150  p-1.5 rounded-full " xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" style="fill: #003366"><path d="M4 11h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zm10 0h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zM4 21h6a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zm13 0c2.206 0 4-1.794 4-4s-1.794-4-4-4-4 1.794-4 4 1.794 4 4 4z"></path></svg> -->
-  <h2 class="lg:text-4xl text-2xl dark:text-white font-bold aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500">رشته ها
+  <h2 class="lg:text-4xl text-2xl text-[#003366] ext-white font-bold aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500">رشته ها
   </h2>
   </div>
 
 </div>
 <div class="flex gap-3 flex-wrap w-full mt-1.5 justify-center">
   <?php foreach($majors as $major): ?>
-  <div class="reshte scroll relative transition-all ease-in-out 200ms hover:transform hover:scale-105 hover:shadow-md shadow-gray-400 dark:shadow-gray-800 mt-3.5 flex flex-col gap-2.5 bg-sky-300 rounded-lg p-2 justify-center w-48 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500">
+  <div class="reshte scroll relative transition-all ease-in-out 200ms hover:transform hover:scale-105 hover:shadow-md shadow-gray-400 hadow-gray-800 mt-3.5 flex flex-col gap-2.5 bg-sky-300 rounded-lg p-2 justify-center w-48 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500">
     <img class="image rounded-md" src="../<?= $major['major_image']  ?> " alt="">
     <div class="back absolute flex w-full justify-center items-center rounded-md ">
       <a href="dore.php?major_id=<?= $major['id'] ?>" class="text-center absolute w-full flex flex-col transition-all ease-in 200ms text-gray-50 justify-center items-center gap-2">
@@ -735,7 +684,7 @@ $fields = $select->fetchAll(PDO::FETCH_ASSOC);
   <div class="title flex items-center justify-center">
 
     <!-- <svg class=" z-[-10] opacity-80 scale-105 lg:scale-150  p-1.5 rounded-full " xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" style="fill: #003366"><path d="M4 11h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zm10 0h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zM4 21h6a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zm13 0c2.206 0 4-1.794 4-4s-1.794-4-4-4-4 1.794-4 4 1.794 4 4 4z"></path></svg> -->
-  <h2 class="lg:text-4xl text-2xl dark:text-white font-bold aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500">رشته های فنی حرفه ای
+  <h2 class="lg:text-4xl text-2xl text-[#003366] ext-white font-bold aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500">رشته های فنی حرفه ای
   </h2>
   </div>
 
@@ -803,50 +752,16 @@ $fields = $select->fetchAll(PDO::FETCH_ASSOC);
 
         <div id="textDisplay" class="mt-4 transition-opacity duration-300"></div>
 
-        <div id="slide" class="w-full scroll flex flex-col items-center justify-center overflow-hidden mt-12 aos-init aos-animate hidden" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500">
-  <h2 class="text-3xl font-bold text-blue-500"></h2>
-<div class="w-[600px] 2xl:w-[700px]">
+        <div id="slideo" class="w-full flex  flex-col items-center justify-center mt-12 aos-init aos-animate overflow-scroll hidden" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500">
 
-	<div id="default-carousel" class="relative" data-carousel="static">
-        <!-- Carousel wrapper -->
-        <div class="overflow-hidden relative h-56 rounded-lg sm:h-64 xl:h-80 2xl:h-96">
-            <!-- Item 1 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <span class="absolute top-1/2 left-1/2 text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 sm:text-3xl dark:text-gray-800">First Slide</span>
-                <img src="./images/si2 (1).jpg" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="...">
-            </div>
-            <!-- Item 2 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="./images/si2 (2).jpg" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="...">
-            </div>
-            <!-- Item 3 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="./images/si2 (3).jpg" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="...">
-            </div>
-        </div>
-        <!-- Slider indicators -->
-        <div class="flex absolute bottom-5 left-1/2 z-30 space-x-3 -translate-x-1/2">
-            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 1" data-carousel-slide-to="0"></button>
-            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
-            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
-        </div>
-        <!-- Slider controls -->
-        <button type="button" class="flex absolute top-0 left-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none" data-carousel-prev>
-            <span class="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-sky-400/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                <svg class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-                <span class="hidden">Previous</span>
-            </span>
-        </button>
-        <button type="button" class="flex absolute top-0 right-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none" data-carousel-next>
-            <span class="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-sky-400/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                <svg class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                <span class="hidden">Next</span>
-            </span>
-        </button>
-    </div>
-
-    <script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.js"></script>
-</div>
+          <div class="imageslide w-full flex overflow-scroll justify-center items-center gap-3">
+            <img class="" src="./images/si2 (1).jpg" alt="" width="300px" height="120px">
+            <img class="" src="./images/si2 (1).jpg" alt="" width="300px" height="120px">
+            <img class="" src="./images/si2 (1).jpg" alt="" width="300px" height="120px">
+            <img class="" src="./images/si2 (1).jpg" alt="" width="300px" height="120px">
+            <img class="" src="./images/si2 (1).jpg" alt="" width="300px" height="120px">
+            <img class="" src="./images/si2 (1).jpg" alt="" width="300px" height="120px">
+          </div>
 
 </div>
     </div>
@@ -865,7 +780,7 @@ $fields = $select->fetchAll(PDO::FETCH_ASSOC);
 
            
             const textDisplay = document.getElementById('textDisplay');
-            const slide = document.getElementById('slide');
+            const slide = document.getElementById('slideo');
             if (textId === 'text1') {
               slide.classList.add('hidden');
 
@@ -944,7 +859,7 @@ window.addEventListener('scroll', function() {
         <div class="overflow-hidden relative h-56 rounded-lg sm:h-64 xl:h-80 2xl:h-96">
             <!-- Item 1 -->
             <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <span class="absolute top-1/2 left-1/2 text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 sm:text-3xl dark:text-gray-800">First Slide</span>
+                <span class="absolute top-1/2 left-1/2 text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 sm:text-3xl ext-gray-800">First Slide</span>
                 <img src="./images/si2 (1).jpg" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="...">
             </div>
             <!-- Item 2 -->
@@ -964,14 +879,14 @@ window.addEventListener('scroll', function() {
         </div>
         <!-- Slider controls -->
         <button type="button" class="flex absolute top-0 left-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none" data-carousel-prev>
-            <span class="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-sky-400/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                <svg class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            <span class="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 g-gray-800/30 group-hover:bg-sky-400/50 roup-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white roup-focus:ring-gray-800/70 group-focus:outline-none">
+                <svg class="w-5 h-5 text-white sm:w-6 sm:h-6 ext-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
                 <span class="hidden">Previous</span>
             </span>
         </button>
         <button type="button" class="flex absolute top-0 right-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none" data-carousel-next>
-            <span class="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-sky-400/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                <svg class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            <span class="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 g-gray-800/30 group-hover:bg-sky-400/50 roup-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white roup-focus:ring-gray-800/70 group-focus:outline-none">
+                <svg class="w-5 h-5 text-white sm:w-6 sm:h-6 ext-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                 <span class="hidden">Next</span>
             </span>
         </button>
@@ -1017,6 +932,9 @@ window.addEventListener('scroll', function() {
     </div>
 </footer>
 <style>
+  .imageslide{
+    overflow-x: scroll;
+  }
   footer {
     background-color: #003DA5;
     color: white;
