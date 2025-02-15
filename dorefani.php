@@ -20,7 +20,7 @@
     <link rel="stylesheet" type="text/css" href="./src/TOSAN_files/aos.css">
     <link rel="stylesheet" type="text/css" href="./src/TOSAN_files/swiper-bundle.min.css">
         <!-- <link rel="stylesheet" type="text/css" href="TOSAN_files/style-rtl.css"> -->
-
+<title>دوره های فنی حرفه ای</title>
 </head>
 <style>
   html{

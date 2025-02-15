@@ -3,24 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="./output.css" rel="stylesheet">
-  <link href="TOSAN_files/fontawesome.css" rel="stylesheet">
-    <link href="TOSAN_files/brands.css" rel="stylesheet">
-    <link href="TOSAN_files/solid.css" rel="stylesheet">
+  <link href="./src/output.css" rel="stylesheet">
+  <link href="src/TOSAN_files/fontawesome.css" rel="stylesheet">
+    <link href="src/TOSAN_files/brands.css" rel="stylesheet">
+    <link href="src/TOSAN_files/solid.css" rel="stylesheet">
 <!-- <link rel="stylesheet" href="./TOSAN_files/style-rtl.css"> -->
 
 
     <link rel="preconnect" href="https://fonts.googleapis.com/">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
-    <link href="TOSAN_files/css2.css" rel="stylesheet">
+    <link href="src/TOSAN_files/css2.css" rel="stylesheet">
 
     <!-- <link rel="stylesheet" type="text/css" href="TOSAN_files/all.min.css"> -->
     <!-- <link rel="stylesheet" type="text/css" href="TOSAN_files/bootstrap-icons.css"> -->
     <!-- <link rel="stylesheet" type="text/css" href="TOSAN_files/glightbox.css"> -->
-    <link rel="stylesheet" type="text/css" href="TOSAN_files/aos.css">
-    <link rel="stylesheet" type="text/css" href="TOSAN_files/swiper-bundle.min.css">
+    <link rel="stylesheet" type="text/css" href="src/TOSAN_files/aos.css">
+    <link rel="stylesheet" type="text/css" href="src/TOSAN_files/swiper-bundle.min.css">
         <!-- <link rel="stylesheet" type="text/css" href="TOSAN_files/style-rtl.css"> -->
-
+<title>رسانه</title>
 </head>
 <style>
   html{
@@ -185,7 +185,7 @@
    }
 
    .banerPlace{
-    background-image: url(./images/baner.png);
+    background-image: url(./src/images/baner.png);
     
    }
    footer{
@@ -199,7 +199,7 @@
     <div class="flex lg:flex-1 justify-self-center max-lg:hidden">
       <a href="./index.php" class="-m-1.5 p-1.5">
         <span class="sr-only text-6xl ">مجموعه ما</span>
-        <img class="h-[65px] w-auto" src="./images/guy.png" alt="">
+        <img class="h-[65px] w-auto" src="./src/images/guy.png" alt="">
       </a>
     </div>
     <div class=" lg:flex-1 lg:justify-end lg:hidden">
@@ -272,7 +272,7 @@
      <div class="flex lg:flex-1 justify-self-center lg:hidden">
       <a href="#" class="-m-1.5 p-1.5">
         <span class="sr-only text-6xl ">مجموعه ما</span>
-        <img class="h-[65px] w-auto" src="./images/guy.png" alt="">
+        <img class="h-[65px] w-auto" src="./src/images/guy.png" alt="">
       </a>
     </div>
     <div class="flex lg:hidden ">
@@ -299,28 +299,25 @@
 
   
 <?php 
-include '../database/db.php';
+include './database/db.php';
 
 // دریافت سه مقاله آخر
-$select = $conn->prepare("SELECT * FROM courses");
+$select = $conn->prepare("SELECT * FROM majors");
 $select->execute();
-$courses = $select->fetchAll(PDO::FETCH_ASSOC);
+$majors = $select->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
     <div class="p-4">
-    <?php foreach($courses as $course): ?>
+    <?php foreach($majors as $major): ?>
             <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-blue-100 over:bg-sky-700">
-              <div class="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                <svg class="size-6 text-gray-600 group-hover:text-sky-600" fill="currentColor" viewBox="0 0 24 24" stroke-width="0.2" stroke="currentColor" aria-hidden="true" data-slot="icon">
-                <path d="M2 7v1l11 4 9-4V7L11 4z"></path><path d="M4 11v4.267c0 1.621 4.001 3.893 9 3.734 4-.126 6.586-1.972 7-3.467.024-.089.037-.178.037-.268V11L13 14l-5-1.667v3.213l-1-.364V12l-3-1z"></path>
-                </svg>
+              <div class="flex size-11 flex-none items-center justify-center rounded-md bg-gray-50 group-hover:bg-white">
+              <img src="./<?= $major['major_image'] ?>" alt="">
               </div>
               <div class="flex-auto">
                 <a href="#" class="block font-semibold text-gray-900 ext-gray-50">
-                <?= $course['course_name'] ?>
+                <?= $major['major_name'] ?>
                   <span class="absolute inset-0"></span>
                 </a>
-                <p class="mt-1 text-gray-600 ext-gray-200"><?= $course['course_description']?></p>
               </div>
             </div>
             <?php endforeach; ?>
@@ -455,16 +452,20 @@ $courses = $select->fetchAll(PDO::FETCH_ASSOC);
         <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
     </svg>
 </button>
+ 
+<?php 
+include './database/db.php';
 
+// دریافت سه مقاله آخر
+$select = $conn->prepare("SELECT * FROM majors");
+$select->execute();
+$majors = $select->fetchAll(PDO::FETCH_ASSOC);
+?>
+<?php foreach ($majors as $major):  ?>
 <div class="dropHamber mt-2 space-y-2 g-gray-700 bg-gray-300 rounded-lg overflow-x-hidden overflow-y-scroll  max-h-0 transition-all duration-300 ease-in-out" id="disclosure-1">
-    <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 ext-gray-300">Analytics</a>
-    <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 ext-gray-300">Engagement</a>
-    <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 ext-gray-300">Security</a>
-    <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 ext-gray-300">Integrations</a>
-    <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 ext-gray-300">Automations</a>
-    <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 ext-gray-300">Watch demo</a>
-    <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 ext-gray-300">Contact sales</a>
+    <a href="dore.php?major_id=<?= $major['id'] ?>" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 ext-gray-300"><?= $major['major_name'] ?></a>
 </div>
+<?php endforeach; ?>
 
 <script>
 document.getElementById('reshteHamber').addEventListener('click', function() {
@@ -508,8 +509,8 @@ document.getElementById('reshteHamber').addEventListener('click', function() {
       <p class="text-center text-gray-50">#بی نظیر در خدمات و امکانات</p>
     </div>
   </div>
-  <img class="text-center w-[600px] rounded-b-3xl" src="./images/people.png" alt="">
-  <img class=" guy absolute w-45 lg:w-60 xl:w-80  top-2 right-3 xl:top-0 xl:right-3.5" src="./images/logo.png" alt="">
+  <img class="text-center w-[600px] rounded-b-3xl" src="./src/images/people.png" alt="">
+  <img class=" guy absolute w-45 lg:w-60 xl:w-80  top-2 right-3 xl:top-0 xl:right-3.5" src="./src/images/logo.png" alt="">
   
 </div>
 <style>
@@ -637,7 +638,7 @@ document.getElementById('reshteHamber').addEventListener('click', function() {
 
 
 <?php 
-include '../database/db.php';
+include './database/db.php';
 
 // دریافت سه مقاله آخر
 $select = $conn->prepare("SELECT * FROM majors");
@@ -656,7 +657,7 @@ $majors = $select->fetchAll(PDO::FETCH_ASSOC);
 <div class="flex gap-3 flex-wrap w-full mt-1.5 justify-center">
   <?php foreach($majors as $major): ?>
   <div class="reshte scroll relative transition-all ease-in-out 200ms hover:transform hover:scale-105 hover:shadow-md shadow-gray-400 hadow-gray-800 mt-3.5 flex flex-col gap-2.5 bg-sky-300 rounded-lg p-2 justify-center w-48 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500">
-    <img class="image rounded-md" src="../<?= $major['major_image']  ?> " alt="">
+    <img class="image rounded-md" src="./<?= $major['major_image']  ?> " alt="">
     <div class="back absolute flex w-full justify-center items-center rounded-md ">
       <a href="dore.php?major_id=<?= $major['id'] ?>" class="text-center absolute w-full flex flex-col transition-all ease-in 200ms text-gray-50 justify-center items-center gap-2">
         <svg class="text-white fill-white transition-all ease-initial 200ms" xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24">
@@ -671,7 +672,7 @@ $majors = $select->fetchAll(PDO::FETCH_ASSOC);
 
 
 <?php 
-include '../database/db.php';
+include './database/db.php';
 
 // دریافت سه مقاله آخر
 $select = $conn->prepare("SELECT * FROM fields");
@@ -695,9 +696,9 @@ $fields = $select->fetchAll(PDO::FETCH_ASSOC);
 <div class="flex gap-3 flex-wrap w-full mt-1.5 justify-center">
   <?php foreach($fields as $field): ?>
   <div class="reshte scroll hover:scale-105 transition-all ease-in-out 200ms hover:shadow-md shadow-gray-400 relative mt-3.5 flex flex-col gap-2.5 bg-gradient-to-l from-sky-500 to-blue-500 rounded-lg p-2 justify-center w-48 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500">
-    <img class="image rounded-md" src="../uploads2/<?= $field['field_image']  ?> " alt="">
+    <img class="image rounded-md" src="./uploads2/<?= $field['field_image']  ?> " alt="">
     <div class="back absolute flex w-full justify-center items-center rounded-md ">
-      <a href="../dorefani.php?field_id=<?= $field['id'] ?>" class="text-center absolute flex flex-col transition-all ease-in 200ms text-gray-50 justify-center items-center gap-2">
+      <a href="./dorefani.php?field_id=<?= $field['id'] ?>" class="text-center absolute flex flex-col transition-all ease-in 200ms text-gray-50 justify-center items-center gap-2">
         <svg class="text-white fill-white transition-all ease-initial 200ms" xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24">
           <path d="m7.375 16.781 1.25-1.562L4.601 12l4.024-3.219-1.25-1.562-5 4a1 1 0 0 0 0 1.562l5 4zm9.25-9.562-1.25 1.562L19.399 12l-4.024 3.219 1.25 1.562 5-4a1 1 0 0 0 0-1.562l-5-4zm-1.649-4.003-4 18-1.953-.434 4-18z"></path>
         </svg>
@@ -756,21 +757,109 @@ $fields = $select->fetchAll(PDO::FETCH_ASSOC);
         <div id="textDisplay" class="mt-4 transition-opacity duration-300"></div>
 
         <div id="slideo" class="w-full flex flex-col items-center justify-center mt-12 aos-init aos-animate overflow-scroll hidden" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500">
+  <div class="imageslide w-full flex justify-center items-center h-[200px] gap-3">
+    <img class="zoomable" src="./src/images/f1.jpg" alt="" width="170px" height="190px">
+    <img class="zoomable" src="./src/images/f2.jpg" alt="" width="170px" height="190px">
+    <img class="zoomable" src="./src/images/f3.jpg" alt="" width="170px" height="190px">
+    <img class="zoomable" src="./src/images/f5.jpg" alt="" width="170px" height="190px">
+    <img class="zoomable" src="./src/images/f6.jpg" alt="" width="170px" height="190px">
+  </div>
+</div>
 
-          <div class="imageslide w-full flex justify-center items-center h-[200px] gap-3">
-            <img class="" src="./images/f1.jpg" alt="" width="220px" height="120px">
-            <img class="" src="./images/f2.jpg" alt="" width="220px" height="120px">
-            <img class="" src="./images/f3.jpg" alt="" width="220px" height="120px">
-            <!-- <img class="" src="./images/f4.jpg" alt="" width="220px" height="120px"> -->
-            <img class="" src="./images/f5.jpg" alt="" width="220px" height="120px">
-            <img class="" src="./images/f6.jpg" alt="" width="220px" height="120px">
-          </div>
+<!-- Modal (for zoomed image) -->
+<div id="zoomModal" class="zoom-modal fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center hidden">
+    <img id="zoomedImage" class="zoomed-img" src="" alt="" />
+    <!-- Close button -->
+<button id="closeBtn" class="close-btn absolute top-0 right-0 text-white text-3xl p-2">
+    ×
+</button>
 
 </div>
+
+<!-- CSS -->
+<style>
+  /* Close button styles */
+.close-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 36px;
+    font-weight: bold;
+    color: white;
+    transition: color 0.3s;
+}
+
+.close-btn:hover {
+    color: red;  /* Change color on hover */
+}
+
+    .zoomable {
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+
+    .zoomable:hover {
+        transform: scale(1.1);
+    }
+
+    /* Modal styles */
+    .zoom-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.8); /* Black background with opacity */
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+    }
+
+    .zoomed-img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;  /* Ensures the image is scaled properly */
+        transition: transform 0.3s ease;
+    }
+</style>
+
+<!-- JavaScript -->
+<script>
+    // Get all zoomable images and modal
+    const zoomableImages = document.querySelectorAll('.zoomable');
+    const zoomModal = document.getElementById('zoomModal');
+    const zoomedImage = document.getElementById('zoomedImage');
+    
+    // Add click event to each image
+    zoomableImages.forEach(img => {
+        img.addEventListener('click', function() {
+            const imgSrc = this.src;
+            zoomedImage.src = imgSrc;  // Set the source of the zoomed image
+            zoomModal.style.display = 'flex';  // Show the modal
+        });
+    });
+
+    // Close modal when clicked outside the image
+    zoomModal.addEventListener('click', function(e) {
+        if (e.target === zoomModal) {
+            zoomModal.style.display = 'none';  // Hide the modal
+        }
+    });
+</script>
+
     </div>
     </div>
 
     <script>
+      // Get close button
+const closeBtn = document.getElementById('closeBtn');
+
+// Close modal when close button is clicked
+closeBtn.addEventListener('click', function() {
+    zoomModal.style.display = 'none';  // Hide the modal
+});
+
         function showText(textId, button) {
             
             const buttons = document.querySelectorAll('button');
@@ -808,7 +897,7 @@ $fields = $select->fetchAll(PDO::FETCH_ASSOC);
 
 <div class="place flex scroll flex-col justify-center items-center mt-22 relative gap-2.5 ">
   <div class="counter flex gap-2.5 justify-center items-center rounded-2xl max-sm:flex-col p-6 max-w-[95%]">
-    <img class="w-96 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500" src="images/mini.png" alt="">
+    <img class="w-96 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500" src="./src/images/mini.png" alt="">
     <div class="textPlace flex flex-col items-center justify-center gap-9 p-6 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
       <h2 id="mohit" class="text-5xl text-center font-black">تعداد هنر جویان</h2>
       <p id="counter" class="text-5xl text-center flex flex-wrap items-center justify-center">00000 <span> نفر</span><span class="flex mr-8">...</span></p>
@@ -863,15 +952,15 @@ window.addEventListener('scroll', function() {
             <!-- Item 1 -->
             <div class="hidden w-full h-full duration-700 ease-in-out" data-carousel-item>
                 
-                <img src="./images/si2 (1).jpg" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="...">
+                <img src="./src/images/si2 (1).jpg" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="...">
             </div>
             <!-- Item 2 -->
             <div class="hidden w-full h-full duration-700 ease-in-out" data-carousel-item>
-                <img src="./images/si2 (2).jpg" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="...">
+                <img src="./src/images/si2 (2).jpg" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="...">
             </div>
             <!-- Item 3 -->
             <div class="hidden w-full h-full duration-700 ease-in-out" data-carousel-item>
-                <img src="./images/si2 (3).jpg" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="...">
+                <img src="./src/images/si2 (3).jpg" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="...">
             </div>
         </div>
         <!-- Slider indicators -->
@@ -905,9 +994,9 @@ window.addEventListener('scroll', function() {
 <footer id="footer" class="mt-14 max-w-[1550px]">
     <div class="footer-container">
         <div class="footer-logo flex flex-wrap justify-center items-center">
-            <img class="p-4 mb-6 w-36 ml-6 fill-white" src="./images/guy.png" alt="Logo">
+            <img class="p-4 mb-6 w-36 ml-6 fill-white" src="./src/images/guy.png" alt="Logo">
             <div class="flex gap-3.5 items-center justify-center">
-            <img class="p-4 mb-6 w-36 ml-6 fill-white" src="./images/4f.png" alt="">
+            <img class="p-4 mb-6 w-36 ml-6 fill-white" src="./src/images/4f.png" alt="">
             <!-- <img class="p-4 mb-6 w-36 ml-6 fill-white" src="./images/10f.png" alt=""> -->
         </div>
         </div>
@@ -942,7 +1031,7 @@ window.addEventListener('scroll', function() {
         </div>
     </div>
 </footer>
-<div class="bg-white w-full text-center max-w-[1550px] p-1.5 flex justify-center items-center"><p>طراحی سایت توسط</p><a class="h-fit" href="https://myitland.ir/"><img class="mb-2" width="110px" src="./images/Untitled-2.png" alt=""></a></div>
+<div class="bg-white w-full text-center max-w-[1550px] p-1.5 flex justify-center items-center"><p>طراحی سایت توسط</p><a class="h-fit" href="https://myitland.ir/"><img class="mb-2" width="110px" src="./src/images/Untitled-2.png" alt=""></a></div>
 <style>
   .imageslide{
     overflow-x: scroll;

@@ -3,24 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="./output.css" rel="stylesheet">
-  <link href="TOSAN_files/fontawesome.css" rel="stylesheet">
-    <link href="TOSAN_files/brands.css" rel="stylesheet">
-    <link href="TOSAN_files/solid.css" rel="stylesheet">
+  <link href="./src/output.css" rel="stylesheet">
+  <link href="./src/TOSAN_files/fontawesome.css" rel="stylesheet">
+    <link href="./src/TOSAN_files/brands.css" rel="stylesheet">
+    <link href="./src/TOSAN_files/solid.css" rel="stylesheet">
 <!-- <link rel="stylesheet" href="./TOSAN_files/style-rtl.css"> -->
 
 
     <link rel="preconnect" href="https://fonts.googleapis.com/">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
-    <link href="TOSAN_files/css2.css" rel="stylesheet">
+    <link href="./src/TOSAN_files/css2.css" rel="stylesheet">
 
     <!-- <link rel="stylesheet" type="text/css" href="TOSAN_files/all.min.css"> -->
     <!-- <link rel="stylesheet" type="text/css" href="TOSAN_files/bootstrap-icons.css"> -->
     <!-- <link rel="stylesheet" type="text/css" href="TOSAN_files/glightbox.css"> -->
-    <link rel="stylesheet" type="text/css" href="TOSAN_files/aos.css">
-    <link rel="stylesheet" type="text/css" href="TOSAN_files/swiper-bundle.min.css">
+    <link rel="stylesheet" type="text/css" href="./src/TOSAN_files/aos.css">
+    <link rel="stylesheet" type="text/css" href="./src/TOSAN_files/swiper-bundle.min.css">
         <!-- <link rel="stylesheet" type="text/css" href="TOSAN_files/style-rtl.css"> -->
-
+<title>دوره های رسانه</title>
 </head>
 <style>
   html{
@@ -184,7 +184,7 @@
    }
 
    .banerPlace{
-    background-image: url(./images/baner.png);
+    background-image: url(./src/images/baner.png);
     
    }
    footer{
@@ -298,7 +298,7 @@
 
   
 <?php 
-include '../database/db.php';
+include './database/db.php';
 
 // دریافت سه مقاله آخر
 $select = $conn->prepare("SELECT * FROM courses");
@@ -497,7 +497,7 @@ document.getElementById('reshteHamber').addEventListener('click', function() {
 </header>
 <?php
 // اتصال به پایگاه داده
-include('../database/db.php');
+include('./database/db.php');
 
 try {
     // گرفتن رشته‌ای که کاربر انتخاب کرده است
@@ -521,7 +521,7 @@ try {
     <?php if (!empty($courses)): ?>
         <?php foreach($courses as $course): ?>
         <div class="mx-auto bg-gray-300 g-gray-800 rounded-lg shadow-md overflow-hidden h-fit mt-3.5 max-w-[350px] min-w-[350px]">
-            <img class="w-full h-48 object-cover" src="../<?= htmlspecialchars($course['course_image']) ?>" alt="عنوان تصویر">
+            <img class="w-full h-48 object-cover" src="./<?= htmlspecialchars($course['course_image']) ?>" alt="عنوان تصویر">
             <div class="p-4">
                 <h2 class="text-xl font-bold mb-2 mt-2.5 ext-gray-50"> <?= htmlspecialchars($course['course_name']) ?></h2>
                 <p class="text-gray-700 ext-gray-300 mb-4"><?= htmlspecialchars($course['course_description']) ?></p>
@@ -647,7 +647,7 @@ try {
 
         // ارسال درخواست به سرور با AJAX
         var xhr = new XMLHttpRequest();
-        xhr.open('POST', '../submit2.php', true);
+        xhr.open('POST', './submit2.php', true);
         xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 
         xhr.onload = function() {
@@ -780,7 +780,7 @@ try {
             background-color: var(--color-sky-700);
         }
     </style>
-    <script src="./script.js"></script>
+    <script src="./src/script.js"></script>
 
 </body>
 </html>
