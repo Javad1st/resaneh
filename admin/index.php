@@ -1,6 +1,8 @@
 <?php
+session_start();
 // شامل کردن فایل هدر
 require 'header.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="fa">

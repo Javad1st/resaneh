@@ -88,49 +88,56 @@
         پنل ادمین
     </div>
 
-    <!-- ناوبری اصلی -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item ">
-                        <a class="nav-link mx-5" href="./index.php" id="majorsDropdown" role="button">
-                           خانه 
-                        </a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link mx-5" href="./register.php" id="majorsDropdown" role="button">
-                           پیش ثبت نام های  رسانه 
-                        </a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link mx-5" href="../admin-fani/index.php" id="majorsDropdown" role="button">
-                           پنل فنی حرفه ای 
-                        </a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle mx-5" href="#" id="majorsDropdown" role="button" data-bs-toggle="dropdown">
-                            رشته‌ها
-                        </a>
+   <!-- ناوبری اصلی -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item ">
+                    <a class="nav-link mx-5" href="./index.php" id="majorsDropdown" role="button">
+                        خانه 
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link mx-5" href="./register.php" id="majorsDropdown" role="button">
+                        پیش ثبت نام های رسانه 
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link mx-5" href="../admin-fani/index.php" id="majorsDropdown" role="button">
+                        پنل فنی حرفه ای 
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle mx-5" href="#" id="majorsDropdown" role="button" data-bs-toggle="dropdown">
+                        رشته‌ها
+                    </a>
 
-                        <ul class="dropdown-menu" aria-labelledby="majorsDropdown">
-                            <li><a class="dropdown-item" href="add_major.php">افزودن رشته</a></li>
-                            <li><a class="dropdown-item" href="major.php">مشاهده رشته‌ها</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="coursesDropdown" role="button" data-bs-toggle="dropdown">
-                            دوره‌ها
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="coursesDropdown">
-                            <li><a class="dropdown-item" href="add_course.php">افزودن دوره</a></li>
-                            <li><a class="dropdown-item" href="all_course.php">مشاهده دوره‌ها</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
+                    <ul class="dropdown-menu" aria-labelledby="majorsDropdown">
+                        <li><a class="dropdown-item" href="add_major.php">افزودن رشته</a></li>
+                        <li><a class="dropdown-item" href="major.php">مشاهده رشته‌ها</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="coursesDropdown" role="button" data-bs-toggle="dropdown">
+                        دوره‌ها
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="coursesDropdown">
+                        <li><a class="dropdown-item" href="add_course.php">افزودن دوره</a></li>
+                        <li><a class="dropdown-item" href="all_course.php">مشاهده دوره‌ها</a></li>
+                    </ul>
+                </li>
+                <!-- دکمه خروج -->
+                <li class="nav-item">
+                    <a class="nav-link mx-5" href="logout.php">
+                        خروج
+                    </a>
+                </li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
+

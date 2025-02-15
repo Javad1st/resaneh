@@ -593,11 +593,17 @@
   .top-0 {
     top: calc(var(--spacing) * 0);
   }
+  .top-1 {
+    top: calc(var(--spacing) * 1);
+  }
   .top-1\/2 {
     top: calc(1/2 * 100%);
   }
   .top-2 {
     top: calc(var(--spacing) * 2);
+  }
+  .top-3 {
+    top: calc(var(--spacing) * 3);
   }
   .top-3\.5 {
     top: calc(var(--spacing) * 3.5);
@@ -625,6 +631,9 @@
   }
   .left-0 {
     left: calc(var(--spacing) * 0);
+  }
+  .left-1 {
+    left: calc(var(--spacing) * 1);
   }
   .left-1\/2 {
     left: calc(1/2 * 100%);
@@ -758,14 +767,26 @@
       max-width: 96rem !important;
     }
   }
+  .-m-1 {
+    margin: calc(var(--spacing) * -1);
+  }
   .-m-1\.5 {
     margin: calc(var(--spacing) * -1.5);
+  }
+  .-m-2 {
+    margin: calc(var(--spacing) * -2);
   }
   .-m-2\.5 {
     margin: calc(var(--spacing) * -2.5);
   }
+  .m-4 {
+    margin: calc(var(--spacing) * 4);
+  }
   .m-4\.5 {
     margin: calc(var(--spacing) * 4.5);
+  }
+  .m-9 {
+    margin: calc(var(--spacing) * 9);
   }
   .-mx-3 {
     margin-inline: calc(var(--spacing) * -3);
@@ -829,6 +850,9 @@
   }
   .mt-\[-10px\] {
     margin-top: -10px;
+  }
+  .mr-3 {
+    margin-right: calc(var(--spacing) * 3);
   }
   .mr-3\.5 {
     margin-right: calc(var(--spacing) * 3.5);
@@ -988,6 +1012,9 @@
   .h-\[200px\] {
     height: 200px;
   }
+  .h-\[\|�\>OM�C�B��\\�C䨃��U�e�J\[��\]���2�e��Lk�U\&�Ԡ\*��D��F�Ə�\] {
+    height: |�>OM�C�B��\�C䨃��U�e�J[��]���2�e��Lk�U&�Ԡ*��D��F�Ə�;
+  }
   .h-fit {
     height: fit-content;
   }
@@ -1011,6 +1038,9 @@
   }
   .min-h-screen {
     min-height: 100vh;
+  }
+  .w-1 {
+    width: calc(var(--spacing) * 1);
   }
   .w-1\/2 {
     width: calc(1/2 * 100%);
@@ -1166,8 +1196,16 @@
     --tw-translate-y: 100%;
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
+  .-translate-x-1 {
+    --tw-translate-x: calc(var(--spacing) * -1);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
   .-translate-x-1\/2 {
     --tw-translate-x: calc(calc(1/2 * 100%) * -1);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .-translate-y-1 {
+    --tw-translate-y: calc(var(--spacing) * -1);
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
   .-translate-y-1\/2 {
@@ -1605,9 +1643,19 @@
       --tw-divide-y-reverse: 1;
     }
   }
+  .divide-gray-500 {
+    :where(& > :not(:last-child)) {
+      border-color: var(--color-gray-500);
+    }
+  }
   .divide-gray-500\/10 {
     :where(& > :not(:last-child)) {
       border-color: color-mix(in oklab, var(--color-gray-500) 10%, transparent);
+    }
+  }
+  .divide-gray-900 {
+    :where(& > :not(:last-child)) {
+      border-color: var(--color-gray-900);
     }
   }
   .divide-gray-900\/5 {
@@ -2077,6 +2125,9 @@
   .object-top {
     object-position: top;
   }
+  .p-1 {
+    padding: calc(var(--spacing) * 1);
+  }
   .p-1\.5 {
     padding: calc(var(--spacing) * 1.5);
   }
@@ -2085,6 +2136,9 @@
   }
   .p-2\.5 {
     padding: calc(var(--spacing) * 2.5);
+  }
+  .p-3 {
+    padding: calc(var(--spacing) * 3);
   }
   .p-3\.5 {
     padding: calc(var(--spacing) * 3.5);
@@ -2199,9 +2253,17 @@
     font-size: var(--text-7xl);
     line-height: var(--tw-leading, var(--text-7xl--line-height));
   }
+  .text-base {
+    font-size: var(--text-base);
+    line-height: var(--tw-leading, var(--text-base--line-height));
+  }
   .text-lg {
     font-size: var(--text-lg);
     line-height: var(--tw-leading, var(--text-lg--line-height));
+  }
+  .text-sm {
+    font-size: var(--text-sm);
+    line-height: var(--tw-leading, var(--text-sm--line-height));
   }
   .text-xl {
     font-size: var(--text-xl);
@@ -2548,6 +2610,9 @@
   .shadow-initial {
     --tw-shadow-color: initial;
   }
+  .ring-gray-900 {
+    --tw-ring-color: var(--color-gray-900);
+  }
   .ring-gray-900\/5 {
     --tw-ring-color: color-mix(in oklab, var(--color-gray-900) 5%, transparent);
   }
@@ -2748,6 +2813,9 @@
   }
   .\[keywords\:node-addon-api\] {
     keywords: node-addon-api;
+  }
+  .\[p\,������u\]w�\17 �\f Ͽt��\,\<P\{\16 �\18 p\&\:�\#\,\] {
+    p,������u]w��Ͽt��,<P{�p&: �#,;
   }
   .\[text-shadow\:_4px_1px_0px_rgba\(0\,38\,153\,0\.41\)\] {
     text-shadow:  4px 1px 0px rgba(0,38,153,0.41);

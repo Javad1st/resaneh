@@ -156,11 +156,17 @@
                             <li><a class="dropdown-item" href="all_programs.php">مشاهده دوره‌ها</a></li>
                         </ul>
                     </li>
+
+                    <!-- دکمه خروج -->
+                    <li class="nav-item">
+                        <a class="nav-link mx-5" href="logout.php" id="logoutDropdown" role="button">
+                            خروج
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
-
 
 </body>
 </html>
