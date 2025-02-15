@@ -75,6 +75,7 @@
 ::-webkit-scrollbar {
   transition: all ease-in 200ms;
   width: 7px;
+  height: 9px;
 }
 
 /* Track */
@@ -84,12 +85,12 @@
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: var(--color-sky-500);
+  background: var(--color-sky-700);
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-sky-700);
+  background: var(--color-sky-900);
 }
 
 
@@ -328,9 +329,7 @@ $courses = $select->fetchAll(PDO::FETCH_ASSOC);
        
           </div>
 
-          <div class="grid grid-cols-1 divide-x divide-gray-900/5  border-t-1">
-          
-          </div>
+         
         </div>
       </div>
       <style>
@@ -342,7 +341,7 @@ $courses = $select->fetchAll(PDO::FETCH_ASSOC);
 }
       </style>
 
-<a href="#telef" class="headSub text-xl flex items-center justify-center gap-1 font-semibold transition-all ease-out 200ms text-black  hover:text-blue-500 ">
+<a href="#footer" class="headSub text-xl flex items-center justify-center gap-1 font-semibold transition-all ease-out 200ms text-black  hover:text-blue-500 ">
       <svg class="mt-[-10px]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: currentColor;"><path d="M12 2C6.486 2 2 6.486 2 12v4.143C2 17.167 2.897 18 4 18h1a1 1 0 0 0 1-1v-5.143a1 1 0 0 0-1-1h-.908C4.648 6.987 7.978 4 12 4s7.352 2.987 7.908 6.857H19a1 1 0 0 0-1 1V18c0 1.103-.897 2-2 2h-2v-1h-4v3h6c2.206 0 4-1.794 4-4 1.103 0 2-.833 2-1.857V12c0-5.514-4.486-10-10-10z"></path></svg>
       <p> پشتیبانی</p>
       </a>
@@ -500,6 +499,10 @@ document.getElementById('reshteHamber').addEventListener('click', function() {
   <div class="textes z-20 flex flex-col justify-center gap-10 items-center mt-20">
     <p class="shoar font-[900] max-[755px]:hidden max-lg:top-25 max-lg:text-6xl text-gray-50 [text-shadow:_4px_1px_0px_rgba(0,38,153,0.41)] shadow-gray-50 lg:text-7xl lg:top-28 xl:top-22 xl:text-7xl"> آموزشگاه فنی و حرفه ای</p>
     <p class="shoar shoar2 font-[900] top-25 max-lg:top-51 max-lg:text-7xl text-gray-50 [text-shadow:_4px_1px_0px_rgba(0,38,153,0.41)] shadow-gray-50 lg:text-8xl lg:top-62 xl:top-49  xl:text-8xl">رسانه</p>
+    <div class="shoars flex flex-col mt-10 items-center justify-center">
+      <p class="text-center text-gray-50">با مجوز رسمی سازمان فنی و حرفه ای کشور</p>
+      
+    </div>
     <div class="shoars flex flex-col mt-10 items-center justify-center">
       <p class="text-center text-gray-50">#بی رقیب در آموزش</p>
       <p class="text-center text-gray-50">#بی نظیر در خدمات و امکانات</p>
@@ -704,7 +707,7 @@ $fields = $select->fetchAll(PDO::FETCH_ASSOC);
   </div>
   <?php endforeach; ?>
 </div><br><br>
-<div class="flex flex-col bg-gray-300">
+<div class="flex flex-col w-95% bg-gray-300">
 <div class="place flex justify-center items-center mt-8 relative  aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500">
 <div class="infoSec scroll relative overflow-hidden bg-[#003366] max-w-[1550px] rounded-2xl flex flex-col flex-wrap justify-center gap-0 px-10 py-4 w-[95%]">
   <p class="info z-20 font-light text-gray-50 text-2xl mb-3.5 mt-20 max-[433px]:text-xl">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد</p>
@@ -743,7 +746,7 @@ $fields = $select->fetchAll(PDO::FETCH_ASSOC);
         }
     </style>
     <div class="place w-full flex justify-center">
-   <div class="text-center mt-12 flex  justify-center flex-col gap-x-14 w-[95%] p-11 rounded-xl aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500">
+   <div class="text-center mt-12 flex justify-center flex-col gap-x-14 w-full p-11 rounded-xl aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500">
         <div class="flex gap-4 mb-6 mt-12 flex-wrap  justify-center">
             <button id="button1" onclick="showText('text1', this)" class="bg-[#003366] hover:scale-105 cursor-pointer text-white px-4 py-2 rounded-md transition ease-in-out duration-300 flex gap-1"> <p>ماموریت و اهداف</p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: white;"><path d="M5 22h14c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2h-2a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1H5c-1.103 0-2 .897-2 2v15c0 1.103.897 2 2 2zM5 5h2v2h10V5h2v15H5V5z"></path><path d="m11 13.586-1.793-1.793-1.414 1.414L11 16.414l5.207-5.207-1.414-1.414z"></path></svg> </button>
             <button id="button2" onclick="showText('text2', this)" class="bg-[#003366] hover:scale-105 cursor-pointer text-white px-4 py-2 rounded-md transition ease-in-out duration-300 flex gap-1"> <p> مسعولیت های اجتماعی </p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: white;"><path d="M20.29 8.29 16 12.58l-1.3-1.29-1.41 1.42 2.7 2.7 5.72-5.7zM4 8a3.91 3.91 0 0 0 4 4 3.91 3.91 0 0 0 4-4 3.91 3.91 0 0 0-4-4 3.91 3.91 0 0 0-4 4zm6 0a1.91 1.91 0 0 1-2 2 1.91 1.91 0 0 1-2-2 1.91 1.91 0 0 1 2-2 1.91 1.91 0 0 1 2 2zM4 18a3 3 0 0 1 3-3h2a3 3 0 0 1 3 3v1h2v-1a5 5 0 0 0-5-5H7a5 5 0 0 0-5 5v1h2z"></path></svg> </button>
@@ -752,15 +755,15 @@ $fields = $select->fetchAll(PDO::FETCH_ASSOC);
 
         <div id="textDisplay" class="mt-4 transition-opacity duration-300"></div>
 
-        <div id="slideo" class="w-full flex  flex-col items-center justify-center mt-12 aos-init aos-animate overflow-scroll hidden" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500">
+        <div id="slideo" class="w-full flex flex-col items-center justify-center mt-12 aos-init aos-animate overflow-scroll hidden" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500">
 
-          <div class="imageslide w-full flex overflow-scroll justify-center items-center gap-3">
-            <img class="" src="./images/si2 (1).jpg" alt="" width="300px" height="120px">
-            <img class="" src="./images/si2 (1).jpg" alt="" width="300px" height="120px">
-            <img class="" src="./images/si2 (1).jpg" alt="" width="300px" height="120px">
-            <img class="" src="./images/si2 (1).jpg" alt="" width="300px" height="120px">
-            <img class="" src="./images/si2 (1).jpg" alt="" width="300px" height="120px">
-            <img class="" src="./images/si2 (1).jpg" alt="" width="300px" height="120px">
+          <div class="imageslide w-full flex justify-center items-center h-[200px] gap-3">
+            <img class="" src="./images/f1.jpg" alt="" width="220px" height="120px">
+            <img class="" src="./images/f2.jpg" alt="" width="220px" height="120px">
+            <img class="" src="./images/f3.jpg" alt="" width="220px" height="120px">
+            <!-- <img class="" src="./images/f4.jpg" alt="" width="220px" height="120px"> -->
+            <img class="" src="./images/f5.jpg" alt="" width="220px" height="120px">
+            <img class="" src="./images/f6.jpg" alt="" width="220px" height="120px">
           </div>
 
 </div>
@@ -807,7 +810,7 @@ $fields = $select->fetchAll(PDO::FETCH_ASSOC);
   <div class="counter flex gap-2.5 justify-center items-center rounded-2xl max-sm:flex-col p-6 max-w-[95%]">
     <img class="w-96 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500" src="images/mini.png" alt="">
     <div class="textPlace flex flex-col items-center justify-center gap-9 p-6 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
-      <h2 class="text-5xl text-center font-black">تعداد هنر جویان</h2>
+      <h2 id="mohit" class="text-5xl text-center font-black">تعداد هنر جویان</h2>
       <p id="counter" class="text-5xl text-center flex flex-wrap items-center justify-center">00000 <span> نفر</span><span class="flex mr-8">...</span></p>
     </div>
   </div>
@@ -850,24 +853,24 @@ window.addEventListener('scroll', function() {
 </script>
 
 
-<div class="w-full scroll flex flex-col items-center justify-center overflow-hidden mt-12 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500">
+<div id="mohit" class="w-full scroll flex flex-col items-center justify-center overflow-hidden mt-12 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500">
   <h2 class="text-3xl font-bold text-[#003366]">محیط آموزشگاه</h2>
-<div class="w-[600px] 2xl:w-[700px]">
+<div class="w-[95%] mt-4 max-w-[1550px]">
 
 	<div id="default-carousel" class="relative" data-carousel="static">
         <!-- Carousel wrapper -->
         <div class="overflow-hidden relative h-56 rounded-lg sm:h-64 xl:h-80 2xl:h-96">
             <!-- Item 1 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <span class="absolute top-1/2 left-1/2 text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 sm:text-3xl ext-gray-800">First Slide</span>
+            <div class="hidden w-full h-full duration-700 ease-in-out" data-carousel-item>
+                
                 <img src="./images/si2 (1).jpg" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="...">
             </div>
             <!-- Item 2 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+            <div class="hidden w-full h-full duration-700 ease-in-out" data-carousel-item>
                 <img src="./images/si2 (2).jpg" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="...">
             </div>
             <!-- Item 3 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+            <div class="hidden w-full h-full duration-700 ease-in-out" data-carousel-item>
                 <img src="./images/si2 (3).jpg" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="...">
             </div>
         </div>
@@ -899,38 +902,47 @@ window.addEventListener('scroll', function() {
 
 
 
-<footer id="footer" class="mt-14">
+<footer id="footer" class="mt-14 max-w-[1550px]">
     <div class="footer-container">
-        <div class="footer-logo">
+        <div class="footer-logo flex flex-wrap justify-center items-center">
             <img class="p-4 mb-6 w-36 ml-6 fill-white" src="./images/guy.png" alt="Logo">
-        </div>
-        <div class="flex gap-3.5 items-center justify-center">
+            <div class="flex gap-3.5 items-center justify-center">
             <img class="p-4 mb-6 w-36 ml-6 fill-white" src="./images/4f.png" alt="">
-            <img class="p-4 mb-6 w-36 ml-6 fill-white" src="./images/10f.png" alt="">
+            <!-- <img class="p-4 mb-6 w-36 ml-6 fill-white" src="./images/10f.png" alt=""> -->
         </div>
-        <div class="footer-links flex gap-24 items-center justify-center mt-14 mb-6">
+        </div>
+        
+        <div class="footer-links flex gap-24 items-center text-center justify-center mt-14 mb-6">
             <ul class="flex flex-col gap-7 text-center">
              
                 <li><a href="#">خانه</a></li>
-                <li><a href="#">درباره ما</a></li>
+                <li><a href="#aboutUs">درباره ما</a></li>
             </ul>
+        
             <ul class="flex flex-col gap-7 text-center">
-                <li><a href="#">تماس با ما</a></li>
-                <li><a href="#">فرصت‌های شغلی</a></li>
+                <li> شماره تماس : 0256549333</li>
+                <li><a href="#mohit"> محیط آموزشگاه</a></li>
            
             </ul>
         </div>
+       
         <div class="footer-info mt-14">
-            <p>شرکت توسعه سامانه‌های نرم‌افزاری نگین - توسون یک شرکت پیشرو در حوزه فناوری‌های مالی است که با هدف توسعه پایدار در صنعت...</p>
+            <p>آموزشگاه رسانه قم با مجوز رسمی سازمان فنی و حرفه ای کشور کوشا و پیشرو در حوزه آموزش حرفه های رایانه ای و رسانه است</p>
+        </div>
+        <div class="footer-info mt-14 flex gap-4 flex-wrap">
+            <a href="https://maps.app.goo.gl/AHRHdij1KDQNXLPU7"><svg class="mt-[-10px]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: white;"><path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z"/></svg></a>
+            <a href="#"><svg class="mt-[-10px]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: white;"><path d="M5.968 23.942a6.624 6.624 0 0 1-2.332-.83c-1.62-.929-2.829-2.593-3.217-4.426-.151-.717-.17-1.623-.15-7.207C.288 5.47.274 5.78.56 4.79c.142-.493.537-1.34.823-1.767C2.438 1.453 3.99.445 5.913.08c.384-.073.94-.08 6.056-.08 6.251 0 6.045-.009 7.066.314a6.807 6.807 0 0 1 4.314 4.184c.33.937.346 1.087.369 3.555l.02 2.23-.391.268c-.558.381-1.29 1.06-2.316 2.15-1.182 1.256-2.376 2.42-2.982 2.907-1.309 1.051-2.508 1.651-3.726 1.864-.634.11-1.682.067-2.302-.095-.553-.144-.517-.168-.726.464a6.355 6.355 0 0 0-.318 1.546l-.031.407-.146-.03c-1.215-.241-2.419-1.285-2.884-2.5a3.583 3.583 0 0 1-.26-1.219l-.016-.34-.309-.284c-.644-.59-1.063-1.312-1.195-2.061-.212-1.193.34-2.542 1.538-3.756 1.264-1.283 3.127-2.29 4.953-2.68.658-.14 1.818-.177 2.403-.075 1.138.198 2.067.773 2.645 1.639.182.271.195.31.177.555a.812.812 0 0 1-.183.493c-.465.651-1.848 1.348-3.336 1.68-2.625.585-4.294-.142-4.033-1.759.026-.163.04-.304.031-.313-.032-.032-.293.104-.575.3-.479.334-.903.984-1.05 1.607-.036.156-.05.406-.034.65.02.331.053.454.192.736.092.186.275.45.408.589l.24.251-.096.122a4.845 4.845 0 0 0-.677 1.217 3.635 3.635 0 0 0-.105 1.815c.103.461.421 1.095.739 1.468.242.285.797.764.886.764.024 0 .044-.048.044-.106.001-.23.184-.973.326-1.327.423-1.058 1.351-1.96 2.82-2.74.245-.13.952-.47 1.572-.757 1.36-.63 2.103-1.015 2.511-1.305 1.176-.833 1.903-2.065 2.14-3.625.086-.57.086-1.634 0-2.207-.368-2.438-2.195-4.096-4.818-4.37-2.925-.307-6.648 1.953-8.942 5.427-1.116 1.69-1.87 3.565-2.187 5.443-.123.728-.169 2.08-.093 2.75.193 1.704.822 3.078 1.903 4.156a6.531 6.531 0 0 0 1.87 1.313c2.368 1.13 4.99 1.155 7.295.071.996-.469 1.974-1.196 3.023-2.25 1.02-1.025 1.71-1.88 3.592-4.458 1.04-1.423 1.864-2.368 2.272-2.605l.15-.086-.019 3.091c-.018 2.993-.022 3.107-.123 3.561-.6 2.678-2.54 4.636-5.195 5.242l-.468.107-5.775.01c-4.734.008-5.85-.002-6.19-.056z"/></svg></a>
+            
         </div>
     </div>
     <div class="footer-bottom text-center mt-14 p-4.5 flex justify-center items-center">
-        <p>© 2023 تمام حقوق برای شرکت توسعه سامانه‌های نرم‌افزاری نگین محفوظ است.</p>
+        <p>© 2025 تمام حقوق این سایت مطعلق به مجتمع آموزشی رسانه است.</p>
         <div class="footer-badge">
           
         </div>
     </div>
 </footer>
+<div class="bg-white w-full text-center max-w-[1550px] p-1.5 flex justify-center items-center"><p>طراحی سایت توسط</p><a class="h-fit" href="https://myitland.ir/"><img class="mb-2" width="110px" src="./images/Untitled-2.png" alt=""></a></div>
 <style>
   .imageslide{
     overflow-x: scroll;
