@@ -4,21 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="./src/output.css" rel="stylesheet">
-  <link href="src/TOSAN_files/fontawesome.css" rel="stylesheet">
-    <link href="src/TOSAN_files/brands.css" rel="stylesheet">
-    <link href="src/TOSAN_files/solid.css" rel="stylesheet">
+  <link href="./src/TOSAN_files/fontawesome.css" rel="stylesheet">
+    <link href="./src/TOSAN_files/brands.css" rel="stylesheet">
+    <link href="./src/TOSAN_files/solid.css" rel="stylesheet">
 <!-- <link rel="stylesheet" href="./TOSAN_files/style-rtl.css"> -->
 
 
     <link rel="preconnect" href="https://fonts.googleapis.com/">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
-    <link href="src/TOSAN_files/css2.css" rel="stylesheet">
+    <link href="./src/TOSAN_files/css2.css" rel="stylesheet">
 
     <!-- <link rel="stylesheet" type="text/css" href="TOSAN_files/all.min.css"> -->
     <!-- <link rel="stylesheet" type="text/css" href="TOSAN_files/bootstrap-icons.css"> -->
     <!-- <link rel="stylesheet" type="text/css" href="TOSAN_files/glightbox.css"> -->
-    <link rel="stylesheet" type="text/css" href="src/TOSAN_files/aos.css">
-    <link rel="stylesheet" type="text/css" href="src/TOSAN_files/swiper-bundle.min.css">
+    <link rel="stylesheet" type="text/css" href="./src/TOSAN_files/aos.css">
+    <link rel="stylesheet" type="text/css" href="./src/TOSAN_files/swiper-bundle.min.css">
         <!-- <link rel="stylesheet" type="text/css" href="TOSAN_files/style-rtl.css"> -->
 <title>رسانه</title>
 </head>
@@ -436,7 +436,7 @@ $majors = $select->fetchAll(PDO::FETCH_ASSOC);
 
         </a>
         <button id="closeButton" type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700 ext-gray-100">
-          <span class="sr-only">Close menu</span>
+          <span class="sr-only">بستن منو</span>
           <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
           </svg>
@@ -483,12 +483,12 @@ document.getElementById('reshteHamber').addEventListener('click', function() {
 });
 </script>
             </div>
-            <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900  ext-gray-300 hover:bg-gray-300 over:bg-gray-700 transition-all ease-in 200ms">Features</a>
-            <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900  ext-gray-300 hover:bg-gray-300 over:bg-gray-700 transition-all ease-in 200ms">Marketplace</a>
-            <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900  ext-gray-300 hover:bg-gray-300 over:bg-gray-700 transition-all ease-in 200ms">Company</a>
+            <p href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-600  ext-gray-300 hover:bg-gray-300 over:bg-gray-700 transition-all ease-in 200ms">ساعت کاری : از ساعت ۱۲ تا ۲۲ «به‌جز روزهای تعطیل»</p>
+            <p href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-600  ext-gray-300 hover:bg-gray-300 over:bg-gray-700 transition-all ease-in 200ms">تلفن : 024534534</p>
+            
           </div>
           <div class="py-6">
-            <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900  ext-gray-300 hover:bg-gray-300 over:bg-gray-700 transition-all ease-in 200ms">Log in</a>
+            <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-600  ext-gray-300 hover:bg-gray-300 over:bg-gray-700 transition-all ease-in 200ms"><span><svg class="mt-[-10px]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: var(--color-gray-600);"><path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z"/></svg></span> میدان رسالت -ابتدای بلوار سمیه بعد از خیابان رجائی کوچه یک</a>
           </div>
         </div>
       </div>
@@ -711,7 +711,11 @@ $fields = $select->fetchAll(PDO::FETCH_ASSOC);
 <div class="flex flex-col w-95% bg-gray-300">
 <div class="place flex justify-center items-center mt-8 relative  aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500">
 <div class="infoSec scroll relative overflow-hidden bg-[#003366] max-w-[1550px] rounded-2xl flex flex-col flex-wrap justify-center gap-0 px-10 py-4 w-[95%]">
-  <p class="info z-20 font-light text-gray-50 text-2xl mb-3.5 mt-20 max-[433px]:text-xl">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد</p>
+  <p class="info z-20 font-light leading-12 text-gray-50 text-2xl mb-3.5 mt-20 max-[433px]:text-xl">آموزش مقدماتی و کاربردی کامپیوتر مهارت هفت گانه ICDL و فتوشاپ طبق استاندارد های مهارتی سازمان فنی و حرفه ای
+ و ویژه کودکان ،نوجوانان ،جوانان ،کارمندان ، دانشجویان و طلاب توسط مربیان مجرب و برتر استانی دارای ابلاغ مربیگری رسمی از سازمان فنی و حرفه ای 
+ با ارائه گواهینامه مهارت ۱۳۰ ساعته معتبر بین المللی از سازمان آموزش فنی و حرفه ای
+شهریه نرخ مصوب دولتی وقانونی-نقدواقساط
+بامدیریت مهندس علی بالایی مدیرنمونه سال با23سال سابقه آموزش</p>
   <div class="shape max-2xl:w-xl max-xl:w-lg max-lg:w-md max-md:w-sm max-md:max-h-90 absolute z-10 w-3xl h-78 bg-sky-600 opacity-35 rounded-b-full top-0 left-[-200px]"></div>
 </div>
 <h2 class="info z-20 scroll text-white font-black text-7xl max-[433px]:text-6xl max-[377px]:text-[54px] sm:text-8xl md:text-9xl [text-shadow:_6px_0px_0px_#003366] absolute top-[-40px] max-[433px]:top-[-36px] max-[433px]:right-[22px] max-[377px]:top-[-28px] sm:top-[-60px] right-[60px]" style="text-shadow: -2px -2px 0 #003366, 2px -2px 0 #003366,
@@ -749,15 +753,15 @@ $fields = $select->fetchAll(PDO::FETCH_ASSOC);
     <div class="place w-full flex justify-center">
    <div class="text-center mt-12 flex justify-center flex-col gap-x-14 w-full p-11 rounded-xl aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500">
         <div class="flex gap-4 mb-6 mt-12 flex-wrap  justify-center">
-            <button id="button1" onclick="showText('text1', this)" class="bg-[#003366] hover:scale-105 cursor-pointer text-white px-4 py-2 rounded-md transition ease-in-out duration-300 flex gap-1"> <p>ماموریت و اهداف</p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: white;"><path d="M5 22h14c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2h-2a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1H5c-1.103 0-2 .897-2 2v15c0 1.103.897 2 2 2zM5 5h2v2h10V5h2v15H5V5z"></path><path d="m11 13.586-1.793-1.793-1.414 1.414L11 16.414l5.207-5.207-1.414-1.414z"></path></svg> </button>
-            <button id="button2" onclick="showText('text2', this)" class="bg-[#003366] hover:scale-105 cursor-pointer text-white px-4 py-2 rounded-md transition ease-in-out duration-300 flex gap-1"> <p> مسعولیت های اجتماعی </p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: white;"><path d="M20.29 8.29 16 12.58l-1.3-1.29-1.41 1.42 2.7 2.7 5.72-5.7zM4 8a3.91 3.91 0 0 0 4 4 3.91 3.91 0 0 0 4-4 3.91 3.91 0 0 0-4-4 3.91 3.91 0 0 0-4 4zm6 0a1.91 1.91 0 0 1-2 2 1.91 1.91 0 0 1-2-2 1.91 1.91 0 0 1 2-2 1.91 1.91 0 0 1 2 2zM4 18a3 3 0 0 1 3-3h2a3 3 0 0 1 3 3v1h2v-1a5 5 0 0 0-5-5H7a5 5 0 0 0-5 5v1h2z"></path></svg> </button>
+            <button id="button1" onclick="showText('text1', this)" class="bg-[#003366] hover:scale-105 cursor-pointer text-white px-4 py-2 rounded-md transition ease-in-out duration-300 flex gap-1"> <p>تخصص ها</p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: white;"><path d="M5 22h14c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2h-2a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1H5c-1.103 0-2 .897-2 2v15c0 1.103.897 2 2 2zM5 5h2v2h10V5h2v15H5V5z"></path><path d="m11 13.586-1.793-1.793-1.414 1.414L11 16.414l5.207-5.207-1.414-1.414z"></path></svg> </button>
+            <button id="button2" onclick="showText('text2', this)" class="bg-[#003366] hover:scale-105 cursor-pointer text-white px-4 py-2 rounded-md transition ease-in-out duration-300 flex gap-1"> <p>ساعت کاری</p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: white;"><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path><path d="M13 7h-2v5.414l3.293 3.293 1.414-1.414L13 11.586z"></path></svg> </button>
             <button id="button3" onclick="showText('text3', this)" class="bg-[#003366] hover:scale-105 cursor-pointer text-white px-4 py-2 rounded-md transition ease-in-out duration-300 flex gap-1"> <p> افتخارات رسانه </p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: white;"><path d="M12 22c3.859 0 7-3.141 7-7s-3.141-7-7-7c-3.86 0-7 3.141-7 7s3.14 7 7 7zm0-12c2.757 0 5 2.243 5 5s-2.243 5-5 5-5-2.243-5-5 2.243-5 5-5zm-1-8H7v5.518a8.957 8.957 0 0 1 4-1.459V2zm6 0h-4v4.059a8.957 8.957 0 0 1 4 1.459V2z"></path><path d="m10.019 15.811-.468 2.726L12 17.25l2.449 1.287-.468-2.726 1.982-1.932-2.738-.398L12 11l-1.225 2.481-2.738.398z"></path></svg> </button>
         </div>
 
         <div id="textDisplay" class="mt-4 transition-opacity duration-300"></div>
 
-        <div id="slideo" class="w-full flex flex-col items-center justify-center mt-12 aos-init aos-animate overflow-scroll hidden" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500">
-  <div class="imageslide w-full flex justify-center items-center h-[200px] gap-3">
+        <div id="slideo" class="w-full flex flex-col items-center justify-center mt-12 aos-init aos-animate  overflow-y-hidden hidden" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500">
+  <div class="imageslide w-full flex justify-center items-center h-[200px] gap-3 overflow-y-hidden overflow-x-scroll">
     <img class="zoomable" src="./src/images/f1.jpg" alt="" width="170px" height="190px">
     <img class="zoomable" src="./src/images/f2.jpg" alt="" width="170px" height="190px">
     <img class="zoomable" src="./src/images/f3.jpg" alt="" width="170px" height="190px">
@@ -785,7 +789,7 @@ $fields = $select->fetchAll(PDO::FETCH_ASSOC);
     cursor: pointer;
     font-size: 36px;
     font-weight: bold;
-    color: white;
+    color: #60a5fa;
     transition: color 0.3s;
 }
 
@@ -876,11 +880,11 @@ closeBtn.addEventListener('click', function() {
             if (textId === 'text1') {
               slide.classList.add('hidden');
 
-                textDisplay.innerHTML = '<p>این متن مربوط به دکمه ۱ است.</p>';
+                textDisplay.innerHTML = '<p>آموزش دوره های عمومی کامپیوتر، آموزش نرم افزارهای برنامه نویسی، آموزش نرم افزارهای حسابداری</p>';
             } else if (textId === 'text2') {
               slide.classList.add('hidden');
 
-                textDisplay.innerHTML = '<p>این متن مربوط به دکمه ۲ است.</p>';
+                textDisplay.innerHTML = '<p>از ساعت ۱۲ تا ۲۲ «به‌جز روزهای تعطیل»</p>';
             } else if (textId === 'text3') {
               textDisplay.innerHTML = ' ';
 
@@ -1103,21 +1107,21 @@ window.addEventListener('scroll', function() {
 </div>
 
 
-<script src="./script.js"></script>
-<script src="./aos.js"></script>
-<script src="./bootstrap.bundle.min.js"></script>
-<script src="./functions.js"></script>
+<script src="./src/script.js"></script>
+<script src="./src/aos.js"></script>
+<script src="./src/bootstrap.bundle.min.js"></script>
+<script src="./src/functions.js"></script>
 <div class="back-top back-top-show"></div>
 
-<script src="TOSAN_files/bootstrap.bundle.min.js"></script>
-<script src="TOSAN_files/purecounter_vanilla.js"></script>
-<script src="TOSAN_files/swiper-bundle.min.js"></script>
-<script src="TOSAN_files/sticky.min.js"></script>
-<script src="TOSAN_files/glightbox.js"></script>
-<script src="TOSAN_files/aos.js"></script>
-<script src="TOSAN_files/jarallax.min.js"></script>
-<script src="TOSAN_files/jarallax-video.min.js"></script>
-<script src="TOSAN_files/functions.js"></script>
+<script src="./src/TOSAN_files/bootstrap.bundle.min.js"></script>
+<script src="./src/TOSAN_files/purecounter_vanilla.js"></script>
+<script src="./src/TOSAN_files/swiper-bundle.min.js"></script>
+<script src="./src/TOSAN_files/sticky.min.js"></script>
+<script src="./src/TOSAN_files/glightbox.js"></script>
+<script src="./src/TOSAN_files/aos.js"></script>
+<script src="./src/TOSAN_files/jarallax.min.js"></script>
+<script src="./src/TOSAN_files/jarallax-video.min.js"></script>
+<script src="./src/TOSAN_files/functions.js"></script>
 
 <script>
     AOS.init();

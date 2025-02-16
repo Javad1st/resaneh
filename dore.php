@@ -20,7 +20,7 @@
     <link rel="stylesheet" type="text/css" href="./src/TOSAN_files/aos.css">
     <link rel="stylesheet" type="text/css" href="./src/TOSAN_files/swiper-bundle.min.css">
         <!-- <link rel="stylesheet" type="text/css" href="TOSAN_files/style-rtl.css"> -->
-<title>دوره های رسانه</title>
+<title>رسانه</title>
 </head>
 <style>
   html{
@@ -75,6 +75,7 @@
 ::-webkit-scrollbar {
   transition: all ease-in 200ms;
   width: 7px;
+  height: 9px;
 }
 
 /* Track */
@@ -84,12 +85,12 @@
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: var(--color-sky-500);
+  background: var(--color-sky-700);
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-sky-700);
+  background: var(--color-sky-900);
 }
 
 
@@ -198,7 +199,7 @@
     <div class="flex lg:flex-1 justify-self-center max-lg:hidden">
       <a href="./index.php" class="-m-1.5 p-1.5">
         <span class="sr-only text-6xl ">مجموعه ما</span>
-        <img class="h-[65px] w-auto" src="./images/guy.png" alt="">
+        <img class="h-[65px] w-auto" src="./src/images/guy.png" alt="">
       </a>
     </div>
     <div class=" lg:flex-1 lg:justify-end lg:hidden">
@@ -271,7 +272,7 @@
      <div class="flex lg:flex-1 justify-self-center lg:hidden">
       <a href="#" class="-m-1.5 p-1.5">
         <span class="sr-only text-6xl ">مجموعه ما</span>
-        <img class="h-[65px] w-auto" src="./images/guy.png" alt="">
+        <img class="h-[65px] w-auto" src="./src/images/guy.png" alt="">
       </a>
     </div>
     <div class="flex lg:hidden ">
@@ -301,25 +302,22 @@
 include './database/db.php';
 
 // دریافت سه مقاله آخر
-$select = $conn->prepare("SELECT * FROM courses");
+$select = $conn->prepare("SELECT * FROM majors");
 $select->execute();
-$courses = $select->fetchAll(PDO::FETCH_ASSOC);
+$majors = $select->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
     <div class="p-4">
-    <?php foreach($courses as $course): ?>
+    <?php foreach($majors as $major): ?>
             <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-blue-100 over:bg-sky-700">
-              <div class="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                <svg class="size-6 text-gray-600 group-hover:text-sky-600" fill="currentColor" viewBox="0 0 24 24" stroke-width="0.2" stroke="currentColor" aria-hidden="true" data-slot="icon">
-                <path d="M2 7v1l11 4 9-4V7L11 4z"></path><path d="M4 11v4.267c0 1.621 4.001 3.893 9 3.734 4-.126 6.586-1.972 7-3.467.024-.089.037-.178.037-.268V11L13 14l-5-1.667v3.213l-1-.364V12l-3-1z"></path>
-                </svg>
+              <div class="flex size-11 flex-none items-center justify-center rounded-md bg-gray-50 group-hover:bg-white">
+              <img src="./<?= $major['major_image'] ?>" alt="">
               </div>
               <div class="flex-auto">
                 <a href="#" class="block font-semibold text-gray-900 ext-gray-50">
-                <?= $course['course_name'] ?>
+                <?= $major['major_name'] ?>
                   <span class="absolute inset-0"></span>
                 </a>
-                <p class="mt-1 text-gray-600 ext-gray-200"><?= $course['course_description']?></p>
               </div>
             </div>
             <?php endforeach; ?>
@@ -328,9 +326,7 @@ $courses = $select->fetchAll(PDO::FETCH_ASSOC);
        
           </div>
 
-          <div class="grid grid-cols-1 divide-x divide-gray-900/5  border-t-1">
-          
-          </div>
+         
         </div>
       </div>
       <style>
@@ -342,7 +338,7 @@ $courses = $select->fetchAll(PDO::FETCH_ASSOC);
 }
       </style>
 
-<a href="#telef" class="headSub text-xl flex items-center justify-center gap-1 font-semibold transition-all ease-out 200ms text-black  hover:text-blue-500 ">
+<a href="#footer" class="headSub text-xl flex items-center justify-center gap-1 font-semibold transition-all ease-out 200ms text-black  hover:text-blue-500 ">
       <svg class="mt-[-10px]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: currentColor;"><path d="M12 2C6.486 2 2 6.486 2 12v4.143C2 17.167 2.897 18 4 18h1a1 1 0 0 0 1-1v-5.143a1 1 0 0 0-1-1h-.908C4.648 6.987 7.978 4 12 4s7.352 2.987 7.908 6.857H19a1 1 0 0 0-1 1V18c0 1.103-.897 2-2 2h-2v-1h-4v3h6c2.206 0 4-1.794 4-4 1.103 0 2-.833 2-1.857V12c0-5.514-4.486-10-10-10z"></path></svg>
       <p> پشتیبانی</p>
       </a>
@@ -363,7 +359,7 @@ $courses = $select->fetchAll(PDO::FETCH_ASSOC);
     <div id="telBtn" class="p-3.5 rounded-xl max-lg:hidden hover:bg-blue-100 transition-all ease-out 200ms cursor-pointer">
     <svg class="" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: var(--color-blue-500);" ><path d="m20.487 17.14-4.065-3.696a1.001 1.001 0 0 0-1.391.043l-2.393 2.461c-.576-.11-1.734-.471-2.926-1.66-1.192-1.193-1.553-2.354-1.66-2.926l2.459-2.394a1 1 0 0 0 .043-1.391L6.859 3.513a1 1 0 0 0-1.391-.087l-2.17 1.861a1 1 0 0 0-.29.649c-.015.25-.301 6.172 4.291 10.766C11.305 20.707 16.323 21 17.705 21c.202 0 .326-.006.359-.008a.992.992 0 0 0 .648-.291l1.86-2.171a.997.997 0 0 0-.085-1.39z"></path></svg>
     </div>
-    <div id="modal3" class="fixed inset-0 z-100  bgBO flex items-center justify-center hidden">
+    <div id="modal" class="fixed inset-0 z-100  bgBO flex items-center justify-center hidden">
         <div dir="rtl" class="bg-white rounded-lg p-6 shadow-lg transition-transform transform modal-enter modal-leave">
             <button id="closeModal" class="absolute top-2 right-2 max-w-[300px] text-gray-600 hover:text-gray-800"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: var(--color-blue-500)"><path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path></svg></button>
             <h2 class="text-lg font-bold mt-2 text-[#003366]"> تلفن آموزشگاه : </h2>
@@ -377,7 +373,7 @@ $courses = $select->fetchAll(PDO::FETCH_ASSOC);
 
     <script>
         const telBtn = document.getElementById('telBtn');
-        const modal = document.getElementById('modal3');
+        const modal = document.getElementById('modal');
         const closeModal = document.getElementById('closeModal');
 
         telBtn.addEventListener('click', () => {
@@ -440,7 +436,7 @@ $courses = $select->fetchAll(PDO::FETCH_ASSOC);
 
         </a>
         <button id="closeButton" type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700 ext-gray-100">
-          <span class="sr-only">Close menu</span>
+          <span class="sr-only">بستن منو</span>
           <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
           </svg>
@@ -456,16 +452,20 @@ $courses = $select->fetchAll(PDO::FETCH_ASSOC);
         <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
     </svg>
 </button>
+ 
+<?php 
+include './database/db.php';
 
+// دریافت سه مقاله آخر
+$select = $conn->prepare("SELECT * FROM majors");
+$select->execute();
+$majors = $select->fetchAll(PDO::FETCH_ASSOC);
+?>
+<?php foreach ($majors as $major):  ?>
 <div class="dropHamber mt-2 space-y-2 g-gray-700 bg-gray-300 rounded-lg overflow-x-hidden overflow-y-scroll  max-h-0 transition-all duration-300 ease-in-out" id="disclosure-1">
-    <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 ext-gray-300">Analytics</a>
-    <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 ext-gray-300">Engagement</a>
-    <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 ext-gray-300">Security</a>
-    <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 ext-gray-300">Integrations</a>
-    <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 ext-gray-300">Automations</a>
-    <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 ext-gray-300">Watch demo</a>
-    <a href="#" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 ext-gray-300">Contact sales</a>
+    <a href="dore.php?major_id=<?= $major['id'] ?>" class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 ext-gray-300"><?= $major['major_name'] ?></a>
 </div>
+<?php endforeach; ?>
 
 <script>
 document.getElementById('reshteHamber').addEventListener('click', function() {
@@ -483,12 +483,12 @@ document.getElementById('reshteHamber').addEventListener('click', function() {
 });
 </script>
             </div>
-            <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900  ext-gray-300 hover:bg-gray-300 over:bg-gray-700 transition-all ease-in 200ms">Features</a>
-            <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900  ext-gray-300 hover:bg-gray-300 over:bg-gray-700 transition-all ease-in 200ms">Marketplace</a>
-            <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900  ext-gray-300 hover:bg-gray-300 over:bg-gray-700 transition-all ease-in 200ms">Company</a>
+            <p href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-600  ext-gray-300 hover:bg-gray-300 over:bg-gray-700 transition-all ease-in 200ms">ساعت کاری : از ساعت ۱۲ تا ۲۲ «به‌جز روزهای تعطیل»</p>
+            <p href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-600  ext-gray-300 hover:bg-gray-300 over:bg-gray-700 transition-all ease-in 200ms">تلفن : 024534534</p>
+            
           </div>
           <div class="py-6">
-            <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900  ext-gray-300 hover:bg-gray-300 over:bg-gray-700 transition-all ease-in 200ms">Log in</a>
+            <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-600  ext-gray-300 hover:bg-gray-300 over:bg-gray-700 transition-all ease-in 200ms"><span><svg class="mt-[-10px]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: var(--color-gray-600);"><path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z"/></svg></span> میدان رسالت -ابتدای بلوار سمیه بعد از خیابان رجائی کوچه یک</a>
           </div>
         </div>
       </div>
@@ -516,11 +516,11 @@ try {
     echo "خطا در خواندن داده‌ها: " . $e->getMessage();
 }
 ?>
-<h2 class="lg:text-3xl text-2xl m-4.5 ext-white"> رشته های </h2>
+<h2 class="lg:text-3xl text-2xl m-4.5 ext-white"> دوره های </h2>
 <div class="reshteHa mt-1.5 p-2.5 flex gap-3 flex-wrap justify-center w-full">
     <?php if (!empty($courses)): ?>
         <?php foreach($courses as $course): ?>
-        <div class="mx-auto bg-gray-300 g-gray-800 rounded-lg shadow-md overflow-hidden h-fit mt-3.5 max-w-[350px] min-w-[350px]">
+        <div class="mx-auto bg-gray-300 hover:scale-102 transition-all ease-out 200ms g-gray-800 rounded-lg shadow-md overflow-hidden h-fit mt-3.5 max-w-[350px] min-w-[350px]">
             <img class="w-full h-48 object-cover" src="./<?= htmlspecialchars($course['course_image']) ?>" alt="عنوان تصویر">
             <div class="p-4">
                 <h2 class="text-xl font-bold mb-2 mt-2.5 ext-gray-50"> <?= htmlspecialchars($course['course_name']) ?></h2>
@@ -534,9 +534,9 @@ try {
                     <h3 class="text-lg font-bold mb-2 ext-gray-100">آموزش </h3>
                     <p class="text-gray-700 mb-2 ext-gray-400"><?= htmlspecialchars($course['learning_objectives']) ?></p>
                     
-                    <p class="text-gray-600 mb-2 ext-gray-300 flex gap-2 whitespace-nowrap">قیمت
+                    <p class="text-gray-600 mb-2 ext-gray-300 flex gap-2 whitespace-nowrap flex-wrap items-center">قیمت
     <?php if (!empty($course['discounted_price']) && $course['discounted_price'] > 0): ?>
-        <span class="offLine font-semibold line-through text-red-500"><?= number_format($course['course_price']) ?> تومان</span>
+        <span class="offLine font-semibold text-xs line-through text-red-500"><?= number_format($course['course_price']) ?> تومان</span>
         <span class="font-semibold text-green-500"><?= number_format($course['discounted_price']) ?> تومان</span>
     <?php else: ?>
         <span class="font-semibold"><?= number_format($course['course_price']) ?> تومان</span>
